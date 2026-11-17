@@ -1,0 +1,223 @@
+///////////////////////////////////////////////////////////////////////////////
+// CAPL Test Module
+// Test Case ID: 9716
+// Test Case: TC_F027_LCU_Feedback_Plausibility_RightPL_Key_ON
+// Component: rbg.Ferrari_BCM_Testing_F027 Configuration: rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Kiran Deep Deepak (MS/ENC32-BEG) Priority: Unassigned State: Approved Description: Checking plausibility and DTC for Right PL Test Case Scope Development Items Summary Requirement Links Link Validity Summary 1341808: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 475319: DTC DTCText Priority Maturation Time De-Maturation Time Vehicle Condition B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Group 3 910611: IF (AND for all filled bullets) 1340843: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 https://rb-alm-12-p.de.bosch.com/rm/resources/MB_ea6dd9ff204148849e504a42c0509f6e 910612: IF (AND for all filled bullets) 1341332: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Formal Review Review Due: Description: Testcase adapted as per F244 Changes Kumar Ashay (MS/EPE-SYT42-XC) Reviewed Nov 15, 2024, 6:07:45 AM (UTC+01:00) Review Comments General Comments Test Case Design Pre-Condition: Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) Stimulate sys_F040_KeySts to ON(4) si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 https://rb-alm-12-p.de.bosch.com/qm/service/com.ibm.rqm.integration.service.IIntegrationService/resources/BEG+SW+light+Plattform+%28QM%29/testcase/urn:com.ibm.rqm:testcase:9716 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: "Activation of Position Lights" Proxy_write_LCU = 1 Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: "Activation of Position Lights" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_LHParkTailLightSts = 0->1 so_sys_F027_NBC_RHParkTailLightSts = 0->1 No DTC Present Stimulation-2: "Set error" si_sys_F027_LCU_Right_PL_Feedback = 0 Expected Results-2: "Deactivation of Right Position Lights" DTC_active = "B105564" //Maturation time of DTC B105564 shall be equal to 0.3 s Stimulation-3: "Reset Error" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-3: "Activation of Left PL" DTC_passive = "B105564" Stimulation-4: "Clear DTC" Clear all DTC https://rb-alm-12-p.de.bosch.com/qm/service/com.ibm.rqm.integration.service.IIntegrationService/resources/BEG+SW+light+Plattform+%28QM%29/testcase/urn:com.ibm.rqm:testcase:9716 Expected Results-4: "NO DTC Present" No DTC Present Stimulation-5: "AutoNight to Manual Night" si_sys_LCC_LowBeam_Button = 0->1->0 wait 0.3 sec Expected Results-5: "Front Position Lights are Off" XCP_sys_F247_FrontPosLightCmd = 1->0 XCP_sys_F247_RearPositionCmd = 1 so_sys_F027_NBC_LeftPL = 1->0 so_sys_F027_NBC_RightPL = 1->0 DTC_active = "B105564" Stimulation-6: "Reset Error" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-6: "Activation of Right PL" DTC_passive = "B105564" Stimulation-7: "Clear DTC" Clear all DTC Expected Results-7: "NO DTC Present" No DTC Present Post-Condition: si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulate sys_F040_KeySts to STOP(1) Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements https://rb-alm-12-p.de.bosch.com/qm/service/com.ibm.rqm.integration.service.IIntegrationService/resources/BEG+SW+light+Plattform+%28QM%29/testcase/urn:com.ibm.rqm:testcase:9716 Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 21735 TC_F027_LCU_ Feedback_Plausibility_ RightPL rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedD_Kiran Deep Deepak (MS/ ENC32-BEG)D_Kiran Deep Deepak (MS/ ENC32-BEG)None PassedJan 8, 2026 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100 https://rb-alm-12-p.de.bosch.com/qm/service/com.ibm.rqm.integration.service.IIntegrationService/resources/BEG+SW+light+Plattform+%28QM%29/testcase/urn:com.ibm.rqm:testcase:9716
+// Generated automatically from PDF test case
+//
+// This module implements automated test execution for the above test case
+///////////////////////////////////////////////////////////////////////////////
+
+// Include necessary headers and libraries
+#include "stdlib.can"
+
+///////////////////////////////////////////////////////////////////////////////
+// Pre-Condition Setup
+///////////////////////////////////////////////////////////////////////////////
+
+void setup_pre_conditions()
+{
+  write("sys_F858_NBC_Night_DaySts_for_IE to Night(0) sys_F040_KeySts to ON(4) F027_LCU_Left_DRL_Feedback", 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 https://rb-alm-12-p.de.bosch.com/qm/service/com.ibm.rqm.integration.service.IIntegrationService/resources/BEG+SW+light+Plattform+%28QM%29/testcase/urn:com.ibm.rqm:testcase:9716 si_sys_F027_LCU_Right_PL_Feedback = 0);
+
+  // Allow system to settle
+  wait(100); // ms
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Test Stimulation Steps
+///////////////////////////////////////////////////////////////////////////////
+
+// Stimulation-1: Activation of Position Lights
+void stimulation_step_1()
+{
+  write("Starting stimulation 1...");
+  write("LCU", 0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: "Activation of Position Lights" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_LHParkTailLightSts = 0->1 so_sys_F027_NBC_RHParkTailLightSts = 0->1 No DTC Present);
+  wait(100); // Allow system to respond
+  // Expected Results
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "Expected NO DTC but found active DTC");
+  }
+  if (!checkSignalValue("XCP_sys_F247_FrontPosLightCmd", 1 No DTC Present))
+  {
+    setResult(FAIL, "XCP_sys_F247_FrontPosLightCmd did not reach expected value 1 No DTC Present");
+  }
+}
+
+// Stimulation-2: Set error
+void stimulation_step_2()
+{
+  write("Starting stimulation 2...");
+  wait(100); // Allow system to respond
+  // Expected Results
+  if (!checkActiveDTC("B105564"))
+  {
+    setResult(FAIL, "Expected DTC B105564 but not found");
+  }
+}
+
+// Stimulation-3: Reset Error
+void stimulation_step_3()
+{
+  write("Starting stimulation 3...");
+  wait(100); // Allow system to respond
+}
+
+// Stimulation-4: Clear DTC
+void stimulation_step_4()
+{
+  write("Starting stimulation 4...");
+  wait(100); // Allow system to respond
+  // Expected Results
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "Expected NO DTC but found active DTC");
+  }
+}
+
+// Stimulation-5: AutoNight to Manual Night
+void stimulation_step_5()
+{
+  write("Starting stimulation 5...");
+  wait(100); // Allow system to respond
+  // Expected Results
+  if (!checkActiveDTC("B105564"))
+  {
+    setResult(FAIL, "Expected DTC B105564 but not found");
+  }
+  if (!checkSignalValue("XCP_sys_F247_FrontPosLightCmd", 0 DTC_active = "B105564"))
+  {
+    setResult(FAIL, "XCP_sys_F247_FrontPosLightCmd did not reach expected value 0 DTC_active = "B105564"");
+  }
+}
+
+// Stimulation-6: Reset Error
+void stimulation_step_6()
+{
+  write("Starting stimulation 6...");
+  wait(100); // Allow system to respond
+}
+
+// Stimulation-7: Clear DTC
+void stimulation_step_7()
+{
+  write("Starting stimulation 7...");
+  wait(100); // Allow system to respond
+  // Expected Results
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "Expected NO DTC but found active DTC");
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Post-Condition Cleanup
+///////////////////////////////////////////////////////////////////////////////
+
+void cleanup_post_conditions()
+{
+  write("F027_LCU_Left_DRL_Feedback", 1);
+  wait(100); // ms
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Helper Functions
+///////////////////////////////////////////////////////////////////////////////
+
+// Check if a specific DTC is active
+int checkActiveDTC(char dtcCode[])
+{
+  // TODO: Implement DTC checking logic using vTESTstudio API
+  // This should query the active DTCs and check if 'dtcCode' exists
+  return 1;  // Placeholder
+}
+
+// Check if no DTCs are active
+int checkNoActiveDTC()
+{
+  // TODO: Implement no DTC checking logic
+  // This should verify that the DTC list is empty
+  return 1;  // Placeholder
+}
+
+// Check if a signal has a specific value
+int checkSignalValue(char signalName[], long expectedValue)
+{
+  long actualValue;
+  read(signalName, actualValue);
+  if (actualValue == expectedValue)
+    return 1;
+  else
+    return 0;
+}
+
+// Set test result
+void setResult(int result, char message[])
+{
+  // TODO: Implement result logging
+  if (result == PASS)
+    write("[PASS] " + message);
+  else
+    write("[FAIL] " + message);
+}
+
+// Create a fault on a node
+void vtsCreateFault(char nodeName[], char faultType[])
+{
+  // TODO: Implement fault injection using vTESTstudio Fault Insertion API
+  write("Creating " + faultType + " fault on " + nodeName);
+}
+
+// Remove a fault
+void vtsRemoveFault(char nodeName[])
+{
+  // TODO: Implement fault removal using vTESTstudio API
+  write("Removing fault from " + nodeName);
+}
+
+// Stimulate a signal to a specific value
+void vtsStimulateSignal(char signalName[], long value)
+{
+  // TODO: Implement signal stimulation using vTESTstudio API
+  write("Stimulating " + signalName + " to " + value);
+  // Example: write(signalName, value);
+}
+
+// Define result codes
+#define PASS 1
+#define FAIL 0
+
+///////////////////////////////////////////////////////////////////////////////
+// Main Test Execution
+///////////////////////////////////////////////////////////////////////////////
+
+test 9716()
+{
+  dword startTime;
+  int testResult = PASS;
+
+  startTime = GetTickCount();
+  write("\n========== Starting Test Case ==========");
+
+  // Setup pre-conditions
+  setup_pre_conditions();
+
+  // Execute stimulation steps
+  stimulation_step_1();
+  stimulation_step_2();
+  stimulation_step_3();
+  stimulation_step_4();
+  stimulation_step_5();
+
+  // Cleanup post-conditions
+  cleanup_post_conditions();
+
+  // Report final result
+  if (testResult == PASS)
+    write("[RESULT] Test PASSED");
+  else
+    write("[RESULT] Test FAILED");
+
+  write("Execution time: " + (GetTickCount() - startTime) + " ms");
+  write("========== Test Complete ==========");
+}

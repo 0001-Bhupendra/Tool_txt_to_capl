@@ -1,0 +1,820 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 5/14/25, 11:53 AM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms ;
+  Slaves: RLS, WSM, DIAG_TESTER_LIN8, WSMs ;
+}
+
+Signals {
+  Day2_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Month2_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Year2_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Minute1_ForLIN_NBC: 4, 0, BCM, WSM ;
+  BatteryVoltageLevel_ForLIN_NBC: 7, 0, BCM, WSM ;
+  Year1_ForLIN_NBC: 4, 0, BCM, WSM ;
+  VehicleSpeed_ForLIN_NBC: 13, 0, BCM, WSM ;
+  TotalOdometer_ForLIN_NBC: 24, {0, 0, 0}, BCM, WSM ;
+  Day1_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Minute2_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Year4_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Month1_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Hour1_ForLIN_NBC: 4, 0, BCM, WSM ;
+  KeySts_ForLIN_NBC: 1, 0, BCM, WSM ;
+  ExternalTemperature_LIN_NBC: 9, 0, BCM, WSM ;
+  Year3_ForLIN_NBC: 4, 0, BCM, WSM ;
+  Hour2_ForLIN_NBC: 4, 0, BCM, WSM ;
+  GLASS_TEMP: 8, 252, RLS, BCM ;
+  DewpointTemp: 8, 252, RLS, BCM ;
+  SoSe_SunInt_2D_Re: 8, 252, RLS, BCM ;
+  SoSe_SunInt_2D_Li: 8, 252, RLS, BCM ;
+  RsErr_HumSense: 1, 0, RLS, BCM ;
+  RainSensorFailSts: 1, 0, RLS, BCM ;
+  VehicleSpeed: 13, 0, BCM, RLS ;
+  HumidiytAirTemp: 8, 252, RLS, BCM ;
+  Hum_Sns_Int_flt: 1, 0, RLS, BCM ;
+  LightSensorFailSts: 1, 0, RLS, BCM ;
+  HeadLampActivation: 1, 0, RLS, BCM ;
+  WiperMode: 1, 0, RLS, BCM ;
+  WiperSpeed: 3, 0, RLS, BCM ;
+  LightSensorSelected: 1, 0, RLS, BCM ;
+  RainSensorSelected: 1, 0, RLS, BCM ;
+  ResponseErrorStsRLS: 1, 0, RLS, BCM ;
+  GenericFailStsRLS: 1, 0, RLS, BCM ;
+  CurrentFailStsRLS: 1, 0, RLS, BCM ;
+  KeepAliveRLS: 1, 0, RLS, BCM ;
+  rw_FW_light16bit_g: 16, 65532, RLS, BCM ;
+  rw_IR_light16bit_g: 16, 65532, RLS, BCM ;
+  rw_Amb_light16bit_g: 16, 65532, RLS, BCM ;
+  SelectedSensitivityL: 3, 0, BCM, RLS ;
+  LightSensorActive: 1, 0, BCM, RLS ;
+  RainSensorActive: 1, 0, BCM, RLS ;
+  SelectedSensitivityR: 3, 0, BCM, RLS ;
+  WiperWasherActive: 1, 0, BCM, RLS ;
+  WiperInPark: 1, 0, BCM, RLS ;
+  GenericFailStsfromBCM: 1, 0, BCM, RLS ;
+  CurrentFailStsfromBCM: 1, 0, BCM, RLS ;
+  KeepAlivefromBCM: 1, 0, BCM, RLS ;
+  Transmission_550nm: 4, 0, BCM, RLS ;
+  Transmission_880nm: 4, 0, BCM, RLS ;
+  Master_Msg_Cnt: 4, 0, BCM, WSM ;
+  Immediate_Stop: 2, 0, BCM, WSM ;
+  Ignition: 2, 0, BCM, WSM ;
+  Stop_Pos_Req: 2, 0, BCM, WSM ;
+  Wiping_Frq_Request: 4, 0, BCM, WSM ;
+  Wash_Request: 1, 0, BCM, WSM ;
+  Immediate_Speed_Request: 1, 0, BCM, WSM ;
+  NBC_CRC: 8, 0, BCM, WSM ;
+  Vehicle_Spd: 13, 0, BCM, WSM ;
+  Outside_Temp: 8, 0, BCM, WSM ;
+  Front_Wpr_Status: 2, 0, WSM, BCM ;
+  Front_Wpr_Mot_Err_Status: 1, 0, WSM, BCM ;
+  Front_Wpr_Parked: 1, 0, WSM, BCM ;
+  Front_Wpr_AqBL_Direction_Req: 2, 0, WSM, BCM ;
+  Front_Wpr_Revers_Sig: 1, 0, WSM, BCM ;
+  Front_Wpr_ServicePosition_Stop: 1, 0, WSM, BCM ;
+  Front_Wpr_Angle: 8, 0, WSM, BCM ;
+  Front_Wpr_Overload_Detect: 1, 0, WSM, BCM ;
+  Front_Wpr_Blocked: 1, 0, WSM, BCM ;
+  Front_Wpr_OverVoltage: 1, 0, WSM, BCM ;
+  Front_Wpr_UnderVoltage: 1, 0, WSM, BCM ;
+  Front_Wpr_Alive_Cnt: 4, 0, WSM, BCM ;
+  Front_Wiper_CRC: 8, 0, WSM, BCM ;
+  COMM_ERR_LIN_WSM: 1, 0, WSM, BCM ;
+  REL_HUMIDITY: 8, 252, RLS, BCM ;
+  COMM_ERR_INT_WSM_Master_Slave: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Angle_Driver: 8, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Angle_Passenger: 8, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Blocked_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Blocked_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_CurrentFail: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_GenericFail: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Mot_Err_Status_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Mot_Err_Status_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Overload_Detect_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Overload_Detect_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_OverVoltage_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_OverVoltage_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Parked_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Parked_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Revers_Sig_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Revers_Sig_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_ServicePosition_Stop_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_ServicePosition_Stop_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Status_Driver: 2, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_Status_Passenger: 2, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_UnderVoltage_Driver: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  Front_Wpr_UnderVoltage_Passenger: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+  ResponseErrorStsWSMs: 1, 0, WSM, DIAG_TESTER_LIN8 ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  FSdata: 35, RLS, 5 {
+    DewpointTemp, 16 ;
+    GLASS_TEMP, 0 ;
+    RsErr_HumSense, 32 ;
+    HumidiytAirTemp, 8 ;
+    Hum_Sns_Int_flt, 33 ;
+    REL_HUMIDITY, 24 ;
+  }
+  RLSData: 41, RLS, 2 {
+    RainSensorFailSts, 4 ;
+    LightSensorFailSts, 3 ;
+    HeadLampActivation, 5 ;
+    WiperMode, 6 ;
+    WiperSpeed, 7 ;
+    LightSensorSelected, 10 ;
+    RainSensorSelected, 11 ;
+    ResponseErrorStsRLS, 12 ;
+    GenericFailStsRLS, 13 ;
+    CurrentFailStsRLS, 14 ;
+    KeepAliveRLS, 15 ;
+  }
+  SoSe: 50, RLS, 8 {
+    SoSe_SunInt_2D_Li, 0 ;
+    SoSe_SunInt_2D_Re, 8 ;
+    rw_IR_light16bit_g, 32 ;
+    rw_Amb_light16bit_g, 48 ;
+    rw_FW_light16bit_g, 16 ;
+  }
+  ComToRLS: 38, BCM, 4 {
+    SelectedSensitivityL, 6 ;
+    LightSensorActive, 9 ;
+    RainSensorActive, 10 ;
+    SelectedSensitivityR, 11 ;
+    WiperWasherActive, 14 ;
+    WiperInPark, 15 ;
+    GenericFailStsfromBCM, 29 ;
+    CurrentFailStsfromBCM, 30 ;
+    KeepAlivefromBCM, 31 ;
+    VehicleSpeed, 16 ;
+  }
+  RLSCfgData: 29, BCM, 2 {
+    Transmission_550nm, 8 ;
+    Transmission_880nm, 12 ;
+  }
+  NBCToWSM: 40, BCM, 6 {
+    Master_Msg_Cnt, 0 ;
+    Immediate_Stop, 4 ;
+    Ignition, 6 ;
+    Stop_Pos_Req, 8 ;
+    Wiping_Frq_Request, 10 ;
+    Wash_Request, 14 ;
+    Immediate_Speed_Request, 15 ;
+    NBC_CRC, 16 ;
+    Vehicle_Spd, 24 ;
+    Outside_Temp, 40 ;
+  }
+  WSM_STATUS: 51, WSM, 5 {
+    Front_Wpr_Status, 0 ;
+    Front_Wpr_Mot_Err_Status, 2 ;
+    Front_Wpr_Parked, 3 ;
+    Front_Wpr_AqBL_Direction_Req, 4 ;
+    Front_Wpr_Revers_Sig, 6 ;
+    Front_Wpr_ServicePosition_Stop, 7 ;
+    Front_Wpr_Angle, 8 ;
+    Front_Wpr_Overload_Detect, 16 ;
+    Front_Wpr_Blocked, 17 ;
+    Front_Wpr_OverVoltage, 18 ;
+    Front_Wpr_UnderVoltage, 19 ;
+    Front_Wpr_Alive_Cnt, 20 ;
+    Front_Wiper_CRC, 24 ;
+    COMM_ERR_LIN_WSM, 39 ;
+  }
+  WSM_STATUS_2: 52, WSM, 5 {
+    Front_Wpr_Angle_Driver, 12 ;
+    Front_Wpr_Blocked_Driver, 28 ;
+    Front_Wpr_Angle_Passenger, 20 ;
+    Front_Wpr_Blocked_Passenger, 29 ;
+    Front_Wpr_CurrentFail, 35 ;
+    Front_Wpr_GenericFail, 36 ;
+    Front_Wpr_Mot_Err_Status_Driver, 4 ;
+    Front_Wpr_Mot_Err_Status_Passenger, 5 ;
+    Front_Wpr_OverVoltage_Driver, 30 ;
+    Front_Wpr_OverVoltage_Passenger, 31 ;
+    Front_Wpr_Parked_Driver, 6 ;
+    Front_Wpr_Parked_Passenger, 7 ;
+    Front_Wpr_Revers_Sig_Driver, 8 ;
+    Front_Wpr_Revers_Sig_Passenger, 9 ;
+    Front_Wpr_ServicePosition_Stop_Driver, 10 ;
+    Front_Wpr_ServicePosition_Stop_Passenger, 11 ;
+    Front_Wpr_Status_Driver, 0 ;
+    Front_Wpr_Status_Passenger, 2 ;
+    Front_Wpr_UnderVoltage_Driver, 32 ;
+    Front_Wpr_UnderVoltage_Passenger, 33 ;
+    COMM_ERR_INT_WSM_Master_Slave, 34 ;
+    Front_Wpr_Overload_Detect_Driver, 37 ;
+    Front_Wpr_Overload_Detect_Passenger, 38 ;
+    ResponseErrorStsWSMs, 39 ;
+  }
+  TIME_E_DATE: 16, BCM, 8 {
+    Day1_ForLIN_NBC, 16 ;
+    Day2_ForLIN_NBC, 20 ;
+    Hour1_ForLIN_NBC, 0 ;
+    Hour2_ForLIN_NBC, 4 ;
+    Minute1_ForLIN_NBC, 8 ;
+    Minute2_ForLIN_NBC, 12 ;
+    Month1_ForLIN_NBC, 24 ;
+    Month2_ForLIN_NBC, 28 ;
+    Year1_ForLIN_NBC, 32 ;
+    Year2_ForLIN_NBC, 36 ;
+    Year3_ForLIN_NBC, 40 ;
+    Year4_ForLIN_NBC, 44 ;
+  }
+  VEHICLE_INFO: 54, BCM, 8 {
+    TotalOdometer_ForLIN_NBC, 0 ;
+    KeySts_ForLIN_NBC, 55 ;
+    ExternalTemperature_LIN_NBC, 24 ;
+    VehicleSpeed_ForLIN_NBC, 33 ;
+    BatteryVoltageLevel_ForLIN_NBC, 48 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  RLS{
+    LIN_protocol = "2.0" ;
+    configured_NAD = 0x4 ;
+    product_id = 0x0, 0x0, 0 ;
+    response_error = ResponseErrorStsRLS ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+      RLSCfgData = 0x1D ;
+      FSdata = 0x23 ;
+      ComToRLS = 0x26 ;
+      RLSData = 0x29 ;
+      SoSe = 0x32 ;
+    }
+  }
+  WSM{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xE ;
+    initial_NAD = 0xE ;
+    product_id = 0x0, 0x0, 0 ;
+    response_error = COMM_ERR_LIN_WSM ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      NBCToWSM ;
+      TIME_E_DATE ;
+      VEHICLE_INFO ;
+      WSM_STATUS ;
+      WSM_STATUS_2 ;
+    }
+  }
+  DIAG_TESTER_LIN8{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0x40 ;
+    initial_NAD = 0x40 ;
+    product_id = 0xFFF, 0xFFF, 255 ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      WSM_STATUS_2 ;
+    }
+  }
+  WSMs{
+    LIN_protocol = "2.1" ;
+    configured_NAD = 0xBE ;
+    initial_NAD = 0xBE ;
+    product_id = 0x0, 0x0, 1 ;
+    response_error = ResponseErrorStsWSMs ;
+    P2_min = 50 ms ;
+    ST_min = 0 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+  }
+}
+
+Schedule_tables {
+ Init {
+    MasterReq delay 10 ms ;
+    SlaveResp delay 10 ms ;
+  }
+ Key_ON_OFF_WSM_RLS_Active {
+    ComToRLS delay 10 ms ;
+    RLSCfgData delay 10 ms ;
+    RLSData delay 10 ms ;
+    NBCToWSM delay 10 ms ;
+    SoSe delay 10 ms ;
+    FSdata delay 10 ms ;
+    WSM_STATUS delay 10 ms ;
+    WSM_STATUS_2 delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  BatteryVoltageLevel_Engine_ForLIN {
+    physical_value, 0, 127, 0.16, 0, "Volt" ;
+  }
+  COMM_ERR_LIN_WSM_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  CurrentFailNVD_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  CurrentFailStsRLS_Encoding {
+    logical_value, 0, "No_DTC_Present_Now" ;
+    logical_value, 1, "At_Least_One_DTC_Present_Now" ;
+  }
+  CurrentFailStsfromBCM_Encoding {
+    logical_value, 0, "No_DTC_Present_Now" ;
+    logical_value, 1, "At_Least_One_DTC_Present_Now" ;
+  }
+  Day1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Day2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  DewpointTemp_Encoding {
+    physical_value, 0, 250, 0.5, -40, "°C" ;
+    logical_value, 251, "not used" ;
+    logical_value, 252, "not ready" ;
+    logical_value, 253, "Value exceeds limits" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "SNA" ;
+  }
+  ExternalTemperature {
+    physical_value, 0, 255, 0.5, -40, "°C" ;
+    logical_value, 0, "FaultValue" ;
+  }
+  Front_Wiper_CRC_Encoding {
+    physical_value, 0, 255, 1, 0, "cn" ;
+  }
+  Front_Wpr_Alive_Cnt_Encoding {
+    physical_value, 0, 15, 1, 0, "cnt" ;
+  }
+  Front_Wpr_Angle_Encoding {
+    physical_value, 0, 255, 1, 0, "°" ;
+  }
+  Front_Wpr_AqBL_Direction_Req_Encoding {
+    physical_value, 0, 3, 1, 0, "-" ;
+    logical_value, 0, "OFF" ;
+    logical_value, 1, "OUT" ;
+    logical_value, 2, "IN" ;
+    logical_value, 3, "Not_Used" ;
+  }
+  Front_Wpr_Blocked_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_Mot_Err_Status_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_OverVoltage_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_Overload_Detect_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_Parked_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_Revers_Sig_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_ServicePosition_Stop_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Front_Wpr_Status_Encoding {
+    physical_value, 0, 3, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+    logical_value, 2, "Not_Used" ;
+    logical_value, 3, "Not_Used" ;
+  }
+  Front_Wpr_UnderVoltage_Encoding {
+    physical_value, 0, 1, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  GLASS_TEMP_Encoding {
+    physical_value, 0, 250, 0.5, -40, "°C" ;
+    logical_value, 251, "not used" ;
+    logical_value, 252, "not ready" ;
+    logical_value, 253, "Value exceeds limits" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "SNA" ;
+  }
+  GenericFailNVD_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  GenericFailStsRLS_Encoding {
+    logical_value, 0, "No_DTC_Present_Anytime" ;
+    logical_value, 1, "At_Least_One_DTC_Present_Anytime" ;
+  }
+  GenericFailStsfromBCM_Encoding {
+    logical_value, 0, "No_DTC_Present_Anytime" ;
+    logical_value, 1, "At_Least_One_DTC_Present_Anytime" ;
+  }
+  HeadLampActivation_Encoding {
+    logical_value, 0, "OFF" ;
+    logical_value, 1, "ON" ;
+  }
+  Hour1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Hour2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Hum_Sns_Int_flt_Encoding {
+    logical_value, 0, "Not_Present" ;
+    logical_value, 1, "Present" ;
+  }
+  HumidiytAirTemp_Encoding {
+    physical_value, 0, 250, 0.5, -40, "°C" ;
+    logical_value, 251, "not used" ;
+    logical_value, 252, "not ready" ;
+    logical_value, 253, "Value exceeds limits" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "SNA" ;
+  }
+  Ignition_Encoding {
+    physical_value, 0, 3, 1, 0, "-" ;
+    logical_value, 0, "Not_Used" ;
+    logical_value, 1, "Not_Active" ;
+    logical_value, 2, "Active" ;
+    logical_value, 3, "Not_Used" ;
+  }
+  Immediate_Speed_Request_Encoding {
+    physical_value, 0, 2, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Immediate_Stop_Encoding {
+    physical_value, 0, 3, 1, 0, "-" ;
+    logical_value, 0, "Not_Used" ;
+    logical_value, 1, "Not_Active" ;
+    logical_value, 2, "Active" ;
+    logical_value, 3, "Not_Used" ;
+  }
+  KeepAliveRLS_Encoding {
+    logical_value, 0, "No Need Further Communication" ;
+    logical_value, 1, "Need Further Communication" ;
+  }
+  KeepAlivefromBCM_Encoding {
+    logical_value, 0, "No Need Further Communication" ;
+    logical_value, 1, "Need Further Communication" ;
+  }
+  KeySts_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  LightSensorActive_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  LightSensorFailSts_Encoding {
+    logical_value, 0, "No Fail" ;
+    logical_value, 1, "Fail" ;
+  }
+  LightSensorSelected_Encoding {
+    logical_value, 0, "Not Selected" ;
+    logical_value, 1, "Selected" ;
+  }
+  Master_Msg_Cnt_Encoding {
+    physical_value, 0, 15, 1, 0, "cnt" ;
+  }
+  Minute1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Minute2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  NBC_CRC_Encoding {
+    physical_value, 0, 255, 1, 0, "cn" ;
+  }
+  Outside_Temp_Encoding {
+    physical_value, 0, 63, 1, 0, "°C" ;
+  }
+  REL_HUMIDITY_Encoding {
+    physical_value, 0, 200, 0.5, 0, "% RH" ;
+    logical_value, 252, "not ready" ;
+    logical_value, 253, "Value exceeds limits" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "SNA" ;
+  }
+  RainSensorActive_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  RainSensorFailSts_Encoding {
+    logical_value, 0, "No Fail" ;
+    logical_value, 1, "Fail" ;
+  }
+  RainSensorSelected_Encoding {
+    logical_value, 0, "Rain sensor NOT ACTIVE" ;
+    logical_value, 1, "Rain sensor ACTIVE" ;
+  }
+  ResponseErrorStsRLS_Encoding {
+    logical_value, 0, "Node_Is_Operating_Correctly" ;
+    logical_value, 1, "Node_Has_Intermittent_Problems" ;
+  }
+  RsErr_HumSense_Encoding {
+    logical_value, 0, "No error " ;
+    logical_value, 1, "Com Error" ;
+  }
+  SelectedSensitivityL_Encoding {
+    logical_value, 0, "Level0" ;
+    logical_value, 1, "Level1" ;
+    logical_value, 2, "Level2" ;
+    logical_value, 3, "Not used" ;
+    logical_value, 4, "Not used" ;
+    logical_value, 5, "Not used" ;
+    logical_value, 6, "Not used" ;
+    logical_value, 7, "Not used" ;
+  }
+  SelectedSensitivityR_Encoding {
+    logical_value, 0, "Level0" ;
+    logical_value, 1, "Level1" ;
+    logical_value, 2, "Level2" ;
+    logical_value, 3, "Level3" ;
+    logical_value, 4, "Level4" ;
+    logical_value, 5, "Level5" ;
+    logical_value, 6, "Level6" ;
+    logical_value, 7, "Not used" ;
+  }
+  SoSe_SunInt_2D_Li_Encoding {
+    physical_value, 0, 240, 5, 0, "Watt/m2" ;
+    logical_value, 252, "init value" ;
+    logical_value, 253, "Value exceeds limit" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "not used" ;
+  }
+  SoSe_SunInt_2D_Re_Encoding {
+    physical_value, 0, 240, 5, 0, "Watt/m2" ;
+    logical_value, 252, "init value" ;
+    logical_value, 253, "Value exceeds limit" ;
+    logical_value, 254, "Error" ;
+    logical_value, 255, "not used" ;
+  }
+  Stop_Pos_Req_Encoding {
+    physical_value, 0, 3, 1, 0, "-" ;
+    logical_value, 0, "STOP IN DP" ;
+    logical_value, 1, "STOP IN IW" ;
+    logical_value, 2, "STOP IN PL" ;
+    logical_value, 3, "STOP IN SERVICE" ;
+  }
+  TotalOdometerForLIN {
+    physical_value, 0, 1048575, 1, 0 ;
+  }
+  Transmission_550nm_Encoding {
+    physical_value, 0, 14, 7, 2, "%" ;
+    logical_value, 15, "Not used" ;
+  }
+  Transmission_880nm_Encoding {
+    physical_value, 0, 14, 7, 2, "%" ;
+    logical_value, 15, "Not used" ;
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h" ;
+  }
+  Vehicle_Spd_Encoding {
+    physical_value, 0, 8191, 0.0625, 0, "km/h" ;
+  }
+  Wash_Request_Encoding {
+    physical_value, 0, 2, 1, 0, "-" ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WiperInPark_Encoding {
+    logical_value, 0, "Wiper in Park" ;
+    logical_value, 1, "Wiper not in Park" ;
+  }
+  WiperMode_Encoding {
+    logical_value, 0, "Intermittent" ;
+    logical_value, 1, "continuous" ;
+  }
+  WiperSpeed_Encoding {
+    logical_value, 0, "no wipe" ;
+    logical_value, 1, "Low speed" ;
+    logical_value, 2, "High Speed" ;
+    logical_value, 3, "Not used" ;
+    logical_value, 4, "Not used" ;
+    logical_value, 5, "Not used" ;
+    logical_value, 6, "Not used" ;
+    logical_value, 7, "Not used" ;
+  }
+  WiperWasherActive_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Wiping_Frq_Request_Encoding {
+    physical_value, 0, 15, 1, 0, "-" ;
+    logical_value, 0, "Park" ;
+    logical_value, 1, "35" ;
+    logical_value, 2, "37" ;
+    logical_value, 3, "39" ;
+    logical_value, 4, "41 - Low Speed" ;
+    logical_value, 5, "43" ;
+    logical_value, 6, "45" ;
+    logical_value, 7, "47" ;
+    logical_value, 8, "49" ;
+    logical_value, 9, "51" ;
+    logical_value, 10, "53" ;
+    logical_value, 11, "55" ;
+    logical_value, 12, "57" ;
+    logical_value, 13, "59" ;
+    logical_value, 14, "61 - High Speed" ;
+    logical_value, 15, "Not_Used" ;
+  }
+  Year1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year3_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year4_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  rw_Amb_light16bit_g_Encoding {
+    physical_value, 0, 32767, 1, 0, "lux" ;
+    logical_value, 65532, "Init" ;
+    logical_value, 65533, "Value exceeds limit" ;
+    logical_value, 65534, "Error" ;
+  }
+  rw_FW_light16bit_g_Encoding {
+    physical_value, 0, 32767, 1, 0, "lux" ;
+    logical_value, 65532, "Init" ;
+    logical_value, 65533, "Value exceeds limit" ;
+    logical_value, 65534, "Error" ;
+  }
+  rw_IR_light16bit_g_Encoding {
+    physical_value, 0, 32767, 1, 0, "lux" ;
+    logical_value, 65532, "Init" ;
+    logical_value, 65533, "Value exceeds limit" ;
+    logical_value, 65534, "Error" ;
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0 ;
+  }
+}
+
+Signal_representation {
+  BatteryVoltageLevel_Engine_ForLIN: BatteryVoltageLevel_ForLIN_NBC ;
+  COMM_ERR_LIN_WSM_Encoding: COMM_ERR_LIN_WSM, COMM_ERR_INT_WSM_Master_Slave, ResponseErrorStsWSMs ;
+  CurrentFailNVD_Encoding: Front_Wpr_CurrentFail ;
+  CurrentFailStsRLS_Encoding: CurrentFailStsRLS ;
+  CurrentFailStsfromBCM_Encoding: CurrentFailStsfromBCM ;
+  Day1_Encoding: Day1_ForLIN_NBC ;
+  Day2_Encoding: Day2_ForLIN_NBC ;
+  DewpointTemp_Encoding: DewpointTemp ;
+  ExternalTemperature: ExternalTemperature_LIN_NBC ;
+  Front_Wiper_CRC_Encoding: Front_Wiper_CRC ;
+  Front_Wpr_Alive_Cnt_Encoding: Front_Wpr_Alive_Cnt ;
+  Front_Wpr_Angle_Encoding: Front_Wpr_Angle, Front_Wpr_Angle_Driver, Front_Wpr_Angle_Passenger ;
+  Front_Wpr_AqBL_Direction_Req_Encoding: Front_Wpr_AqBL_Direction_Req ;
+  Front_Wpr_Blocked_Encoding: Front_Wpr_Blocked, Front_Wpr_Blocked_Driver, Front_Wpr_Blocked_Passenger ;
+  Front_Wpr_Mot_Err_Status_Encoding: Front_Wpr_Mot_Err_Status, Front_Wpr_Mot_Err_Status_Driver, Front_Wpr_Mot_Err_Status_Passenger ;
+  Front_Wpr_OverVoltage_Encoding: Front_Wpr_OverVoltage, Front_Wpr_OverVoltage_Driver, Front_Wpr_OverVoltage_Passenger ;
+  Front_Wpr_Overload_Detect_Encoding: Front_Wpr_Overload_Detect, Front_Wpr_Overload_Detect_Driver, Front_Wpr_Overload_Detect_Passenger ;
+  Front_Wpr_Parked_Encoding: Front_Wpr_Parked, Front_Wpr_Parked_Driver, Front_Wpr_Parked_Passenger ;
+  Front_Wpr_Revers_Sig_Encoding: Front_Wpr_Revers_Sig, Front_Wpr_Revers_Sig_Driver, Front_Wpr_Revers_Sig_Passenger ;
+  Front_Wpr_ServicePosition_Stop_Encoding: Front_Wpr_ServicePosition_Stop, Front_Wpr_ServicePosition_Stop_Driver, Front_Wpr_ServicePosition_Stop_Passenger ;
+  Front_Wpr_Status_Encoding: Front_Wpr_Status, Front_Wpr_Status_Driver, Front_Wpr_Status_Passenger ;
+  Front_Wpr_UnderVoltage_Encoding: Front_Wpr_UnderVoltage, Front_Wpr_UnderVoltage_Driver, Front_Wpr_UnderVoltage_Passenger ;
+  GLASS_TEMP_Encoding: GLASS_TEMP ;
+  GenericFailNVD_Encoding: Front_Wpr_GenericFail ;
+  GenericFailStsRLS_Encoding: GenericFailStsRLS ;
+  GenericFailStsfromBCM_Encoding: GenericFailStsfromBCM ;
+  HeadLampActivation_Encoding: HeadLampActivation ;
+  Hour1_Encoding: Hour1_ForLIN_NBC ;
+  Hour2_Encoding: Hour2_ForLIN_NBC ;
+  Hum_Sns_Int_flt_Encoding: Hum_Sns_Int_flt ;
+  HumidiytAirTemp_Encoding: HumidiytAirTemp ;
+  Ignition_Encoding: Ignition ;
+  Immediate_Speed_Request_Encoding: Immediate_Speed_Request ;
+  Immediate_Stop_Encoding: Immediate_Stop ;
+  KeepAliveRLS_Encoding: KeepAliveRLS ;
+  KeepAlivefromBCM_Encoding: KeepAlivefromBCM ;
+  KeySts_Encoding: KeySts_ForLIN_NBC ;
+  LightSensorActive_Encoding: LightSensorActive ;
+  LightSensorFailSts_Encoding: LightSensorFailSts ;
+  LightSensorSelected_Encoding: LightSensorSelected ;
+  Master_Msg_Cnt_Encoding: Master_Msg_Cnt ;
+  Minute1_Encoding: Minute1_ForLIN_NBC ;
+  Minute2_Encoding: Minute2_ForLIN_NBC ;
+  Month1_Encoding: Month1_ForLIN_NBC ;
+  Month2_Encoding: Month2_ForLIN_NBC ;
+  NBC_CRC_Encoding: NBC_CRC ;
+  Outside_Temp_Encoding: Outside_Temp ;
+  REL_HUMIDITY_Encoding: REL_HUMIDITY ;
+  RainSensorActive_Encoding: RainSensorActive ;
+  RainSensorFailSts_Encoding: RainSensorFailSts ;
+  RainSensorSelected_Encoding: RainSensorSelected ;
+  ResponseErrorStsRLS_Encoding: ResponseErrorStsRLS ;
+  RsErr_HumSense_Encoding: RsErr_HumSense ;
+  SelectedSensitivityL_Encoding: SelectedSensitivityL ;
+  SelectedSensitivityR_Encoding: SelectedSensitivityR ;
+  SoSe_SunInt_2D_Li_Encoding: SoSe_SunInt_2D_Li ;
+  SoSe_SunInt_2D_Re_Encoding: SoSe_SunInt_2D_Re ;
+  Stop_Pos_Req_Encoding: Stop_Pos_Req ;
+  TotalOdometerForLIN: TotalOdometer_ForLIN_NBC ;
+  Transmission_550nm_Encoding: Transmission_550nm ;
+  Transmission_880nm_Encoding: Transmission_880nm ;
+  VehicleSpeedVSOSig8191: VehicleSpeed_ForLIN_NBC, VehicleSpeed ;
+  Vehicle_Spd_Encoding: Vehicle_Spd ;
+  Wash_Request_Encoding: Wash_Request ;
+  WiperInPark_Encoding: WiperInPark ;
+  WiperMode_Encoding: WiperMode ;
+  WiperSpeed_Encoding: WiperSpeed ;
+  WiperWasherActive_Encoding: WiperWasherActive ;
+  Wiping_Frq_Request_Encoding: Wiping_Frq_Request ;
+  Year1_Encoding: Year1_ForLIN_NBC ;
+  Year2_Encoding: Year2_ForLIN_NBC ;
+  Year3_Encoding: Year3_ForLIN_NBC ;
+  Year4_Encoding: Year4_ForLIN_NBC ;
+  rw_Amb_light16bit_g_Encoding: rw_Amb_light16bit_g ;
+  rw_FW_light16bit_g_Encoding: rw_FW_light16bit_g ;
+  rw_IR_light16bit_g_Encoding: rw_IR_light16bit_g ;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7 ;
+}

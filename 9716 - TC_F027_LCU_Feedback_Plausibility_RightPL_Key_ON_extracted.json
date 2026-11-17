@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "id": "9716",
+    "title": "TC_F027_LCU_Feedback_Plausibility_RightPL_Key_ON",
+    "component": "rbg.Ferrari_BCM_Testing_F027 Configuration: rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Kiran Deep Deepak (MS/ENC32-BEG) Priority: Unassigned State: Approved Description: Checking plausibility and DTC for Right PL Test Case Scope Development Items Summary Requirement Links Link Validity Summary 1341808: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 475319: DTC DTCText Priority Maturation Time De-Maturation Time Vehicle Condition B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Group 3 910611: IF (AND for all filled bullets) 1340843: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 910612: IF (AND for all filled bullets) 1341332: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Formal Review Review Due: Description: Testcase adapted as per F244 Changes Kumar Ashay (MS/EPE-SYT42-XC) Reviewed Nov 15, 2024, 6:07:45 AM (UTC+01:00) Review Comments General Comments Test Case Design Pre-Condition: Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) Stimulate sys_F040_KeySts to ON(4) si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation of Position Lights\" Proxy_write_LCU = 1 Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Activation of Position Lights\" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_LHParkTailLightSts = 0->1 so_sys_F027_NBC_RHParkTailLightSts = 0->1 No DTC Present Stimulation-2: \"Set error\" si_sys_F027_LCU_Right_PL_Feedback = 0 Expected Results-2: \"Deactivation of Right Position Lights\" DTC_active = \"B105564\" //Maturation time of DTC B105564 shall be equal to 0.3 s Stimulation-3: \"Reset Error\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-3: \"Activation of Left PL\" DTC_passive = \"B105564\" Stimulation-4: \"Clear DTC\" Clear all DTC Expected Results-4: \"NO DTC Present\" No DTC Present Stimulation-5: \"AutoNight to Manual Night\" si_sys_LCC_LowBeam_Button = 0->1->0 wait 0.3 sec Expected Results-5: \"Front Position Lights are Off\" XCP_sys_F247_FrontPosLightCmd = 1->0 XCP_sys_F247_RearPositionCmd = 1 so_sys_F027_NBC_LeftPL = 1->0 so_sys_F027_NBC_RightPL = 1->0 DTC_active = \"B105564\" Stimulation-6: \"Reset Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-6: \"Activation of Right PL\" DTC_passive = \"B105564\" Stimulation-7: \"Clear DTC\" Clear all DTC Expected Results-7: \"NO DTC Present\" No DTC Present Post-Condition: si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulate sys_F040_KeySts to STOP(1) Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 21735 TC_F027_LCU_ Feedback_Plausibility_ RightPL rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedD_Kiran Deep Deepak (MS/ ENC32-BEG)D_Kiran Deep Deepak (MS/ ENC32-BEG)None PassedJan 8, 2026 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100",
+    "configuration": "rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Kiran Deep Deepak (MS/ENC32-BEG) Priority: Unassigned State: Approved Description: Checking plausibility and DTC for Right PL Test Case Scope Development Items Summary Requirement Links Link Validity Summary 1341808: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 475319: DTC DTCText Priority Maturation Time De-Maturation Time Vehicle Condition B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Group 3 910611: IF (AND for all filled bullets) 1340843: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 910612: IF (AND for all filled bullets) 1341332: DTC DTCText Priority Maturation Time De-Maturation Time B105564 Fault_F027_LCU Right Position Feedback - Signal plausibility failure 103 5 5 Formal Review Review Due: Description: Testcase adapted as per F244 Changes Kumar Ashay (MS/EPE-SYT42-XC) Reviewed Nov 15, 2024, 6:07:45 AM (UTC+01:00) Review Comments General Comments Test Case Design Pre-Condition: Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) Stimulate sys_F040_KeySts to ON(4) si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation of Position Lights\" Proxy_write_LCU = 1 Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Activation of Position Lights\" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_LHParkTailLightSts = 0->1 so_sys_F027_NBC_RHParkTailLightSts = 0->1 No DTC Present Stimulation-2: \"Set error\" si_sys_F027_LCU_Right_PL_Feedback = 0 Expected Results-2: \"Deactivation of Right Position Lights\" DTC_active = \"B105564\" //Maturation time of DTC B105564 shall be equal to 0.3 s Stimulation-3: \"Reset Error\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-3: \"Activation of Left PL\" DTC_passive = \"B105564\" Stimulation-4: \"Clear DTC\" Clear all DTC Expected Results-4: \"NO DTC Present\" No DTC Present Stimulation-5: \"AutoNight to Manual Night\" si_sys_LCC_LowBeam_Button = 0->1->0 wait 0.3 sec Expected Results-5: \"Front Position Lights are Off\" XCP_sys_F247_FrontPosLightCmd = 1->0 XCP_sys_F247_RearPositionCmd = 1 so_sys_F027_NBC_LeftPL = 1->0 so_sys_F027_NBC_RightPL = 1->0 DTC_active = \"B105564\" Stimulation-6: \"Reset Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-6: \"Activation of Right PL\" DTC_passive = \"B105564\" Stimulation-7: \"Clear DTC\" Clear all DTC Expected Results-7: \"NO DTC Present\" No DTC Present Post-Condition: si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulate sys_F040_KeySts to STOP(1) Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 21735 TC_F027_LCU_ Feedback_Plausibility_ RightPL rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedD_Kiran Deep Deepak (MS/ ENC32-BEG)D_Kiran Deep Deepak (MS/ ENC32-BEG)None PassedJan 8, 2026 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100"
+  },
+  "pre_condition": {
+    "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+    "Stimulate sys_F040_KeySts to": "ON(4)",
+    "si_sys_F027_LCU_Left_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Right_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Left_PL_Feedback": "0"
+  },
+  "stimulations": [
+    {
+      "number": "1",
+      "title": "Activation of Position Lights",
+      "actions": {
+        "Proxy_write_LCU": "1",
+        "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+        "si_sys_F027_LCU_Left_PL_Feedback": "1",
+        "si_sys_F027_LCU_Right_PL_Feedback": "1"
+      },
+      "expected_title": "Activation of Position Lights",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "0->1",
+        "XCP_sys_F247_RearPositionCmd": "0->1",
+        "so_sys_F027_NBC_LeftPL": "0->1",
+        "so_sys_F027_NBC_RightPL": "0->1",
+        "so_sys_F027_NBC_LeftRearPositionLight": "0->100",
+        "so_sys_F027_NBC_RightRearPositionLight": "0->100",
+        "so_sys_F027_NBC_LHParkTailLightSts": "0->1",
+        "so_sys_F027_NBC_RHParkTailLightSts": "0->1",
+        "NO_DTC": true
+      }
+    },
+    {
+      "number": "2",
+      "title": "Set error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "0"
+      },
+      "expected_title": "Deactivation of Right Position Lights",
+      "expected_results": {
+        "DTC_active": [
+          "B105564"
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "title": "Reset Error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "1",
+        "wait": "0.3"
+      },
+      "expected_title": "Activation of Left PL",
+      "expected_results": {
+        "DTC_passive": [
+          "B105564"
+        ]
+      }
+    },
+    {
+      "number": "4",
+      "title": "Clear DTC",
+      "actions": {},
+      "expected_title": "NO DTC Present",
+      "expected_results": {
+        "NO_DTC": true
+      }
+    },
+    {
+      "number": "5",
+      "title": "AutoNight to Manual Night",
+      "actions": {
+        "si_sys_LCC_LowBeam_Button": "0->1->0",
+        "wait": "0.3"
+      },
+      "expected_title": "Front Position Lights are Off",
+      "expected_results": {
+        "DTC_active": [
+          "B105564"
+        ],
+        "XCP_sys_F247_FrontPosLightCmd": "1->0",
+        "XCP_sys_F247_RearPositionCmd": "1",
+        "so_sys_F027_NBC_LeftPL": "1->0",
+        "so_sys_F027_NBC_RightPL": "1->0"
+      }
+    },
+    {
+      "number": "6",
+      "title": "Reset Error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "0",
+        "wait": "0.3"
+      },
+      "expected_title": "Activation of Right PL",
+      "expected_results": {
+        "DTC_passive": [
+          "B105564"
+        ]
+      }
+    },
+    {
+      "number": "7",
+      "title": "Clear DTC",
+      "actions": {},
+      "expected_title": "NO DTC Present",
+      "expected_results": {
+        "NO_DTC": true
+      }
+    }
+  ],
+  "post_condition": {
+    "si_sys_F027_LCU_Left_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Right_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Left_PL_Feedback": "0",
+    "si_sys_F027_LCU_Right_PL_Feedback": "0"
+  }
+}

@@ -1,0 +1,76 @@
+// PRE-CONDITION
+si_sys_F027_LCU_Left_DRL_Feedback = 0
+si_sys_F027_LCU_Right_DRL_Feedback = 0
+si_sys_F027_LCU_Left_PL_Feedback = 0
+
+// STIMULATION-1: Activation Side Marker FL RR
+Proxy_write_LCU = 1
+Stimulate sys_F040_KeySts to = ON(4)
+Stimulate sys_F858_NBC_Night_DaySts_for_IE to = Night(0)
+si_sys_F027_LCU_Left_PL_Feedback = 1
+si_sys_F027_LCU_Right_PL_Feedback = 1
+
+// EXPECTED RESULTS-1: Activation Side Marker FL RR
+XCP_sys_F247_FrontPosLightCmd = 0->1
+XCP_sys_F247_RearPositionCmd = 0->1
+XCP_sys_F247_LCU_Ready = 0->1
+XCP_sys_F247_SideMarkerCmd = 0->1
+so_sys_F027_NBC_LeftPL = 0->1
+so_sys_F027_NBC_RightPL = 0->1
+so_sys_F027_NBC_LeftRearPositionLight = 0->100
+so_sys_F027_NBC_RightRearPositionLight = 0->100
+so_sys_F027_NBC_SideMarkerFrontLeftRearRight = 0-> 100
+so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100
+
+// STIMULATION-2: Create SCG in Side Marker FL RR
+fault_type = SCG
+fault_target = B21
+
+// EXPECTED RESULTS-2: Deactivation of Side Marker FL RR
+DTC_active = B104811
+
+// STIMULATION-3: Activation Side Marker FL RR
+remove_fault
+
+// EXPECTED RESULTS-3: Activation of Position Lights
+XCP_sys_F247_FrontPosLightCmd = 0->1
+XCP_sys_F247_RearPositionCmd = 0->1
+XCP_sys_F247_LCU_Ready = 0->1
+XCP_sys_F247_SideMarkerCmd = 0->1
+so_sys_F027_NBC_LeftPL = 0->1
+so_sys_F027_NBC_RightPL = 0->1
+so_sys_F027_NBC_LeftRearPositionLight = 0->100
+so_sys_F027_NBC_RightRearPositionLight = 0->100
+so_sys_F027_NBC_SideMarkerFrontLeftRearRight = 0-> 100
+so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100
+NO_DTC
+
+// STIMULATION-4: Create OL in Side Marker FL RR
+fault_type = OL
+fault_target = B21
+
+// EXPECTED RESULTS-4: Deactivation of Side Marker FL RR
+DTC_active = B104813
+
+// STIMULATION-5: Activation Side Marker FL RRL
+remove_fault
+
+// EXPECTED RESULTS-5: Activation of Position Lights
+XCP_sys_F247_FrontPosLightCmd = 0->1
+XCP_sys_F247_RearPositionCmd = 0->1
+XCP_sys_F247_LCU_Ready = 0->1
+XCP_sys_F247_SideMarkerCmd = 0->1
+so_sys_F027_NBC_LeftPL = 0->1
+so_sys_F027_NBC_RightPL = 0->1
+so_sys_F027_NBC_LeftRearPositionLight = 0->100
+so_sys_F027_NBC_RightRearPositionLight = 0->100
+so_sys_F027_NBC_SideMarkerFrontLeftRearRight = 0-> 100
+so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100
+NO_DTC
+
+// POST-CONDITION
+Stimulate sys_F858_NBC_Night_DaySts_for_IE to = Night(0)
+si_sys_F027_LCU_Left_DRL_Feedback = 0
+si_sys_F027_LCU_Right_DRL_Feedback = 0
+si_sys_F027_LCU_Left_PL_Feedback = 0
+si_sys_F027_LCU_Right_PL_Feedback = 0

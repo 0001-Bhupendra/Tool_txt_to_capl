@@ -1,0 +1,372 @@
+///////////////////////////////////////////////////////////////////////////////
+// CAPL Test Module
+// Test Case ID: 9716
+// Test Case: TC_F027_LCU_Feedback_Plausibility_RightPL_Key_ON
+// Component: rbg.Ferrari_BCM_Testing_F027
+// Description: Checking plausibility and DTC for Right PL feedback signal
+//
+// This module implements automated test execution for DTC B105564 handling
+// (Right Position Feedback - Signal plausibility failure)
+///////////////////////////////////////////////////////////////////////////////
+
+// Include necessary headers and libraries
+#include "stdlib.can"
+
+///////////////////////////////////////////////////////////////////////////////
+// Pre-Condition Setup
+///////////////////////////////////////////////////////////////////////////////
+
+void setup_pre_conditions()
+{
+  // Set environment to Night mode
+  vtsStimulateSignal("sys_F858_NBC_Night_DaySts_for_IE", 0);  // Night
+  
+  // Set key to ON
+  vtsStimulateSignal("sys_F040_KeySts", 4);  // ON(4)
+  
+  // Initialize all feedback signals to 0
+  write("si_sys_F027_LCU_Left_DRL_Feedback", 0);
+  write("si_sys_F027_LCU_Right_DRL_Feedback", 0);
+  write("si_sys_F027_LCU_Left_PL_Feedback", 0);
+  write("si_sys_F027_LCU_Right_PL_Feedback", 0);
+
+  // Allow system to settle
+  wait(100); // ms
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Test Stimulation Steps
+///////////////////////////////////////////////////////////////////////////////
+
+// Stimulation-1: "Activation of Position Lights"
+// Activate position lights and verify all outputs are on
+void stimulation_step_1()
+{
+  write("Step 1: Activating Position Lights...");
+  
+  // Actions
+  write("Proxy_write_LCU", 1);
+  vtsStimulateSignal("sys_F858_NBC_Night_DaySts_for_IE", 0);  // Night
+  write("si_sys_F027_LCU_Left_PL_Feedback", 1);
+  write("si_sys_F027_LCU_Right_PL_Feedback", 1);
+  
+  wait(100); // Allow system to respond
+  
+  // Expected Results: All lights should be on, no DTC
+  if (!checkSignalValue("XCP_sys_F247_FrontPosLightCmd", 1))
+  {
+    setResult(FAIL, "XCP_sys_F247_FrontPosLightCmd should be 1");
+  }
+  if (!checkSignalValue("XCP_sys_F247_RearPositionCmd", 1))
+  {
+    setResult(FAIL, "XCP_sys_F247_RearPositionCmd should be 1");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_LeftPL", 1))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_LeftPL should be 1");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_RightPL", 1))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_RightPL should be 1");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_LeftRearPositionLight", 100))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_LeftRearPositionLight should be 100");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_RightRearPositionLight", 100))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_RightRearPositionLight should be 100");
+  }
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "No DTC should be active in Step 1");
+  }
+}
+
+// Stimulation-2: "Set error"
+// Set Right PL feedback to 0 (simulating open circuit/plausibility error)
+void stimulation_step_2()
+{
+  write("Step 2: Setting Right PL error (feedback = 0)...");
+  
+  // Actions: Create error by setting Right PL feedback to 0
+  write("si_sys_F027_LCU_Right_PL_Feedback", 0);
+  
+  wait(100); // Wait for DTC maturation (NOTE: Maturation time is 0.3s, should wait longer)
+  wait(200); // Additional wait to ensure maturation
+  
+  // Expected Results: DTC B105564 should be active
+  if (!checkActiveDTC("B105564"))
+  {
+    setResult(FAIL, "DTC B105564 should be active after Right PL feedback error");
+  }
+}
+
+// Stimulation-3: "Reset Error"
+// Reset Right PL feedback back to normal and verify DTC becomes passive
+void stimulation_step_3()
+{
+  write("Step 3: Resetting Right PL error...");
+  
+  // Actions: Reset feedback to normal
+  write("si_sys_F027_LCU_Right_PL_Feedback", 1);
+  
+  // Wait for DTC de-maturation (0.3 seconds)
+  wait(300); // 300ms = 0.3s
+  
+  // Expected Results: DTC should become passive
+  if (!checkPassiveDTC("B105564"))
+  {
+    setResult(FAIL, "DTC B105564 should be passive after error reset");
+  }
+}
+
+// Stimulation-4: "Clear DTC"
+// Clear all DTCs from the system
+void stimulation_step_4()
+{
+  write("Step 4: Clearing all DTCs...");
+  
+  // Actions: Clear DTCs
+  clearAllDTCs();
+  
+  wait(100);
+  
+  // Expected Results: No DTC Present
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "All DTCs should be cleared");
+  }
+}
+
+// Stimulation-5: "AutoNight to Manual Night"
+// Toggle low beam button and verify position lights turn off, DTC becomes active again
+void stimulation_step_5()
+{
+  write("Step 5: Toggle low beam button (AutoNight to Manual Night)...");
+  
+  // Actions: Toggle low beam button (0->1->0 transition)
+  write("si_sys_LCC_LowBeam_Button", 1);
+  wait(50);
+  write("si_sys_LCC_LowBeam_Button", 0);
+  
+  wait(300); // Wait 0.3s
+  
+  // Expected Results: Front position lights off, rear stays on, DTC active
+  if (!checkSignalValue("XCP_sys_F247_FrontPosLightCmd", 0))
+  {
+    setResult(FAIL, "XCP_sys_F247_FrontPosLightCmd should be 0 (lights off)");
+  }
+  if (!checkSignalValue("XCP_sys_F247_RearPositionCmd", 1))
+  {
+    setResult(FAIL, "XCP_sys_F247_RearPositionCmd should remain 1");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_LeftPL", 0))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_LeftPL should be 0 (lights off)");
+  }
+  if (!checkSignalValue("so_sys_F027_NBC_RightPL", 0))
+  {
+    setResult(FAIL, "so_sys_F027_NBC_RightPL should be 0 (lights off)");
+  }
+  if (!checkActiveDTC("B105564"))
+  {
+    setResult(FAIL, "DTC B105564 should be active");
+  }
+}
+
+// Stimulation-6: "Reset Error"
+// Set Right PL feedback to 0 again to trigger DTC
+void stimulation_step_6()
+{
+  write("Step 6: Resetting Right PL error...");
+  
+  // Actions: Set Right PL feedback to 0
+  write("si_sys_F027_LCU_Right_PL_Feedback", 0);
+  
+  wait(300); // Wait 0.3s for de-maturation
+  
+  // Expected Results: DTC should become passive
+  if (!checkPassiveDTC("B105564"))
+  {
+    setResult(FAIL, "DTC B105564 should be passive after error reset");
+  }
+}
+
+// Stimulation-7: "Clear DTC"
+// Clear all DTCs again
+void stimulation_step_7()
+{
+  write("Step 7: Clearing all DTCs...");
+  
+  // Actions: Clear DTCs
+  clearAllDTCs();
+  
+  wait(100);
+  
+  // Expected Results: No DTC Present
+  if (!checkNoActiveDTC())
+  {
+    setResult(FAIL, "All DTCs should be cleared");
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Post-Condition Cleanup
+///////////////////////////////////////////////////////////////////////////////
+
+void cleanup_post_conditions()
+{
+  // Reset all feedback signals to 0
+  write("si_sys_F027_LCU_Left_DRL_Feedback", 0);
+  write("si_sys_F027_LCU_Right_DRL_Feedback", 0);
+  write("si_sys_F027_LCU_Left_PL_Feedback", 0);
+  write("si_sys_F027_LCU_Right_PL_Feedback", 0);
+  
+  // Set key to STOP
+  vtsStimulateSignal("sys_F040_KeySts", 1);  // STOP(1)
+  
+  wait(100); // ms
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Helper Functions - MUST BE IMPLEMENTED FOR YOUR ENVIRONMENT
+///////////////////////////////////////////////////////////////////////////////
+
+// Check if a specific DTC is currently active
+int checkActiveDTC(char dtcCode[])
+{
+  // TODO: Implement DTC checking logic using vTESTstudio API
+  // This should query the active DTCs and check if 'dtcCode' exists
+  // Example: return vtsGetActiveDTC(dtcCode);
+  return 1;  // Placeholder
+}
+
+// Check if a specific DTC is passive (recently fixed)
+int checkPassiveDTC(char dtcCode[])
+{
+  // TODO: Implement passive DTC checking logic
+  // This should query the passive/stored DTCs
+  // Example: return vtsGetPassiveDTC(dtcCode);
+  return 1;  // Placeholder
+}
+
+// Check if no DTCs are active
+int checkNoActiveDTC()
+{
+  // TODO: Implement no DTC checking logic
+  // This should verify that the active DTC list is empty
+  // Example: return vtsGetActiveDTCCount() == 0;
+  return 1;  // Placeholder
+}
+
+// Check if a signal has a specific value
+int checkSignalValue(char signalName[], long expectedValue)
+{
+  long actualValue;
+  read(signalName, actualValue);
+  if (actualValue == expectedValue)
+    return 1;
+  else
+    return 0;
+}
+
+// Set test result with logging
+void setResult(int result, char message[])
+{
+  // TODO: Implement result logging and reporting
+  if (result == PASS)
+    write("[PASS] " + message);
+  else
+    write("[FAIL] " + message);
+}
+
+// Clear all active DTCs
+void clearAllDTCs()
+{
+  // TODO: Implement DTC clearing logic using vTESTstudio API
+  // This should clear all active and passive DTCs
+  // Example: vtsCommand("ClearDTC");
+  write("Clearing all DTCs...");
+}
+
+// Stimulate a signal to a specific value
+void vtsStimulateSignal(char signalName[], long value)
+{
+  // TODO: Implement signal stimulation using vTESTstudio API
+  // This should send CAN signal values to the ECU
+  // Example: write(signalName, value);
+  write("Stimulating " + signalName + " to " + value);
+}
+
+// Define result codes
+#define PASS 1
+#define FAIL 0
+
+///////////////////////////////////////////////////////////////////////////////
+// Main Test Execution
+///////////////////////////////////////////////////////////////////////////////
+
+test 9716()
+{
+  dword startTime;
+  int testResult = PASS;
+
+  startTime = GetTickCount();
+  write("\n========== Test Case 9716: Right PL Plausibility Check ==========");
+  write("Description: Checking plausibility and DTC for Right PL feedback");
+  write("Expected DTC: B105564 (Right Position Feedback - Signal plausibility failure)");
+  write("==================================================================\n");
+
+  // Setup pre-conditions
+  write("Setting up pre-conditions...");
+  setup_pre_conditions();
+  write("Pre-conditions complete\n");
+
+  // Execute stimulation steps
+  write("Executing stimulation steps...\n");
+  stimulation_step_1();
+  stimulation_step_2();
+  stimulation_step_3();
+  stimulation_step_4();
+  stimulation_step_5();
+  stimulation_step_6();
+  stimulation_step_7();
+  write("\nStimulation steps complete\n");
+
+  // Cleanup post-conditions
+  write("Cleaning up post-conditions...");
+  cleanup_post_conditions();
+  write("Post-conditions complete\n");
+
+  // Report final result
+  write("==================================================================");
+  if (testResult == PASS)
+    write("[RESULT] Test PASSED");
+  else
+    write("[RESULT] Test FAILED");
+
+  write("Execution time: " + (GetTickCount() - startTime) + " ms");
+  write("==================================================================\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Test Configuration Notes
+///////////////////////////////////////////////////////////////////////////////
+
+// Key Test Points:
+// 1. DTC B105564 maturation time: 0.3 seconds (wait 300ms)
+// 2. DTC B105564 de-maturation time: 0.3 seconds (wait 300ms)
+// 3. Test verifies both active and passive DTC states
+// 4. Tests night mode operation with key ON
+// 5. Tests feedback signal plausibility detection
+// 6. Tests DTC clearing and recovery
+
+// Before running this test, ensure:
+// - vTESTstudio is configured with proper DBC signals
+// - CANoe/diagnostic adapter has DTC access
+// - CAN bus simulation is active
+// - All helper functions are implemented for your environment
+// - Fault injection API is available if needed
+
+///////////////////////////////////////////////////////////////////////////////

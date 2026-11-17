@@ -1,0 +1,3109 @@
+VERSION ""
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: BCM NPE
+
+
+BO_ 66 BCM_CODE_TRM_REQUEST: 8 BCM
+  SG_ ControlEncoding_TRM_Rq : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ MiniCryptFCode_TRM_Rq : 15|16@0+ (1,0) [0|255] "" NPE
+  SG_ MiniCrypt_Rnd_TRM_Rq : 31|32@0+ (1,0) [0|4294967295] "" NPE
+  SG_ TxpReadRequest : 62|1@0+ (1,0) [0|1] "" NPE
+  SG_ TxpAuthRequest : 63|1@0+ (1,0) [0|1] "" NPE
+
+BO_ 67 TRM_CODE_RESPONSE: 6 NPE
+  SG_ ControlEncoding_TRM_Rsp : 7|8@0+ (1,0) [0|255] "" BCM
+  SG_ MiniCryptGCode_TRM_Rsp : 15|16@0+ (1,0) [0|35565] "" BCM
+  SG_ CodeCheckSts_TRM : 25|2@0+ (1,0) [0|3] "" BCM
+  SG_ ProgrammedSts_TRM : 26|1@0+ (1,0) [0|1] "" BCM
+  SG_ TxpID : 30|4@0+ (1,0) [0|15] "" BCM
+  SG_ TxpFound : 31|1@0+ (1,0) [0|1] "" BCM
+
+BO_ 68 BCM_MINICRYPT_ACK: 1 BCM
+  SG_ MinicryptReceptionSts : 7|1@0+ (1,0) [0|1] "" NPE
+
+BO_ 69 TRM_MKP_KEY: 8 NPE
+  SG_ FrameNumber : 3|4@0+ (1,0) [0|15] "" BCM
+  SG_ TotalFrameNumber : 7|4@0+ (1,0) [0|15] "" BCM
+  SG_ DATA1 : 15|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA2 : 23|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA3 : 31|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA4 : 39|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA5 : 47|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA6 : 55|8@0+ (1,0) [0|255] "" BCM
+  SG_ DATA7 : 63|8@0+ (1,0) [0|255] "" BCM
+
+BO_ 359 RFHUB1: 8 NPE
+  SG_ ExteriorRearSwitch : 0|1@0+ (1,0) [0|1] "" BCM
+  SG_ IgnPosSts : 3|3@0+ (1,0) [0|7] "" BCM
+  SG_ ValidKeySts : 5|2@0+ (1,0) [0|3] "" BCM
+  SG_ CustKeyInIgnSts : 7|2@0+ (1,0) [0|3] "" BCM
+  SG_ RFFuncReq : 8|5@0+ (1,0) [0|31] "" BCM
+  SG_ RFFobNum : 12|4@0+ (1,0) [0|15] "" BCM
+  SG_ RFRearFuncReq : 15|3@0+ (1,0) [0|7] "" BCM
+  SG_ FobSearchResult : 16|8@0+ (1,0) [0|255] "" BCM
+  SG_ RFReq : 19|3@0+ (1,0) [0|7] "" BCM
+  SG_ FobSearchFault : 32|1@0+ (1,0) [0|1] "" BCM
+  SG_ HMIPowerOnReq : 33|1@0+ (1,0) [0|1] "" BCM
+  SG_ FOBInterferenceAvoid : 34|1@0+ (1,0) [0|1] "raw" BCM
+  SG_ DriverEnginOffRequest : 35|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchResult_LongPressure : 39|3@0+ (1,0) [0|7] "" BCM
+  SG_ FobSearchExteriorRear : 41|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchExteriorLeft : 42|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchExteriorRight : 43|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchInterior : 44|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchTrunk : 45|1@0+ (1,0) [0|1] "" BCM
+  SG_ FobSearchStatus : 47|2@0+ (1,0) [0|3] "" BCM
+  SG_ MessageCounter_HUB1 : 51|4@0+ (1,0) [0|15] "" BCM
+  SG_ KeyCommandReq : 52|1@0+ (1,0) [0|1] "" BCM
+  SG_ NPE_ActuationReq : 55|2@0+ (1,0) [0|3] "" BCM
+  SG_ Checksum_HUB1 : 63|8@0+ (1,0) [0|255] "" BCM
+
+BO_ 499 STATUS_KHD: 8 BCM
+  SG_ KHDFailSts : 8|1@0+ (1,0) [0|1] "" NPE
+  SG_ KeyHolderPosition : 11|3@0+ (1,0) [0|7] "" NPE
+  SG_ KeyPresenceSts : 13|2@0+ (1,0) [0|3] "" NPE
+  SG_ KeyIDFromNFC : 23|48@0+ (1,0) [0|281474976710655] "" NPE
+
+BO_ 524 NFR_SPEED: 8 BCM
+  SG_ VehicleSpeed_ASILx : 4|13@0+ (0.0625,0) [0|511.9375] "km/h" Vector__XXX
+  SG_ VehicleSpeedVSOSig : 22|13@0+ (0.0625,0) [0|511.9375] "km/h" Vector__XXX
+  SG_ VehicleSpeed_ASILxFailSts : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ VehicleSpeedVSOSigFailSts : 25|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ NFR_Speed_FA : 38|13@0+ (0.0625,0) [0|511.9375] "km/h" NPE
+  SG_ NFR_Speed_FA_FailSts : 41|1@0+ (1,0) [0|1] "" NPE
+  SG_ MsgCounter : 51|4@0+ (1,0) [0|15] "" NPE
+  SG_ NFRCruiseEnabler : 55|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Checksum : 63|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 599 AIRBAG1: 8 BCM
+  SG_ SBR2RowCentralSeatBuckleFailSts : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR2RowCentralSeatConfigSts : 1|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ PsngrBagLightReqSts : 3|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ PsngrBagChargeSts : 5|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ AirBagFailSts : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowDriverSeatFailSts : 8|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowDriverSeatConfigSts : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SBR2RowCentralSeatSts : 12|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ SBR1RowCentralSeatPPDFailSts : 14|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowPsngrSeatPPDFailSts : 17|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowPsngrSeatBuckleFailSts : 19|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowPsngrSeatConfigSts : 20|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SBR1RowDriverSeatSts : 22|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR2RowLeftSeatSts : 24|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR2RowRightSeatFailSts : 26|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR2RowLeftSeatFailSts : 28|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SBR1RowPsngrSeatSts : 31|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ CrashOutputSts : 36|8@0+ (1,0) [0|255] "" NPE
+  SG_ SBR2RowRightSeatSts : 38|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ MessageCounterNAB1 : 43|4@0+ (1,0) [0|15] "" NPE
+  SG_ CrashOutputValidData : 44|1@0+ (1,0) [0|1] "" NPE
+  SG_ ChecksumNAB1 : 55|8@0+ (1,0) [0|255] "" NPE
+  SG_ AirBagWarningPADLampOnSts : 56|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ AirBagWarningPADLampOffSts : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SBR2RowRightSeatConfigSts : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SBR2RowLeftSeatConfigSts : 59|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Ppd_psngr_info : 61|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ AirBagWarningLampSts : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 630 NFR_INFO: 8 BCM
+  SG_ CRC_NFR_INFO : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ EPBMalfunction : 8|1@0+ (1,0) [0|1] "" NPE
+  SG_ EPBSts : 11|3@0+ (1,0) [0|7] "" NPE
+  SG_ MessageCounter_NFR_INFO : 15|4@0+ (1,0) [0|14] "" NPE
+
+BO_ 654 VCU_CHRG_RQT: 8 BCM
+  SG_ CRC_VCU_CHRG_RQT : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ MsgCnt_VCU_CHRG_RQT : 15|4@0+ (1,0) [0|14] "" NPE
+  SG_ VCU_VehicleChargeEnable : 32|1@0+ (1,0) [0|1] "" NPE
+
+BO_ 761 GEAR_INFO: 8 BCM
+  SG_ GearLeverPositionforNPE : 20|3@0+ (1,0) [0|7] "" NPE
+  SG_ GearLeverFailForNPE : 24|1@0+ (1,0) [0|1] "" NPE
+
+BO_ 1035 HMI_INFO: 8 BCM
+  SG_ CeremonySts_IDC : 17|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ DisplayBrightnessLevel : 30|7@0+ (1,0) [0|127] "" Vector__XXX
+  SG_ ETA_to_Dest : 37|11@0+ (1,0) [0|2047] "min" Vector__XXX
+  SG_ Ecall_IDCMuteReq : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ ETA_to_EVSE : 42|11@0+ (1,0) [0|2047] "min" Vector__XXX
+  SG_ HMISts : 58|3@0+ (1,0) [0|3] "" NPE
+  SG_ CabinModeSts : 59|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ IDC_CommandSts : 61|2@0+ (1,0) [0|3] "" NPE
+  SG_ IDC_VisualizationSts : 63|2@0+ (1,0) [0|3] "" NPE
+
+BO_ 1214 BMS_LVB1: 8 BCM
+  SG_ LVB_SOCSts : 0|1@0+ (1,0) [0|1] "" NPE
+  SG_ LVB_SOC : 7|7@0+ (1,0) [0|100] "%" NPE
+  SG_ LVB_MaxCellsTemp : 15|8@0+ (1,-45) [-45|170] "°C" Vector__XXX
+  SG_ LVB_SOH : 22|7@0+ (1,0) [0|100] "%" Vector__XXX
+  SG_ LVB_MaxCellsTempFailsts : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RecirculationReq : 26|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ LVB_Relay_Status : 31|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ MessageCounter_BMS_LVB1 : 51|4@0+ (1,0) [0|15] "" NPE
+  SG_ Checksum_BMS_LVB1 : 63|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 1267 PWT_STATUS_1: 8 BCM
+  SG_ CRC_PWT_STATUS_1 : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ PWT_Limited_Perfo : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RechargeSts_HVB : 10|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ PWTBuzzerReq : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MsgCnt_PWT_STATUS_1 : 15|4@0+ (1,0) [0|14] "" NPE
+  SG_ HMICode_CC : 18|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ Recharge_PlugSts : 20|2@0+ (1,0) [0|3] "" NPE
+  SG_ VehicleStartNotAllowed : 21|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ START_ButtonPress_Rqt : 23|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ CCSpeedWarning : 29|2@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ PlugInRechargeWarning : 36|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ CoolingWarningForDisplay : 38|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ LVSysWarningForDisplay : 42|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ PWTSystemWarningForDisplay : 47|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ PWTLimpHomeSts : 53|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ PropulsionSystemFailure : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MVSysWarningForDisplay : 61|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ PWTFailSts : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MVFailSts : 63|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1274 NPE_DEBUG_1: 8 NPE
+  SG_ Five_min_decount : 7|16@0+ (1,0) [0|65535] "" BCM
+  SG_ rub_Current_WAL_Status : 18|3@0+ (1,0) [0|7] "" BCM
+  SG_ rub_WAL_Current_Activation : 22|4@0+ (1,0) [0|15] "" BCM
+  SG_ Passenger_And_ReadDoors_Closed : 23|1@0+ (1,0) [0|1] "" BCM
+  SG_ WAL_Trig_EV : 27|4@0+ (1,0) [0|15] "" BCM
+  SG_ WAL_Exit_Trig_EV : 28|1@0+ (1,0) [0|1] "" BCM
+  SG_ X_SET_WAL_Area_To_Search_m : 31|3@0+ (1,0) [0|7] "" BCM
+  SG_ is_WAL_Search : 34|3@0+ (1,0) [0|7] "" BCM
+  SG_ X_SET_WAL_RKE_Window_c : 35|1@0+ (1,0) [0|1] "" BCM
+  SG_ rub_WAL_Current_Exit : 39|4@0+ (1,0) [0|15] "" BCM
+  SG_ Message1_Byte5 : 47|7@0+ (1,0) [0|255] "" BCM
+  SG_ Message1_Byte6 : 55|8@0+ (1,0) [0|255] "" BCM
+  SG_ Message1_Byte7 : 63|8@0+ (1,0) [0|255] "" BCM
+
+BO_ 1275 NPE_DEBUG_2: 8 NPE
+  SG_ Ant0_Field_Strength : 7|16@0+ (1,0) [0|32768] "" BCM
+  SG_ Ant1_Field_Strength : 23|16@0+ (1,0) [0|32768] "" BCM
+  SG_ Ant2_Field_Strength : 39|16@0+ (1,0) [0|32768] "" BCM
+  SG_ Ant3_Field_Strength : 55|16@0+ (1,0) [0|32768] "" BCM
+
+BO_ 1276 NPE_DEBUG_3: 8 NPE
+  SG_ Ant4_Field_Strength : 7|16@0+ (1,0) [0|32768] "" BCM
+  SG_ KeyFob_ID : 23|32@0+ (1,0) [0|4294967295] "" BCM
+  SG_ KeyFob_Button : 55|16@0+ (1,0) [0|64] "" BCM
+
+BO_ 1313 STATUS_DOORS: 8 BCM
+  SG_ STS_DRS_DriverLatchsts : 1|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_PsngrDoorSts : 3|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_DriverDoorSts : 5|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_VPSTrunkSts : 7|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_RearRightLatchsts : 9|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ STS_DRS_RearLeftDoorSts : 11|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_RearRightDoorSts : 13|2@0+ (1,0) [0|3] "" NPE
+  SG_ STS_DRS_PsngrLatchsts : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ STS_DRS_PsngrWindowSts : 17|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ STS_DRS_DriverWindowSts : 20|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ STS_DRS_VPSLockValidData : 21|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ STS_DRS_RearLeftLatchsts : 23|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ TrunkInternalButton : 24|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ STS_DRS_RearRightWindowSts : 27|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ STS_DRS_RearLeftWindowSts : 30|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ Interior_Lock : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ VPSDoorSts : 37|2@0+ (1,0) [0|3] "" NPE
+  SG_ LockUnlockDoors_Button : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ TrunkExternalButton : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ STS_DRS_MsgCounter : 51|4@0+ (1,0) [0|15] "" NPE
+  SG_ STS_DRS_Checksum : 63|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 1318 ASR_PEDAL_PRESS: 8 BCM
+  SG_ BrakePressureTarget : 7|10@0+ (0.25,0) [0|200] "bar" Vector__XXX
+  SG_ DriverBrkPressureRqt : 13|10@0+ (0.25,0) [0|200] "bar" Vector__XXX
+  SG_ BrakePressureActual : 19|10@0+ (0.25,0) [0|200] "bar" Vector__XXX
+  SG_ HazardActRqt : 24|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ StopLightActRqt : 25|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BrakeRodStroke : 38|7@0+ (0.2,0) [0|20] "mm" Vector__XXX
+  SG_ BrakePedalSts : 39|1@0+ (1,0) [0|1] "" NPE
+  SG_ BrakePedalValidData : 41|2@0+ (1,0) [0|3] "" NPE
+  SG_ BrakePressureActualValidData : 43|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ DriverBrkPressureRqtValidData : 45|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ BrakePressureTargetValidData : 47|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ MessageCounterP_ASR_IPB : 51|4@0+ (1,0) [0|15] "" NPE
+  SG_ BrakeRodStrokeValidData : 53|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ ChecksumP_ASR_IPB : 63|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 1376 STATUS_B_CAN: 8 BCM
+  SG_ TrunkSts : 9|1@0+ (1,0) [0|1] "" NPE
+  SG_ AutoEPBButtonSts : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ PowerModeSts : 15|2@0+ (1,0) [0|3] "" NPE
+  SG_ TrunkReleaseReqCntrl : 16|1@0+ (1,0) [0|1] "" NPE
+  SG_ RechargeFlapButtonSts : 19|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ KeySts : 23|4@0+ (1,0) [0|15] "raw" NPE
+  SG_ ExternalTemperature : 31|8@0+ (0.5,-40) [-39.5|87.5] "°C" Vector__XXX
+  SG_ FuelLevelFailSts : 32|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ EngineBonnetSts : 37|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ ExternalTemperatureFailSts : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ FuelLevelRawValue : 47|8@0+ (1,0) [0|100] "%" Vector__XXX
+  SG_ FOBSearchRequest : 49|2@0+ (1,0) [0|3] "" NPE
+  SG_ TheftAlarmStatus : 52|3@0+ (1,0) [0|7] "" NPE
+  SG_ ChargingReleaseReqCntrl : 53|1@0+ (1,0) [0|1] "" NPE
+  SG_ NTPCalibrationReqSts : 54|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1387 STATUS_C_NCA_NCR: 8 BCM
+  SG_ ShiftModeSts : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ ActualGearForDisplay : 20|4@0+ (1,0) [0|15] "" NPE
+  SG_ NCDFailSts : 22|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ LaunchCircularLedSts : 25|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ Command_Lamp_Fail_Gear : 27|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BuzzerReqSts : 29|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ LaunchLedSts : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ PerformanceLaunchIndication : 35|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ AutomaticRoboticXmsnDegradedMode : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ PerformanceLaunchMode : 41|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RoboticTransmissionWarning : 47|6@0+ (1,0) [0|63] "" Vector__XXX
+  SG_ MessageCounter : 51|4@0+ (1,0) [0|15] "" NPE
+  SG_ PLockSts : 53|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ NCR_EPB_Req : 54|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Checksum_STATUS_C_NCA_NCR : 63|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 1397 STATUS_NPE_V2: 1 NPE
+  SG_ GenericFailSts : 0|1@0+ (1,0) [0|1] "" BCM
+  SG_ CurrentFailSts : 1|1@0+ (1,0) [0|1] "" BCM
+  SG_ EOL_NPE : 2|1@0+ (1,0) [0|1] "" BCM
+  SG_ DES_NPE : 4|2@0+ (1,0) [0|3] "" BCM
+
+BO_ 1441 PWT_STATUS_2: 8 BCM
+  SG_ CRC_PWT_STATUS_2 : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ ReducePowerAssist : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BatteryDisconnectionWarning : 10|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ VCU_EnergyProfileRqt : 13|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ VehicleNotInUse : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ EManettinoSts : 18|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ EManettinoFailSts : 19|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ EManettinoTransitionInfo : 22|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ MVLoadEnable_NPR : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BatteryVoltageLevel : 30|7@0+ (0.16,0) [0|18] "volt" NPE
+  SG_ CruiseControlSts : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ CruiseControlLampSts : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ RechargeSts : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MsgCnt_PWT_STATUS_2 : 38|4@0+ (1,0) [0|15] "" NPE
+  SG_ BatteryVoltageLevelFailSts : 39|1@0+ (1,0) [0|1] "" NPE
+  SG_ EngineSts : 45|2@0+ (1,0) [0|3] "" NPE
+  SG_ StopStartSts : 47|2@0+ (1,0) [0|3] "" NPE
+  SG_ PowertrainSts : 50|3@0+ (1,0) [0|7] "" NPE
+  SG_ EDriveSts : 54|2@0+ (1,0) [0|3] "" NPE
+  SG_ TargetSpeed : 63|8@0+ (1,0) [0|255] "km/h" Vector__XXX
+
+BO_ 1445 RFHUB2: 5 NPE
+  SG_ MsgFOBLeftVeh : 0|2@0+ (1,0) [0|3] "" BCM
+  SG_ PowerModeSts_NPE : 2|2@0+ (1,0) [0|3] "" BCM
+  SG_ KeyProgramSts : 6|4@0+ (1,0) [0|15] "" BCM
+  SG_ CsoPEEnableDisableSts : 7|1@0+ (1,0) [0|1] "" BCM
+  SG_ MsgServPEKG : 8|2@0+ (1,0) [0|3] "" BCM
+  SG_ MsgPutInPark : 10|2@0+ (1,0) [0|3] "" BCM
+  SG_ MsgNotInPark : 12|2@0+ (1,0) [0|3] "" BCM
+  SG_ MsgFOBNotFnd : 14|2@0+ (1,0) [0|3] "" BCM
+  SG_ MsgRemovePlug : 16|1@0+ (1,0) [0|1] "" BCM
+  SG_ LastKeyFobNumSeen : 20|4@0+ (1,0) [0|15] "" BCM
+  SG_ MsgAutoIgnOFF : 22|2@0+ (1,0) [0|3] "" BCM
+  SG_ Key_ON_Visualization : 31|2@0+ (1,0) [0|3] "" BCM
+
+BO_ 1481 xEV_STS_HMI: 8 BCM
+  SG_ HVB_Optimal_SOC_Extended_HMI : 7|8@0+ (0.39215686274509803,0) [0|100] "%" Vector__XXX
+  SG_ HVB_Optimal_SOC_Daily_HMI : 15|8@0+ (0.39215686274509803,0) [0|100] "%" Vector__XXX
+  SG_ HVB_Temperature_Indicator : 22|7@0+ (1,-31) [-31|86] "°C" Vector__XXX
+  SG_ HVB_SOH_HMI : 31|8@0+ (0.39215686274509803,0) [0|100] "%" Vector__XXX
+  SG_ SOC_Indicator_Bars : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ HVB_SOC_Colour_HMI : 37|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ HVB_SOC_HMI : 47|8@0+ (0.39215686274509803,0) [0|100] "%" Vector__XXX
+  SG_ HVB_ParkDaysLeft_HMI : 49|10@0+ (1,0) [0|1023] "day" Vector__XXX
+  SG_ HVB_DischargeRate_HMI : 55|6@0+ (0.1,0) [0|6.4] "%/h" Vector__XXX
+
+BO_ 1485 HVB_HMI_STS: 8 BCM
+  SG_ CRC_HVB_HMI_STS : 7|8@0+ (1,0) [0|255] "" NPE
+  SG_ LongParkingInfoForDisplay : 10|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ HVBBuzzerReq : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MsgCnt_HVB_HMI_STS : 15|4@0+ (1,0) [0|14] "" NPE
+  SG_ HVBChargeWarningForDisplay : 20|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ LongParkingSts : 21|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ HVBSOC_Status_HMI : 23|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ HVB_SOC_BEV_HMI : 31|8@0+ (0.39215686274509803,0) [0|100] "%" NPE
+  SG_ HVB_TemperatureFailSts : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ BatPrecondSts : 35|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ HVSysWarningForDisplay : 39|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ BatEstTimeToTarget : 46|7@0+ (1,0) [0|127] "min" Vector__XXX
+  SG_ MILrequest : 47|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BatPrecondProgress : 55|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+  SG_ HVBWarningForDisplay : 60|5@0+ (1,0) [0|31] "" Vector__XXX
+  SG_ HVBStatus : 62|2@0+ (1,0) [0|3] "" NPE
+  SG_ HVBSOC_Status_China_HMI : 63|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1504 STATUS_B_CAN2: 8 BCM
+  SG_ FuelFlapSts : 2|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ FuelButtonSts : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SleepReq_BCM : 17|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ TotalOdometer : 27|20@0+ (1,0) [0|999999] "km" Vector__XXX
+  SG_ RechargeLedSts : 30|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ RechargeFlapCableButtonSts : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ NightDaySts : 52|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ AVHDriverDoorSts : 55|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Alcohol_Interlock_Inhibit : 56|1@0+ (1,0) [0|1] "" NPE
+  SG_ TrunkFailSts : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ EngineBonnetSts_LH : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RechargeFlapSts : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1539 TRIP_A_E_B: 8 BCM
+  SG_ TotalOdometer : 11|20@0+ (1,0) [0|999999] "km" NPE
+
+BO_ 1696 TIME_E_DATE: 6 BCM
+  SG_ Hour2 : 3|4@0+ (1,0) [0|9] "" NPE
+  SG_ Hour1 : 7|4@0+ (1,0) [0|9] "" NPE
+  SG_ Minute2 : 11|4@0+ (1,0) [0|9] "" NPE
+  SG_ Minute1 : 15|4@0+ (1,0) [0|9] "" NPE
+  SG_ Day2 : 19|4@0+ (1,0) [0|9] "" NPE
+  SG_ Day1 : 23|4@0+ (1,0) [0|9] "" NPE
+  SG_ Month2 : 27|4@0+ (1,0) [0|9] "" NPE
+  SG_ Month1 : 31|4@0+ (1,0) [0|9] "" NPE
+  SG_ Year2 : 35|4@0+ (1,0) [0|9] "" NPE
+  SG_ Year1 : 39|4@0+ (1,0) [0|9] "" NPE
+  SG_ Year4 : 43|4@0+ (1,0) [0|9] "" NPE
+  SG_ Year3 : 47|4@0+ (1,0) [0|9] "" NPE
+
+BO_ 1726 NIT_VEHICLE_SETUP_3: 8 BCM
+  SG_ CabinLightNightDaySwitch : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ CabinLight_Feet_Enable : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ CabinLight_DoorPanel_Enable : 10|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ AutoDoorsAlert : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ CabinLight_Feet_Level : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ CabinLight_DoorPanel_Level : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ InternalLightEnable : 24|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ ChargePlugAutoUnlock : 27|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ ActiveProfile : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ User_Max_SOC : 38|7@0+ (1,0) [0|100] "%" Vector__XXX
+  SG_ PassiveEntryEnable : 39|1@0+ (1,0) [0|1] "" NPE
+  SG_ PresentProfile : 41|11@0+ (1,0) [0|2047] "" Vector__XXX
+  SG_ StealthModeActive : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ User_SOC_Preset : 60|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ ChargeFlapUnlock : 61|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ AntiTiltAlarmCommand : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1767 NIT_VEHICLE_SETUP: 8 BCM
+  SG_ LanguageSelection : 5|6@0+ (1,0) [0|63] "" Vector__XXX
+  SG_ TemperatureUnit : 6|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ DistanceUnit : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ AutomaticMirrorFoldingEnable : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ HourMode : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ WiperRLSSensibility : 11|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ WelcomeInCarEnable : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ BuzzerVolumeWarning : 15|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ SpeedThreshold : 21|6@0+ (5,0) [0|250] "Km/h or mph" Vector__XXX
+  SG_ ResetTripAReq : 26|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ DriverDoorUnlockEnable : 27|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SpeedLockDoorEnable : 28|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ ExternalLightSensorLevel : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ SpeedThresholdEnable : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ WalkAwayEnabled : 35|1@0+ (1,0) [0|1] "" NPE
+  SG_ GloveBoxUnlockEnable : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Stop_GoEnable : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ EngineSpeedDisplayLedEnable : 43|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SnowChainMode : 44|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ PressureUnit : 46|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RPMAreaColor : 50|3@0+ (1,0) [0|7] "" Vector__XXX
+  SG_ NTPCalibrationReqSts : 51|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ EmergencyStopSignallingEnable : 54|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ RearAutoDoorAlert : 56|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ MirrorAutoTiltEnable : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ SpeedLimitSignEnable : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ TrafficChangeEnable : 62|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1955 NQS_INFO_C: 8 BCM
+  SG_ WCM_Status : 15|4@0+ (1,0) [0|15] "" NPE
+  SG_ ElectricSteeringLamp_FailSts : 25|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ VDCLamp_FailSts : 27|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ EBDLamp_FailSts : 29|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ ABSLamp_FailSts : 31|2@0+ (1,0) [0|3] "" Vector__XXX
+  SG_ MessageCounter_NQS_INFO_C : 35|4@0+ (1,0) [0|15] "" NPE
+  SG_ InternalLightLevel : 39|4@0+ (1,0) [0|15] "" Vector__XXX
+  SG_ CRC_PWT_NQS_INFO_C : 47|8@0+ (1,0) [0|255] "" NPE
+
+BO_ 2564460785 UDS_SGW_NPE_PhyReq_Data: 8 BCM
+  SG_ UDS_SGW_NPE_PhyReq_Data : 7|64@0+ (1,0) [0|1.84467440737096E+19] "" NPE
+
+BO_ 2564485520 UDS_NPE_SGW_PhyRes_Data: 8 NPE
+  SG_ UDS_NPE_SGW_PhyRes_Data : 7|64@0+ (1,0) [0|1.84467440737096E+19] "" BCM
+
+BO_ 2564554481 UDS_SGW_to_ALL_Func_Data: 8 BCM
+  SG_ UDS_OBD_to_ALL_FunctionalRequest : 7|64@0+ (1,0) [0|1.84467440737096E+19] "" NPE
+
+BO_ 2651930624 CFG_DATA_CODE_REQUEST: 6 BCM
+  SG_ Digit_10 : 3|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_11 : 7|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_08 : 11|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_09 : 15|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_06 : 19|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_07 : 23|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_04 : 27|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_05 : 31|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_02 : 35|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_03 : 39|4@0+ (1,0) [0|15] "" NPE
+  SG_ Digit_01 : 47|4@0+ (1,0) [0|15] "" NPE
+
+BO_ 2651930689 CFG_DATA_CODE_RSP_NPE: 6 NPE
+  SG_ Digit_10_NPE : 3|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_11_NPE : 7|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_08_NPE : 11|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_09_NPE : 15|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_06_NPE : 19|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_07_NPE : 23|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_04_NPE : 27|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_05_NPE : 31|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_02_NPE : 35|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_03_NPE : 39|4@0+ (1,0) [0|15] "" BCM
+  SG_ Digit_01_NPE : 47|4@0+ (1,0) [0|15] "" BCM
+
+BO_ 2654208000 WAKE_C_NBC: 8 BCM
+  SG_ WakeRsn_BCM : 6|7@0+ (1,0) [0|127] "" NPE
+  SG_ MainWakeSts_BCM : 7|1@0+ (1,0) [0|1] "" NPE
+  SG_ WakeCntr_BCM : 15|8@0+ (1,0) [0|255] "" NPE
+  SG_ Node28 : 20|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Node29 : 21|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Node21 : 29|1@0+ (1,0) [0|1] "" NPE
+  SG_ Node9 : 33|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Node11 : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+  SG_ Node0 : 40|1@0+ (1,0) [0|1] "" NPE
+
+BO_ 2654208065 WAKE_C_NPE: 4 NPE
+  SG_ WakeRsn_NPE : 6|7@0+ (1,0) [0|127] "" BCM
+  SG_ WakeReq_NPE : 7|1@0+ (1,0) [0|1] "" BCM
+  SG_ WakeCntr_NPE : 15|8@0+ (1,0) [0|255] "" BCM
+  SG_ WakeUpNodeAddress : 23|8@0+ (1,0) [0|255] "" BCM
+
+BO_ 2658971643 ECU_APPL_NPE: 8 NPE
+  SG_ ECU_APPL_NPE : 7|64@0+ (1,0) [0|1.84467440737096E+19] "" BCM
+
+
+CM_ BU_ BCM "Nodo Body Computer"; 
+CM_ BU_ NPE "Nodo Passive Entry (Radio Frequency Hub Module)"; 
+CM_ SG_ 359 RFRearFuncReq "{For F175: Sig_name = RFRearFuncReq}"; 
+CM_ SG_ 359 FobSearchResult "   7         6       5       4         3              2                 1                 0
+|Status|Status|Fault|Trunk|Interior|ExteriorRight|ExteriorLeft|ExteriorRear|
+
+Status is 2 bits encoded as:
+  7     6
+  0     0   = NO_ACTION
+  0     1   = IN_PROGRESS
+  1     0   = COMPLETE
+  1     1   = TIMEOUT
+
+Fault: 0 = NO_FAULT, 1 = FAULT
+
+Trunk, Interior, ExteriorRight, ExteriorLeft, ExteriorRear: 
+0 = NO_FOB_IN_ZONE, 1 = FOB_IN_ZONE"; 
+CM_ SG_ 359 FobSearchResult_LongPressure "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 524 VehicleSpeedVSOSig "Speed is computed based on driven wheels ( rear wheels for Ferrari-Maserati )
+This value is computed as the STATUS_C-NFR.VehicleSpeed received by NBC.
+Signal not valid for 500ms after startup "; 
+CM_ SG_ 524 VehicleSpeedVSOSigFailSts "Signal not valid for 500ms after startup"; 
+CM_ SG_ 524 MsgCounter "SAE J1850"; 
+CM_ SG_ 524 Checksum "According to SAE J1850"; 
+CM_ SG_ 599 ChecksumNAB1 "According SAE J-1850"; 
+CM_ SG_ 1313 STS_DRS_DriverLatchsts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_PsngrDoorSts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_DriverDoorSts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_RearRightLatchsts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_RearLeftDoorSts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_RearRightDoorSts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_PsngrLatchsts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_RearLeftLatchsts "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_MsgCounter "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1313 STS_DRS_Checksum "According SAE J-1850 - Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1318 BrakePressureTarget "Target pressure value available by wire (p_TAR), it includes externnal brake requests (ACC, ?) NOT Available in Back Up mode"; 
+CM_ SG_ 1318 DriverBrkPressureRqt "If valid, it is the master cylinder pressure (pMC), in the 'driver circuit'. Only in by wire mode is related to Brake Rod Stroke (sPTS) by the DBR-curve. In back Up mode reflects the actual pressure in the caliper circuit. "; 
+CM_ SG_ 1318 BrakePressureActual "Maximum pressure value available at wheels (pS_SP). NOTAvailable in Back Up mode"; 
+CM_ SG_ 1318 StopLightActRqt "This signal is internally used by NBC only. There aren?t any changes for Gateway Function."; 
+CM_ SG_ 1318 BrakeRodStroke "Available in both 'by wire' and 'Back Up' mode.
+Indicate if the Bake pedal is pressed or not AND the amount of the Rod stroke"; 
+CM_ SG_ 1318 BrakePedalSts "Available in both 'by wire' and 'Back Up' mode.
+Indicate if the Bake pedal is pressed or not"; 
+CM_ SG_ 1318 DriverBrkPressureRqtValidData "Signal not valid for 800ms after startup"; 
+CM_ SG_ 1376 TrunkReleaseReqCntrl "Passive Entry system (ASC-PE)"; 
+CM_ SG_ 1376 ExternalTemperature "value = -40°C. This value is not the real extenal temperature processed: it means means no valid data available"; 
+CM_ SG_ 1387 NCDFailSts "0 niente
+1 spia ambra
+2 spia ambra e richiesta a NVO di forzare il manettino in prima posizione
+3 spia rossa e richiesta a NVO di forzare il manettino in prima posizione"; 
+CM_ SG_ 1387 PLockSts "{For VetturaTermica: Sig_name = PLockSts}"; 
+CM_ SG_ 1387 NCR_EPB_Req "{For VetturaTermica: Sig_name = NCR_EPB_Req}"; 
+CM_ SG_ 1441 BatteryDisconnectionWarning "signal used to inform the driver to don't disconnect the Battery"; 
+CM_ SG_ 1441 EngineSts "This signal indicates the engine state."; 
+CM_ SG_ 1441 StopStartSts "Engine restart: active 80 mSec before restart, 3 seconds after engine ON"; 
+CM_ SG_ 1485 MILrequest "request mil lamp"; 
+CM_ SG_ 1504 AVHDriverDoorSts "Sent by the body Computer that read directly the door ajar switch"; 
+CM_ SG_ 1696 Hour2 "BCD CODED 
+Hour always in 24 format"; 
+CM_ SG_ 1696 Hour1 "BCD CODED 
+Hour always in 24 format"; 
+CM_ SG_ 1696 Minute2 "BCD CODED"; 
+CM_ SG_ 1696 Minute1 "BCD CODED"; 
+CM_ SG_ 1696 Day2 "BCD CODED"; 
+CM_ SG_ 1696 Day1 "BCD CODED"; 
+CM_ SG_ 1696 Month2 "BCD CODED"; 
+CM_ SG_ 1696 Month1 "BCD CODED"; 
+CM_ SG_ 1696 Year2 "BCD CODED"; 
+CM_ SG_ 1696 Year1 "BCD CODED"; 
+CM_ SG_ 1696 Year4 "BCD CODED"; 
+CM_ SG_ 1696 Year3 "BCD CODED"; 
+CM_ SG_ 1767 HourMode "Not present in 937"; 
+CM_ SG_ 1767 BuzzerVolumeWarning "Not present in 937"; 
+CM_ SG_ 1767 SpeedThreshold "Not present in 937"; 
+CM_ SG_ 1767 DriverDoorUnlockEnable "Not present in 937"; 
+CM_ SG_ 1767 SpeedLockDoorEnable "Not present in 937"; 
+CM_ SG_ 1767 ExternalLightSensorLevel "Bit position 26-25 for FIAT 07325"; 
+CM_ SG_ 1767 SpeedThresholdEnable "Bit position 24 for FIAT 07325"; 
+
+BA_DEF_ SG_  "GenSigSendType" ENUM "NotUsed","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 2147483647;
+BA_DEF_ SG_  "GenSigStartValue" INT 0 2147483647;
+BA_DEF_ BO_  "DiagState" ENUM "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 65535;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 255;
+BA_DEF_ BO_  "GenMsgTimeoutTime" INT 0 10000;
+BA_DEF_ BO_  "GenMsgSendType" ENUM "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NoMsgSendType";
+BA_DEF_ BO_  "NmMessage" ENUM "No","Yes";
+BA_DEF_ BO_  "Type" ENUM "P","C","PE","COC","PE_Cntrl","E","E_Cntrl","OC","S","BAF","DC","EM","MM","-";
+BA_DEF_ BO_  "Period" INT 0 65535;
+BA_DEF_ BU_  "TpOwnSystemEcuNumber" HEX 0 255;
+BA_DEF_ BU_  "NwmNodeType" ENUM "kMaster","kSlave15","kSlave30","none";
+BA_DEF_ BU_  "NmNodeType" ENUM "kMaster","kSlave15","kSlave30","none";
+BA_DEF_ BU_  "ILUsed" ENUM "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM "No","Yes";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 255;
+BA_DEF_ BU_  "NodeLayerModules" STRING;
+BA_DEF_ BU_  "Description" STRING;
+BA_DEF_ BU_  "NodeAddress" INT 0 127;
+BA_DEF_  "Manufacturer" STRING;
+BA_DEF_  "VersionYear" INT 0 99;
+BA_DEF_  "VersionWeek" INT 0 53;
+BA_DEF_  "Version" HEX 0 255;
+BA_DEF_  "DBName" STRING;
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "NmType" STRING;
+BA_DEF_  "BusType" STRING;
+BA_DEF_ SG_  "EventTrans" ENUM "Yes","No";
+BA_DEF_ SG_  "Accuracy" STRING;
+BA_DEF_ SG_  "SignalAge" INT 0 100000;
+BA_DEF_ SG_  "InitialValue" INT -65536 65535;
+BA_DEF_ BO_  "DiagResponse" ENUM "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM "No","Yes";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 10000;
+
+
+
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "DBName" "CAN";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "EventTrans" "No";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgTimeoutTime" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "InitialValue" 0;
+BA_DEF_DEF_  "Manufacturer" "Ferrari";
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "NmNode" "Yes";
+BA_DEF_DEF_  "NmNodeType" "none";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NodeAddress" 0;
+BA_DEF_DEF_  "NodeLayerModules" "Osek_TP.dll";
+BA_DEF_DEF_  "NwmNodeType" "none";
+BA_DEF_DEF_  "Period" 0;
+BA_DEF_DEF_  "SignalAge" 0;
+BA_DEF_DEF_  "TpOwnSystemEcuNumber" 0;
+BA_DEF_DEF_  "Type" "-";
+BA_DEF_DEF_  "Version" 160;
+BA_DEF_DEF_  "VersionWeek" 51;
+BA_DEF_DEF_  "VersionYear" 13;
+
+BA_ "BusType" "CAN";
+BA_ "NmType" "Fiat_Class_C";
+BA_ "Description" BU_ BCM "Body Computer Module";
+BA_ "NmNodeType" BU_ BCM 0;
+BA_ "NmStationAddress" BU_ BCM 64;
+BA_ "NwmNodeType" BU_ BCM 0;
+BA_ "TpOwnSystemEcuNumber" BU_ BCM 64;
+BA_ "NmStationAddress" BU_ NPE 144;
+BA_ "NodeAddress" BU_ NPE 21;
+BA_ "TpOwnSystemEcuNumber" BU_ NPE 144;
+BA_ "DiagRequest" BO_ 66 1;
+BA_ "DiagResponse" BO_ 66 0;
+BA_ "DiagState" BO_ 66 0;
+BA_ "GenMsgTimeoutTime" BO_ 66 2500;
+BA_ "NmMessage" BO_ 66 0;
+BA_ "Type" BO_ 66 8;
+BA_ "DiagRequest" BO_ 67 0;
+BA_ "DiagResponse" BO_ 67 1;
+BA_ "DiagState" BO_ 67 0;
+BA_ "NmMessage" BO_ 67 0;
+BA_ "Type" BO_ 67 8;
+BA_ "DiagRequest" BO_ 68 0;
+BA_ "DiagResponse" BO_ 68 0;
+BA_ "DiagState" BO_ 68 0;
+BA_ "GenMsgILSupport" BO_ 68 1;
+BA_ "GenMsgTimeoutTime" BO_ 68 2500;
+BA_ "NmMessage" BO_ 68 0;
+BA_ "Type" BO_ 68 8;
+BA_ "DiagRequest" BO_ 69 0;
+BA_ "DiagResponse" BO_ 69 0;
+BA_ "DiagState" BO_ 69 0;
+BA_ "GenMsgILSupport" BO_ 69 1;
+BA_ "NmMessage" BO_ 69 0;
+BA_ "Type" BO_ 69 8;
+BA_ "DiagRequest" BO_ 359 0;
+BA_ "DiagResponse" BO_ 359 0;
+BA_ "DiagState" BO_ 359 0;
+BA_ "GenMsgCycleTime" BO_ 359 20;
+BA_ "GenMsgILSupport" BO_ 359 1;
+BA_ "GenMsgSendType" BO_ 359 0;
+BA_ "GenMsgTimeoutTime" BO_ 359 2500;
+BA_ "NmMessage" BO_ 359 0;
+BA_ "Period" BO_ 359 20;
+BA_ "Type" BO_ 359 1;
+BA_ "GenMsgCycleTime" BO_ 499 20;
+BA_ "GenMsgILSupport" BO_ 499 1;
+BA_ "GenMsgSendType" BO_ 499 0;
+BA_ "GenMsgTimeoutTime" BO_ 499 2500;
+BA_ "Period" BO_ 499 20;
+BA_ "Type" BO_ 499 1;
+BA_ "DiagRequest" BO_ 524 0;
+BA_ "DiagResponse" BO_ 524 0;
+BA_ "DiagState" BO_ 524 0;
+BA_ "GenMsgCycleTime" BO_ 524 20;
+BA_ "GenMsgCycleTime" BO_ 524 20;
+BA_ "GenMsgILSupport" BO_ 524 1;
+BA_ "GenMsgSendType" BO_ 524 0;
+BA_ "GenMsgTimeoutTime" BO_ 524 2500;
+BA_ "NmMessage" BO_ 524 0;
+BA_ "Period" BO_ 524 20;
+BA_ "Period" BO_ 524 20;
+BA_ "Type" BO_ 524 0;
+BA_ "DiagRequest" BO_ 599 0;
+BA_ "DiagResponse" BO_ 599 0;
+BA_ "DiagState" BO_ 599 0;
+BA_ "GenMsgCycleTime" BO_ 599 100;
+BA_ "GenMsgCycleTime" BO_ 599 100;
+BA_ "GenMsgDelayTime" BO_ 599 10;
+BA_ "GenMsgDelayTime" BO_ 599 10;
+BA_ "GenMsgILSupport" BO_ 599 1;
+BA_ "GenMsgSendType" BO_ 599 0;
+BA_ "GenMsgStartDelayTime" BO_ 599 0;
+BA_ "GenMsgTimeoutTime" BO_ 599 2500;
+BA_ "NmMessage" BO_ 599 0;
+BA_ "Period" BO_ 599 100;
+BA_ "Period" BO_ 599 100;
+BA_ "Type" BO_ 599 3;
+BA_ "DiagRequest" BO_ 630 0;
+BA_ "DiagResponse" BO_ 630 0;
+BA_ "DiagState" BO_ 630 0;
+BA_ "GenMsgCycleTime" BO_ 630 20;
+BA_ "GenMsgCycleTime" BO_ 630 20;
+BA_ "GenMsgILSupport" BO_ 630 1;
+BA_ "GenMsgSendType" BO_ 630 0;
+BA_ "GenMsgTimeoutTime" BO_ 630 2500;
+BA_ "NmMessage" BO_ 630 0;
+BA_ "Period" BO_ 630 20;
+BA_ "Period" BO_ 630 20;
+BA_ "Type" BO_ 630 0;
+BA_ "GenMsgCycleTime" BO_ 654 50;
+BA_ "GenMsgILSupport" BO_ 654 1;
+BA_ "GenMsgSendType" BO_ 654 0;
+BA_ "GenMsgTimeoutTime" BO_ 654 2500;
+BA_ "Period" BO_ 654 50;
+BA_ "Type" BO_ 654 1;
+BA_ "GenMsgCycleTime" BO_ 761 100;
+BA_ "GenMsgILSupport" BO_ 761 1;
+BA_ "GenMsgSendType" BO_ 761 0;
+BA_ "GenMsgTimeoutTime" BO_ 761 2500;
+BA_ "Period" BO_ 761 100;
+BA_ "Type" BO_ 761 1;
+BA_ "GenMsgCycleTime" BO_ 1035 100;
+BA_ "GenMsgILSupport" BO_ 1035 1;
+BA_ "GenMsgSendType" BO_ 1035 0;
+BA_ "GenMsgTimeoutTime" BO_ 1035 2500;
+BA_ "Period" BO_ 1035 100;
+BA_ "Type" BO_ 1035 1;
+BA_ "DiagRequest" BO_ 1214 0;
+BA_ "DiagResponse" BO_ 1214 0;
+BA_ "DiagState" BO_ 1214 0;
+BA_ "GenMsgCycleTime" BO_ 1214 500;
+BA_ "GenMsgILSupport" BO_ 1214 1;
+BA_ "GenMsgSendType" BO_ 1214 0;
+BA_ "GenMsgTimeoutTime" BO_ 1214 2500;
+BA_ "NmMessage" BO_ 1214 0;
+BA_ "Period" BO_ 1214 500;
+BA_ "Type" BO_ 1214 1;
+BA_ "GenMsgCycleTime" BO_ 1267 500;
+BA_ "GenMsgILSupport" BO_ 1267 1;
+BA_ "GenMsgSendType" BO_ 1267 0;
+BA_ "GenMsgTimeoutTime" BO_ 1267 2500;
+BA_ "Period" BO_ 1267 500;
+BA_ "Type" BO_ 1267 1;
+BA_ "DiagRequest" BO_ 1274 0;
+BA_ "DiagResponse" BO_ 1274 0;
+BA_ "DiagState" BO_ 1274 0;
+BA_ "GenMsgCycleTime" BO_ 1274 20;
+BA_ "GenMsgILSupport" BO_ 1274 1;
+BA_ "GenMsgSendType" BO_ 1274 0;
+BA_ "GenMsgTimeoutTime" BO_ 1274 2500;
+BA_ "NmMessage" BO_ 1274 0;
+BA_ "Period" BO_ 1274 20;
+BA_ "Type" BO_ 1274 0;
+BA_ "DiagRequest" BO_ 1275 0;
+BA_ "DiagResponse" BO_ 1275 0;
+BA_ "DiagState" BO_ 1275 0;
+BA_ "GenMsgCycleTime" BO_ 1275 20;
+BA_ "GenMsgILSupport" BO_ 1275 1;
+BA_ "GenMsgSendType" BO_ 1275 0;
+BA_ "GenMsgTimeoutTime" BO_ 1275 2500;
+BA_ "NmMessage" BO_ 1275 0;
+BA_ "Period" BO_ 1275 20;
+BA_ "Type" BO_ 1275 0;
+BA_ "DiagRequest" BO_ 1276 0;
+BA_ "DiagResponse" BO_ 1276 0;
+BA_ "DiagState" BO_ 1276 0;
+BA_ "GenMsgCycleTime" BO_ 1276 20;
+BA_ "GenMsgILSupport" BO_ 1276 1;
+BA_ "GenMsgSendType" BO_ 1276 0;
+BA_ "GenMsgTimeoutTime" BO_ 1276 2500;
+BA_ "NmMessage" BO_ 1276 0;
+BA_ "Period" BO_ 1276 20;
+BA_ "Type" BO_ 1276 0;
+BA_ "DiagRequest" BO_ 1313 0;
+BA_ "DiagResponse" BO_ 1313 0;
+BA_ "DiagState" BO_ 1313 0;
+BA_ "GenMsgCycleTime" BO_ 1313 100;
+BA_ "GenMsgCycleTime" BO_ 1313 100;
+BA_ "GenMsgDelayTime" BO_ 1313 10;
+BA_ "GenMsgDelayTime" BO_ 1313 10;
+BA_ "GenMsgILSupport" BO_ 1313 1;
+BA_ "GenMsgSendType" BO_ 1313 0;
+BA_ "GenMsgTimeoutTime" BO_ 1313 2500;
+BA_ "NmMessage" BO_ 1313 0;
+BA_ "Period" BO_ 1313 100;
+BA_ "Period" BO_ 1313 100;
+BA_ "Type" BO_ 1313 1;
+BA_ "DiagRequest" BO_ 1318 0;
+BA_ "DiagResponse" BO_ 1318 0;
+BA_ "DiagState" BO_ 1318 0;
+BA_ "GenMsgCycleTime" BO_ 1318 20;
+BA_ "GenMsgCycleTime" BO_ 1318 20;
+BA_ "GenMsgILSupport" BO_ 1318 1;
+BA_ "GenMsgSendType" BO_ 1318 0;
+BA_ "GenMsgTimeoutTime" BO_ 1318 2500;
+BA_ "NmMessage" BO_ 1318 0;
+BA_ "Period" BO_ 1318 20;
+BA_ "Period" BO_ 1318 20;
+BA_ "Type" BO_ 1318 0;
+BA_ "DiagRequest" BO_ 1376 0;
+BA_ "DiagResponse" BO_ 1376 0;
+BA_ "DiagState" BO_ 1376 0;
+BA_ "GenMsgCycleTime" BO_ 1376 100;
+BA_ "GenMsgDelayTime" BO_ 1376 10;
+BA_ "GenMsgILSupport" BO_ 1376 1;
+BA_ "GenMsgSendType" BO_ 1376 0;
+BA_ "GenMsgStartDelayTime" BO_ 1376 10;
+BA_ "GenMsgTimeoutTime" BO_ 1376 2500;
+BA_ "NmMessage" BO_ 1376 0;
+BA_ "Period" BO_ 1376 100;
+BA_ "Type" BO_ 1376 1;
+BA_ "DiagRequest" BO_ 1387 0;
+BA_ "DiagResponse" BO_ 1387 0;
+BA_ "DiagState" BO_ 1387 0;
+BA_ "GenMsgCycleTime" BO_ 1387 100;
+BA_ "GenMsgILSupport" BO_ 1387 1;
+BA_ "GenMsgSendType" BO_ 1387 0;
+BA_ "GenMsgStartDelayTime" BO_ 1387 20;
+BA_ "GenMsgTimeoutTime" BO_ 1387 2500;
+BA_ "NmMessage" BO_ 1387 0;
+BA_ "Period" BO_ 1387 100;
+BA_ "Type" BO_ 1387 1;
+BA_ "DiagRequest" BO_ 1397 0;
+BA_ "DiagResponse" BO_ 1397 0;
+BA_ "DiagState" BO_ 1397 0;
+BA_ "GenMsgCycleTime" BO_ 1397 1000;
+BA_ "GenMsgILSupport" BO_ 1397 1;
+BA_ "GenMsgSendType" BO_ 1397 0;
+BA_ "GenMsgTimeoutTime" BO_ 1397 2500;
+BA_ "NmMessage" BO_ 1397 0;
+BA_ "Period" BO_ 1397 1000;
+BA_ "Type" BO_ 1397 1;
+BA_ "DiagRequest" BO_ 1441 0;
+BA_ "DiagResponse" BO_ 1441 0;
+BA_ "DiagState" BO_ 1441 0;
+BA_ "GenMsgCycleTime" BO_ 1441 50;
+BA_ "GenMsgCycleTime" BO_ 1441 50;
+BA_ "GenMsgILSupport" BO_ 1441 1;
+BA_ "GenMsgSendType" BO_ 1441 0;
+BA_ "GenMsgTimeoutTime" BO_ 1441 2500;
+BA_ "NmMessage" BO_ 1441 0;
+BA_ "Period" BO_ 1441 50;
+BA_ "Period" BO_ 1441 50;
+BA_ "Type" BO_ 1441 1;
+BA_ "DiagRequest" BO_ 1445 0;
+BA_ "DiagResponse" BO_ 1445 0;
+BA_ "DiagState" BO_ 1445 0;
+BA_ "GenMsgCycleTime" BO_ 1445 1000;
+BA_ "GenMsgILSupport" BO_ 1445 1;
+BA_ "GenMsgSendType" BO_ 1445 0;
+BA_ "GenMsgTimeoutTime" BO_ 1445 2500;
+BA_ "NmMessage" BO_ 1445 0;
+BA_ "Period" BO_ 1445 1000;
+BA_ "Type" BO_ 1445 1;
+BA_ "GenMsgCycleTime" BO_ 1481 500;
+BA_ "GenMsgILSupport" BO_ 1481 1;
+BA_ "GenMsgSendType" BO_ 1481 0;
+BA_ "GenMsgTimeoutTime" BO_ 1481 2500;
+BA_ "Period" BO_ 1481 500;
+BA_ "Type" BO_ 1481 1;
+BA_ "GenMsgCycleTime" BO_ 1485 500;
+BA_ "GenMsgILSupport" BO_ 1485 1;
+BA_ "GenMsgSendType" BO_ 1485 0;
+BA_ "GenMsgTimeoutTime" BO_ 1485 2500;
+BA_ "Period" BO_ 1485 500;
+BA_ "Type" BO_ 1485 1;
+BA_ "DiagRequest" BO_ 1504 0;
+BA_ "DiagResponse" BO_ 1504 0;
+BA_ "DiagState" BO_ 1504 0;
+BA_ "GenMsgCycleTime" BO_ 1504 100;
+BA_ "GenMsgDelayTime" BO_ 1504 10;
+BA_ "GenMsgILSupport" BO_ 1504 1;
+BA_ "GenMsgSendType" BO_ 1504 0;
+BA_ "GenMsgStartDelayTime" BO_ 1504 10;
+BA_ "GenMsgTimeoutTime" BO_ 1504 2500;
+BA_ "NmMessage" BO_ 1504 0;
+BA_ "Period" BO_ 1504 100;
+BA_ "Type" BO_ 1504 1;
+BA_ "DiagRequest" BO_ 1539 0;
+BA_ "DiagResponse" BO_ 1539 0;
+BA_ "DiagState" BO_ 1539 0;
+BA_ "GenMsgCycleTime" BO_ 1539 1000;
+BA_ "GenMsgILSupport" BO_ 1539 1;
+BA_ "GenMsgSendType" BO_ 1539 0;
+BA_ "GenMsgTimeoutTime" BO_ 1539 2500;
+BA_ "NmMessage" BO_ 1539 0;
+BA_ "Period" BO_ 1539 1000;
+BA_ "Type" BO_ 1539 3;
+BA_ "DiagRequest" BO_ 1696 0;
+BA_ "DiagResponse" BO_ 1696 0;
+BA_ "DiagState" BO_ 1696 0;
+BA_ "GenMsgCycleTime" BO_ 1696 1000;
+BA_ "GenMsgDelayTime" BO_ 1696 10;
+BA_ "GenMsgILSupport" BO_ 1696 1;
+BA_ "GenMsgSendType" BO_ 1696 0;
+BA_ "GenMsgTimeoutTime" BO_ 1696 2500;
+BA_ "NmMessage" BO_ 1696 0;
+BA_ "Period" BO_ 1696 1000;
+BA_ "Type" BO_ 1696 3;
+BA_ "GenMsgCycleTime" BO_ 1726 1000;
+BA_ "GenMsgILSupport" BO_ 1726 1;
+BA_ "GenMsgSendType" BO_ 1726 0;
+BA_ "GenMsgTimeoutTime" BO_ 1726 2500;
+BA_ "Period" BO_ 1726 1000;
+BA_ "Type" BO_ 1726 3;
+BA_ "DiagRequest" BO_ 1767 0;
+BA_ "DiagResponse" BO_ 1767 0;
+BA_ "DiagState" BO_ 1767 0;
+BA_ "GenMsgCycleTime" BO_ 1767 1000;
+BA_ "GenMsgILSupport" BO_ 1767 1;
+BA_ "GenMsgSendType" BO_ 1767 0;
+BA_ "GenMsgTimeoutTime" BO_ 1767 2500;
+BA_ "NmMessage" BO_ 1767 0;
+BA_ "Period" BO_ 1767 1000;
+BA_ "Type" BO_ 1767 3;
+BA_ "DiagRequest" BO_ 1955 0;
+BA_ "DiagResponse" BO_ 1955 0;
+BA_ "DiagState" BO_ 1955 0;
+BA_ "GenMsgCycleTime" BO_ 1955 250;
+BA_ "GenMsgILSupport" BO_ 1955 1;
+BA_ "GenMsgSendType" BO_ 1955 0;
+BA_ "GenMsgTimeoutTime" BO_ 1955 2500;
+BA_ "NmMessage" BO_ 1955 0;
+BA_ "Period" BO_ 1955 250;
+BA_ "Type" BO_ 1955 3;
+BA_ "DiagRequest" BO_ 2564460785 1;
+BA_ "Type" BO_ 2564460785 8;
+BA_ "DiagResponse" BO_ 2564485520 1;
+BA_ "Type" BO_ 2564485520 8;
+BA_ "DiagRequest" BO_ 2564554481 1;
+BA_ "Type" BO_ 2564554481 8;
+BA_ "DiagRequest" BO_ 2651930624 0;
+BA_ "DiagResponse" BO_ 2651930624 0;
+BA_ "DiagState" BO_ 2651930624 0;
+BA_ "GenMsgILSupport" BO_ 2651930624 1;
+BA_ "GenMsgTimeoutTime" BO_ 2651930624 2500;
+BA_ "NmMessage" BO_ 2651930624 0;
+BA_ "Type" BO_ 2651930624 8;
+BA_ "DiagRequest" BO_ 2651930689 0;
+BA_ "DiagResponse" BO_ 2651930689 0;
+BA_ "DiagState" BO_ 2651930689 0;
+BA_ "GenMsgILSupport" BO_ 2651930689 1;
+BA_ "GenMsgTimeoutTime" BO_ 2651930689 1000;
+BA_ "NmMessage" BO_ 2651930689 0;
+BA_ "Type" BO_ 2651930689 8;
+BA_ "DiagRequest" BO_ 2654208000 0;
+BA_ "DiagResponse" BO_ 2654208000 0;
+BA_ "DiagState" BO_ 2654208000 0;
+BA_ "GenMsgCycleTime" BO_ 2654208000 200;
+BA_ "GenMsgILSupport" BO_ 2654208000 1;
+BA_ "GenMsgSendType" BO_ 2654208000 0;
+BA_ "GenMsgStartDelayTime" BO_ 2654208000 10;
+BA_ "GenMsgTimeoutTime" BO_ 2654208000 2500;
+BA_ "NmMessage" BO_ 2654208000 1;
+BA_ "Period" BO_ 2654208000 200;
+BA_ "Type" BO_ 2654208000 3;
+BA_ "DiagRequest" BO_ 2654208065 0;
+BA_ "DiagResponse" BO_ 2654208065 0;
+BA_ "DiagState" BO_ 2654208065 0;
+BA_ "GenMsgILSupport" BO_ 2654208065 1;
+BA_ "GenMsgStartDelayTime" BO_ 2654208065 10;
+BA_ "NmMessage" BO_ 2654208065 1;
+BA_ "Type" BO_ 2654208065 8;
+BA_ "DiagRequest" BO_ 2658971643 0;
+BA_ "DiagResponse" BO_ 2658971643 0;
+BA_ "DiagState" BO_ 2658971643 0;
+BA_ "GenMsgILSupport" BO_ 2658971643 1;
+BA_ "NmMessage" BO_ 2658971643 0;
+BA_ "Type" BO_ 2658971643 5;
+BA_ "EventTrans" SG_ 66 ControlEncoding_TRM_Rq 0;
+BA_ "GenSigInactiveValue" SG_ 66 ControlEncoding_TRM_Rq 0;
+BA_ "GenSigSendType" SG_ 66 ControlEncoding_TRM_Rq 1;
+BA_ "GenSigStartValue" SG_ 66 ControlEncoding_TRM_Rq 0;
+BA_ "InitialValue" SG_ 66 ControlEncoding_TRM_Rq 0;
+BA_ "GenSigInactiveValue" SG_ 66 MiniCryptFCode_TRM_Rq 0;
+BA_ "GenSigSendType" SG_ 66 MiniCryptFCode_TRM_Rq 7;
+BA_ "GenSigStartValue" SG_ 66 MiniCryptFCode_TRM_Rq 0;
+BA_ "InitialValue" SG_ 66 MiniCryptFCode_TRM_Rq 0;
+BA_ "GenSigInactiveValue" SG_ 66 MiniCrypt_Rnd_TRM_Rq 0;
+BA_ "GenSigSendType" SG_ 66 MiniCrypt_Rnd_TRM_Rq 7;
+BA_ "GenSigStartValue" SG_ 66 MiniCrypt_Rnd_TRM_Rq 0;
+BA_ "InitialValue" SG_ 66 MiniCrypt_Rnd_TRM_Rq 0;
+BA_ "GenSigInactiveValue" SG_ 66 TxpReadRequest 0;
+BA_ "GenSigSendType" SG_ 66 TxpReadRequest 7;
+BA_ "GenSigStartValue" SG_ 66 TxpReadRequest 0;
+BA_ "InitialValue" SG_ 66 TxpReadRequest 0;
+BA_ "GenSigInactiveValue" SG_ 66 TxpAuthRequest 0;
+BA_ "GenSigSendType" SG_ 66 TxpAuthRequest 7;
+BA_ "GenSigStartValue" SG_ 66 TxpAuthRequest 0;
+BA_ "InitialValue" SG_ 66 TxpAuthRequest 0;
+BA_ "EventTrans" SG_ 67 ControlEncoding_TRM_Rsp 0;
+BA_ "GenSigInactiveValue" SG_ 67 ControlEncoding_TRM_Rsp 0;
+BA_ "GenSigSendType" SG_ 67 ControlEncoding_TRM_Rsp 1;
+BA_ "GenSigStartValue" SG_ 67 ControlEncoding_TRM_Rsp 0;
+BA_ "InitialValue" SG_ 67 ControlEncoding_TRM_Rsp 0;
+BA_ "EventTrans" SG_ 67 MiniCryptGCode_TRM_Rsp 0;
+BA_ "GenSigInactiveValue" SG_ 67 MiniCryptGCode_TRM_Rsp 0;
+BA_ "GenSigSendType" SG_ 67 MiniCryptGCode_TRM_Rsp 1;
+BA_ "GenSigStartValue" SG_ 67 MiniCryptGCode_TRM_Rsp 0;
+BA_ "InitialValue" SG_ 67 MiniCryptGCode_TRM_Rsp 0;
+BA_ "EventTrans" SG_ 67 CodeCheckSts_TRM 0;
+BA_ "GenSigInactiveValue" SG_ 67 CodeCheckSts_TRM 0;
+BA_ "GenSigSendType" SG_ 67 CodeCheckSts_TRM 1;
+BA_ "GenSigStartValue" SG_ 67 CodeCheckSts_TRM 0;
+BA_ "InitialValue" SG_ 67 CodeCheckSts_TRM 0;
+BA_ "EventTrans" SG_ 67 ProgrammedSts_TRM 0;
+BA_ "GenSigInactiveValue" SG_ 67 ProgrammedSts_TRM 0;
+BA_ "GenSigSendType" SG_ 67 ProgrammedSts_TRM 1;
+BA_ "GenSigStartValue" SG_ 67 ProgrammedSts_TRM 0;
+BA_ "InitialValue" SG_ 67 ProgrammedSts_TRM 0;
+BA_ "EventTrans" SG_ 67 TxpID 0;
+BA_ "GenSigInactiveValue" SG_ 67 TxpID 0;
+BA_ "GenSigSendType" SG_ 67 TxpID 1;
+BA_ "GenSigStartValue" SG_ 67 TxpID 0;
+BA_ "InitialValue" SG_ 67 TxpID 0;
+BA_ "EventTrans" SG_ 67 TxpFound 0;
+BA_ "GenSigInactiveValue" SG_ 67 TxpFound 0;
+BA_ "GenSigSendType" SG_ 67 TxpFound 1;
+BA_ "GenSigStartValue" SG_ 67 TxpFound 0;
+BA_ "InitialValue" SG_ 67 TxpFound 0;
+BA_ "EventTrans" SG_ 68 MinicryptReceptionSts 0;
+BA_ "GenSigInactiveValue" SG_ 68 MinicryptReceptionSts 0;
+BA_ "GenSigSendType" SG_ 68 MinicryptReceptionSts 1;
+BA_ "GenSigStartValue" SG_ 68 MinicryptReceptionSts 0;
+BA_ "InitialValue" SG_ 68 MinicryptReceptionSts 0;
+BA_ "EventTrans" SG_ 69 FrameNumber 0;
+BA_ "GenSigInactiveValue" SG_ 69 FrameNumber 0;
+BA_ "GenSigInactiveValue" SG_ 69 FrameNumber 0;
+BA_ "GenSigInactiveValue" SG_ 69 FrameNumber 0;
+BA_ "GenSigSendType" SG_ 69 FrameNumber 1;
+BA_ "GenSigStartValue" SG_ 69 FrameNumber 0;
+BA_ "GenSigStartValue" SG_ 69 FrameNumber 0;
+BA_ "GenSigStartValue" SG_ 69 FrameNumber 0;
+BA_ "InitialValue" SG_ 69 FrameNumber 0;
+BA_ "InitialValue" SG_ 69 FrameNumber 0;
+BA_ "InitialValue" SG_ 69 FrameNumber 0;
+BA_ "EventTrans" SG_ 69 TotalFrameNumber 0;
+BA_ "GenSigSendType" SG_ 69 TotalFrameNumber 1;
+BA_ "EventTrans" SG_ 69 DATA1 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA1 0;
+BA_ "GenSigSendType" SG_ 69 DATA1 1;
+BA_ "GenSigStartValue" SG_ 69 DATA1 0;
+BA_ "InitialValue" SG_ 69 DATA1 0;
+BA_ "EventTrans" SG_ 69 DATA2 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA2 0;
+BA_ "GenSigSendType" SG_ 69 DATA2 1;
+BA_ "GenSigStartValue" SG_ 69 DATA2 0;
+BA_ "InitialValue" SG_ 69 DATA2 0;
+BA_ "EventTrans" SG_ 69 DATA3 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA3 0;
+BA_ "GenSigSendType" SG_ 69 DATA3 1;
+BA_ "GenSigStartValue" SG_ 69 DATA3 0;
+BA_ "InitialValue" SG_ 69 DATA3 0;
+BA_ "EventTrans" SG_ 69 DATA4 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA4 0;
+BA_ "GenSigSendType" SG_ 69 DATA4 1;
+BA_ "GenSigStartValue" SG_ 69 DATA4 0;
+BA_ "InitialValue" SG_ 69 DATA4 0;
+BA_ "EventTrans" SG_ 69 DATA5 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA5 0;
+BA_ "GenSigSendType" SG_ 69 DATA5 1;
+BA_ "GenSigStartValue" SG_ 69 DATA5 0;
+BA_ "InitialValue" SG_ 69 DATA5 0;
+BA_ "EventTrans" SG_ 69 DATA6 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA6 0;
+BA_ "GenSigSendType" SG_ 69 DATA6 1;
+BA_ "GenSigStartValue" SG_ 69 DATA6 0;
+BA_ "InitialValue" SG_ 69 DATA6 0;
+BA_ "EventTrans" SG_ 69 DATA7 0;
+BA_ "GenSigInactiveValue" SG_ 69 DATA7 0;
+BA_ "GenSigSendType" SG_ 69 DATA7 1;
+BA_ "GenSigStartValue" SG_ 69 DATA7 0;
+BA_ "InitialValue" SG_ 69 DATA7 0;
+BA_ "GenSigInactiveValue" SG_ 359 ExteriorRearSwitch 0;
+BA_ "GenSigSendType" SG_ 359 ExteriorRearSwitch 7;
+BA_ "GenSigStartValue" SG_ 359 ExteriorRearSwitch 0;
+BA_ "InitialValue" SG_ 359 ExteriorRearSwitch 0;
+BA_ "GenSigInactiveValue" SG_ 359 IgnPosSts 0;
+BA_ "GenSigSendType" SG_ 359 IgnPosSts 7;
+BA_ "GenSigStartValue" SG_ 359 IgnPosSts 0;
+BA_ "InitialValue" SG_ 359 IgnPosSts 0;
+BA_ "GenSigInactiveValue" SG_ 359 ValidKeySts 0;
+BA_ "GenSigSendType" SG_ 359 ValidKeySts 7;
+BA_ "GenSigStartValue" SG_ 359 ValidKeySts 0;
+BA_ "InitialValue" SG_ 359 ValidKeySts 0;
+BA_ "GenSigInactiveValue" SG_ 359 CustKeyInIgnSts 0;
+BA_ "GenSigSendType" SG_ 359 CustKeyInIgnSts 7;
+BA_ "GenSigStartValue" SG_ 359 CustKeyInIgnSts 0;
+BA_ "InitialValue" SG_ 359 CustKeyInIgnSts 0;
+BA_ "GenSigInactiveValue" SG_ 359 RFFuncReq 0;
+BA_ "GenSigSendType" SG_ 359 RFFuncReq 7;
+BA_ "GenSigStartValue" SG_ 359 RFFuncReq 0;
+BA_ "InitialValue" SG_ 359 RFFuncReq 0;
+BA_ "GenSigInactiveValue" SG_ 359 RFFobNum 0;
+BA_ "GenSigSendType" SG_ 359 RFFobNum 7;
+BA_ "GenSigStartValue" SG_ 359 RFFobNum 0;
+BA_ "InitialValue" SG_ 359 RFFobNum 0;
+BA_ "GenSigInactiveValue" SG_ 359 FobSearchResult 0;
+BA_ "GenSigSendType" SG_ 359 FobSearchResult 7;
+BA_ "GenSigStartValue" SG_ 359 FobSearchResult 0;
+BA_ "InitialValue" SG_ 359 FobSearchResult 0;
+BA_ "GenSigInactiveValue" SG_ 359 RFReq 0;
+BA_ "GenSigSendType" SG_ 359 RFReq 7;
+BA_ "GenSigStartValue" SG_ 359 RFReq 0;
+BA_ "InitialValue" SG_ 359 RFReq 0;
+BA_ "GenSigInactiveValue" SG_ 359 FOBInterferenceAvoid 0;
+BA_ "GenSigSendType" SG_ 359 FOBInterferenceAvoid 7;
+BA_ "GenSigStartValue" SG_ 359 FOBInterferenceAvoid 0;
+BA_ "InitialValue" SG_ 359 FOBInterferenceAvoid 0;
+BA_ "GenSigInactiveValue" SG_ 359 DriverEnginOffRequest 0;
+BA_ "GenSigSendType" SG_ 359 DriverEnginOffRequest 7;
+BA_ "GenSigStartValue" SG_ 359 DriverEnginOffRequest 0;
+BA_ "InitialValue" SG_ 359 DriverEnginOffRequest 0;
+BA_ "GenSigInactiveValue" SG_ 359 FobSearchResult_LongPressure 0;
+BA_ "GenSigSendType" SG_ 359 FobSearchResult_LongPressure 7;
+BA_ "GenSigStartValue" SG_ 359 FobSearchResult_LongPressure 0;
+BA_ "InitialValue" SG_ 359 FobSearchResult_LongPressure 0;
+BA_ "GenSigInactiveValue" SG_ 359 MessageCounter_HUB1 0;
+BA_ "GenSigSendType" SG_ 359 MessageCounter_HUB1 7;
+BA_ "GenSigStartValue" SG_ 359 MessageCounter_HUB1 0;
+BA_ "InitialValue" SG_ 359 MessageCounter_HUB1 0;
+BA_ "GenSigInactiveValue" SG_ 359 Checksum_HUB1 0;
+BA_ "GenSigSendType" SG_ 359 Checksum_HUB1 7;
+BA_ "GenSigStartValue" SG_ 359 Checksum_HUB1 0;
+BA_ "InitialValue" SG_ 359 Checksum_HUB1 0;
+BA_ "GenSigStartValue" SG_ 499 KeyHolderPosition 1;
+BA_ "InitialValue" SG_ 499 KeyHolderPosition 1;
+BA_ "Accuracy" SG_ 524 VehicleSpeed_ASILx "± 0,0625km/h";
+BA_ "GenSigInactiveValue" SG_ 524 VehicleSpeed_ASILx 0;
+BA_ "GenSigSendType" SG_ 524 VehicleSpeed_ASILx 7;
+BA_ "GenSigStartValue" SG_ 524 VehicleSpeed_ASILx 0;
+BA_ "InitialValue" SG_ 524 VehicleSpeed_ASILx 0;
+BA_ "SignalAge" SG_ 524 VehicleSpeed_ASILx 10;
+BA_ "Accuracy" SG_ 524 VehicleSpeedVSOSig "± 0,0625km/h";
+BA_ "GenSigInactiveValue" SG_ 524 VehicleSpeedVSOSig 0;
+BA_ "GenSigSendType" SG_ 524 VehicleSpeedVSOSig 7;
+BA_ "GenSigStartValue" SG_ 524 VehicleSpeedVSOSig 0;
+BA_ "InitialValue" SG_ 524 VehicleSpeedVSOSig 0;
+BA_ "SignalAge" SG_ 524 VehicleSpeedVSOSig 10;
+BA_ "GenSigInactiveValue" SG_ 524 VehicleSpeed_ASILxFailSts 0;
+BA_ "GenSigSendType" SG_ 524 VehicleSpeed_ASILxFailSts 7;
+BA_ "GenSigStartValue" SG_ 524 VehicleSpeed_ASILxFailSts 1;
+BA_ "InitialValue" SG_ 524 VehicleSpeed_ASILxFailSts 1;
+BA_ "GenSigInactiveValue" SG_ 524 VehicleSpeedVSOSigFailSts 0;
+BA_ "GenSigSendType" SG_ 524 VehicleSpeedVSOSigFailSts 7;
+BA_ "GenSigStartValue" SG_ 524 VehicleSpeedVSOSigFailSts 1;
+BA_ "InitialValue" SG_ 524 VehicleSpeedVSOSigFailSts 1;
+BA_ "Accuracy" SG_ 524 NFR_Speed_FA "± 0,0625km/h";
+BA_ "GenSigInactiveValue" SG_ 524 NFR_Speed_FA 0;
+BA_ "GenSigSendType" SG_ 524 NFR_Speed_FA 7;
+BA_ "GenSigStartValue" SG_ 524 NFR_Speed_FA 0;
+BA_ "InitialValue" SG_ 524 NFR_Speed_FA 0;
+BA_ "SignalAge" SG_ 524 NFR_Speed_FA 20;
+BA_ "GenSigInactiveValue" SG_ 524 NFR_Speed_FA_FailSts 0;
+BA_ "GenSigSendType" SG_ 524 NFR_Speed_FA_FailSts 7;
+BA_ "GenSigStartValue" SG_ 524 NFR_Speed_FA_FailSts 1;
+BA_ "InitialValue" SG_ 524 NFR_Speed_FA_FailSts 1;
+BA_ "SignalAge" SG_ 524 NFR_Speed_FA_FailSts 20;
+BA_ "GenSigInactiveValue" SG_ 524 MsgCounter 0;
+BA_ "GenSigSendType" SG_ 524 MsgCounter 7;
+BA_ "GenSigStartValue" SG_ 524 MsgCounter 0;
+BA_ "InitialValue" SG_ 524 MsgCounter 0;
+BA_ "GenSigInactiveValue" SG_ 524 NFRCruiseEnabler 0;
+BA_ "GenSigSendType" SG_ 524 NFRCruiseEnabler 7;
+BA_ "GenSigStartValue" SG_ 524 NFRCruiseEnabler 0;
+BA_ "InitialValue" SG_ 524 NFRCruiseEnabler 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigInactiveValue" SG_ 524 Checksum 0;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigSendType" SG_ 524 Checksum 7;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "GenSigStartValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "InitialValue" SG_ 524 Checksum 0;
+BA_ "SignalAge" SG_ 524 Checksum 0;
+BA_ "EventTrans" SG_ 599 PsngrBagLightReqSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 PsngrBagLightReqSts 0;
+BA_ "GenSigSendType" SG_ 599 PsngrBagLightReqSts 3;
+BA_ "GenSigStartValue" SG_ 599 PsngrBagLightReqSts 3;
+BA_ "InitialValue" SG_ 599 PsngrBagLightReqSts 3;
+BA_ "EventTrans" SG_ 599 PsngrBagChargeSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 PsngrBagChargeSts 0;
+BA_ "GenSigSendType" SG_ 599 PsngrBagChargeSts 3;
+BA_ "GenSigStartValue" SG_ 599 PsngrBagChargeSts 3;
+BA_ "InitialValue" SG_ 599 PsngrBagChargeSts 3;
+BA_ "EventTrans" SG_ 599 AirBagFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 AirBagFailSts 0;
+BA_ "GenSigSendType" SG_ 599 AirBagFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 AirBagFailSts 2;
+BA_ "InitialValue" SG_ 599 AirBagFailSts 2;
+BA_ "EventTrans" SG_ 599 SBR1RowDriverSeatFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowDriverSeatFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowDriverSeatFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowDriverSeatFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR1RowDriverSeatFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR1RowDriverSeatConfigSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowDriverSeatConfigSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowDriverSeatConfigSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowDriverSeatConfigSts 0;
+BA_ "InitialValue" SG_ 599 SBR1RowDriverSeatConfigSts 0;
+BA_ "EventTrans" SG_ 599 SBR1RowCentralSeatPPDFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowCentralSeatPPDFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowCentralSeatPPDFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowCentralSeatPPDFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR1RowCentralSeatPPDFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR1RowPsngrSeatPPDFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowPsngrSeatPPDFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowPsngrSeatPPDFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowPsngrSeatPPDFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR1RowPsngrSeatPPDFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR1RowPsngrSeatBuckleFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowPsngrSeatBuckleFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowPsngrSeatBuckleFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowPsngrSeatBuckleFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR1RowPsngrSeatBuckleFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR1RowPsngrSeatConfigSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowPsngrSeatConfigSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowPsngrSeatConfigSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowPsngrSeatConfigSts 0;
+BA_ "InitialValue" SG_ 599 SBR1RowPsngrSeatConfigSts 0;
+BA_ "EventTrans" SG_ 599 SBR1RowDriverSeatSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowDriverSeatSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowDriverSeatSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowDriverSeatSts 3;
+BA_ "InitialValue" SG_ 599 SBR1RowDriverSeatSts 3;
+BA_ "EventTrans" SG_ 599 SBR2RowLeftSeatSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowLeftSeatSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowLeftSeatSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowLeftSeatSts 3;
+BA_ "InitialValue" SG_ 599 SBR2RowLeftSeatSts 3;
+BA_ "EventTrans" SG_ 599 SBR2RowRightSeatFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowRightSeatFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowRightSeatFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowRightSeatFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR2RowRightSeatFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR2RowLeftSeatFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowLeftSeatFailSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowLeftSeatFailSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowLeftSeatFailSts 3;
+BA_ "InitialValue" SG_ 599 SBR2RowLeftSeatFailSts 3;
+BA_ "EventTrans" SG_ 599 SBR1RowPsngrSeatSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR1RowPsngrSeatSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR1RowPsngrSeatSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR1RowPsngrSeatSts 7;
+BA_ "InitialValue" SG_ 599 SBR1RowPsngrSeatSts 7;
+BA_ "EventTrans" SG_ 599 CrashOutputSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 CrashOutputSts 0;
+BA_ "GenSigSendType" SG_ 599 CrashOutputSts 3;
+BA_ "GenSigStartValue" SG_ 599 CrashOutputSts 0;
+BA_ "InitialValue" SG_ 599 CrashOutputSts 0;
+BA_ "EventTrans" SG_ 599 SBR2RowRightSeatSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowRightSeatSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowRightSeatSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowRightSeatSts 3;
+BA_ "InitialValue" SG_ 599 SBR2RowRightSeatSts 3;
+BA_ "SignalAge" SG_ 599 SBR2RowRightSeatSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 MessageCounterNAB1 0;
+BA_ "GenSigSendType" SG_ 599 MessageCounterNAB1 7;
+BA_ "GenSigStartValue" SG_ 599 MessageCounterNAB1 0;
+BA_ "InitialValue" SG_ 599 MessageCounterNAB1 0;
+BA_ "SignalAge" SG_ 599 MessageCounterNAB1 10;
+BA_ "EventTrans" SG_ 599 CrashOutputValidData 0;
+BA_ "GenSigInactiveValue" SG_ 599 CrashOutputValidData 0;
+BA_ "GenSigSendType" SG_ 599 CrashOutputValidData 3;
+BA_ "GenSigStartValue" SG_ 599 CrashOutputValidData 0;
+BA_ "InitialValue" SG_ 599 CrashOutputValidData 0;
+BA_ "GenSigInactiveValue" SG_ 599 ChecksumNAB1 0;
+BA_ "GenSigSendType" SG_ 599 ChecksumNAB1 7;
+BA_ "GenSigStartValue" SG_ 599 ChecksumNAB1 0;
+BA_ "InitialValue" SG_ 599 ChecksumNAB1 0;
+BA_ "SignalAge" SG_ 599 ChecksumNAB1 10;
+BA_ "EventTrans" SG_ 599 AirBagWarningPADLampOnSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 AirBagWarningPADLampOnSts 0;
+BA_ "GenSigSendType" SG_ 599 AirBagWarningPADLampOnSts 3;
+BA_ "GenSigStartValue" SG_ 599 AirBagWarningPADLampOnSts 0;
+BA_ "InitialValue" SG_ 599 AirBagWarningPADLampOnSts 0;
+BA_ "EventTrans" SG_ 599 AirBagWarningPADLampOffSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 AirBagWarningPADLampOffSts 0;
+BA_ "GenSigSendType" SG_ 599 AirBagWarningPADLampOffSts 3;
+BA_ "GenSigStartValue" SG_ 599 AirBagWarningPADLampOffSts 0;
+BA_ "InitialValue" SG_ 599 AirBagWarningPADLampOffSts 0;
+BA_ "EventTrans" SG_ 599 SBR2RowRightSeatConfigSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowRightSeatConfigSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowRightSeatConfigSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowRightSeatConfigSts 0;
+BA_ "InitialValue" SG_ 599 SBR2RowRightSeatConfigSts 0;
+BA_ "EventTrans" SG_ 599 SBR2RowLeftSeatConfigSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 SBR2RowLeftSeatConfigSts 0;
+BA_ "GenSigSendType" SG_ 599 SBR2RowLeftSeatConfigSts 3;
+BA_ "GenSigStartValue" SG_ 599 SBR2RowLeftSeatConfigSts 0;
+BA_ "InitialValue" SG_ 599 SBR2RowLeftSeatConfigSts 0;
+BA_ "EventTrans" SG_ 599 Ppd_psngr_info 0;
+BA_ "GenSigInactiveValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "GenSigInactiveValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "GenSigSendType" SG_ 599 Ppd_psngr_info 3;
+BA_ "GenSigStartValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "GenSigStartValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "GenSigStartValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "InitialValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "InitialValue" SG_ 599 Ppd_psngr_info 0;
+BA_ "EventTrans" SG_ 599 AirBagWarningLampSts 0;
+BA_ "GenSigInactiveValue" SG_ 599 AirBagWarningLampSts 0;
+BA_ "GenSigSendType" SG_ 599 AirBagWarningLampSts 3;
+BA_ "GenSigStartValue" SG_ 599 AirBagWarningLampSts 0;
+BA_ "InitialValue" SG_ 599 AirBagWarningLampSts 0;
+BA_ "GenSigInactiveValue" SG_ 630 EPBMalfunction 0;
+BA_ "GenSigSendType" SG_ 630 EPBMalfunction 7;
+BA_ "GenSigStartValue" SG_ 630 EPBMalfunction 0;
+BA_ "InitialValue" SG_ 630 EPBMalfunction 0;
+BA_ "GenSigInactiveValue" SG_ 630 EPBSts 0;
+BA_ "GenSigSendType" SG_ 630 EPBSts 7;
+BA_ "GenSigStartValue" SG_ 630 EPBSts 7;
+BA_ "InitialValue" SG_ 630 EPBSts 7;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_SOCSts 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_SOCSts 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_SOCSts 0;
+BA_ "InitialValue" SG_ 1214 LVB_SOCSts 0;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_SOC 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_SOC 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_SOC 0;
+BA_ "InitialValue" SG_ 1214 LVB_SOC 0;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_MaxCellsTemp 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_MaxCellsTemp 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_MaxCellsTemp 0;
+BA_ "InitialValue" SG_ 1214 LVB_MaxCellsTemp -45;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_SOH 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_SOH 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_SOH 127;
+BA_ "InitialValue" SG_ 1214 LVB_SOH 127;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_MaxCellsTempFailsts 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_MaxCellsTempFailsts 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_MaxCellsTempFailsts 0;
+BA_ "InitialValue" SG_ 1214 LVB_MaxCellsTempFailsts 0;
+BA_ "GenSigInactiveValue" SG_ 1214 LVB_Relay_Status 0;
+BA_ "GenSigSendType" SG_ 1214 LVB_Relay_Status 7;
+BA_ "GenSigStartValue" SG_ 1214 LVB_Relay_Status 3;
+BA_ "InitialValue" SG_ 1214 LVB_Relay_Status 3;
+BA_ "GenSigInactiveValue" SG_ 1214 MessageCounter_BMS_LVB1 0;
+BA_ "GenSigSendType" SG_ 1214 MessageCounter_BMS_LVB1 7;
+BA_ "GenSigStartValue" SG_ 1214 MessageCounter_BMS_LVB1 0;
+BA_ "InitialValue" SG_ 1214 MessageCounter_BMS_LVB1 0;
+BA_ "GenSigInactiveValue" SG_ 1214 Checksum_BMS_LVB1 0;
+BA_ "GenSigSendType" SG_ 1214 Checksum_BMS_LVB1 7;
+BA_ "GenSigStartValue" SG_ 1214 Checksum_BMS_LVB1 0;
+BA_ "InitialValue" SG_ 1214 Checksum_BMS_LVB1 0;
+BA_ "GenSigInactiveValue" SG_ 1267 VehicleStartNotAllowed 0;
+BA_ "GenSigSendType" SG_ 1267 VehicleStartNotAllowed 7;
+BA_ "GenSigStartValue" SG_ 1267 VehicleStartNotAllowed 0;
+BA_ "InitialValue" SG_ 1267 VehicleStartNotAllowed 0;
+BA_ "GenSigInactiveValue" SG_ 1267 START_ButtonPress_Rqt 0;
+BA_ "GenSigSendType" SG_ 1267 START_ButtonPress_Rqt 7;
+BA_ "GenSigStartValue" SG_ 1267 START_ButtonPress_Rqt 0;
+BA_ "InitialValue" SG_ 1267 START_ButtonPress_Rqt 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_DriverLatchsts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_DriverLatchsts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_DriverLatchsts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_DriverLatchsts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_PsngrDoorSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_PsngrDoorSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_PsngrDoorSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_PsngrDoorSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_DriverDoorSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_DriverDoorSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_DriverDoorSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_DriverDoorSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_VPSTrunkSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_VPSTrunkSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_VPSTrunkSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_VPSTrunkSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearRightLatchsts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearRightLatchsts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearRightLatchsts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearRightLatchsts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearLeftDoorSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearLeftDoorSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearLeftDoorSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearLeftDoorSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearRightDoorSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearRightDoorSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearRightDoorSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearRightDoorSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_PsngrLatchsts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_PsngrLatchsts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_PsngrLatchsts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_PsngrLatchsts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_PsngrWindowSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_PsngrWindowSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_PsngrWindowSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_PsngrWindowSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_DriverWindowSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_DriverWindowSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_DriverWindowSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_DriverWindowSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_VPSLockValidData 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_VPSLockValidData 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_VPSLockValidData 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_VPSLockValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearLeftLatchsts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearLeftLatchsts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearLeftLatchsts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearLeftLatchsts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearRightWindowSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearRightWindowSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearRightWindowSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearRightWindowSts 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_RearLeftWindowSts 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_RearLeftWindowSts 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_RearLeftWindowSts 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_RearLeftWindowSts 0;
+BA_ "EventTrans" SG_ 1313 LockUnlockDoors_Button 0;
+BA_ "GenSigSendType" SG_ 1313 LockUnlockDoors_Button 3;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_MsgCounter 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_MsgCounter 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_MsgCounter 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_MsgCounter 0;
+BA_ "GenSigInactiveValue" SG_ 1313 STS_DRS_Checksum 0;
+BA_ "GenSigSendType" SG_ 1313 STS_DRS_Checksum 7;
+BA_ "GenSigStartValue" SG_ 1313 STS_DRS_Checksum 0;
+BA_ "InitialValue" SG_ 1313 STS_DRS_Checksum 0;
+BA_ "SignalAge" SG_ 1313 STS_DRS_Checksum 10;
+BA_ "Accuracy" SG_ 1318 BrakePressureTarget "± 5 bar";
+BA_ "GenSigSendType" SG_ 1318 BrakePressureTarget 7;
+BA_ "SignalAge" SG_ 1318 BrakePressureTarget 7;
+BA_ "Accuracy" SG_ 1318 DriverBrkPressureRqt "± 5 bar";
+BA_ "GenSigSendType" SG_ 1318 DriverBrkPressureRqt 7;
+BA_ "SignalAge" SG_ 1318 DriverBrkPressureRqt 7;
+BA_ "Accuracy" SG_ 1318 BrakePressureActual "± 5 bar";
+BA_ "GenSigSendType" SG_ 1318 BrakePressureActual 7;
+BA_ "SignalAge" SG_ 1318 BrakePressureActual 7;
+BA_ "GenSigInactiveValue" SG_ 1318 StopLightActRqt 0;
+BA_ "GenSigSendType" SG_ 1318 StopLightActRqt 7;
+BA_ "GenSigStartValue" SG_ 1318 StopLightActRqt 0;
+BA_ "InitialValue" SG_ 1318 StopLightActRqt 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakeRodStroke 0;
+BA_ "GenSigSendType" SG_ 1318 BrakeRodStroke 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakeRodStroke 0;
+BA_ "InitialValue" SG_ 1318 BrakeRodStroke 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakePedalSts 0;
+BA_ "GenSigSendType" SG_ 1318 BrakePedalSts 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakePedalSts 0;
+BA_ "InitialValue" SG_ 1318 BrakePedalSts 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakePedalValidData 0;
+BA_ "GenSigSendType" SG_ 1318 BrakePedalValidData 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakePedalValidData 0;
+BA_ "InitialValue" SG_ 1318 BrakePedalValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakePressureActualValidData 0;
+BA_ "GenSigSendType" SG_ 1318 BrakePressureActualValidData 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakePressureActualValidData 0;
+BA_ "InitialValue" SG_ 1318 BrakePressureActualValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1318 DriverBrkPressureRqtValidData 0;
+BA_ "GenSigSendType" SG_ 1318 DriverBrkPressureRqtValidData 7;
+BA_ "GenSigStartValue" SG_ 1318 DriverBrkPressureRqtValidData 0;
+BA_ "InitialValue" SG_ 1318 DriverBrkPressureRqtValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakePressureTargetValidData 0;
+BA_ "GenSigSendType" SG_ 1318 BrakePressureTargetValidData 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakePressureTargetValidData 0;
+BA_ "InitialValue" SG_ 1318 BrakePressureTargetValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1318 MessageCounterP_ASR_IPB 0;
+BA_ "GenSigSendType" SG_ 1318 MessageCounterP_ASR_IPB 7;
+BA_ "GenSigStartValue" SG_ 1318 MessageCounterP_ASR_IPB 0;
+BA_ "InitialValue" SG_ 1318 MessageCounterP_ASR_IPB 0;
+BA_ "GenSigInactiveValue" SG_ 1318 BrakeRodStrokeValidData 0;
+BA_ "GenSigSendType" SG_ 1318 BrakeRodStrokeValidData 7;
+BA_ "GenSigStartValue" SG_ 1318 BrakeRodStrokeValidData 0;
+BA_ "InitialValue" SG_ 1318 BrakeRodStrokeValidData 0;
+BA_ "GenSigInactiveValue" SG_ 1318 ChecksumP_ASR_IPB 0;
+BA_ "GenSigSendType" SG_ 1318 ChecksumP_ASR_IPB 7;
+BA_ "GenSigStartValue" SG_ 1318 ChecksumP_ASR_IPB 0;
+BA_ "InitialValue" SG_ 1318 ChecksumP_ASR_IPB 0;
+BA_ "GenSigInactiveValue" SG_ 1376 TrunkSts 0;
+BA_ "GenSigSendType" SG_ 1376 TrunkSts 7;
+BA_ "GenSigStartValue" SG_ 1376 TrunkSts 0;
+BA_ "InitialValue" SG_ 1376 TrunkSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 AutoEPBButtonSts 0;
+BA_ "GenSigSendType" SG_ 1376 AutoEPBButtonSts 7;
+BA_ "GenSigStartValue" SG_ 1376 AutoEPBButtonSts 0;
+BA_ "InitialValue" SG_ 1376 AutoEPBButtonSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigSendType" SG_ 1376 PowerModeSts 7;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "GenSigStartValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "InitialValue" SG_ 1376 PowerModeSts 0;
+BA_ "EventTrans" SG_ 1376 TrunkReleaseReqCntrl 1;
+BA_ "GenSigInactiveValue" SG_ 1376 TrunkReleaseReqCntrl 0;
+BA_ "GenSigSendType" SG_ 1376 TrunkReleaseReqCntrl 7;
+BA_ "GenSigStartValue" SG_ 1376 TrunkReleaseReqCntrl 0;
+BA_ "InitialValue" SG_ 1376 TrunkReleaseReqCntrl 0;
+BA_ "EventTrans" SG_ 1376 KeySts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 KeySts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 KeySts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 KeySts 0;
+BA_ "GenSigSendType" SG_ 1376 KeySts 3;
+BA_ "GenSigStartValue" SG_ 1376 KeySts 0;
+BA_ "GenSigStartValue" SG_ 1376 KeySts 0;
+BA_ "GenSigStartValue" SG_ 1376 KeySts 0;
+BA_ "InitialValue" SG_ 1376 KeySts 0;
+BA_ "InitialValue" SG_ 1376 KeySts 0;
+BA_ "Accuracy" SG_ 1376 ExternalTemperature "0,5 °C (-10 °C / +20°C)";
+BA_ "GenSigInactiveValue" SG_ 1376 ExternalTemperature 0;
+BA_ "GenSigSendType" SG_ 1376 ExternalTemperature 7;
+BA_ "GenSigStartValue" SG_ 1376 ExternalTemperature 1;
+BA_ "InitialValue" SG_ 1376 ExternalTemperature -39;
+BA_ "SignalAge" SG_ 1376 ExternalTemperature 50;
+BA_ "GenSigInactiveValue" SG_ 1376 EngineBonnetSts 0;
+BA_ "GenSigSendType" SG_ 1376 EngineBonnetSts 7;
+BA_ "GenSigStartValue" SG_ 1376 EngineBonnetSts 0;
+BA_ "InitialValue" SG_ 1376 EngineBonnetSts 0;
+BA_ "GenSigInactiveValue" SG_ 1376 ExternalTemperatureFailSts 0;
+BA_ "GenSigSendType" SG_ 1376 ExternalTemperatureFailSts 7;
+BA_ "GenSigStartValue" SG_ 1376 ExternalTemperatureFailSts 0;
+BA_ "InitialValue" SG_ 1376 ExternalTemperatureFailSts 0;
+BA_ "Accuracy" SG_ 1376 FuelLevelRawValue "±2,5 at17,5%";
+BA_ "SignalAge" SG_ 1376 FuelLevelRawValue 250;
+BA_ "GenSigInactiveValue" SG_ 1376 FOBSearchRequest 0;
+BA_ "GenSigSendType" SG_ 1376 FOBSearchRequest 7;
+BA_ "GenSigStartValue" SG_ 1376 FOBSearchRequest 0;
+BA_ "InitialValue" SG_ 1376 FOBSearchRequest 0;
+BA_ "GenSigInactiveValue" SG_ 1376 TheftAlarmStatus 0;
+BA_ "GenSigSendType" SG_ 1376 TheftAlarmStatus 7;
+BA_ "GenSigStartValue" SG_ 1376 TheftAlarmStatus 0;
+BA_ "InitialValue" SG_ 1376 TheftAlarmStatus 0;
+BA_ "EventTrans" SG_ 1376 NTPCalibrationReqSts 0;
+BA_ "GenSigSendType" SG_ 1376 NTPCalibrationReqSts 3;
+BA_ "GenSigInactiveValue" SG_ 1387 ShiftModeSts 0;
+BA_ "GenSigSendType" SG_ 1387 ShiftModeSts 7;
+BA_ "GenSigStartValue" SG_ 1387 ShiftModeSts 1;
+BA_ "InitialValue" SG_ 1387 ShiftModeSts 1;
+BA_ "GenSigInactiveValue" SG_ 1387 ActualGearForDisplay 0;
+BA_ "GenSigSendType" SG_ 1387 ActualGearForDisplay 7;
+BA_ "GenSigStartValue" SG_ 1387 ActualGearForDisplay 0;
+BA_ "InitialValue" SG_ 1387 ActualGearForDisplay 0;
+BA_ "GenSigInactiveValue" SG_ 1387 NCDFailSts 0;
+BA_ "GenSigSendType" SG_ 1387 NCDFailSts 7;
+BA_ "GenSigStartValue" SG_ 1387 NCDFailSts 0;
+BA_ "InitialValue" SG_ 1387 NCDFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1387 BuzzerReqSts 0;
+BA_ "GenSigSendType" SG_ 1387 BuzzerReqSts 7;
+BA_ "GenSigStartValue" SG_ 1387 BuzzerReqSts 0;
+BA_ "InitialValue" SG_ 1387 BuzzerReqSts 0;
+BA_ "GenSigInactiveValue" SG_ 1387 AutomaticRoboticXmsnDegradedMode 0;
+BA_ "GenSigSendType" SG_ 1387 AutomaticRoboticXmsnDegradedMode 7;
+BA_ "GenSigStartValue" SG_ 1387 AutomaticRoboticXmsnDegradedMode 1;
+BA_ "InitialValue" SG_ 1387 AutomaticRoboticXmsnDegradedMode 1;
+BA_ "GenSigInactiveValue" SG_ 1387 PerformanceLaunchMode 0;
+BA_ "GenSigSendType" SG_ 1387 PerformanceLaunchMode 7;
+BA_ "GenSigStartValue" SG_ 1387 PerformanceLaunchMode 0;
+BA_ "InitialValue" SG_ 1387 PerformanceLaunchMode 0;
+BA_ "GenSigInactiveValue" SG_ 1387 PLockSts 0;
+BA_ "GenSigSendType" SG_ 1387 PLockSts 7;
+BA_ "GenSigStartValue" SG_ 1387 PLockSts 0;
+BA_ "InitialValue" SG_ 1387 PLockSts 0;
+BA_ "GenSigInactiveValue" SG_ 1387 NCR_EPB_Req 0;
+BA_ "GenSigSendType" SG_ 1387 NCR_EPB_Req 7;
+BA_ "GenSigStartValue" SG_ 1387 NCR_EPB_Req 0;
+BA_ "InitialValue" SG_ 1387 NCR_EPB_Req 0;
+BA_ "GenSigInactiveValue" SG_ 1397 GenericFailSts 0;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 GenericFailSts 7;
+BA_ "GenSigStartValue" SG_ 1397 GenericFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigSendType" SG_ 1397 CurrentFailSts 7;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigStartValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "InitialValue" SG_ 1397 CurrentFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1397 EOL_NPE 0;
+BA_ "GenSigSendType" SG_ 1397 EOL_NPE 7;
+BA_ "GenSigStartValue" SG_ 1397 EOL_NPE 0;
+BA_ "InitialValue" SG_ 1397 EOL_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 1397 DES_NPE 0;
+BA_ "GenSigSendType" SG_ 1397 DES_NPE 7;
+BA_ "GenSigStartValue" SG_ 1397 DES_NPE 0;
+BA_ "InitialValue" SG_ 1397 DES_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 1441 BatteryDisconnectionWarning 0;
+BA_ "GenSigSendType" SG_ 1441 BatteryDisconnectionWarning 7;
+BA_ "GenSigStartValue" SG_ 1441 BatteryDisconnectionWarning 0;
+BA_ "InitialValue" SG_ 1441 BatteryDisconnectionWarning 0;
+BA_ "GenSigInactiveValue" SG_ 1441 VehicleNotInUse 0;
+BA_ "GenSigSendType" SG_ 1441 VehicleNotInUse 7;
+BA_ "GenSigStartValue" SG_ 1441 VehicleNotInUse 0;
+BA_ "InitialValue" SG_ 1441 VehicleNotInUse 0;
+BA_ "Accuracy" SG_ 1441 BatteryVoltageLevel "±0,05V";
+BA_ "Accuracy" SG_ 1441 BatteryVoltageLevel "±0,05V";
+BA_ "GenSigInactiveValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "GenSigInactiveValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "GenSigSendType" SG_ 1441 BatteryVoltageLevel 7;
+BA_ "GenSigSendType" SG_ 1441 BatteryVoltageLevel 7;
+BA_ "GenSigStartValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "GenSigStartValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "InitialValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "InitialValue" SG_ 1441 BatteryVoltageLevel 0;
+BA_ "SignalAge" SG_ 1441 BatteryVoltageLevel 1000;
+BA_ "GenSigInactiveValue" SG_ 1441 CruiseControlSts 0;
+BA_ "GenSigSendType" SG_ 1441 CruiseControlSts 7;
+BA_ "GenSigStartValue" SG_ 1441 CruiseControlSts 0;
+BA_ "InitialValue" SG_ 1441 CruiseControlSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 CruiseControlLampSts 0;
+BA_ "GenSigSendType" SG_ 1441 CruiseControlLampSts 7;
+BA_ "GenSigStartValue" SG_ 1441 CruiseControlLampSts 0;
+BA_ "InitialValue" SG_ 1441 CruiseControlLampSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 RechargeSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 RechargeSts 0;
+BA_ "GenSigSendType" SG_ 1441 RechargeSts 7;
+BA_ "GenSigSendType" SG_ 1441 RechargeSts 7;
+BA_ "GenSigStartValue" SG_ 1441 RechargeSts 1;
+BA_ "GenSigStartValue" SG_ 1441 RechargeSts 1;
+BA_ "InitialValue" SG_ 1441 RechargeSts 1;
+BA_ "InitialValue" SG_ 1441 RechargeSts 1;
+BA_ "GenSigInactiveValue" SG_ 1441 BatteryVoltageLevelFailSts 0;
+BA_ "GenSigSendType" SG_ 1441 BatteryVoltageLevelFailSts 7;
+BA_ "GenSigStartValue" SG_ 1441 BatteryVoltageLevelFailSts 0;
+BA_ "InitialValue" SG_ 1441 BatteryVoltageLevelFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 EngineSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 EngineSts 0;
+BA_ "GenSigSendType" SG_ 1441 EngineSts 7;
+BA_ "GenSigSendType" SG_ 1441 EngineSts 7;
+BA_ "GenSigStartValue" SG_ 1441 EngineSts 0;
+BA_ "GenSigStartValue" SG_ 1441 EngineSts 0;
+BA_ "InitialValue" SG_ 1441 EngineSts 0;
+BA_ "InitialValue" SG_ 1441 EngineSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 StopStartSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 StopStartSts 0;
+BA_ "GenSigSendType" SG_ 1441 StopStartSts 7;
+BA_ "GenSigSendType" SG_ 1441 StopStartSts 7;
+BA_ "GenSigStartValue" SG_ 1441 StopStartSts 0;
+BA_ "GenSigStartValue" SG_ 1441 StopStartSts 0;
+BA_ "InitialValue" SG_ 1441 StopStartSts 0;
+BA_ "InitialValue" SG_ 1441 StopStartSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 EDriveSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 EDriveSts 0;
+BA_ "GenSigSendType" SG_ 1441 EDriveSts 7;
+BA_ "GenSigSendType" SG_ 1441 EDriveSts 7;
+BA_ "GenSigStartValue" SG_ 1441 EDriveSts 0;
+BA_ "GenSigStartValue" SG_ 1441 EDriveSts 0;
+BA_ "InitialValue" SG_ 1441 EDriveSts 0;
+BA_ "InitialValue" SG_ 1441 EDriveSts 0;
+BA_ "GenSigInactiveValue" SG_ 1441 TargetSpeed 0;
+BA_ "GenSigSendType" SG_ 1441 TargetSpeed 7;
+BA_ "GenSigStartValue" SG_ 1441 TargetSpeed 0;
+BA_ "InitialValue" SG_ 1441 TargetSpeed 0;
+BA_ "GenSigInactiveValue" SG_ 1445 MsgFOBLeftVeh 0;
+BA_ "GenSigSendType" SG_ 1445 MsgFOBLeftVeh 7;
+BA_ "GenSigStartValue" SG_ 1445 MsgFOBLeftVeh 0;
+BA_ "InitialValue" SG_ 1445 MsgFOBLeftVeh 0;
+BA_ "GenSigInactiveValue" SG_ 1445 PowerModeSts_NPE 0;
+BA_ "GenSigSendType" SG_ 1445 PowerModeSts_NPE 7;
+BA_ "GenSigStartValue" SG_ 1445 PowerModeSts_NPE 0;
+BA_ "InitialValue" SG_ 1445 PowerModeSts_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 1445 KeyProgramSts 0;
+BA_ "GenSigSendType" SG_ 1445 KeyProgramSts 7;
+BA_ "GenSigStartValue" SG_ 1445 KeyProgramSts 0;
+BA_ "InitialValue" SG_ 1445 KeyProgramSts 0;
+BA_ "GenSigInactiveValue" SG_ 1445 CsoPEEnableDisableSts 0;
+BA_ "GenSigSendType" SG_ 1445 CsoPEEnableDisableSts 7;
+BA_ "GenSigStartValue" SG_ 1445 CsoPEEnableDisableSts 0;
+BA_ "InitialValue" SG_ 1445 CsoPEEnableDisableSts 0;
+BA_ "GenSigInactiveValue" SG_ 1445 MsgServPEKG 0;
+BA_ "GenSigSendType" SG_ 1445 MsgServPEKG 7;
+BA_ "GenSigStartValue" SG_ 1445 MsgServPEKG 0;
+BA_ "InitialValue" SG_ 1445 MsgServPEKG 0;
+BA_ "GenSigInactiveValue" SG_ 1445 MsgPutInPark 0;
+BA_ "GenSigSendType" SG_ 1445 MsgPutInPark 7;
+BA_ "GenSigStartValue" SG_ 1445 MsgPutInPark 0;
+BA_ "InitialValue" SG_ 1445 MsgPutInPark 0;
+BA_ "GenSigInactiveValue" SG_ 1445 MsgNotInPark 0;
+BA_ "GenSigSendType" SG_ 1445 MsgNotInPark 7;
+BA_ "GenSigStartValue" SG_ 1445 MsgNotInPark 0;
+BA_ "InitialValue" SG_ 1445 MsgNotInPark 0;
+BA_ "GenSigInactiveValue" SG_ 1445 MsgFOBNotFnd 0;
+BA_ "GenSigSendType" SG_ 1445 MsgFOBNotFnd 7;
+BA_ "GenSigStartValue" SG_ 1445 MsgFOBNotFnd 0;
+BA_ "InitialValue" SG_ 1445 MsgFOBNotFnd 0;
+BA_ "GenSigInactiveValue" SG_ 1481 HVB_Temperature_Indicator 0;
+BA_ "GenSigSendType" SG_ 1481 HVB_Temperature_Indicator 7;
+BA_ "GenSigStartValue" SG_ 1481 HVB_Temperature_Indicator 0;
+BA_ "InitialValue" SG_ 1481 HVB_Temperature_Indicator -31;
+BA_ "GenSigInactiveValue" SG_ 1481 SOC_Indicator_Bars 0;
+BA_ "GenSigSendType" SG_ 1481 SOC_Indicator_Bars 7;
+BA_ "GenSigStartValue" SG_ 1481 SOC_Indicator_Bars 0;
+BA_ "InitialValue" SG_ 1481 SOC_Indicator_Bars 0;
+BA_ "GenSigInactiveValue" SG_ 1485 HVBBuzzerReq 0;
+BA_ "GenSigSendType" SG_ 1485 HVBBuzzerReq 7;
+BA_ "GenSigStartValue" SG_ 1485 HVBBuzzerReq 0;
+BA_ "InitialValue" SG_ 1485 HVBBuzzerReq 0;
+BA_ "GenSigInactiveValue" SG_ 1485 LongParkingSts 0;
+BA_ "GenSigSendType" SG_ 1485 LongParkingSts 7;
+BA_ "GenSigStartValue" SG_ 1485 LongParkingSts 1;
+BA_ "InitialValue" SG_ 1485 LongParkingSts 1;
+BA_ "GenSigInactiveValue" SG_ 1485 MILrequest 0;
+BA_ "GenSigSendType" SG_ 1485 MILrequest 7;
+BA_ "GenSigStartValue" SG_ 1485 MILrequest 0;
+BA_ "InitialValue" SG_ 1485 MILrequest 0;
+BA_ "EventTrans" SG_ 1504 FuelFlapSts 0;
+BA_ "GenSigInactiveValue" SG_ 1504 FuelFlapSts 0;
+BA_ "GenSigSendType" SG_ 1504 FuelFlapSts 3;
+BA_ "GenSigStartValue" SG_ 1504 FuelFlapSts 0;
+BA_ "InitialValue" SG_ 1504 FuelFlapSts 0;
+BA_ "GenSigInactiveValue" SG_ 1504 FuelButtonSts 0;
+BA_ "GenSigSendType" SG_ 1504 FuelButtonSts 7;
+BA_ "GenSigStartValue" SG_ 1504 FuelButtonSts 0;
+BA_ "InitialValue" SG_ 1504 FuelButtonSts 0;
+BA_ "Accuracy" SG_ 1504 TotalOdometer "N/A";
+BA_ "GenSigInactiveValue" SG_ 1504 TotalOdometer 0;
+BA_ "GenSigSendType" SG_ 1504 TotalOdometer 7;
+BA_ "GenSigStartValue" SG_ 1504 TotalOdometer 0;
+BA_ "InitialValue" SG_ 1504 TotalOdometer 0;
+BA_ "SignalAge" SG_ 1504 TotalOdometer 1000;
+BA_ "GenSigStartValue" SG_ 1504 NightDaySts 1;
+BA_ "InitialValue" SG_ 1504 NightDaySts 1;
+BA_ "GenSigInactiveValue" SG_ 1504 AVHDriverDoorSts 0;
+BA_ "GenSigSendType" SG_ 1504 AVHDriverDoorSts 7;
+BA_ "GenSigStartValue" SG_ 1504 AVHDriverDoorSts 1;
+BA_ "InitialValue" SG_ 1504 AVHDriverDoorSts 1;
+BA_ "GenSigInactiveValue" SG_ 1504 Alcohol_Interlock_Inhibit 0;
+BA_ "GenSigSendType" SG_ 1504 Alcohol_Interlock_Inhibit 7;
+BA_ "GenSigStartValue" SG_ 1504 Alcohol_Interlock_Inhibit 1;
+BA_ "InitialValue" SG_ 1504 Alcohol_Interlock_Inhibit 1;
+BA_ "GenSigInactiveValue" SG_ 1504 TrunkFailSts 0;
+BA_ "GenSigSendType" SG_ 1504 TrunkFailSts 7;
+BA_ "GenSigStartValue" SG_ 1504 TrunkFailSts 0;
+BA_ "InitialValue" SG_ 1504 TrunkFailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1504 EngineBonnetSts_LH 0;
+BA_ "GenSigSendType" SG_ 1504 EngineBonnetSts_LH 7;
+BA_ "GenSigStartValue" SG_ 1504 EngineBonnetSts_LH 0;
+BA_ "InitialValue" SG_ 1504 EngineBonnetSts_LH 0;
+BA_ "GenSigInactiveValue" SG_ 1504 RechargeFlapSts 0;
+BA_ "GenSigSendType" SG_ 1504 RechargeFlapSts 7;
+BA_ "GenSigStartValue" SG_ 1504 RechargeFlapSts 0;
+BA_ "InitialValue" SG_ 1504 RechargeFlapSts 0;
+BA_ "Accuracy" SG_ 1539 TotalOdometer "N/A";
+BA_ "SignalAge" SG_ 1539 TotalOdometer 1000;
+BA_ "EventTrans" SG_ 1696 Hour2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Hour2 0;
+BA_ "GenSigSendType" SG_ 1696 Hour2 3;
+BA_ "GenSigStartValue" SG_ 1696 Hour2 0;
+BA_ "InitialValue" SG_ 1696 Hour2 0;
+BA_ "SignalAge" SG_ 1696 Hour2 0;
+BA_ "EventTrans" SG_ 1696 Hour1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Hour1 0;
+BA_ "GenSigSendType" SG_ 1696 Hour1 3;
+BA_ "GenSigStartValue" SG_ 1696 Hour1 0;
+BA_ "InitialValue" SG_ 1696 Hour1 0;
+BA_ "SignalAge" SG_ 1696 Hour1 0;
+BA_ "EventTrans" SG_ 1696 Minute2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Minute2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Minute2 0;
+BA_ "GenSigSendType" SG_ 1696 Minute2 3;
+BA_ "GenSigStartValue" SG_ 1696 Minute2 0;
+BA_ "GenSigStartValue" SG_ 1696 Minute2 0;
+BA_ "InitialValue" SG_ 1696 Minute2 0;
+BA_ "InitialValue" SG_ 1696 Minute2 0;
+BA_ "SignalAge" SG_ 1696 Minute2 0;
+BA_ "EventTrans" SG_ 1696 Minute1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Minute1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Minute1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Minute1 0;
+BA_ "GenSigSendType" SG_ 1696 Minute1 3;
+BA_ "GenSigStartValue" SG_ 1696 Minute1 0;
+BA_ "GenSigStartValue" SG_ 1696 Minute1 0;
+BA_ "GenSigStartValue" SG_ 1696 Minute1 0;
+BA_ "InitialValue" SG_ 1696 Minute1 0;
+BA_ "InitialValue" SG_ 1696 Minute1 0;
+BA_ "InitialValue" SG_ 1696 Minute1 0;
+BA_ "SignalAge" SG_ 1696 Minute1 0;
+BA_ "EventTrans" SG_ 1696 Day2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Day2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Day2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Day2 0;
+BA_ "GenSigSendType" SG_ 1696 Day2 3;
+BA_ "GenSigStartValue" SG_ 1696 Day2 0;
+BA_ "GenSigStartValue" SG_ 1696 Day2 0;
+BA_ "GenSigStartValue" SG_ 1696 Day2 0;
+BA_ "InitialValue" SG_ 1696 Day2 0;
+BA_ "InitialValue" SG_ 1696 Day2 0;
+BA_ "InitialValue" SG_ 1696 Day2 0;
+BA_ "SignalAge" SG_ 1696 Day2 0;
+BA_ "EventTrans" SG_ 1696 Day1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Day1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Day1 0;
+BA_ "GenSigSendType" SG_ 1696 Day1 3;
+BA_ "GenSigStartValue" SG_ 1696 Day1 0;
+BA_ "GenSigStartValue" SG_ 1696 Day1 0;
+BA_ "InitialValue" SG_ 1696 Day1 0;
+BA_ "InitialValue" SG_ 1696 Day1 0;
+BA_ "SignalAge" SG_ 1696 Day1 0;
+BA_ "EventTrans" SG_ 1696 Month2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Month2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Month2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Month2 0;
+BA_ "GenSigSendType" SG_ 1696 Month2 3;
+BA_ "GenSigStartValue" SG_ 1696 Month2 0;
+BA_ "GenSigStartValue" SG_ 1696 Month2 0;
+BA_ "GenSigStartValue" SG_ 1696 Month2 0;
+BA_ "InitialValue" SG_ 1696 Month2 0;
+BA_ "InitialValue" SG_ 1696 Month2 0;
+BA_ "InitialValue" SG_ 1696 Month2 0;
+BA_ "SignalAge" SG_ 1696 Month2 0;
+BA_ "EventTrans" SG_ 1696 Month1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Month1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Month1 0;
+BA_ "GenSigSendType" SG_ 1696 Month1 3;
+BA_ "GenSigStartValue" SG_ 1696 Month1 0;
+BA_ "GenSigStartValue" SG_ 1696 Month1 0;
+BA_ "InitialValue" SG_ 1696 Month1 0;
+BA_ "InitialValue" SG_ 1696 Month1 0;
+BA_ "SignalAge" SG_ 1696 Month1 0;
+BA_ "EventTrans" SG_ 1696 Year2 0;
+BA_ "EventTrans" SG_ 1696 Year2 0;
+BA_ "EventTrans" SG_ 1696 Year2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year2 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year2 0;
+BA_ "GenSigSendType" SG_ 1696 Year2 3;
+BA_ "GenSigStartValue" SG_ 1696 Year2 0;
+BA_ "GenSigStartValue" SG_ 1696 Year2 0;
+BA_ "GenSigStartValue" SG_ 1696 Year2 0;
+BA_ "InitialValue" SG_ 1696 Year2 0;
+BA_ "InitialValue" SG_ 1696 Year2 0;
+BA_ "InitialValue" SG_ 1696 Year2 0;
+BA_ "SignalAge" SG_ 1696 Year2 0;
+BA_ "EventTrans" SG_ 1696 Year1 0;
+BA_ "EventTrans" SG_ 1696 Year1 0;
+BA_ "EventTrans" SG_ 1696 Year1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year1 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year1 0;
+BA_ "GenSigSendType" SG_ 1696 Year1 3;
+BA_ "GenSigStartValue" SG_ 1696 Year1 0;
+BA_ "GenSigStartValue" SG_ 1696 Year1 0;
+BA_ "InitialValue" SG_ 1696 Year1 0;
+BA_ "InitialValue" SG_ 1696 Year1 0;
+BA_ "SignalAge" SG_ 1696 Year1 0;
+BA_ "EventTrans" SG_ 1696 Year4 0;
+BA_ "EventTrans" SG_ 1696 Year4 0;
+BA_ "EventTrans" SG_ 1696 Year4 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year4 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year4 0;
+BA_ "GenSigSendType" SG_ 1696 Year4 3;
+BA_ "GenSigStartValue" SG_ 1696 Year4 0;
+BA_ "GenSigStartValue" SG_ 1696 Year4 0;
+BA_ "InitialValue" SG_ 1696 Year4 0;
+BA_ "InitialValue" SG_ 1696 Year4 0;
+BA_ "SignalAge" SG_ 1696 Year4 0;
+BA_ "EventTrans" SG_ 1696 Year3 0;
+BA_ "EventTrans" SG_ 1696 Year3 0;
+BA_ "EventTrans" SG_ 1696 Year3 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year3 0;
+BA_ "GenSigInactiveValue" SG_ 1696 Year3 0;
+BA_ "GenSigSendType" SG_ 1696 Year3 3;
+BA_ "GenSigStartValue" SG_ 1696 Year3 0;
+BA_ "GenSigStartValue" SG_ 1696 Year3 0;
+BA_ "InitialValue" SG_ 1696 Year3 0;
+BA_ "InitialValue" SG_ 1696 Year3 0;
+BA_ "SignalAge" SG_ 1696 Year3 0;
+BA_ "EventTrans" SG_ 1767 LanguageSelection 0;
+BA_ "EventTrans" SG_ 1767 LanguageSelection 0;
+BA_ "EventTrans" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigInactiveValue" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigInactiveValue" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigInactiveValue" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigSendType" SG_ 1767 LanguageSelection 3;
+BA_ "GenSigSendType" SG_ 1767 LanguageSelection 3;
+BA_ "GenSigSendType" SG_ 1767 LanguageSelection 3;
+BA_ "GenSigStartValue" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigStartValue" SG_ 1767 LanguageSelection 0;
+BA_ "GenSigStartValue" SG_ 1767 LanguageSelection 0;
+BA_ "InitialValue" SG_ 1767 LanguageSelection 0;
+BA_ "InitialValue" SG_ 1767 LanguageSelection 0;
+BA_ "EventTrans" SG_ 1767 TemperatureUnit 0;
+BA_ "EventTrans" SG_ 1767 TemperatureUnit 0;
+BA_ "EventTrans" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigSendType" SG_ 1767 TemperatureUnit 3;
+BA_ "GenSigSendType" SG_ 1767 TemperatureUnit 3;
+BA_ "GenSigSendType" SG_ 1767 TemperatureUnit 3;
+BA_ "GenSigStartValue" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 TemperatureUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 TemperatureUnit 0;
+BA_ "InitialValue" SG_ 1767 TemperatureUnit 0;
+BA_ "InitialValue" SG_ 1767 TemperatureUnit 0;
+BA_ "EventTrans" SG_ 1767 DistanceUnit 0;
+BA_ "EventTrans" SG_ 1767 DistanceUnit 0;
+BA_ "EventTrans" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigSendType" SG_ 1767 DistanceUnit 3;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 DistanceUnit 0;
+BA_ "InitialValue" SG_ 1767 DistanceUnit 0;
+BA_ "InitialValue" SG_ 1767 DistanceUnit 0;
+BA_ "InitialValue" SG_ 1767 DistanceUnit 0;
+BA_ "InitialValue" SG_ 1767 DistanceUnit 0;
+BA_ "EventTrans" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "EventTrans" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "EventTrans" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigSendType" SG_ 1767 AutomaticMirrorFoldingEnable 3;
+BA_ "GenSigSendType" SG_ 1767 AutomaticMirrorFoldingEnable 3;
+BA_ "GenSigSendType" SG_ 1767 AutomaticMirrorFoldingEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "InitialValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "InitialValue" SG_ 1767 AutomaticMirrorFoldingEnable 0;
+BA_ "EventTrans" SG_ 1767 HourMode 0;
+BA_ "EventTrans" SG_ 1767 HourMode 0;
+BA_ "EventTrans" SG_ 1767 HourMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 HourMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 HourMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 HourMode 0;
+BA_ "GenSigSendType" SG_ 1767 HourMode 3;
+BA_ "GenSigSendType" SG_ 1767 HourMode 3;
+BA_ "GenSigSendType" SG_ 1767 HourMode 3;
+BA_ "GenSigStartValue" SG_ 1767 HourMode 0;
+BA_ "GenSigStartValue" SG_ 1767 HourMode 0;
+BA_ "GenSigStartValue" SG_ 1767 HourMode 0;
+BA_ "InitialValue" SG_ 1767 HourMode 0;
+BA_ "InitialValue" SG_ 1767 HourMode 0;
+BA_ "EventTrans" SG_ 1767 WiperRLSSensibility 0;
+BA_ "EventTrans" SG_ 1767 WiperRLSSensibility 0;
+BA_ "EventTrans" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigInactiveValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigInactiveValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigInactiveValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigSendType" SG_ 1767 WiperRLSSensibility 3;
+BA_ "GenSigSendType" SG_ 1767 WiperRLSSensibility 3;
+BA_ "GenSigSendType" SG_ 1767 WiperRLSSensibility 3;
+BA_ "GenSigStartValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigStartValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "GenSigStartValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "InitialValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "InitialValue" SG_ 1767 WiperRLSSensibility 0;
+BA_ "EventTrans" SG_ 1767 WelcomeInCarEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 WelcomeInCarEnable 0;
+BA_ "GenSigSendType" SG_ 1767 WelcomeInCarEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 WelcomeInCarEnable 0;
+BA_ "InitialValue" SG_ 1767 WelcomeInCarEnable 0;
+BA_ "EventTrans" SG_ 1767 BuzzerVolumeWarning 0;
+BA_ "EventTrans" SG_ 1767 BuzzerVolumeWarning 0;
+BA_ "GenSigInactiveValue" SG_ 1767 BuzzerVolumeWarning 0;
+BA_ "GenSigInactiveValue" SG_ 1767 BuzzerVolumeWarning 0;
+BA_ "GenSigInactiveValue" SG_ 1767 BuzzerVolumeWarning 0;
+BA_ "GenSigSendType" SG_ 1767 BuzzerVolumeWarning 3;
+BA_ "GenSigSendType" SG_ 1767 BuzzerVolumeWarning 3;
+BA_ "GenSigSendType" SG_ 1767 BuzzerVolumeWarning 3;
+BA_ "GenSigStartValue" SG_ 1767 BuzzerVolumeWarning 4;
+BA_ "GenSigStartValue" SG_ 1767 BuzzerVolumeWarning 4;
+BA_ "GenSigStartValue" SG_ 1767 BuzzerVolumeWarning 4;
+BA_ "InitialValue" SG_ 1767 BuzzerVolumeWarning 4;
+BA_ "InitialValue" SG_ 1767 BuzzerVolumeWarning 4;
+BA_ "Accuracy" SG_ 1767 SpeedThreshold "N/A";
+BA_ "Accuracy" SG_ 1767 SpeedThreshold "N/A";
+BA_ "Accuracy" SG_ 1767 SpeedThreshold "N/A";
+BA_ "EventTrans" SG_ 1767 SpeedThreshold 0;
+BA_ "EventTrans" SG_ 1767 SpeedThreshold 0;
+BA_ "EventTrans" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigSendType" SG_ 1767 SpeedThreshold 3;
+BA_ "GenSigSendType" SG_ 1767 SpeedThreshold 3;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThreshold 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThreshold 0;
+BA_ "InitialValue" SG_ 1767 SpeedThreshold 0;
+BA_ "InitialValue" SG_ 1767 SpeedThreshold 0;
+BA_ "EventTrans" SG_ 1767 ResetTripAReq 0;
+BA_ "GenSigInactiveValue" SG_ 1767 ResetTripAReq 0;
+BA_ "GenSigSendType" SG_ 1767 ResetTripAReq 3;
+BA_ "GenSigStartValue" SG_ 1767 ResetTripAReq 0;
+BA_ "InitialValue" SG_ 1767 ResetTripAReq 0;
+BA_ "EventTrans" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "EventTrans" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigSendType" SG_ 1767 DriverDoorUnlockEnable 3;
+BA_ "GenSigSendType" SG_ 1767 DriverDoorUnlockEnable 3;
+BA_ "GenSigSendType" SG_ 1767 DriverDoorUnlockEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "InitialValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "InitialValue" SG_ 1767 DriverDoorUnlockEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigSendType" SG_ 1767 SpeedLockDoorEnable 3;
+BA_ "GenSigSendType" SG_ 1767 SpeedLockDoorEnable 3;
+BA_ "GenSigSendType" SG_ 1767 SpeedLockDoorEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "InitialValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "InitialValue" SG_ 1767 SpeedLockDoorEnable 0;
+BA_ "EventTrans" SG_ 1767 ExternalLightSensorLevel 0;
+BA_ "EventTrans" SG_ 1767 ExternalLightSensorLevel 0;
+BA_ "GenSigInactiveValue" SG_ 1767 ExternalLightSensorLevel 0;
+BA_ "GenSigInactiveValue" SG_ 1767 ExternalLightSensorLevel 0;
+BA_ "GenSigInactiveValue" SG_ 1767 ExternalLightSensorLevel 0;
+BA_ "GenSigSendType" SG_ 1767 ExternalLightSensorLevel 3;
+BA_ "GenSigSendType" SG_ 1767 ExternalLightSensorLevel 3;
+BA_ "GenSigSendType" SG_ 1767 ExternalLightSensorLevel 3;
+BA_ "GenSigStartValue" SG_ 1767 ExternalLightSensorLevel 1;
+BA_ "GenSigStartValue" SG_ 1767 ExternalLightSensorLevel 1;
+BA_ "GenSigStartValue" SG_ 1767 ExternalLightSensorLevel 1;
+BA_ "InitialValue" SG_ 1767 ExternalLightSensorLevel 1;
+BA_ "InitialValue" SG_ 1767 ExternalLightSensorLevel 1;
+BA_ "EventTrans" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigSendType" SG_ 1767 SpeedThresholdEnable 3;
+BA_ "GenSigSendType" SG_ 1767 SpeedThresholdEnable 3;
+BA_ "GenSigSendType" SG_ 1767 SpeedThresholdEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "InitialValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "InitialValue" SG_ 1767 SpeedThresholdEnable 0;
+BA_ "EventTrans" SG_ 1767 WalkAwayEnabled 0;
+BA_ "GenSigInactiveValue" SG_ 1767 WalkAwayEnabled 0;
+BA_ "GenSigSendType" SG_ 1767 WalkAwayEnabled 3;
+BA_ "GenSigStartValue" SG_ 1767 WalkAwayEnabled 1;
+BA_ "InitialValue" SG_ 1767 WalkAwayEnabled 1;
+BA_ "EventTrans" SG_ 1767 GloveBoxUnlockEnable 0;
+BA_ "GenSigSendType" SG_ 1767 GloveBoxUnlockEnable 3;
+BA_ "EventTrans" SG_ 1767 Stop_GoEnable 0;
+BA_ "EventTrans" SG_ 1767 Stop_GoEnable 0;
+BA_ "EventTrans" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigSendType" SG_ 1767 Stop_GoEnable 3;
+BA_ "GenSigSendType" SG_ 1767 Stop_GoEnable 3;
+BA_ "GenSigSendType" SG_ 1767 Stop_GoEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "InitialValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "InitialValue" SG_ 1767 Stop_GoEnable 0;
+BA_ "EventTrans" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "EventTrans" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigSendType" SG_ 1767 EngineSpeedDisplayLedEnable 3;
+BA_ "GenSigSendType" SG_ 1767 EngineSpeedDisplayLedEnable 3;
+BA_ "GenSigSendType" SG_ 1767 EngineSpeedDisplayLedEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "InitialValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "InitialValue" SG_ 1767 EngineSpeedDisplayLedEnable 0;
+BA_ "EventTrans" SG_ 1767 SnowChainMode 0;
+BA_ "EventTrans" SG_ 1767 SnowChainMode 0;
+BA_ "EventTrans" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigSendType" SG_ 1767 SnowChainMode 3;
+BA_ "GenSigStartValue" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigStartValue" SG_ 1767 SnowChainMode 0;
+BA_ "GenSigStartValue" SG_ 1767 SnowChainMode 0;
+BA_ "InitialValue" SG_ 1767 SnowChainMode 0;
+BA_ "InitialValue" SG_ 1767 SnowChainMode 0;
+BA_ "EventTrans" SG_ 1767 PressureUnit 0;
+BA_ "EventTrans" SG_ 1767 PressureUnit 0;
+BA_ "EventTrans" SG_ 1767 PressureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 PressureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 PressureUnit 0;
+BA_ "GenSigInactiveValue" SG_ 1767 PressureUnit 0;
+BA_ "GenSigSendType" SG_ 1767 PressureUnit 3;
+BA_ "GenSigSendType" SG_ 1767 PressureUnit 3;
+BA_ "GenSigSendType" SG_ 1767 PressureUnit 3;
+BA_ "GenSigStartValue" SG_ 1767 PressureUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 PressureUnit 0;
+BA_ "GenSigStartValue" SG_ 1767 PressureUnit 0;
+BA_ "InitialValue" SG_ 1767 PressureUnit 0;
+BA_ "InitialValue" SG_ 1767 PressureUnit 0;
+BA_ "EventTrans" SG_ 1767 RPMAreaColor 0;
+BA_ "EventTrans" SG_ 1767 RPMAreaColor 0;
+BA_ "EventTrans" SG_ 1767 RPMAreaColor 0;
+BA_ "GenSigInactiveValue" SG_ 1767 RPMAreaColor 0;
+BA_ "GenSigInactiveValue" SG_ 1767 RPMAreaColor 0;
+BA_ "GenSigInactiveValue" SG_ 1767 RPMAreaColor 0;
+BA_ "GenSigSendType" SG_ 1767 RPMAreaColor 3;
+BA_ "GenSigSendType" SG_ 1767 RPMAreaColor 3;
+BA_ "GenSigSendType" SG_ 1767 RPMAreaColor 3;
+BA_ "GenSigStartValue" SG_ 1767 RPMAreaColor 2;
+BA_ "GenSigStartValue" SG_ 1767 RPMAreaColor 2;
+BA_ "GenSigStartValue" SG_ 1767 RPMAreaColor 2;
+BA_ "InitialValue" SG_ 1767 RPMAreaColor 2;
+BA_ "EventTrans" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigInactiveValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigInactiveValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigInactiveValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigSendType" SG_ 1767 NTPCalibrationReqSts 3;
+BA_ "GenSigStartValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigStartValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigStartValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "GenSigStartValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "InitialValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "InitialValue" SG_ 1767 NTPCalibrationReqSts 0;
+BA_ "EventTrans" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "EventTrans" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigSendType" SG_ 1767 EmergencyStopSignallingEnable 3;
+BA_ "GenSigSendType" SG_ 1767 EmergencyStopSignallingEnable 3;
+BA_ "GenSigSendType" SG_ 1767 EmergencyStopSignallingEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "GenSigStartValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "InitialValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "InitialValue" SG_ 1767 EmergencyStopSignallingEnable 0;
+BA_ "EventTrans" SG_ 1767 RearAutoDoorAlert 0;
+BA_ "GenSigInactiveValue" SG_ 1767 RearAutoDoorAlert 0;
+BA_ "GenSigSendType" SG_ 1767 RearAutoDoorAlert 3;
+BA_ "GenSigStartValue" SG_ 1767 RearAutoDoorAlert 1;
+BA_ "InitialValue" SG_ 1767 RearAutoDoorAlert 1;
+BA_ "EventTrans" SG_ 1767 MirrorAutoTiltEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 MirrorAutoTiltEnable 0;
+BA_ "GenSigSendType" SG_ 1767 MirrorAutoTiltEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 MirrorAutoTiltEnable 0;
+BA_ "InitialValue" SG_ 1767 MirrorAutoTiltEnable 0;
+BA_ "EventTrans" SG_ 1767 SpeedLimitSignEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 SpeedLimitSignEnable 0;
+BA_ "GenSigSendType" SG_ 1767 SpeedLimitSignEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 SpeedLimitSignEnable 0;
+BA_ "InitialValue" SG_ 1767 SpeedLimitSignEnable 0;
+BA_ "EventTrans" SG_ 1767 TrafficChangeEnable 0;
+BA_ "GenSigInactiveValue" SG_ 1767 TrafficChangeEnable 0;
+BA_ "GenSigSendType" SG_ 1767 TrafficChangeEnable 3;
+BA_ "GenSigStartValue" SG_ 1767 TrafficChangeEnable 0;
+BA_ "InitialValue" SG_ 1767 TrafficChangeEnable 0;
+BA_ "EventTrans" SG_ 1955 WCM_Status 0;
+BA_ "GenSigInactiveValue" SG_ 1955 WCM_Status 0;
+BA_ "GenSigSendType" SG_ 1955 WCM_Status 3;
+BA_ "GenSigStartValue" SG_ 1955 WCM_Status 0;
+BA_ "InitialValue" SG_ 1955 WCM_Status 0;
+BA_ "EventTrans" SG_ 1955 ElectricSteeringLamp_FailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1955 ElectricSteeringLamp_FailSts 0;
+BA_ "GenSigSendType" SG_ 1955 ElectricSteeringLamp_FailSts 3;
+BA_ "GenSigStartValue" SG_ 1955 ElectricSteeringLamp_FailSts 0;
+BA_ "InitialValue" SG_ 1955 ElectricSteeringLamp_FailSts 0;
+BA_ "EventTrans" SG_ 1955 VDCLamp_FailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1955 VDCLamp_FailSts 0;
+BA_ "GenSigSendType" SG_ 1955 VDCLamp_FailSts 3;
+BA_ "GenSigStartValue" SG_ 1955 VDCLamp_FailSts 0;
+BA_ "InitialValue" SG_ 1955 VDCLamp_FailSts 0;
+BA_ "EventTrans" SG_ 1955 EBDLamp_FailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1955 EBDLamp_FailSts 0;
+BA_ "GenSigSendType" SG_ 1955 EBDLamp_FailSts 3;
+BA_ "GenSigStartValue" SG_ 1955 EBDLamp_FailSts 0;
+BA_ "InitialValue" SG_ 1955 EBDLamp_FailSts 0;
+BA_ "EventTrans" SG_ 1955 ABSLamp_FailSts 0;
+BA_ "GenSigInactiveValue" SG_ 1955 ABSLamp_FailSts 0;
+BA_ "GenSigSendType" SG_ 1955 ABSLamp_FailSts 3;
+BA_ "GenSigStartValue" SG_ 1955 ABSLamp_FailSts 0;
+BA_ "InitialValue" SG_ 1955 ABSLamp_FailSts 0;
+BA_ "EventTrans" SG_ 1955 InternalLightLevel 0;
+BA_ "GenSigSendType" SG_ 1955 InternalLightLevel 3;
+BA_ "GenSigSendType" SG_ 2564460785 UDS_SGW_NPE_PhyReq_Data 1;
+BA_ "GenSigSendType" SG_ 2564485520 UDS_NPE_SGW_PhyRes_Data 1;
+BA_ "GenSigSendType" SG_ 2564554481 UDS_OBD_to_ALL_FunctionalRequest 1;
+BA_ "EventTrans" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_10 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_10 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_11 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_11 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_08 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_08 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_09 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_09 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_06 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_06 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_07 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_07 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_04 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_04 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_05 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_05 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_02 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_02 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_03 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_03 0;
+BA_ "EventTrans" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigInactiveValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigSendType" SG_ 2651930624 Digit_01 1;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "GenSigStartValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "InitialValue" SG_ 2651930624 Digit_01 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_10_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_10_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_10_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_10_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_10_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_11_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_11_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_11_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_11_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_11_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_08_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_08_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_08_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_08_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_08_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_09_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_09_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_09_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_09_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_09_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_06_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_06_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_06_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_06_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_06_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_07_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_07_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_07_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_07_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_07_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_04_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_04_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_04_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_04_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_04_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_05_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_05_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_05_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_05_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_05_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_02_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_02_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_02_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_02_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_02_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_03_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_03_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_03_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_03_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_03_NPE 0;
+BA_ "EventTrans" SG_ 2651930689 Digit_01_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2651930689 Digit_01_NPE 0;
+BA_ "GenSigSendType" SG_ 2651930689 Digit_01_NPE 1;
+BA_ "GenSigStartValue" SG_ 2651930689 Digit_01_NPE 0;
+BA_ "InitialValue" SG_ 2651930689 Digit_01_NPE 0;
+BA_ "EventTrans" SG_ 2654208000 WakeRsn_BCM 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 WakeRsn_BCM 0;
+BA_ "GenSigSendType" SG_ 2654208000 WakeRsn_BCM 3;
+BA_ "GenSigStartValue" SG_ 2654208000 WakeRsn_BCM 0;
+BA_ "InitialValue" SG_ 2654208000 WakeRsn_BCM 0;
+BA_ "EventTrans" SG_ 2654208000 MainWakeSts_BCM 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 MainWakeSts_BCM 0;
+BA_ "GenSigSendType" SG_ 2654208000 MainWakeSts_BCM 3;
+BA_ "GenSigStartValue" SG_ 2654208000 MainWakeSts_BCM 0;
+BA_ "InitialValue" SG_ 2654208000 MainWakeSts_BCM 0;
+BA_ "EventTrans" SG_ 2654208000 WakeCntr_BCM 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 WakeCntr_BCM 0;
+BA_ "GenSigSendType" SG_ 2654208000 WakeCntr_BCM 3;
+BA_ "GenSigStartValue" SG_ 2654208000 WakeCntr_BCM 0;
+BA_ "InitialValue" SG_ 2654208000 WakeCntr_BCM 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node28 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node28 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node28 0;
+BA_ "InitialValue" SG_ 2654208000 Node28 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node29 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node29 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node29 0;
+BA_ "InitialValue" SG_ 2654208000 Node29 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node21 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node21 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node21 0;
+BA_ "InitialValue" SG_ 2654208000 Node21 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node9 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node9 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node9 0;
+BA_ "InitialValue" SG_ 2654208000 Node9 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node11 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node11 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node11 0;
+BA_ "InitialValue" SG_ 2654208000 Node11 0;
+BA_ "GenSigInactiveValue" SG_ 2654208000 Node0 0;
+BA_ "GenSigSendType" SG_ 2654208000 Node0 7;
+BA_ "GenSigStartValue" SG_ 2654208000 Node0 0;
+BA_ "InitialValue" SG_ 2654208000 Node0 0;
+BA_ "EventTrans" SG_ 2654208065 WakeRsn_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeRsn_NPE 0;
+BA_ "GenSigSendType" SG_ 2654208065 WakeRsn_NPE 1;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeRsn_NPE 0;
+BA_ "InitialValue" SG_ 2654208065 WakeRsn_NPE 0;
+BA_ "EventTrans" SG_ 2654208065 WakeReq_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeReq_NPE 0;
+BA_ "GenSigSendType" SG_ 2654208065 WakeReq_NPE 1;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeReq_NPE 0;
+BA_ "InitialValue" SG_ 2654208065 WakeReq_NPE 0;
+BA_ "EventTrans" SG_ 2654208065 WakeCntr_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeCntr_NPE 0;
+BA_ "GenSigSendType" SG_ 2654208065 WakeCntr_NPE 1;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeCntr_NPE 0;
+BA_ "InitialValue" SG_ 2654208065 WakeCntr_NPE 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigInactiveValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigSendType" SG_ 2654208065 WakeUpNodeAddress 1;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "GenSigStartValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "InitialValue" SG_ 2654208065 WakeUpNodeAddress 0;
+BA_ "EventTrans" SG_ 2658971643 ECU_APPL_NPE 0;
+BA_ "GenSigInactiveValue" SG_ 2658971643 ECU_APPL_NPE 0;
+BA_ "GenSigSendType" SG_ 2658971643 ECU_APPL_NPE 3;
+BA_ "GenSigStartValue" SG_ 2658971643 ECU_APPL_NPE 0;
+BA_ "InitialValue" SG_ 2658971643 ECU_APPL_NPE 0;
+
+
+VAL_ 66 TxpReadRequest 0 "Txp_Reading_Request" 1 "Not_Active"; 
+VAL_ 66 TxpAuthRequest 0 "Txp_Authentication_Request" 1 "Not_Active"; 
+VAL_ 67 CodeCheckSts_TRM 0 "No_Code" 1 "CodeCheck_OK" 2 "CodeCheck_Fault" 3 "Not_used"; 
+VAL_ 67 ProgrammedSts_TRM 0 "Not_Programmed" 1 "Programmed"; 
+VAL_ 67 TxpID 0 "Transponder_Not_Authenticated" 1 "Transponder_1_Authenticated" 2 "Transponder_2_Authenticated" 3 "Transponder_3_Authenticated" 4 "Transponder_4_Authenticated" 5 "Transponder_5_Authenticated" 6 "Transponder_6_Authenticated" 7 "Transponder_7_Authenticated" 8 "Transponder_8_Authenticated" 9 "Transponder_9_Authenticated" 10 "Transponder_10_Authenticated" 11 "Transponder_11_Authenticated" 12 "Transponder_12_Authenticated" 13 "Transponder_13_Authenticated" 14 "Transponder_14_Authenticated" 15 "Transponder_15_Authenticated"; 
+VAL_ 67 TxpFound 0 "Transponder_Read" 1 "Transponder_Absent"; 
+VAL_ 68 MinicryptReceptionSts 0 "Not_Received" 1 "Received"; 
+VAL_ 69 FrameNumber 0 "Frame_1" 1 "Frame_2" 2 "Frame_3" 3 "Frame_4" 4 "Frame_5" 5 "Frame_6" 6 "Frame_7" 7 "Frame_8" 8 "Frame_9" 9 "Frame_10" 10 "Frame_11" 11 "Frame_12" 12 "Frame_13" 13 "Frame_14" 14 "Frame_15" 15 "Frame_16"; 
+VAL_ 69 TotalFrameNumber 0 "One_Frame" 1 "Two_Frames" 2 "Three_Frames" 3 "Four_Frames" 4 "Five_Frames" 5 "Six_Frames" 6 "Seven_Frames" 7 "Eight_Frame" 8 "Nine_Frames" 9 "Ten_Frames" 10 "Eleven_Frames" 11 "Twelve_Frames" 12 "Thirteen_Frames" 13 "Fourteen_Frames" 14 "Fifteen_Frames" 15 "Sixteen_Frames"; 
+VAL_ 359 IgnPosSts 0 "Initialization" 1 "IGN_LK" 2 "Shutdown_req" 3 "ACC" 4 "RUN" 5 "START" 6 "Not_used" 7 "SNA"; 
+VAL_ 359 ValidKeySts 0 "CUST_IMMOB_KEY_DEFAULT" 1 "CUST_IMMOB_KEY_VALID" 2 "Not_used" 3 "SNA"; 
+VAL_ 359 CustKeyInIgnSts 0 "CUST_KEY_DEFAULT" 1 "CUST_KEY_NOT_IN_IGNITION" 2 "CUST_KEY_IN_IGNITION" 3 "SNA"; 
+VAL_ 359 RFFuncReq 0 "NO_BASIC_REQUEST" 1 "UNLOCK_BUTTON_Single_Pressure" 2 "UNLOCK_BUTTON_Double_Pressure" 3 "UNLOCK_BUTTON_Long_Pressure" 4 "LOCK_BUTTON_Single_Pressure" 5 "LOCK_BUTTON_Double_Pressure" 6 "LOCK_BUTTON_Long_Pressure" 7 "TRUNK_BUTTON_Single_Pressure" 8 "TRUNK_BUTTON_Double_Pressure" 9 "TRUNK_BUTTON_long_Pressure" 10 "BUTTON_D_Single_Pressure" 11 "BUTTON_D_Double_Pressure" 12 "BUTTON_D_long_Pressure" 13 "ALL_UNLOCK_REQUEST" 14 "BUTTON_A_Single_Pressure" 15 "BUTTON_A_Double_Pressure" 16 "BUTTON_A_Long_Pressure" 17 "BUTTON_B_Single_Pressure" 18 "BUTTON_B_Double_Pressure" 19 "BUTTON_B_Long_Pressure" 20 "BUTTON_C_Single_Pressure" 21 "BUTTON_C_Double_Pressure" 22 "BUTTON_C_Long_Pressure" 23 "Left_Unlatch_Switch_Actuation" 24 "Right_Unlatch_Switch_Actuation" 25 "Left_Lock_Switch_Actuation" 26 "Right_Lock_Switch_Actuation" 27 "Ext_Trunk_Open_Switch_Actuation" 28 "Button_C_Button_D_Single_Pressure" 29 "Button_C_Button_D_Long_Pressure" 30 "Charging_Open_Switch_Actuation" 31 "SNA"; 
+VAL_ 359 RFFobNum 0 "FOB_DEFAULT" 1 "FOB_1" 2 "FOB_2" 3 "FOB_3" 4 "FOB_4" 5 "FOB_5" 6 "FOB_6" 7 "FOB_7" 8 "FOB_8" 9 "Not_used" 10 "Not_used" 11 "Not_used" 12 "Not_used" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 359 RFRearFuncReq 0 "NO_BASIC_REQUEST" 1 "RearLeftUnlatchSwitchActuation" 2 "RearRightUnlatchSwitchActuation" 3 "RearLeftLockSwitchActuation" 4 "RearRightLockSwitchActuation" 5 "Not_used" 6 "Not_used" 7 "SNA"; 
+VAL_ 359 FobSearchResult 0 "No_Action" 1 "No_Action_ExteriorRear" 2 "No_Action_ExteriorLeft" 3 "No_Action_ExteriorRight" 4 "No_Action_Interior" 5 "Invalid" 6 "Invalid" 7 "Invalid" 8 "Interior" 9 "Invalid" 10 "Invalid" 11 "Invalid" 12 "Invalid" 13 "Invalid" 14 "Invalid" 15 "Invalid" 16 "No_Action_Trunk" 17 "Invalid" 18 "Invalid" 19 "Invalid" 20 "Invalid" 21 "Invalid" 22 "Invalid" 23 "Invalid" 24 "Invalid" 25 "Invalid" 26 "Invalid" 27 "Invalid" 28 "Invalid" 29 "Invalid" 30 "Invalid" 31 "Invalid" 32 "Fault" 33 "Fault" 34 "Fault" 35 "Fault" 36 "Fault" 37 "Fault" 38 "Fault" 39 "Fault" 40 "Fault" 41 "Fault" 42 "Fault" 43 "Fault" 44 "Fault" 45 "Fault" 46 "Fault" 47 "Fault" 48 "Fault" 49 "Fault" 50 "Fault" 51 "Fault" 52 "Fault" 53 "Fault" 54 "Fault" 55 "Fault" 56 "Fault" 57 "Fault" 58 "Fault" 59 "Fault" 60 "Fault" 61 "Fault" 62 "Fault" 63 "Fault" 64 "In_Progress" 65 "In_Progress" 66 "In_Progress" 67 "In_Progress" 68 "In_Progress" 69 "In_Progress" 70 "In_Progress" 71 "In_Progress" 72 "In_Progress" 73 "In_Progress" 74 "In_Progress" 75 "In_Progress" 76 "In_Progress" 77 "In_Progress" 78 "In_Progress" 79 "In_Progress" 80 "In_Progress" 81 "In_Progress" 82 "In_Progress" 83 "In_Progress" 84 "In_Progress" 85 "In_Progress" 86 "In_Progress" 87 "In_Progress" 88 "In_Progress" 89 "In_Progress" 90 "In_Progress" 91 "In_Progress" 92 "In_Progress" 93 "In_Progress" 94 "In_Progress" 95 "In_Progress" 96 "In_Progress" 97 "In_Progress" 98 "In_Progress" 99 "In_Progress" 100 "In_Progress" 101 "In_Progress" 102 "In_Progress" 103 "In_Progress" 104 "In_Progress" 105 "In_Progress" 106 "In_Progress" 107 "In_Progress" 108 "In_Progress" 109 "In_Progress" 110 "In_Progress" 111 "In_Progress" 112 "In_Progress" 113 "In_Progress" 114 "In_Progress" 115 "In_Progress" 116 "In_Progress" 117 "In_Progress" 118 "In_Progress" 119 "In_Progress" 120 "In_Progress" 121 "In_Progress" 122 "In_Progress" 123 "In_Progress" 124 "In_Progress" 125 "In_Progress" 126 "In_Progress" 127 "In_Progress" 128 "Complete_Key_not_found" 129 "Complete_ExteriorRear" 130 "Complete_ExteriorLeft" 131 "Invalid" 132 "Complete_ExteriorRight" 133 "Invalid" 134 "Invalid" 135 "Invalid" 136 "Complete_Interior" 137 "Invalid" 138 "Invalid" 139 "Invalid" 140 "Invalid" 141 "Invalid" 142 "Invalid" 143 "Invalid" 144 "Complete_Trunk" 145 "Invalid" 146 "Invalid" 147 "Invalid" 148 "Invalid" 149 "Invalid" 150 "Invalid" 151 "Invalid" 152 "Complete_TrunkInterior" 153 "Invalid" 154 "Invalid" 155 "Invalid" 156 "Invalid" 157 "Invalid" 158 "Invalid" 159 "Invalid" 160 "Fault" 161 "Fault" 162 "Fault" 163 "Fault" 164 "Fault" 165 "Fault" 166 "Fault" 167 "Fault" 168 "Fault" 169 "Fault" 170 "Fault" 171 "Fault" 172 "Fault" 173 "Fault" 174 "Fault" 175 "Fault" 176 "Fault" 177 "Fault" 178 "Fault" 179 "Fault" 180 "Fault" 181 "Fault" 182 "Fault" 183 "Fault" 184 "Fault" 185 "Fault" 186 "Fault" 187 "Fault" 188 "Fault" 189 "Fault" 190 "Fault" 191 "Fault" 192 "TimeOut" 193 "TimeOut" 194 "TimeOut" 195 "TimeOut" 196 "TimeOut" 197 "TimeOut" 198 "TimeOut" 199 "TimeOut" 200 "TimeOut" 201 "TimeOut" 202 "TimeOut" 203 "TimeOut" 204 "TimeOut" 205 "TimeOut" 206 "TimeOut" 207 "TimeOut" 208 "TimeOut" 209 "TimeOut" 210 "TimeOut" 211 "TimeOut" 212 "TimeOut" 213 "TimeOut" 214 "TimeOut" 215 "TimeOut" 216 "TimeOut" 217 "TimeOut" 218 "TimeOut" 219 "TimeOut" 220 "TimeOut" 221 "TimeOut" 222 "TimeOut" 223 "TimeOut" 224 "TimeOut" 225 "TimeOut" 226 "TimeOut" 227 "TimeOut" 228 "TimeOut" 229 "TimeOut" 230 "TimeOut" 231 "TimeOut" 232 "TimeOut" 233 "TimeOut" 234 "TimeOut" 235 "TimeOut" 236 "TimeOut" 237 "TimeOut" 238 "TimeOut" 239 "TimeOut" 240 "TimeOut" 241 "TimeOut" 242 "TimeOut" 243 "TimeOut" 244 "TimeOut" 245 "TimeOut" 246 "TimeOut" 247 "TimeOut" 248 "TimeOut" 249 "TimeOut" 250 "TimeOut" 251 "TimeOut" 252 "TimeOut" 253 "TimeOut" 254 "TimeOut" 255 "TimeOut"; 
+VAL_ 359 RFReq 0 "REQUESTOR_DEFAULT" 1 "REQUESTOR_RKE" 2 "REQUESTOR_PE" 3 "REQUESTOR_REMOTESTART" 4 "REQUESTOR_UCONNECT" 5 "REQUESTOR_WalkAway" 6 "REQUESTOR_PE_KICKBOOT" 7 "SNA"; 
+VAL_ 359 FobSearchFault 0 "NO_FAULT" 1 "FAULT"; 
+VAL_ 359 HMIPowerOnReq 0 "Not_Active" 1 "Active"; 
+VAL_ 359 FOBInterferenceAvoid 0 "Not_Active" 1 "Active"; 
+VAL_ 359 DriverEnginOffRequest 0 "Not_active" 1 "Active"; 
+VAL_ 359 FobSearchResult_LongPressure 0 "No_Action" 1 "Research_in_progress" 2 "Not_Found" 3 "Found_ExteriorRear" 4 "Found_ExteriorLeft" 5 "Found_Exterior_Right" 6 "Found_Interior" 7 "Found_Trunk"; 
+VAL_ 359 FobSearchExteriorRear 0 "NO_FOB_IN_ZONE" 1 "FOB_IN_ZONE"; 
+VAL_ 359 FobSearchExteriorLeft 0 "NO_FOB_IN_ZONE" 1 "FOB_IN_ZONE"; 
+VAL_ 359 FobSearchExteriorRight 0 "NO_FOB_IN_ZONE" 1 "FOB_IN_ZONE"; 
+VAL_ 359 FobSearchInterior 0 "NO_FOB_IN_ZONE" 1 "FOB_IN_ZONE"; 
+VAL_ 359 FobSearchTrunk 0 "NO_FOB_IN_ZONE" 1 "FOB_IN_ZONE"; 
+VAL_ 359 FobSearchStatus 0 "NO_ACTION" 1 "IN_PROGRESS" 2 "COMPLETE" 3 "TIMEOUT"; 
+VAL_ 359 KeyCommandReq 0 "Unlock" 1 "Lock"; 
+VAL_ 359 NPE_ActuationReq 0 "No_Request" 1 "Insert_Key_Request" 2 "PowerOn_Request" 3 "PowerOff_Request"; 
+VAL_ 499 KHDFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 499 KeyHolderPosition 0 "Intermediate" 1 "Position1" 2 "Position2" 3 "Position3" 4 "not_used" 5 "not_used" 6 "not_used" 7 "Undefined"; 
+VAL_ 499 KeyPresenceSts 0 "Nothing_Detected" 1 "NFC_Detected" 2 "KeyPresent" 3 "not_used"; 
+VAL_ 524 VehicleSpeed_ASILxFailSts 0 "Fail_not_present" 1 "Fail_present"; 
+VAL_ 524 VehicleSpeedVSOSigFailSts 0 "Fail_not_present" 1 "Fail_present"; 
+VAL_ 524 NFR_Speed_FA_FailSts 0 "Fail_not_present" 1 "Fail_present"; 
+VAL_ 524 NFRCruiseEnabler 0 "CC_Enabled" 1 "CC_Not_Enabled"; 
+VAL_ 599 SBR2RowCentralSeatBuckleFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR2RowCentralSeatConfigSts 0 "Seat_Not_Checked" 1 "Seat_Checked"; 
+VAL_ 599 PsngrBagLightReqSts 0 "Lamp_Off" 1 "Lamp_Flashing" 2 "Lamp_On" 3 "SNA"; 
+VAL_ 599 PsngrBagChargeSts 0 "Active" 1 "Not_Active" 2 "Not_Present" 3 "SNA"; 
+VAL_ 599 AirBagFailSts 0 "Fail_Not_Present_Lamp_Off" 1 "Fail_Not_Present_Lamp_Flashing" 2 "Fail_Present_Lamp_On" 3 "Not_used"; 
+VAL_ 599 SBR1RowDriverSeatFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR1RowDriverSeatConfigSts 0 "Seat_Not_Checked" 1 "Seat_Checked"; 
+VAL_ 599 SBR2RowCentralSeatSts 0 "Seat_Belt_Fasten" 1 "Seat_Belt_Not_Fasten" 2 "Seat_Safe" 3 "Seat_Not_Safe" 4 "Not_used" 5 "Not_used" 6 "Not_used" 7 "SNA"; 
+VAL_ 599 SBR1RowCentralSeatPPDFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR1RowPsngrSeatPPDFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR1RowPsngrSeatBuckleFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR1RowPsngrSeatConfigSts 0 "Seat_Not_Checked" 1 "Seat_Checked"; 
+VAL_ 599 SBR1RowDriverSeatSts 0 "Seat_Belt_Fasten" 1 "Seat_Belt_Not_Fasten" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR2RowLeftSeatSts 0 "Seat_Belt_Fasten" 1 "Seat_Belt_Not_Fasten" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR2RowRightSeatFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR2RowLeftSeatFailSts 0 "Fail_Not_Present" 1 "Fail_Present" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 SBR1RowPsngrSeatSts 0 "Seat_Belt_Fasten" 1 "Seat_Belt_Not_Fasten" 2 "Seat_Safe" 3 "Seat_Not_Safe" 4 "Not_used" 5 "Not_used" 6 "Not_used" 7 "SNA"; 
+VAL_ 599 CrashOutputSts 0 "No_crash" 1 "Front_Pretensioner" 2 "Front_First_Level" 4 "Front_Second_Level" 8 "Passenger_Side" 16 "Driver_Side" 32 "Rear" 64 "Rollover" 128 "Pedestrian"; 
+VAL_ 599 SBR2RowRightSeatSts 0 "Seat_Belt_Fasten" 1 "Seat_Belt_Not_Fasten" 2 "Not_used" 3 "SNA"; 
+VAL_ 599 CrashOutputValidData 0 "Valid" 1 "Not_Valid"; 
+VAL_ 599 AirBagWarningPADLampOnSts 0 "PADLampON_OK" 1 "PADLampON_Fail"; 
+VAL_ 599 AirBagWarningPADLampOffSts 0 "PADLampOFF_OK" 1 "PADLampOFF_Fail"; 
+VAL_ 599 SBR2RowRightSeatConfigSts 0 "Seat_Not_Checked" 1 "Seat_Checked"; 
+VAL_ 599 SBR2RowLeftSeatConfigSts 0 "Seat_Not_Checked" 1 "Seat_Checked"; 
+VAL_ 599 Ppd_psngr_info 0 "passenger_absent" 1 "passenger_present" 2 "PPD_Fault" 3 "PPD_device_not_present"; 
+VAL_ 599 AirBagWarningLampSts 0 "Lamp_OK" 1 "Lamp_in_Fail"; 
+VAL_ 630 EPBMalfunction 0 "Not_active" 1 "Active"; 
+VAL_ 630 EPBSts 0 "Released" 1 "Applied" 2 "Applying_in_progress" 3 "Releasing_in_progress" 4 "Not_used" 5 "Not_used" 6 "Not_used" 7 "Undefined_position"; 
+VAL_ 654 VCU_VehicleChargeEnable 0 "Not_enabled" 1 "Enabled"; 
+VAL_ 761 GearLeverPositionforNPE 0 "P" 1 "N" 2 "R" 3 "D" 4 "M" 5 "Unknown" 6 "Transition" 7 "Not_used"; 
+VAL_ 761 GearLeverFailForNPE 0 "No_Fail" 1 "Fail"; 
+VAL_ 1035 CeremonySts_IDC 0 "Not_Active" 1 "Active" 2 "Completed" 3 "Not_Used"; 
+VAL_ 1035 ETA_to_Dest 2047 "SNA"; 
+VAL_ 1035 Ecall_IDCMuteReq 0 "Not_Active" 1 "Active"; 
+VAL_ 1035 ETA_to_EVSE 2047 "SNA"; 
+VAL_ 1035 HMISts 0 "HMI_OFF" 1 "HMI_ON" 2 "HMI_PowerOn"; 
+VAL_ 1035 CabinModeSts 0 "Not_Enabled" 1 "Enabled"; 
+VAL_ 1035 IDC_CommandSts 0 "No_Action" 1 "PowerOn_Action" 2 "PowerOff_Action" 3 "not_used"; 
+VAL_ 1035 IDC_VisualizationSts 0 "No_Visualization" 1 "Insert_Key" 2 "Key_Not_Found" 3 "not_used"; 
+VAL_ 1214 LVB_SOCSts 0 "OK" 1 "FLT"; 
+VAL_ 1214 LVB_SOC 127 "SNA"; 
+VAL_ 1214 LVB_MaxCellsTemp 255 "SNA"; 
+VAL_ 1214 LVB_SOH 127 "SNA"; 
+VAL_ 1214 LVB_MaxCellsTempFailsts 0 "Fail_not_Present" 1 "Fail_Present"; 
+VAL_ 1214 RecirculationReq 0 "No_Req" 1 "Req"; 
+VAL_ 1214 LVB_Relay_Status 0 "CLS" 1 "OPN_REQ" 2 "OPN" 3 "SNA"; 
+VAL_ 1267 PWT_Limited_Perfo 0 "Normal" 1 "Degraded"; 
+VAL_ 1267 RechargeSts_HVB 0 "Not_Active" 1 "Normal" 2 "Degraded" 3 "Critical"; 
+VAL_ 1267 PWTBuzzerReq 0 "Not_Active" 1 "Active"; 
+VAL_ 1267 HMICode_CC 0 "CC_UNAVAILABLE_BRAKE_APPLIED" 1 "CC_UNAVAILABLE" 2 "CC_UNAVAILABLE_BELT" 3 "CC_UNAVAILABLE_ABOVE_MAX_SPEED" 4 "CC_UNAVAILABLE_EPB_ACTIVE" 5 "CC_UNAVAILABLE_ESC_EVENT" 6 "CC_UNAVAILABLE_DRIVE_MODE" 7 "CC_UNAVAILABLE_BACKWARD" 8 "CC_UNAVAILABLE_SHIFT_D" 9 "CC_UNAVAILABLE_ROAD_TOO_STEEP" 10 "CC_CANCEL_SHIFT_D" 11 "CC_CANCEL_BACKWARD" 12 "CC_CANCEL_ESC_EVENT" 13 "CC_CANCEL_HIGH_RPM" 14 "CC_CANCEL_CHIME" 15 "CC_CANCEL_EPB_ACTIVE" 16 "CC_CANCEL_BELT" 17 "CC_CANC_ROAD_TOO_STEEP" 18 "CC_OVERRIDE" 19 "CC_UNAVAILABLE_DOOR_OPEN" 20 "CC_CANC_DOOR_OPEN" 21 "CC_MAX_SPEED_EDRIVE_BELOW" 22 "CC_MAX_SPEED_EDRIVE_ABOVE" 23 "CC_MAX_SPEED_ECO_BELOW" 24 "CC_MAX_SPEED_ECO_ABOVE" 25 "CC_MAX_SPEED_STD_BELOW" 26 "CC_MAX_SPEED_STD_ABOVE" 27 "CC_MAX_SPEED_PERF_BELOW" 28 "CC_MAX_SPEED_PERF_ABOVE" 29 "NO_CODE" 30 "Not_used" 31 "Not_used"; 
+VAL_ 1267 Recharge_PlugSts 0 "Not_Connected" 1 "Connected_unlocked" 2 "Connected_locked" 3 "Not_used"; 
+VAL_ 1267 VehicleStartNotAllowed 0 "Not_Active" 1 "Active"; 
+VAL_ 1267 START_ButtonPress_Rqt 0 "No_Visualization" 1 "Pressure" 2 "Pressure_and_hold" 3 "Not_used"; 
+VAL_ 1267 CCSpeedWarning 0 "No_Warning" 1 "CCSpeedReducedByEDrive" 2 "MaxCCSpeedReachedForEDrive" 3 "CCNotAvailable"; 
+VAL_ 1267 PlugInRechargeWarning 0 "Not_Active" 1 "PlugInRecharge_NotAvailable_CheckEPB" 2 "PlugInRecharge_NotAvailable_InsertP" 3 "PlugInRecharge_NotAvailable" 4 "PlugInRecharge_NotCompleteable" 5 "not_used" 6 "not_used" 7 "not_used" 8 "not_used" 9 "not_used" 10 "not_used" 11 "not_used" 12 "not_used" 13 "not_used" 14 "not_used" 15 "not_used" 16 "not_used" 17 "not_used" 18 "not_used" 19 "not_used" 20 "not_used" 21 "not_used" 22 "not_used" 23 "not_used" 24 "not_used" 25 "not_used" 26 "not_used" 27 "not_used" 28 "not_used" 29 "not_used" 30 "not_used" 31 "not_used"; 
+VAL_ 1267 CoolingWarningForDisplay 0 "Not_Active" 1 "Cooling_Fault_Critical" 2 "Cooling_Fault_Warning" 3 "not_used"; 
+VAL_ 1267 LVSysWarningForDisplay 0 "No_Failure" 1 "LVB_Thermal_Runaway" 2 "LVB_Temperature_Critical" 3 "LV_Failure_Critical" 4 "LVB_Recharge_Not_Available" 5 "LVB_Electrical_Fault_Critical" 6 "LVB_HW_Fault_Critical" 7 "Communication_Fault_Critical" 8 "LVB_Temperature_Warning" 9 "LVB_Electrical_Fault_Warning" 10 "LVB_HW_Fault_Warning" 11 "Communication_Fault_Warning" 12 "LVB_SOH_warning" 13 "LVB_SW_Fault" 14 "LV_Failure_Warning" 15 "LV_Secondary_Relè_Stuck_Closed" 16 "LV_Consumption_too_high" 17 "not_used" 18 "not_used" 19 "not_used" 20 "not_used" 21 "not_used" 22 "not_used" 23 "not_used" 24 "not_used" 25 "not_used" 26 "not_used" 27 "not_used" 28 "not_used" 29 "not_used" 30 "not_used" 31 "not_used"; 
+VAL_ 1267 PWTSystemWarningForDisplay 0 "No_Failure" 1 "AWD_EM_Not_Available" 2 "RWD_EM_Not_Available" 3 "not_used" 4 "not_used" 5 "AWD_Not_Available_OneFront" 6 "AWD_Not_Available_OneRear" 7 "FirstStart_OneRear" 8 "FrontAxle_ForcedAWD" 9 "FrontAxle_ForcedRWD" 10 "FrontAxleUnknown_ForcedRWD" 11 "Traction_System_Not_Available" 12 "RegenerativeBraking_Fail" 13 "P4_SafeStateFault" 14 "not_used" 15 "not_used" 16 "not_used" 17 "not_used" 18 "not_used" 19 "not_used" 20 "not_used" 21 "not_used" 22 "not_used" 23 "not_used" 24 "not_used" 25 "not_used" 26 "not_used" 27 "not_used" 28 "not_used" 29 "not_used" 30 "not_used" 31 "not_used"; 
+VAL_ 1267 PWTLimpHomeSts 0 "No_Warning" 1 "LimitedPerformance" 2 "PWT_Starting" 3 "PWT_Warming" 4 "Not_Used" 5 "Not_Used" 6 "Not_Used" 7 "Not_Used" 8 "Not_Used" 9 "Not_Used" 10 "Not_Used" 11 "Not_Used" 12 "Not_Used" 13 "Not_Used" 14 "Not_Used" 15 "Not_Used" 16 "Not_Used" 17 "Not_Used" 18 "Not_Used" 19 "Not_Used" 20 "Not_Used" 21 "Not_Used" 22 "Not_Used" 23 "Not_Used" 24 "Not_Used" 25 "Not_Used" 26 "Not_Used" 27 "Not_Used" 28 "Not_Used" 29 "Not_Used" 30 "Not_Used" 31 "Not_Used"; 
+VAL_ 1267 PropulsionSystemFailure 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1267 MVSysWarningForDisplay 0 "No_Warning" 1 "MV_Failure_Critical" 2 "MV_Failure_Warning" 3 "Not_used" 4 "Not_used" 5 "Not_used" 6 "Not_used" 7 "Not_used" 8 "Not_used" 9 "Not_used" 10 "Not_used" 11 "Not_used" 12 "Not_used" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1267 PWTFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1267 MVFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1274 rub_Current_WAL_Status 0 "'ST_Inactive'" 1 "'ST_Polling_Interior'" 2 "'ST_Polling_In_Trunk'" 3 "'ST_Polling_Ext_Driver'" 4 "'ST_Polling_Ext_Passenger'" 5 "'ST_Polling_Ext_Trunk'" 6 "Not_used" 7 "Not_used"; 
+VAL_ 1274 rub_WAL_Current_Activation 0 "'No_Trig'" 1 "'Driver_Door_Closing'" 2 "'Driver_Door_Opening'" 3 "'Passenger_Door_Closing'" 4 "'Passenger_Door_Opening'" 5 "'RearLeft_Door_Closing'" 6 "'RearLeft_Door_Opening'" 7 "'RearRight_Door_Closing'" 8 "'RearRight_Door_Opening'" 9 "'Trunk_Door_Closing'" 10 "'Trunk_Door_Opening'" 11 "'Unsecure_PE_Door_Opening'" 12 "'Exit_Driving_With_Door_Opened'" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1274 WAL_Trig_EV 0 "'No_Trig'" 1 "'Driver_Door_Closing'" 2 "'Driver_Door_Opening'" 3 "'Passenger_Door_Closing'" 4 "'Passenger_Door_Opening'" 5 "'RearLeft_Door_Closing'" 6 "'RearLeft_Door_Opening'" 7 "'RearRight_Door_Closing'" 8 "'RearRight_Door_Opening'" 9 "'Trunk_Door_Closing'" 10 "'Trunk_Door_Opening'" 11 "'Unsecured_PE_Door_Opening'" 12 "'Exit_Driving_With_Door_Opened'" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1274 X_SET_WAL_Area_To_Search_m 0 "None" 1 "Interior" 2 "In_Trunk" 3 "Ext_Driver" 4 "Ext_Passenger" 5 "Ext_Trunk" 6 "Not_used" 7 "Not_used"; 
+VAL_ 1274 is_WAL_Search 0 "'IN_NO_ACTIVE_CHILD_m'" 1 "'IN_WAL_Polling_Ext_Driver'" 2 "'IN_WAL_Polling_Ext_Passenger'" 3 "'IN_WAL_Polling_Ext_Trunk'" 4 "'IN_WAL_Polling_Interior'" 5 "'IN_WAL_Polling_Trunk'" 6 "Not_used" 7 "Not_used"; 
+VAL_ 1274 rub_WAL_Current_Exit 0 "'RKE_Inhibit'" 1 "'Id_Inside_All_Doors_Closed_Inh'" 2 "'Path_Not_Ok'" 3 "'No_ID_After_Trig'" 4 "'Vehicle_State_Inhibit'" 5 "'Car_Secured'" 6 "'Detection_TimeOut'" 7 "'LF_Error'" 8 "'Key_Event'" 9 "'Crash_Event'" 10 "'By_Reset'" 11 "'By_WAL'" 12 "'No_One'" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1276 KeyFob_Button 0 "'CID_NO_BUTTON_PRESSED'" 1 "'CID_BUTTON_5_PRESSED'" 2 "'CID_BUTTON_2_PRESSED'" 4 "'CID_BUTTON_3_PRESSED'" 8 "'CID_BUTTON_1_PRESSED'" 64 "'CID_BUTTON_4_PRESSED'"; 
+VAL_ 1313 STS_DRS_DriverLatchsts 0 "init" 1 "Unlocked" 2 "Locked" 3 "SNA"; 
+VAL_ 1313 STS_DRS_PsngrDoorSts 0 "SNA" 1 "close" 2 "Ajar" 3 "Open"; 
+VAL_ 1313 STS_DRS_DriverDoorSts 0 "SNA" 1 "close" 2 "Ajar" 3 "Open"; 
+VAL_ 1313 STS_DRS_VPSTrunkSts 0 "Closed_Unlocked" 1 "Closed_Locked" 2 "Open_Unlocked" 3 "Open_Locked"; 
+VAL_ 1313 STS_DRS_RearRightLatchsts 0 "init" 1 "Unlocked" 2 "Locked" 3 "SNA"; 
+VAL_ 1313 STS_DRS_RearLeftDoorSts 0 "SNA" 1 "close" 2 "Ajar" 3 "Open"; 
+VAL_ 1313 STS_DRS_RearRightDoorSts 0 "SNA" 1 "close" 2 "Ajar" 3 "Open"; 
+VAL_ 1313 STS_DRS_PsngrLatchsts 0 "init" 1 "Unlocked" 2 "Locked" 3 "SNA"; 
+VAL_ 1313 STS_DRS_PsngrWindowSts 0 "Open" 1 "Close" 2 "Middle" 3 "Running_Up" 4 "Running_Down" 5 "Reverse" 6 "Short_drop" 7 "SNA"; 
+VAL_ 1313 STS_DRS_DriverWindowSts 0 "Open" 1 "Close" 2 "Middle" 3 "Running_Up" 4 "Running_Down" 5 "Reverse" 6 "Short_drop" 7 "SNA"; 
+VAL_ 1313 STS_DRS_VPSLockValidData 0 "Valid" 1 "Not_Valid"; 
+VAL_ 1313 STS_DRS_RearLeftLatchsts 0 "init" 1 "Unlocked" 2 "Locked" 3 "SNA"; 
+VAL_ 1313 TrunkInternalButton 0 "Not_Active" 1 "Active"; 
+VAL_ 1313 STS_DRS_RearRightWindowSts 0 "Open" 1 "Close" 2 "Middle" 3 "Running_Up" 4 "Running_Down" 5 "Reverse" 6 "Short_drop" 7 "SNA"; 
+VAL_ 1313 STS_DRS_RearLeftWindowSts 0 "Open" 1 "Close" 2 "Middle" 3 "Running_Up" 4 "Running_Down" 5 "Reverse" 6 "Short_drop" 7 "SNA"; 
+VAL_ 1313 Interior_Lock 0 "Not_Active" 1 "Active"; 
+VAL_ 1313 VPSDoorSts 0 "Locked_External" 1 "Locked_Internal" 2 "Unlocked_External" 3 "Unlocked_Internal"; 
+VAL_ 1313 LockUnlockDoors_Button 0 "Not_Pressed" 1 "Pressed"; 
+VAL_ 1313 TrunkExternalButton 0 "Not_Active" 1 "Active"; 
+VAL_ 1318 HazardActRqt 0 "Hazard_Off" 1 "Hazard_On"; 
+VAL_ 1318 StopLightActRqt 0 "Stop_Light_switched_OFF" 1 "Stop_Light_switched_ON"; 
+VAL_ 1318 BrakePedalSts 0 "Not_Pressed" 1 "Pressed"; 
+VAL_ 1318 BrakePedalValidData 0 "Valid_QM" 1 "Not_valid" 2 "Valid_ASIL" 3 "Not_used"; 
+VAL_ 1318 BrakePressureActualValidData 0 "Valid_QM" 1 "Not_valid" 2 "Valid_ASIL" 3 "Not_used"; 
+VAL_ 1318 DriverBrkPressureRqtValidData 0 "Valid_QM" 1 "Not_valid" 2 "Valid_ASIL" 3 "Not_used"; 
+VAL_ 1318 BrakePressureTargetValidData 0 "Valid_QM" 1 "Not_valid" 2 "Valid_ASIL" 3 "Not_used"; 
+VAL_ 1318 BrakeRodStrokeValidData 0 "Valid_QM" 1 "Not_valid" 2 "Valid_ASIL" 3 "Not_used"; 
+VAL_ 1376 TrunkSts 0 "Closed" 1 "Open"; 
+VAL_ 1376 AutoEPBButtonSts 0 "Not_Active" 1 "Active"; 
+VAL_ 1376 PowerModeSts 0 "Standard_Power" 1 "Logistic_Mode_ON" 2 "Logistic_Mode_PR" 3 "Not_used"; 
+VAL_ 1376 TrunkReleaseReqCntrl 0 "Not_active" 1 "Active"; 
+VAL_ 1376 RechargeFlapButtonSts 0 "Not_Pressed" 1 "Pressed"; 
+VAL_ 1376 KeySts 0 "Data_not_valid" 1 "STOP" 2 "PARK" 3 "Not_used" 4 "ON" 5 "Not_used" 6 "Not_used" 7 "Not_used" 8 "Not_used" 9 "Not_used" 10 "Not_used" 11 "Not_used" 12 "CRANK_ON" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1376 ExternalTemperature 0 "FaultValue"; 
+VAL_ 1376 FuelLevelFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1376 EngineBonnetSts 0 "Closed" 1 "Open"; 
+VAL_ 1376 ExternalTemperatureFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1376 FOBSearchRequest 0 "NO_ACTION" 1 "REQUEST_SEARCH" 2 "RESULT_RECEIVED" 3 "RESERVED"; 
+VAL_ 1376 TheftAlarmStatus 0 "VTA_DISARM" 1 "VTA_PREARM" 2 "VTA_ARM" 3 "VTA_LGT" 4 "VTA_LGT_HORN" 5 "VTA_TAMP" 6 "VTA_ITM_Alarm" 7 "SNA"; 
+VAL_ 1376 ChargingReleaseReqCntrl 0 "Not_Active" 1 "Active"; 
+VAL_ 1376 NTPCalibrationReqSts 0 "no_Request" 1 "Request"; 
+VAL_ 1387 ShiftModeSts 0 "Manual" 1 "Automatic"; 
+VAL_ 1387 ActualGearForDisplay 0 "Not_coded" 1 "_1st_gear" 2 "_2nd_gear" 3 "_3rd_gear" 4 "_4th_gear" 5 "_5th_gear" 6 "_6th_gear" 7 "_7th_gear" 8 "'8th gear'" 9 "Not_used" 10 "Not_used" 11 "'P'" 12 "'D'" 13 "'L'" 14 "'R'" 15 "'N'"; 
+VAL_ 1387 NCDFailSts 0 "Lamps_Off_Fail_not_present" 1 "Amber_Lamp_On_Fail_present" 2 "Amber_Lamp_On_Fail_present" 3 "Red_Lamp_On_Fail_present"; 
+VAL_ 1387 LaunchCircularLedSts 0 "OFF" 1 "ON" 2 "Blinking" 3 "Not_used"; 
+VAL_ 1387 Command_Lamp_Fail_Gear 0 "Lamp_OK" 1 "Lamp_in_Fail"; 
+VAL_ 1387 BuzzerReqSts 0 "OFF" 1 "Reverse_gear_sound_ON" 2 "Others_case_sound_ON" 3 "ParkLock_not_Inserted"; 
+VAL_ 1387 LaunchLedSts 0 "Launch OFF" 1 "Launch ON" 2 "Launch BLINKING OFF" 3 "Launch BLINKING ON"; 
+VAL_ 1387 PerformanceLaunchIndication 0 "No_Warning" 1 "Press_And_Hold_Brake_Pedal" 2 "Press_And_Hold_Gas_Pedal" 3 "Release_Brake_Pedal"; 
+VAL_ 1387 AutomaticRoboticXmsnDegradedMode 0 "Not_active" 1 "Active"; 
+VAL_ 1387 PerformanceLaunchMode 0 "Not_active" 1 "Active"; 
+VAL_ 1387 RoboticTransmissionWarning 0 "No_warning" 1 "Press_brake_pedal_for_Start_warning" 2 "Tip_not_available_warning" 3 "Lower_gear_shifts_warning" 4 "Manual_mode_not_avail_warn" 5 "Insert_N_warning" 6 "Automatic_mode_not_avail_warning" 7 "Delayed_start_up_warning" 8 "Clutch_over_temperature" 9 "Manoeuvre_not_allowed_warning" 10 "Press_brake_pedal_and_repeat_man" 11 "F1_pump_overheating_lower_gear" 12 "Parking_lock_not_inserted" 13 "Carwash_mode_activation" 14 "Disengage_parklock_request" 15 "Creeping_Deactivation" 16 "SuperCapWarning" 17 "Insert_P_Warning" 18 "GearLever_Fail" 19 "LaunchLever_Fail" 20 "HVB_Preconditioning_Interrupted" 21 "LaunchProcedureEngaged" 22 "Vehicle_Not_Standstill" 23 "Wrong_EManettino_Position_Launch" 24 "Communication_Error" 25 "Parking_Lock_Stuck_Engaged" 26 "Torque_Disabled_Disengage_EPB" 27 "Road_Slope_Too_High" 28 "Warm_Up_Needed_for_Launch" 29 "Low_SOC_for_Launch" 30 "Lifter_ON_Warning" 31 "Seatbelts_Unfastened" 32 "Wrong_EManettino_Position_Manual" 33 "Press_brake_pedal_for_Launch" 34 "Not_used" 35 "Not_used" 36 "Not_used" 37 "Not_used" 38 "Not_used" 39 "Not_used" 40 "Not_used" 41 "Not_used" 42 "Not_used" 43 "Not_used" 44 "Not_used" 45 "Not_used" 46 "Not_used" 47 "Not_used" 48 "Not_used" 49 "Not_used" 50 "Not_used" 51 "Not_used" 52 "Not_used" 53 "Not_used" 54 "Not_used" 55 "Not_used" 56 "Not_used" 57 "Not_used" 58 "Not_used" 59 "Not_used" 60 "Not_used" 61 "Not_used" 62 "Not_used" 63 "Not_used"; 
+VAL_ 1387 PLockSts 0 "Not_Engaged" 1 "Engaged" 2 "Fail" 3 "Not_used"; 
+VAL_ 1387 NCR_EPB_Req 0 "Not_Req" 1 "Req"; 
+VAL_ 1397 GenericFailSts 0 "No_functional_fail_is_present" 1 "At_least_one_funct_fail_pres"; 
+VAL_ 1397 CurrentFailSts 0 "No_functional_fail_is_present" 1 "DTCStatus_present"; 
+VAL_ 1397 EOL_NPE 0 "No_EOL_prog_At_FIAT" 1 "EOL_prog_At_FIAT"; 
+VAL_ 1397 DES_NPE 0 "Error_active_state" 1 "Error_Passive_warning_state" 2 "Bus_off_state" 3 "Not_used"; 
+VAL_ 1441 ReducePowerAssist 0 "Not_Active" 1 "Active"; 
+VAL_ 1441 BatteryDisconnectionWarning 0 "Not_Active" 1 "Active"; 
+VAL_ 1441 VCU_EnergyProfileRqt 0 "Normal" 1 "Eco" 2 "Low_Driver" 3 "Low_Auto" 4 "Degraded" 5 "Not_Used" 6 "Not_Used" 7 "Not_Used"; 
+VAL_ 1441 VehicleNotInUse 0 "Vehicle_in_Use" 1 "Start_Countdown" 2 "Start_Signalling" 3 "System_Failure"; 
+VAL_ 1441 EManettinoSts 1 "Edrive_ECO" 2 "Standard" 3 "Performance" 4 "Qualifying"; 
+VAL_ 1441 EManettinoFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1441 EManettinoTransitionInfo 0 "No_Transition" 1 "Status_Not_Allowed" 2 "not_used" 3 "not_used" 4 "not_used" 5 "not_used" 6 "Status_Modified" 7 "not_used"; 
+VAL_ 1441 MVLoadEnable_NPR 0 "Disable" 1 "Enable"; 
+VAL_ 1441 CruiseControlSts 0 "Not_inserted" 1 "Inserted"; 
+VAL_ 1441 CruiseControlLampSts 0 "cruise_off" 1 "cruise_on_not_engaged" 2 "cruise_on_engaged" 3 "cruise_error"; 
+VAL_ 1441 RechargeSts 0 "Charging" 1 "Not_charging"; 
+VAL_ 1441 BatteryVoltageLevelFailSts 0 "Fail_not_present" 1 "Fail_present"; 
+VAL_ 1441 EngineSts 0 "Engine_OFF" 1 "Engine_ON" 2 "Engine_cranking" 3 "Engine_Shut_down"; 
+VAL_ 1441 StopStartSts 0 "Off" 1 "On" 2 "Engine_Restart" 3 "Stop_Request"; 
+VAL_ 1441 PowertrainSts 0 "OFF" 1 "ON" 2 "Starting" 3 "Shut_down" 4 "Not_used" 5 "Not_used" 6 "Not_used" 7 "Not_used"; 
+VAL_ 1441 EDriveSts 0 "Off" 1 "Prepare_E_Drive" 2 "E_Drive" 3 "Stop_E_Drive"; 
+VAL_ 1445 MsgFOBLeftVeh 0 "MSG_DEFAULT" 1 "MSG_ACTIVE" 2 "Not_used" 3 "SNA"; 
+VAL_ 1445 PowerModeSts_NPE 0 "Standard_Power" 1 "Logistic_Mode_ON" 2 "Logistic_Mode_PR" 3 "Not_used"; 
+VAL_ 1445 KeyProgramSts 0 "RKE_NORM_STAT" 1 "EN_KEY_PROG" 2 "PROG_ACT" 3 "EX_KEY_PROG" 4 "KEY_PROG" 5 "DMG_KEY" 6 "INV_KEY" 7 "EXCD_KEY" 8 "RKE_BATT_LO" 9 "SRV_SKREEM" 10 "BTN_DLY_ACT" 11 "BTN_DLY_INACT" 12 "KEY_NOT_PROG" 13 "Not_used" 14 "Not_used" 15 "SNA"; 
+VAL_ 1445 MsgServPEKG 0 "MSG_DEFAULT" 1 "MSG_ACTIVE" 2 "Not_used" 3 "SNA"; 
+VAL_ 1445 MsgPutInPark 0 "MSG_DEFAULT" 1 "MSG_ACTIVE" 2 "Not_used" 3 "SNA"; 
+VAL_ 1445 MsgNotInPark 0 "MSG_DEFAULT" 1 "MSG_ACTIVE" 2 "Not_used" 3 "SNA"; 
+VAL_ 1445 MsgFOBNotFnd 0 "MSG_DEFAULT" 1 "MSG_ACTIVE" 2 "Not_used" 3 "SNA"; 
+VAL_ 1445 MsgRemovePlug 0 "MSG_DEFAULT" 1 "MSG_ACTIVE"; 
+VAL_ 1445 LastKeyFobNumSeen 0 "FOB_DEFAULT" 1 "FOB_1" 2 "FOB_2" 3 "FOB_3" 4 "FOB_4" 5 "FOB_5" 6 "FOB_6" 7 "FOB_7" 8 "FOB_8" 9 "FOB_9" 10 "FOB_10" 11 "not_used" 12 "not_used" 13 "not_used" 14 "not_used" 15 "not_used"; 
+VAL_ 1445 MsgAutoIgnOFF 0 "No_Message" 1 "Engine_ON_Required" 2 "Key_OFF_Ongoing" 3 "Not_used"; 
+VAL_ 1445 Key_ON_Visualization 0 "Not_Active" 1 "Active" 2 "Not_Used" 3 "Not_Used"; 
+VAL_ 1481 HVB_Temperature_Indicator 117 "Virtual_0"; 
+VAL_ 1481 SOC_Indicator_Bars 0 "SOC_BarGraphIndicatorEmpty" 1 "_1st_SOC_Notch_ON" 2 "_2nd_SOC_Notch_ON" 3 "_3rd_SOC_Notch_ON" 4 "_4th_SOC_Notch_ON" 5 "_5th_SOC_Notch_ON" 6 "_6th_SOC_Notch_ON" 7 "_7th_SOC_Notch_ON" 8 "_8th_SOC_Notch_ON" 9 "Not_used" 10 "Not_used" 11 "Not_used" 12 "Not_used" 13 "Not_used" 14 "Not_used" 15 "Not_used"; 
+VAL_ 1481 HVB_SOC_Colour_HMI 0 "No_colour" 1 "Green" 2 "Yellow" 3 "Red"; 
+VAL_ 1485 LongParkingInfoForDisplay 0 "Not_Active" 1 "Deactivated" 2 "Activated" 3 "Not_Activated" 4 "Automatic_Activated" 5 "not_used" 6 "not_used" 7 "not_used"; 
+VAL_ 1485 HVBBuzzerReq 0 "Not_Active" 1 "Active"; 
+VAL_ 1485 HVBChargeWarningForDisplay 0 "No_Failure" 1 "OBC Fail_Communication" 2 "PlugLock_Fail" 3 "OBC_Fail_Power_Conversion" 4 "BOOSTER_Fail" 5 "HVB_Recharge_Fail_ChargingBus" 6 "EVSE_Fail" 7 "Pwr_Limited_By_Grid" 8 "not_used" 9 "not_used" 10 "not_used" 11 "not_used" 12 "not_used" 13 "not_used" 14 "not_used" 15 "not_used" 16 "not_used" 17 "not_used" 18 "not_used" 19 "not_used" 20 "not_used" 21 "not_used" 22 "not_used" 23 "not_used" 24 "not_used" 25 "not_used" 26 "not_used" 27 "not_used" 28 "not_used" 29 "not_used" 30 "not_used" 31 "not_used"; 
+VAL_ 1485 LongParkingSts 0 "Not_Active" 1 "Active"; 
+VAL_ 1485 HVBSOC_Status_HMI 0 "Not_Present" 1 "Degraded" 2 "Critical" 3 "not_used"; 
+VAL_ 1485 HVB_TemperatureFailSts 0 "Not_Active" 1 "Degraded" 2 "Critical" 3 "Not_Used"; 
+VAL_ 1485 BatPrecondSts 0 "Not_Active" 1 "Active" 2 "Active_TargetReached"; 
+VAL_ 1485 HVSysWarningForDisplay 0 "No_Failure" 1 "MSD_Open" 2 "HVIL_Open" 3 "HV_Insulation_Critical" 4 "HV_Energizing_Error_Critical" 5 "HV_Insulation_Warning" 6 "HV_Energizing_Error_Warning" 7 "not_used" 8 "not_used" 9 "not_used" 10 "not_used" 11 "not_used" 12 "not_used" 13 "not_used" 14 "not_used" 15 "not_used"; 
+VAL_ 1485 BatEstTimeToTarget 127 "SNA"; 
+VAL_ 1485 MILrequest 0 "MILLampOff" 1 "MILLampOn"; 
+VAL_ 1485 BatPrecondProgress 255 "SNA"; 
+VAL_ 1485 HVBWarningForDisplay 0 "No_Failure" 1 "HVB_Thermal_runaway" 2 "HVB_Temperature_Critical" 3 "HVB_Electrical_Fault_Critical" 4 "HVB_HW_Fault_Critical" 5 "Communication_Fault_Critical" 6 "HVB_Temperature_Warning" 7 "HVB_Electrical_Fault_Warning" 8 "HVB_HW_Fault_Warning" 9 "Communication_Fault_Warning" 10 "Crash_Warning" 11 "HVB_SOH_warning" 12 "HVB_SOC_low" 13 "HVB_SOC_mid" 14 "HVB_SOC_high" 15 "HVB_Charge_needed_less_than_one_day" 16 "HVB_Charge_needed_less_than_X_days" 17 "not_used" 18 "not_used" 19 "not_used" 20 "not_used" 21 "not_used" 22 "not_used" 23 "not_used" 24 "not_used" 25 "not_used" 26 "not_used" 27 "not_used" 28 "not_used" 29 "not_used" 30 "not_used" 31 "not_used"; 
+VAL_ 1485 HVBStatus 0 "Not_Present" 1 "Degraded" 2 "Critical" 3 "Not_Used"; 
+VAL_ 1485 HVBSOC_Status_China_HMI 0 "Normal" 1 "Degraded"; 
+VAL_ 1504 FuelFlapSts 0 "Closed" 1 "Opened"; 
+VAL_ 1504 FuelButtonSts 0 "Not_Pressed" 1 "Pressed"; 
+VAL_ 1504 SleepReq_BCM 0 "Not_Active" 1 "Active"; 
+VAL_ 1504 RechargeLedSts 0 "Off" 1 "White" 2 "Flashes_White" 3 "Green" 4 "Flashes_Green" 5 "Blue" 6 "Flashes_Blue" 7 "Red"; 
+VAL_ 1504 RechargeFlapCableButtonSts 0 "Not_Pressed" 1 "Pressed"; 
+VAL_ 1504 NightDaySts 0 "Night" 1 "Day"; 
+VAL_ 1504 AVHDriverDoorSts 0 "Closed" 1 "Open"; 
+VAL_ 1504 Alcohol_Interlock_Inhibit 0 "Not_active" 1 "Active"; 
+VAL_ 1504 TrunkFailSts 0 "Fail_Not_Present" 1 "Fail_Present"; 
+VAL_ 1504 EngineBonnetSts_LH 0 "Closed" 1 "Open"; 
+VAL_ 1504 RechargeFlapSts 0 "Closed" 1 "Open"; 
+VAL_ 1726 CabinLightNightDaySwitch 0 "Not_Active" 1 "Active"; 
+VAL_ 1726 CabinLight_Feet_Enable 0 "Off" 1 "On"; 
+VAL_ 1726 CabinLight_DoorPanel_Enable 0 "Off" 1 "On"; 
+VAL_ 1726 AutoDoorsAlert 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1726 CabinLight_Feet_Level 0 "Level_1" 1 "Level_2" 2 "Level_3" 3 "Level_4" 4 "Level_5" 5 "Level_6" 6 "Level_7" 7 "Level_8" 8 "Level_9" 9 "Level_10" 10 "Not_Used" 11 "Not_Used" 12 "Not_Used" 13 "Not_Used" 14 "Not_Used" 15 "Not_Used"; 
+VAL_ 1726 CabinLight_DoorPanel_Level 0 "Level_1" 1 "Level_2" 2 "Level_3" 3 "Level_4" 4 "Level_5" 5 "Level_6" 6 "Level_7" 7 "Level_8" 8 "Level_9" 9 "Level_10" 10 "Not_Used" 11 "Not_Used" 12 "Not_Used" 13 "Not_Used" 14 "Not_Used" 15 "Not_Used"; 
+VAL_ 1726 InternalLightEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1726 ChargePlugAutoUnlock 0 "Off" 1 "Unlock with vehicle locked" 2 "Unlock at charge completed with vehicle lock" 3 "Not_Used"; 
+VAL_ 1726 ActiveProfile 0 "Guest_Profile" 1 "Profile_1" 2 "Profile_2" 3 "Profile_3" 4 "Profile_4" 5 "Profile_5" 6 "Profile_6" 7 "Profile_7" 8 "Profile_8" 9 "Profile_9" 10 "Profile_10"; 
+VAL_ 1726 PassiveEntryEnable 0 "Not_Enabled" 1 "Enabled"; 
+VAL_ 1726 StealthModeActive 0 "Not_Active" 1 "Active"; 
+VAL_ 1726 User_SOC_Preset 0 "Not_Active" 1 "Preset1" 2 "Preset2" 3 "Preset3"; 
+VAL_ 1726 ChargeFlapUnlock 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1726 AntiTiltAlarmCommand 0 "Active" 1 "Not_Active"; 
+VAL_ 1767 LanguageSelection 0 "Italian" 1 "Deutch" 2 "English" 3 "Espanol" 4 "Francais" 5 "Russian" 6 "American" 7 "Portuguese" 8 "Chinese" 9 "Japanese" 10 "Arabic" 11 "Turkish" 12 "Not_used" 13 "FrancaisCA" 14 "SpanishMX" 15 "Polish" 16 "Reserved" 17 "Reserved" 18 "Reserved" 19 "Reserved" 20 "Reserved" 21 "Reserved" 22 "Reserved" 23 "Reserved" 24 "Reserved" 25 "Reserved" 26 "Reserved" 27 "Reserved" 28 "Reserved" 29 "Reserved" 30 "Reserved" 31 "Reserved" 32 "Reserved" 33 "Reserved" 34 "Reserved" 35 "Reserved" 36 "Reserved" 37 "Reserved" 38 "Reserved" 39 "Reserved" 40 "Reserved" 41 "Reserved" 42 "Reserved" 43 "Reserved" 44 "Reserved" 45 "Reserved" 46 "Reserved" 47 "Reserved" 48 "Reserved" 49 "Reserved" 50 "Reserved" 51 "Reserved" 52 "Reserved" 53 "Reserved" 54 "Reserved" 55 "Reserved" 56 "Reserved" 57 "Reserved" 58 "Reserved" 59 "Reserved" 60 "Reserved" 61 "Reserved" 62 "Reserved" 63 "Reserved"; 
+VAL_ 1767 TemperatureUnit 0 "_C" 1 "_F"; 
+VAL_ 1767 DistanceUnit 0 "Km" 1 "Miles"; 
+VAL_ 1767 AutomaticMirrorFoldingEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 HourMode 0 "_0_24_h" 1 "_0_12_h"; 
+VAL_ 1767 WiperRLSSensibility 0 "position_1" 1 "position_2" 2 "position_3" 3 "position_4"; 
+VAL_ 1767 WelcomeInCarEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 BuzzerVolumeWarning 0 "Level_0_min_volume" 1 "Level_1" 2 "Level_2" 3 "Level_3" 4 "Level_4" 5 "Level_5" 6 "Level_6" 7 "Level_7_max_volume"; 
+VAL_ 1767 ResetTripAReq 0 "No_request" 1 "Reset_Trip_Request"; 
+VAL_ 1767 DriverDoorUnlockEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 SpeedLockDoorEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 ExternalLightSensorLevel 0 "Level_3" 1 "Level_2" 2 "Level_1" 3 "Level_0_Not_Used"; 
+VAL_ 1767 SpeedThresholdEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 WalkAwayEnabled 0 "Disable" 1 "Enable"; 
+VAL_ 1767 GloveBoxUnlockEnable 0 "Enable" 1 "Not_Enable"; 
+VAL_ 1767 Stop_GoEnable 0 "Disable" 1 "Enable"; 
+VAL_ 1767 EngineSpeedDisplayLedEnable 0 "Disable" 1 "Enable"; 
+VAL_ 1767 SnowChainMode 0 "Not_Active" 1 "Active"; 
+VAL_ 1767 PressureUnit 0 "bar" 1 "psi"; 
+VAL_ 1767 RPMAreaColor 0 "Yellow" 1 "Red" 2 "Black" 3 "White" 4 "Silver" 5 "not_used" 6 "not_used" 7 "not_used"; 
+VAL_ 1767 NTPCalibrationReqSts 0 "no_Request" 1 "Request"; 
+VAL_ 1767 EmergencyStopSignallingEnable 0 "Disable" 1 "Enable"; 
+VAL_ 1767 RearAutoDoorAlert 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 MirrorAutoTiltEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 SpeedLimitSignEnable 0 "Not_Enable" 1 "Enable"; 
+VAL_ 1767 TrafficChangeEnable 0 "INIT" 1 "active" 2 "Not_Active" 3 "Not_used"; 
+VAL_ 1955 WCM_Status 0 "READY_TO_CHARGE" 1 "BASIC_POWER_PROFILE_CHARGE" 2 "EXTENDED_POWER_PROFILE_CHARGE" 3 "SAMSUNG_FAST_CHARGE" 4 "APPLE_FAST_CHARGE" 5 "CHARGE_COMPLETE" 6 "SCAN_FOR_RX" 7 "BATTERY_STAND_BY" 8 "FOB_STAND_BY" 9 "FOREIGN_OBJ_DETECT_ON_CHARGE" 10 "FOREIGN_OBJ_DETECT_Not_CHARGING" 11 "Not_used" 12 "Not_used" 13 "Not_used" 14 "Not_used" 15 "SYSTEM_ERROR"; 
+VAL_ 1955 ElectricSteeringLamp_FailSts 0 "OFF_Fail_not_present" 1 "OFF_Fail_present" 2 "ON_Fail_not_present" 3 "Not_used"; 
+VAL_ 1955 VDCLamp_FailSts 0 "OFF_Fail_not_present" 1 "OFF_Fail_present" 2 "ON_Fail_not_present" 3 "Not_used"; 
+VAL_ 1955 EBDLamp_FailSts 0 "OFF_Fail_not_present" 1 "OFF_Fail_present" 2 "ON_Fail_not_present" 3 "Not_used"; 
+VAL_ 1955 ABSLamp_FailSts 0 "OFF_Fail_not_present" 1 "OFF_Fail_present" 2 "ON_Fail_not_present" 3 "Not_used"; 
+VAL_ 1955 InternalLightLevel 0 "Level_1" 1 "Level_2" 2 "Level_3" 3 "Level_4" 4 "Level_5" 5 "Level_6" 6 "Level_7" 7 "Level_8" 8 "Level_9" 9 "Level_10" 10 "Level_11" 11 "Level_12" 12 "Level_13" 13 "Level_14" 14 "Level_15" 15 "Level_16"; 
+VAL_ 2654208000 WakeRsn_BCM 0 "'Diag'" 1 "'Network'" 2 "Trunk_Opening_Closing" 3 "Trunk_Movement_Request" 4 "Front_Bonnet_Closing" 5 "'WakeRsn5'" 6 "'WakeRsn6'" 7 "'WakeRsn7'" 8 "'WakeRsn8'" 9 "'WakeRsn9'" 10 "'WakeRsn10'" 11 "'WakeRsn11'" 12 "'WakeRsn12'" 13 "'WakeRsn13'" 14 "'WakeRsn14'" 15 "'WakeRsn15'" 16 "'WakeRsn16'" 17 "'WakeRsn17'" 18 "'WakeRsn18'" 19 "'WakeRsn19'" 20 "'WakeRsn20'" 21 "'WakeRsn21'" 22 "'WakeRsn22'" 23 "'WakeRsn23'" 24 "'WakeRsn24'" 25 "'WakeRsn25'" 26 "'WakeRsn26'" 27 "'WakeRsn27'" 28 "'WakeRsn28'" 29 "'WakeRsn29'" 30 "'WakeRsn30'" 31 "'WakeRsn31'" 32 "'WakeRsn32'" 33 "'WakeRsn33'" 34 "'WakeRsn34'" 35 "'WakeRsn35'" 36 "'WakeRsn36'" 37 "'WakeRsn37'" 38 "'WakeRsn38'" 39 "'WakeRsn39'" 40 "'WakeRsn40'" 41 "'WakeRsn41'" 42 "'WakeRsn42'" 43 "'WakeRsn43'" 44 "'WakeRsn44'" 45 "'WakeRsn45'" 46 "'WakeRsn46'" 47 "'WakeRsn47'" 48 "'WakeRsn48'" 49 "'WakeRsn49'" 50 "'WakeRsn50'" 51 "'WakeRsn51'" 52 "'WakeRsn52'" 53 "'WakeRsn53'" 54 "'WakeRsn54'" 55 "'WakeRsn55'" 56 "'WakeRsn56'" 57 "'WakeRsn57'" 58 "'WakeRsn58'" 59 "'WakeRsn59'" 60 "'WakeRsn60'" 61 "'WakeRsn61'" 62 "'WakeRsn62'" 63 "'WakeRsn63'" 64 "'WakeRsn64'" 65 "'WakeRsn65'" 66 "'WakeRsn66'" 67 "'WakeRsn67'" 68 "'WakeRsn68'" 69 "'WakeRsn69'" 70 "'WakeRsn70'" 71 "'WakeRsn71'" 72 "'WakeRsn72'" 73 "'WakeRsn73'" 74 "'WakeRsn74'" 75 "'WakeRsn75'" 76 "'WakeRsn76'" 77 "'WakeRsn77'" 78 "'WakeRsn78'" 79 "'WakeRsn79'" 80 "'WakeRsn80'" 81 "'WakeRsn81'" 82 "'WakeRsn82'" 83 "'WakeRsn83'" 84 "'WakeRsn84'" 85 "'WakeRsn85'" 86 "'WakeRsn86'" 87 "'WakeRsn87'" 88 "'WakeRsn88'" 89 "'WakeRsn89'" 90 "'WakeRsn90'" 91 "'WakeRsn91'" 92 "'WakeRsn92'" 93 "'WakeRsn93'" 94 "'WakeRsn94'" 95 "'WakeRsn95'" 96 "'WakeRsn96'" 97 "'WakeRsn97'" 98 "'WakeRsn98'" 99 "'WakeRsn99'" 100 "'WakeRsn100'" 101 "'WakeRsn101'" 102 "'WakeRsn102'" 103 "'WakeRsn103'" 104 "'WakeRsn104'" 105 "'WakeRsn105'" 106 "'WakeRsn106'" 107 "'WakeRsn107'" 108 "'WakeRsn108'" 109 "'WakeRsn109'" 110 "'WakeRsn110'" 111 "'WakeRsn111'" 112 "'WakeRsn112'" 113 "'WakeRsn113'" 114 "'WakeRsn114'" 115 "'WakeRsn115'" 116 "'WakeRsn116'" 117 "'WakeRsn117'" 118 "'WakeRsn118'" 119 "'WakeRsn119'" 120 "'WakeRsn120'" 121 "'WakeRsn121'" 122 "'WakeRsn122'" 123 "'WakeRsn123'" 124 "'WakeRsn124'" 125 "'WakeRsn125'" 126 "'WakeRsn126'" 127 "'WakeRsn127'"; 
+VAL_ 2654208000 MainWakeSts_BCM 0 "'Not_Active'" 1 "'Active'"; 
+VAL_ 2654208000 Node28 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208000 Node29 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208000 Node21 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208000 Node9 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208000 Node11 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208000 Node0 0 "'Not_active'" 1 "'Active'"; 
+VAL_ 2654208065 WakeRsn_NPE 0 "'Diag'" 1 "'Network'" 2 "'Wake_By_RKE" 3 "'Wake_By_Front_Left_Handle" 4 "'Wake_By_Front_Right_Handle" 5 "'Wake_By_Rear_Left_Handle" 6 "'Wake_By_Rear_Right_Handle" 7 "'WakeRsn7'" 8 "'WakeRsn8'" 9 "ECU_Reset" 10 "'WakeRsn10'" 11 "'WakeRsn11'" 12 "'WakeRsn12'" 13 "Wrong_PIN_Sent" 14 "'WakeRsn14'" 15 "'WakeRsn15'" 16 "'WakeRsn16'" 17 "'WakeRsn17'" 18 "'WakeRsn18'" 19 "'WakeRsn19'" 20 "'WakeRsn20'" 21 "'WakeRsn21'" 22 "'WakeRsn22'" 23 "'WakeRsn23'" 24 "'WakeRsn24'" 25 "'WakeRsn25'" 26 "'WakeRsn26'" 27 "'WakeRsn27'" 28 "'WakeRsn28'" 29 "'WakeRsn29'" 30 "'WakeRsn30'" 31 "'WakeRsn31'" 32 "'WakeRsn32'" 33 "'WakeRsn33'" 34 "'WakeRsn34'" 35 "'WakeRsn35'" 36 "'WakeRsn36'" 37 "'WakeRsn37'" 38 "'WakeRsn38'" 39 "'WakeRsn39'" 40 "'WakeRsn40'" 41 "'WakeRsn41'" 42 "'WakeRsn42'" 43 "'WakeRsn43'" 44 "'WakeRsn44'" 45 "'WakeRsn45'" 46 "'WakeRsn46'" 47 "'WakeRsn47'" 48 "'WakeRsn48'" 49 "'WakeRsn49'" 50 "'WakeRsn50'" 51 "'WakeRsn51'" 52 "'WakeRsn52'" 53 "'WakeRsn53'" 54 "'WakeRsn54'" 55 "'WakeRsn55'" 56 "'WakeRsn56'" 57 "'WakeRsn57'" 58 "'WakeRsn58'" 59 "'WakeRsn59'" 60 "'WakeRsn60'" 61 "'WakeRsn61'" 62 "'WakeRsn62'" 63 "'WakeRsn63'" 64 "'WakeRsn64'" 65 "'WakeRsn65'" 66 "'WakeRsn66'" 67 "'WakeRsn67'" 68 "'WakeRsn68'" 69 "'WakeRsn69'" 70 "'WakeRsn70'" 71 "'WakeRsn71'" 72 "'WakeRsn72'" 73 "'WakeRsn73'" 74 "'WakeRsn74'" 75 "'WakeRsn75'" 76 "'WakeRsn76'" 77 "'WakeRsn77'" 78 "'WakeRsn78'" 79 "'WakeRsn79'" 80 "'WakeRsn80'" 81 "'WakeRsn81'" 82 "'WakeRsn82'" 83 "'WakeRsn83'" 84 "'WakeRsn84'" 85 "'WakeRsn85'" 86 "'WakeRsn86'" 87 "'WakeRsn87'" 88 "'WakeRsn88'" 89 "'WakeRsn89'" 90 "'WakeRsn90'" 91 "'WakeRsn91'" 92 "'WakeRsn92'" 93 "'WakeRsn93'" 94 "'WakeRsn94'" 95 "'WakeRsn95'" 96 "'WakeRsn96'" 97 "'WakeRsn97'" 98 "'WakeRsn98'" 99 "'WakeRsn99'" 100 "'WakeRsn100'" 101 "'WakeRsn101'" 102 "'WakeRsn102'" 103 "'WakeRsn103'" 104 "'WakeRsn104'" 105 "'WakeRsn105'" 106 "'WakeRsn106'" 107 "'WakeRsn107'" 108 "'WakeRsn108'" 109 "'WakeRsn109'" 110 "'WakeRsn110'" 111 "'WakeRsn111'" 112 "'WakeRsn112'" 113 "'WakeRsn113'" 114 "'WakeRsn114'" 115 "'WakeRsn115'" 116 "'WakeRsn116'" 117 "'WakeRsn117'" 118 "'WakeRsn118'" 119 "'WakeRsn119'" 120 "'WakeRsn120'" 121 "'WakeRsn121'" 122 "'WakeRsn122'" 123 "'WakeRsn123'" 124 "'WakeRsn124'" 125 "'WakeRsn125'" 126 "'WakeRsn126'" 127 "'WakeRsn127'"; 
+VAL_ 2654208065 WakeReq_NPE 0 "'NotActive'" 1 "'Active'"; 
+
+SIG_GROUP_  1485 HVB_HMI_STS_SigGroup 1 : BatEstTimeToTarget BatPrecondProgress BatPrecondSts CRC_HVB_HMI_STS HVBBuzzerReq HVBChargeWarningForDisplay HVBSOC_Status_China_HMI HVBSOC_Status_HMI HVBStatus HVBWarningForDisplay HVB_SOC_BEV_HMI HVB_TemperatureFailSts HVSysWarningForDisplay LongParkingInfoForDisplay LongParkingSts MILrequest MsgCnt_HVB_HMI_STS;
+SIG_GROUP_  630 NFR_INFO_SigGroup 1 : CRC_NFR_INFO EPBMalfunction EPBSts MessageCounter_NFR_INFO;
+SIG_GROUP_  1267 PWT_STATUS_1_SigGroup 1 : CCSpeedWarning CRC_PWT_STATUS_1 CoolingWarningForDisplay HMICode_CC LVSysWarningForDisplay MVFailSts MVSysWarningForDisplay MsgCnt_PWT_STATUS_1 PWTBuzzerReq PWTFailSts PWTLimpHomeSts PWTSystemWarningForDisplay PWT_Limited_Perfo PlugInRechargeWarning PropulsionSystemFailure RechargeSts_HVB Recharge_PlugSts START_ButtonPress_Rqt VehicleStartNotAllowed;
+SIG_GROUP_  654 VCU_CHRG_RQT_SigGroup 1 : CRC_VCU_CHRG_RQT MsgCnt_VCU_CHRG_RQT VCU_VehicleChargeEnable;
+
+
+

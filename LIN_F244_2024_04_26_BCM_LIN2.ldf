@@ -1,0 +1,1071 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 4/22/24, 5:05 PM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms; 
+  Slaves: ASU, DIAG_TESTER_LIN2;
+}
+
+Signals {
+  ActCycleToneTypeASU: 1, 1, BCM, ASU;
+  ActCycleSoundTypeASU: 1, 0, BCM, ASU;
+  ActDisactCycleASU: 1, 1, BCM, ASU;
+  CodeActDisactCycleASU: 16, 0, BCM, ASU;
+  ResetHeartBeatASU: 1, 0, BCM, ASU;
+  CodeHeartBeatASU: 16, 0, BCM, ASU;
+  DiagnosisRequest: 1, 0, BCM, ASU;
+  InsDisinsUM: 1, 1, BCM, DIAG_TESTER_LIN2;
+  InsDisinsAM: 1, 1, BCM, DIAG_TESTER_LIN2;
+  LevelBeepASU: 1, 1, BCM, ASU;
+  BeepASU: 1, 0, BCM, ASU;
+  TimeBeepASU: 8, 0, BCM, ASU;
+  NumberBeepASU: 8, 0, BCM, ASU;
+  InsToneTypeASU: 1, 1, BCM, ASU;
+  InsSoundTypeASU: 1, 0, BCM, ASU;
+  InsDisinsASU: 1, 1, BCM, ASU;
+  CycleNumber: 5, 3, BCM, ASU;
+  CodeInsDisinsASU: 16, 0, BCM, ASU;
+  SensLevelBCMtoyAM: 3, 2, BCM, DIAG_TESTER_LIN2;
+  SensLevelBCMtoxAM: 3, 2, BCM, DIAG_TESTER_LIN2;
+  SensLevelBCMtoUM: 4, 7, BCM, DIAG_TESTER_LIN2;
+  HeaterSts: 1, 0, BCM, DIAG_TESTER_LIN2;
+  EngineCapacity: 2, 0, BCM, DIAG_TESTER_LIN2;
+  EngineType: 2, 0, BCM, DIAG_TESTER_LIN2;
+  RoofSts: 1, 0, BCM, DIAG_TESTER_LIN2;
+  SeatType: 1, 0, BCM, DIAG_TESTER_LIN2;
+  CommerceVehicleDivisor: 1, 1, BCM, DIAG_TESTER_LIN2;
+  WindowsSts: 2, 0, BCM, DIAG_TESTER_LIN2;
+  RechargeBattery: 1, 1, BCM, ASU;
+  GenericFailStsBCM: 1, 0, BCM, ASU;
+  CurrentFailStsBCM: 1, 0, BCM, ASU;
+  KeepAliveBCM: 1, 0, BCM, ASU;
+  AppNappHeartBeatASU: 1, 0, ASU, BCM;
+  AckNackHeartBeatASU: 1, 0, ASU, BCM;
+  AlarmCause3ASU: 1, 0, ASU, BCM;
+  AlarmCause2ASU: 1, 0, ASU, BCM;
+  AlarmCause1ASU: 1, 0, ASU, BCM;
+  BatteryStsASU: 1, 1, ASU, BCM;
+  SoundConverterASU: 1, 0, ASU, BCM;
+  StsASU: 1, 0, ASU, BCM;
+  DiagInfStsASU: 1, 0, ASU, BCM;
+  ResponseErrorStsASU: 1, 0, ASU, BCM;
+  GenericFailStsASU: 1, 0, ASU, BCM;
+  CurrentFailStsASU: 1, 0, ASU, BCM;
+  KeepAliveASU: 1, 0, ASU, BCM;
+  CarShape: 4, 0, BCM, DIAG_TESTER_LIN2;
+  KeySts: 1, 0, BCM, ASU;
+  TiltASU: 1, 0, ASU, BCM;
+  TiltStsASU: 2, 0, ASU, BCM;
+  AlarmCause4ASU: 1, 0, ASU, BCM;
+  InsDisinsASU_AM: 1, 0, BCM, ASU;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0;
+  MasterReqB1: 8, 0;
+  MasterReqB2: 8, 0;
+  MasterReqB3: 8, 0;
+  MasterReqB4: 8, 0;
+  MasterReqB5: 8, 0;
+  MasterReqB6: 8, 0;
+  MasterReqB7: 8, 0;
+  SlaveRespB0: 8, 0;
+  SlaveRespB1: 8, 0;
+  SlaveRespB2: 8, 0;
+  SlaveRespB3: 8, 0;
+  SlaveRespB4: 8, 0;
+  SlaveRespB5: 8, 0;
+  SlaveRespB6: 8, 0;
+  SlaveRespB7: 8, 0;
+}
+
+Frames {
+  Command_ASU: 0, BCM, 3 {
+    ActCycleToneTypeASU, 5;
+    ActCycleSoundTypeASU, 6;
+    ActDisactCycleASU, 7;
+    CodeActDisactCycleASU, 8;
+  }
+  Heart_Beat_ASU: 2, BCM, 3 {
+    ResetHeartBeatASU, 7;
+    CodeHeartBeatASU, 8;
+  }
+  Ins_Disins: 1, BCM, 6 {
+    DiagnosisRequest, 3;
+    InsDisinsUM, 4;
+    InsDisinsAM, 5;
+    LevelBeepASU, 6;
+    BeepASU, 7;
+    TimeBeepASU, 8;
+    NumberBeepASU, 16;
+    InsToneTypeASU, 24;
+    InsSoundTypeASU, 25;
+    InsDisinsASU, 26;
+    CycleNumber, 27;
+    CodeInsDisinsASU, 32;
+    InsDisinsASU_AM, 2;
+  }
+  Status_BCM: 3, BCM, 4 {
+    CarShape, 12;
+    SensLevelBCMtoyAM, 2;
+    SensLevelBCMtoxAM, 5;
+    SensLevelBCMtoUM, 8;
+    HeaterSts, 17;
+    EngineCapacity, 18;
+    EngineType, 20;
+    RoofSts, 22;
+    SeatType, 23;
+    CommerceVehicleDivisor, 24;
+    WindowsSts, 25;
+    RechargeBattery, 27;
+    GenericFailStsBCM, 29;
+    CurrentFailStsBCM, 30;
+    KeepAliveBCM, 31;
+    KeySts, 28;
+  }
+  Heart_Beat_Feedback_ASU: 17, ASU, 1 {
+    AppNappHeartBeatASU, 6;
+    AckNackHeartBeatASU, 7;
+  }
+  Status_ASU: 18, ASU, 2 {
+    AlarmCause3ASU, 5;
+    AlarmCause2ASU, 6;
+    AlarmCause1ASU, 7;
+    BatteryStsASU, 8;
+    SoundConverterASU, 9;
+    StsASU, 10;
+    DiagInfStsASU, 11;
+    ResponseErrorStsASU, 12;
+    GenericFailStsASU, 13;
+    CurrentFailStsASU, 14;
+    KeepAliveASU, 15;
+    TiltStsASU, 1;
+    TiltASU, 3;
+    AlarmCause4ASU, 4;
+  }
+}
+
+Diagnostic_frames {
+  MasterReq: 60 {
+    MasterReqB0, 0;
+    MasterReqB1, 8;
+    MasterReqB2, 16;
+    MasterReqB3, 24;
+    MasterReqB4, 32;
+    MasterReqB5, 40;
+    MasterReqB6, 48;
+    MasterReqB7, 56;
+  }
+  SlaveResp: 61 {
+    SlaveRespB0, 0;
+    SlaveRespB1, 8;
+    SlaveRespB2, 16;
+    SlaveRespB3, 24;
+    SlaveRespB4, 32;
+    SlaveRespB5, 40;
+    SlaveRespB6, 48;
+    SlaveRespB7, 56;
+  }
+}
+
+Node_attributes {
+  ASU {
+    LIN_protocol = "2.0";
+    configured_NAD = 0x2;
+    product_id = 0x0000, 0x0000, 0x00;
+    response_error = ResponseErrorStsASU;
+    P2_min = 50 ms;
+    configurable_frames { 
+      Command_ASU=0x0;
+      Heart_Beat_ASU=0x0;
+      Heart_Beat_Feedback_ASU=0x0;
+      Ins_Disins=0x0;
+      Status_ASU=0x0;
+      Status_BCM=0x0;
+    }
+  }
+  DIAG_TESTER_LIN2 {
+    LIN_protocol = "1.3";
+    configured_NAD = 0x40;
+  }
+}
+
+Schedule_tables {
+  Operating_Armed {
+    Status_BCM delay 10 ms;
+    MasterReq delay 20 ms;
+    Heart_Beat_ASU delay 10 ms;
+    Status_ASU delay 30 ms;
+    Heart_Beat_Feedback_ASU delay 10 ms;
+    SlaveResp delay 20 ms;
+  }
+  Operating_Armed_InsDisins {
+    Status_BCM delay 10 ms;
+    MasterReq delay 20 ms;
+    Heart_Beat_ASU delay 10 ms;
+    Status_ASU delay 30 ms;
+    Heart_Beat_Feedback_ASU delay 10 ms;
+    Ins_Disins delay 20 ms;
+  }
+  Operating_Armed_CommandAsu {
+    Status_BCM delay 10 ms;
+    Command_ASU delay 20 ms;
+    Heart_Beat_ASU delay 10 ms;
+    Status_ASU delay 30 ms;
+    Heart_Beat_Feedback_ASU delay 10 ms;
+    SlaveResp delay 20 ms;
+  }
+  Operating_Disarmed {
+    Status_BCM delay 10 ms;
+    MasterReq delay 20 ms;
+    Status_ASU delay 30 ms;
+    SlaveResp delay 20 ms;
+  }
+  Operating_Disarmed_InsDisins {
+    Status_BCM delay 10 ms;
+    Ins_Disins delay 20 ms;
+    Status_ASU delay 30 ms;
+    SlaveResp delay 20 ms;
+  }
+  Sleep_Armed {
+    Heart_Beat_ASU delay 10 ms;
+    Heart_Beat_Feedback_ASU delay 10 ms;
+  }
+  Init {
+    MasterReq delay 10 ms;
+    SlaveResp delay 10 ms;
+  }
+}
+
+Signal_encoding_types {
+  KeySts_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+  }
+  ActCycleToneTypeASU_Encoding {
+    logical_value, 0, "Uniform Tone";
+    logical_value, 1, "Modulated Tone";
+  }
+  ActCycleSoundTypeASU_Encoding {
+    logical_value, 0, "Continuous Sound";
+    logical_value, 1, "Intermittent Sound";
+  }
+  ActDisactCycleASU_Encoding {
+    logical_value, 0, "Active";
+    logical_value, 1, "Disactive";
+  }
+  CodeActDisactCycleASU_Encoding {
+    physical_value, 0, 65535, 1, 0, "cn";
+  }
+  ResetHeartBeatASU_Encoding {
+    logical_value, 0, "No";
+    logical_value, 1, "Yes";
+  }
+  CodeHeartBeatASU_Encoding {
+    physical_value, 0, 65535, 1, 0, "cn";
+  }
+  DiagnosisRequest_Encoding {
+    logical_value, 0, "No diagnosis requested";
+    logical_value, 1, "Diagnosis requested";
+  }
+  InsDisinsUM_Encoding {
+    logical_value, 0, "Insertion";
+    logical_value, 1, "Disinsertion";
+  }
+  InsDisinsAM_Encoding {
+    logical_value, 0, "Insertion";
+    logical_value, 1, "Disinsertion";
+  }
+  LevelBeepASU_Encoding {
+    logical_value, 0, "Low";
+    logical_value, 1, "High";
+  }
+  BeepASU_Encoding {
+    logical_value, 0, "No";
+    logical_value, 1, "Yes";
+  }
+  TimeBeepASU_Encoding {
+    logical_value, 0, "0,2 seconds";
+    logical_value, 1, "0,5 seconds";
+    logical_value, 2, "1 seconds";
+    logical_value, 3, "1,5 seconds";
+    logical_value, 4, "2 seconds";
+    logical_value, 5, "2,5 seconds";
+    logical_value, 6, "3 seconds";
+    logical_value, 7, "3,5 seconds";
+    logical_value, 8, "4 seconds";
+    logical_value, 9, "not used";
+    logical_value, 10, "not used";
+    logical_value, 11, "not used";
+    logical_value, 12, "not used";
+    logical_value, 13, "not used";
+    logical_value, 14, "not used";
+    logical_value, 15, "not used";
+    logical_value, 16, "not used";
+    logical_value, 17, "not used";
+    logical_value, 18, "not used";
+    logical_value, 19, "not used";
+    logical_value, 20, "not used";
+    logical_value, 21, "not used";
+    logical_value, 22, "not used";
+    logical_value, 23, "not used";
+    logical_value, 24, "not used";
+    logical_value, 25, "not used";
+    logical_value, 26, "not used";
+    logical_value, 27, "not used";
+    logical_value, 28, "not used";
+    logical_value, 29, "not used";
+    logical_value, 30, "not used";
+    logical_value, 31, "not used";
+    logical_value, 32, "not used";
+    logical_value, 33, "not used";
+    logical_value, 34, "not used";
+    logical_value, 35, "not used";
+    logical_value, 36, "not used";
+    logical_value, 37, "not used";
+    logical_value, 38, "not used";
+    logical_value, 39, "not used";
+    logical_value, 40, "not used";
+    logical_value, 41, "not used";
+    logical_value, 42, "not used";
+    logical_value, 43, "not used";
+    logical_value, 44, "not used";
+    logical_value, 45, "not used";
+    logical_value, 46, "not used";
+    logical_value, 47, "not used";
+    logical_value, 48, "not used";
+    logical_value, 49, "not used";
+    logical_value, 50, "not used";
+    logical_value, 51, "not used";
+    logical_value, 52, "not used";
+    logical_value, 53, "not used";
+    logical_value, 54, "not used";
+    logical_value, 55, "not used";
+    logical_value, 56, "not used";
+    logical_value, 57, "not used";
+    logical_value, 58, "not used";
+    logical_value, 59, "not used";
+    logical_value, 60, "not used";
+    logical_value, 61, "not used";
+    logical_value, 62, "not used";
+    logical_value, 63, "not used";
+    logical_value, 64, "not used";
+    logical_value, 65, "not used";
+    logical_value, 66, "not used";
+    logical_value, 67, "not used";
+    logical_value, 68, "not used";
+    logical_value, 69, "not used";
+    logical_value, 70, "not used";
+    logical_value, 71, "not used";
+    logical_value, 72, "not used";
+    logical_value, 73, "not used";
+    logical_value, 74, "not used";
+    logical_value, 75, "not used";
+    logical_value, 76, "not used";
+    logical_value, 77, "not used";
+    logical_value, 78, "not used";
+    logical_value, 79, "not used";
+    logical_value, 80, "not used";
+    logical_value, 81, "not used";
+    logical_value, 82, "not used";
+    logical_value, 83, "not used";
+    logical_value, 84, "not used";
+    logical_value, 85, "not used";
+    logical_value, 86, "not used";
+    logical_value, 87, "not used";
+    logical_value, 88, "not used";
+    logical_value, 89, "not used";
+    logical_value, 90, "not used";
+    logical_value, 91, "not used";
+    logical_value, 92, "not used";
+    logical_value, 93, "not used";
+    logical_value, 94, "not used";
+    logical_value, 95, "not used";
+    logical_value, 96, "not used";
+    logical_value, 97, "not used";
+    logical_value, 98, "not used";
+    logical_value, 99, "not used";
+    logical_value, 100, "not used";
+    logical_value, 101, "not used";
+    logical_value, 102, "not used";
+    logical_value, 103, "not used";
+    logical_value, 104, "not used";
+    logical_value, 105, "not used";
+    logical_value, 106, "not used";
+    logical_value, 107, "not used";
+    logical_value, 108, "not used";
+    logical_value, 109, "not used";
+    logical_value, 110, "not used";
+    logical_value, 111, "not used";
+    logical_value, 112, "not used";
+    logical_value, 113, "not used";
+    logical_value, 114, "not used";
+    logical_value, 115, "not used";
+    logical_value, 116, "not used";
+    logical_value, 117, "not used";
+    logical_value, 118, "not used";
+    logical_value, 119, "not used";
+    logical_value, 120, "not used";
+    logical_value, 121, "not used";
+    logical_value, 122, "not used";
+    logical_value, 123, "not used";
+    logical_value, 124, "not used";
+    logical_value, 125, "not used";
+    logical_value, 126, "not used";
+    logical_value, 127, "not used";
+    logical_value, 128, "not used";
+    logical_value, 129, "not used";
+    logical_value, 130, "not used";
+    logical_value, 131, "not used";
+    logical_value, 132, "not used";
+    logical_value, 133, "not used";
+    logical_value, 134, "not used";
+    logical_value, 135, "not used";
+    logical_value, 136, "not used";
+    logical_value, 137, "not used";
+    logical_value, 138, "not used";
+    logical_value, 139, "not used";
+    logical_value, 140, "not used";
+    logical_value, 141, "not used";
+    logical_value, 142, "not used";
+    logical_value, 143, "not used";
+    logical_value, 144, "not used";
+    logical_value, 145, "not used";
+    logical_value, 146, "not used";
+    logical_value, 147, "not used";
+    logical_value, 148, "not used";
+    logical_value, 149, "not used";
+    logical_value, 150, "not used";
+    logical_value, 151, "not used";
+    logical_value, 152, "not used";
+    logical_value, 153, "not used";
+    logical_value, 154, "not used";
+    logical_value, 155, "not used";
+    logical_value, 156, "not used";
+    logical_value, 157, "not used";
+    logical_value, 158, "not used";
+    logical_value, 159, "not used";
+    logical_value, 160, "not used";
+    logical_value, 161, "not used";
+    logical_value, 162, "not used";
+    logical_value, 163, "not used";
+    logical_value, 164, "not used";
+    logical_value, 165, "not used";
+    logical_value, 166, "not used";
+    logical_value, 167, "not used";
+    logical_value, 168, "not used";
+    logical_value, 169, "not used";
+    logical_value, 170, "not used";
+    logical_value, 171, "not used";
+    logical_value, 172, "not used";
+    logical_value, 173, "not used";
+    logical_value, 174, "not used";
+    logical_value, 175, "not used";
+    logical_value, 176, "not used";
+    logical_value, 177, "not used";
+    logical_value, 178, "not used";
+    logical_value, 179, "not used";
+    logical_value, 180, "not used";
+    logical_value, 181, "not used";
+    logical_value, 182, "not used";
+    logical_value, 183, "not used";
+    logical_value, 184, "not used";
+    logical_value, 185, "not used";
+    logical_value, 186, "not used";
+    logical_value, 187, "not used";
+    logical_value, 188, "not used";
+    logical_value, 189, "not used";
+    logical_value, 190, "not used";
+    logical_value, 191, "not used";
+    logical_value, 192, "not used";
+    logical_value, 193, "not used";
+    logical_value, 194, "not used";
+    logical_value, 195, "not used";
+    logical_value, 196, "not used";
+    logical_value, 197, "not used";
+    logical_value, 198, "not used";
+    logical_value, 199, "not used";
+    logical_value, 200, "not used";
+    logical_value, 201, "not used";
+    logical_value, 202, "not used";
+    logical_value, 203, "not used";
+    logical_value, 204, "not used";
+    logical_value, 205, "not used";
+    logical_value, 206, "not used";
+    logical_value, 207, "not used";
+    logical_value, 208, "not used";
+    logical_value, 209, "not used";
+    logical_value, 210, "not used";
+    logical_value, 211, "not used";
+    logical_value, 212, "not used";
+    logical_value, 213, "not used";
+    logical_value, 214, "not used";
+    logical_value, 215, "not used";
+    logical_value, 216, "not used";
+    logical_value, 217, "not used";
+    logical_value, 218, "not used";
+    logical_value, 219, "not used";
+    logical_value, 220, "not used";
+    logical_value, 221, "not used";
+    logical_value, 222, "not used";
+    logical_value, 223, "not used";
+    logical_value, 224, "not used";
+    logical_value, 225, "not used";
+    logical_value, 226, "not used";
+    logical_value, 227, "not used";
+    logical_value, 228, "not used";
+    logical_value, 229, "not used";
+    logical_value, 230, "not used";
+    logical_value, 231, "not used";
+    logical_value, 232, "not used";
+    logical_value, 233, "not used";
+    logical_value, 234, "not used";
+    logical_value, 235, "not used";
+    logical_value, 236, "not used";
+    logical_value, 237, "not used";
+    logical_value, 238, "not used";
+    logical_value, 239, "not used";
+    logical_value, 240, "not used";
+    logical_value, 241, "not used";
+    logical_value, 242, "not used";
+    logical_value, 243, "not used";
+    logical_value, 244, "not used";
+    logical_value, 245, "not used";
+    logical_value, 246, "not used";
+    logical_value, 247, "not used";
+    logical_value, 248, "not used";
+    logical_value, 249, "not used";
+    logical_value, 250, "not used";
+    logical_value, 251, "not used";
+    logical_value, 252, "not used";
+    logical_value, 253, "not used";
+    logical_value, 254, "not used";
+    logical_value, 255, "not used";
+  }
+  NumberBeepASU_Encoding {
+    logical_value, 0, "0 Beep";
+    logical_value, 1, "1 Beep";
+    logical_value, 2, "2 Beep";
+    logical_value, 3, "3 Beep";
+    logical_value, 4, "4 Beep";
+    logical_value, 5, "5 Beep";
+    logical_value, 6, "6 Beep";
+    logical_value, 7, "not used";
+    logical_value, 8, "not used";
+    logical_value, 9, "not used";
+    logical_value, 10, "not used";
+    logical_value, 11, "not used";
+    logical_value, 12, "not used";
+    logical_value, 13, "not used";
+    logical_value, 14, "not used";
+    logical_value, 15, "not used";
+    logical_value, 16, "not used";
+    logical_value, 17, "not used";
+    logical_value, 18, "not used";
+    logical_value, 19, "not used";
+    logical_value, 20, "not used";
+    logical_value, 21, "not used";
+    logical_value, 22, "not used";
+    logical_value, 23, "not used";
+    logical_value, 24, "not used";
+    logical_value, 25, "not used";
+    logical_value, 26, "not used";
+    logical_value, 27, "not used";
+    logical_value, 28, "not used";
+    logical_value, 29, "not used";
+    logical_value, 30, "not used";
+    logical_value, 31, "not used";
+    logical_value, 32, "not used";
+    logical_value, 33, "not used";
+    logical_value, 34, "not used";
+    logical_value, 35, "not used";
+    logical_value, 36, "not used";
+    logical_value, 37, "not used";
+    logical_value, 38, "not used";
+    logical_value, 39, "not used";
+    logical_value, 40, "not used";
+    logical_value, 41, "not used";
+    logical_value, 42, "not used";
+    logical_value, 43, "not used";
+    logical_value, 44, "not used";
+    logical_value, 45, "not used";
+    logical_value, 46, "not used";
+    logical_value, 47, "not used";
+    logical_value, 48, "not used";
+    logical_value, 49, "not used";
+    logical_value, 50, "not used";
+    logical_value, 51, "not used";
+    logical_value, 52, "not used";
+    logical_value, 53, "not used";
+    logical_value, 54, "not used";
+    logical_value, 55, "not used";
+    logical_value, 56, "not used";
+    logical_value, 57, "not used";
+    logical_value, 58, "not used";
+    logical_value, 59, "not used";
+    logical_value, 60, "not used";
+    logical_value, 61, "not used";
+    logical_value, 62, "not used";
+    logical_value, 63, "not used";
+    logical_value, 64, "not used";
+    logical_value, 65, "not used";
+    logical_value, 66, "not used";
+    logical_value, 67, "not used";
+    logical_value, 68, "not used";
+    logical_value, 69, "not used";
+    logical_value, 70, "not used";
+    logical_value, 71, "not used";
+    logical_value, 72, "not used";
+    logical_value, 73, "not used";
+    logical_value, 74, "not used";
+    logical_value, 75, "not used";
+    logical_value, 76, "not used";
+    logical_value, 77, "not used";
+    logical_value, 78, "not used";
+    logical_value, 79, "not used";
+    logical_value, 80, "not used";
+    logical_value, 81, "not used";
+    logical_value, 82, "not used";
+    logical_value, 83, "not used";
+    logical_value, 84, "not used";
+    logical_value, 85, "not used";
+    logical_value, 86, "not used";
+    logical_value, 87, "not used";
+    logical_value, 88, "not used";
+    logical_value, 89, "not used";
+    logical_value, 90, "not used";
+    logical_value, 91, "not used";
+    logical_value, 92, "not used";
+    logical_value, 93, "not used";
+    logical_value, 94, "not used";
+    logical_value, 95, "not used";
+    logical_value, 96, "not used";
+    logical_value, 97, "not used";
+    logical_value, 98, "not used";
+    logical_value, 99, "not used";
+    logical_value, 100, "not used";
+    logical_value, 101, "not used";
+    logical_value, 102, "not used";
+    logical_value, 103, "not used";
+    logical_value, 104, "not used";
+    logical_value, 105, "not used";
+    logical_value, 106, "not used";
+    logical_value, 107, "not used";
+    logical_value, 108, "not used";
+    logical_value, 109, "not used";
+    logical_value, 110, "not used";
+    logical_value, 111, "not used";
+    logical_value, 112, "not used";
+    logical_value, 113, "not used";
+    logical_value, 114, "not used";
+    logical_value, 115, "not used";
+    logical_value, 116, "not used";
+    logical_value, 117, "not used";
+    logical_value, 118, "not used";
+    logical_value, 119, "not used";
+    logical_value, 120, "not used";
+    logical_value, 121, "not used";
+    logical_value, 122, "not used";
+    logical_value, 123, "not used";
+    logical_value, 124, "not used";
+    logical_value, 125, "not used";
+    logical_value, 126, "not used";
+    logical_value, 127, "not used";
+    logical_value, 128, "not used";
+    logical_value, 129, "not used";
+    logical_value, 130, "not used";
+    logical_value, 131, "not used";
+    logical_value, 132, "not used";
+    logical_value, 133, "not used";
+    logical_value, 134, "not used";
+    logical_value, 135, "not used";
+    logical_value, 136, "not used";
+    logical_value, 137, "not used";
+    logical_value, 138, "not used";
+    logical_value, 139, "not used";
+    logical_value, 140, "not used";
+    logical_value, 141, "not used";
+    logical_value, 142, "not used";
+    logical_value, 143, "not used";
+    logical_value, 144, "not used";
+    logical_value, 145, "not used";
+    logical_value, 146, "not used";
+    logical_value, 147, "not used";
+    logical_value, 148, "not used";
+    logical_value, 149, "not used";
+    logical_value, 150, "not used";
+    logical_value, 151, "not used";
+    logical_value, 152, "not used";
+    logical_value, 153, "not used";
+    logical_value, 154, "not used";
+    logical_value, 155, "not used";
+    logical_value, 156, "not used";
+    logical_value, 157, "not used";
+    logical_value, 158, "not used";
+    logical_value, 159, "not used";
+    logical_value, 160, "not used";
+    logical_value, 161, "not used";
+    logical_value, 162, "not used";
+    logical_value, 163, "not used";
+    logical_value, 164, "not used";
+    logical_value, 165, "not used";
+    logical_value, 166, "not used";
+    logical_value, 167, "not used";
+    logical_value, 168, "not used";
+    logical_value, 169, "not used";
+    logical_value, 170, "not used";
+    logical_value, 171, "not used";
+    logical_value, 172, "not used";
+    logical_value, 173, "not used";
+    logical_value, 174, "not used";
+    logical_value, 175, "not used";
+    logical_value, 176, "not used";
+    logical_value, 177, "not used";
+    logical_value, 178, "not used";
+    logical_value, 179, "not used";
+    logical_value, 180, "not used";
+    logical_value, 181, "not used";
+    logical_value, 182, "not used";
+    logical_value, 183, "not used";
+    logical_value, 184, "not used";
+    logical_value, 185, "not used";
+    logical_value, 186, "not used";
+    logical_value, 187, "not used";
+    logical_value, 188, "not used";
+    logical_value, 189, "not used";
+    logical_value, 190, "not used";
+    logical_value, 191, "not used";
+    logical_value, 192, "not used";
+    logical_value, 193, "not used";
+    logical_value, 194, "not used";
+    logical_value, 195, "not used";
+    logical_value, 196, "not used";
+    logical_value, 197, "not used";
+    logical_value, 198, "not used";
+    logical_value, 199, "not used";
+    logical_value, 200, "not used";
+    logical_value, 201, "not used";
+    logical_value, 202, "not used";
+    logical_value, 203, "not used";
+    logical_value, 204, "not used";
+    logical_value, 205, "not used";
+    logical_value, 206, "not used";
+    logical_value, 207, "not used";
+    logical_value, 208, "not used";
+    logical_value, 209, "not used";
+    logical_value, 210, "not used";
+    logical_value, 211, "not used";
+    logical_value, 212, "not used";
+    logical_value, 213, "not used";
+    logical_value, 214, "not used";
+    logical_value, 215, "not used";
+    logical_value, 216, "not used";
+    logical_value, 217, "not used";
+    logical_value, 218, "not used";
+    logical_value, 219, "not used";
+    logical_value, 220, "not used";
+    logical_value, 221, "not used";
+    logical_value, 222, "not used";
+    logical_value, 223, "not used";
+    logical_value, 224, "not used";
+    logical_value, 225, "not used";
+    logical_value, 226, "not used";
+    logical_value, 227, "not used";
+    logical_value, 228, "not used";
+    logical_value, 229, "not used";
+    logical_value, 230, "not used";
+    logical_value, 231, "not used";
+    logical_value, 232, "not used";
+    logical_value, 233, "not used";
+    logical_value, 234, "not used";
+    logical_value, 235, "not used";
+    logical_value, 236, "not used";
+    logical_value, 237, "not used";
+    logical_value, 238, "not used";
+    logical_value, 239, "not used";
+    logical_value, 240, "not used";
+    logical_value, 241, "not used";
+    logical_value, 242, "not used";
+    logical_value, 243, "not used";
+    logical_value, 244, "not used";
+    logical_value, 245, "not used";
+    logical_value, 246, "not used";
+    logical_value, 247, "not used";
+    logical_value, 248, "not used";
+    logical_value, 249, "not used";
+    logical_value, 250, "not used";
+    logical_value, 251, "not used";
+    logical_value, 252, "not used";
+    logical_value, 253, "not used";
+    logical_value, 254, "not used";
+    logical_value, 255, "not used";
+  }
+  InsToneTypeASU_Encoding {
+    logical_value, 0, "Uniform Tone";
+    logical_value, 1, "Modulated Tone";
+  }
+  InsSoundTypeASU_Encoding {
+    logical_value, 0, "Continuous Sound";
+    logical_value, 1, "Intermittent Sound";
+  }
+  InsDisinsASU_Encoding {
+    logical_value, 0, "Insertion";
+    logical_value, 1, "Disinsertion";
+  }
+  CycleNumber_Encoding {
+    logical_value, 0, "Alarm cycle 0";
+    logical_value, 1, "Alarm cycle 1";
+  }
+  CodeInsDisinsASU_Encoding {
+    physical_value, 0, 65535, 1, 0, "cn";
+  }
+  SensLevelBCMtoyAM_Encoding {
+    logical_value, 0, "+0,8°";
+    logical_value, 1, "+0,9°";
+    logical_value, 2, "+1,0°";
+    logical_value, 3, "+1,1°";
+    logical_value, 4, "+1,2°";
+    logical_value, 5, "+1,3°";
+    logical_value, 6, "not used";
+    logical_value, 7, "not used";
+  }
+  SensLevelBCMtoxAM_Encoding {
+    logical_value, 0, "+0,8°";
+    logical_value, 1, "+0,9°";
+    logical_value, 2, "+1,0°";
+    logical_value, 3, "+1,1°";
+    logical_value, 4, "+1,2°";
+    logical_value, 5, "+1,3°";
+    logical_value, 6, "not used";
+    logical_value, 7, "not used";
+  }
+  SensLevelBCMtoUM_Encoding {
+    logical_value, 0, "30%";
+    logical_value, 1, "40%";
+    logical_value, 2, "50%";
+    logical_value, 3, "60%";
+    logical_value, 4, "70%";
+    logical_value, 5, "80%";
+    logical_value, 6, "90%";
+    logical_value, 7, "100%";
+    logical_value, 8, "110%";
+    logical_value, 9, "120%";
+    logical_value, 10, "130%";
+    logical_value, 11, "not used";
+    logical_value, 12, "not used";
+    logical_value, 13, "not used";
+    logical_value, 14, "not used";
+    logical_value, 15, "not used";
+  }
+  HeaterSts_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+  }
+  EngineCapacity_Encoding {
+    logical_value, 0, "<= 1300 cc";
+    logical_value, 1, "> 1300 cc or <= 1900 cc";
+    logical_value, 2, "> 1900 cc";
+    logical_value, 3, "not used";
+  }
+  EngineType_Encoding {
+    logical_value, 0, "Gasoline";
+    logical_value, 1, "Diesel";
+    logical_value, 2, "not used";
+    logical_value, 3, "not used";
+  }
+  RoofSts_Encoding {
+    logical_value, 0, "Closed";
+    logical_value, 1, "Open";
+  }
+  SeatType_Encoding {
+    logical_value, 0, "Normal";
+    logical_value, 1, "eather";
+  }
+  CommerceVehicleDivisor_Encoding {
+    logical_value, 0, "Present";
+    logical_value, 1, "Not Present";
+  }
+  WindowsSts_Encoding {
+    logical_value, 0, "All Windows Are Closed";
+    logical_value, 1, "At Least one Window is Open > 5%";
+    logical_value, 2, "At Least one Window is Open > 25%";
+    logical_value, 3, "At Least one Window is Open > 50%";
+  }
+  RechargeBattery_Encoding {
+    logical_value, 0, "Enabled";
+    logical_value, 1, "Disabled";
+  }
+  GenericFailStsBCM_Encoding {
+    logical_value, 0, "No DTC Present in ECU (anytime)";
+    logical_value, 1, "At Least One DTC is Present in ECU (anytime)";
+  }
+  CurrentFailStsBCM_Encoding {
+    logical_value, 0, "No DTC Present in ECU (now)";
+    logical_value, 1, "At Least One DTC is Present in ECU (now)";
+  }
+  KeepAliveBCM_Encoding {
+    logical_value, 0, "No Need Further Communication";
+    logical_value, 1, "Need Further Communication";
+  }
+  AppNappHeartBeatASU_Encoding {
+    logical_value, 0, "Applicable";
+    logical_value, 1, "Not Applicable";
+  }
+  AckNackHeartBeatASU_Encoding {
+    logical_value, 0, "Ack";
+    logical_value, 1, "Nack";
+  }
+  AlarmCause3ASU_Encoding {
+    logical_value, 0, "+30 Connected";
+    logical_value, 1, "+30 Disconnected";
+  }
+  AlarmCause2ASU_Encoding {
+    logical_value, 0, "OK";
+    logical_value, 1, "RESHB > 3 times or Wrong HBTS";
+  }
+  AlarmCause1ASU_Encoding {
+    logical_value, 0, "None";
+    logical_value, 1, "DIS Command with Wrong Code";
+  }
+  BatteryStsASU_Encoding {
+    logical_value, 0, "Not charge";
+    logical_value, 1, "Charge";
+  }
+  SoundConverterASU_Encoding {
+    logical_value, 0, "Ok";
+    logical_value, 1, "Ko";
+  }
+  StsASU_Encoding {
+    logical_value, 0, "Sleep";
+    logical_value, 1, "Overseeing";
+  }
+  DiagInfStsASU_Encoding {
+    logical_value, 0, "Diagnostic Information Not Available";
+    logical_value, 1, "Diagnostic Information Available";
+  }
+  ResponseErrorStsASU_Encoding {
+    logical_value, 0, "Node is Operating Correctly";
+    logical_value, 1, "Node has Intermittent Problems";
+  }
+  GenericFailStsASU_Encoding {
+    logical_value, 0, "No DTC Present in ECU (anytime)";
+    logical_value, 1, "At Least One DTC is Present in ECU (anytime)";
+  }
+  CurrentFailStsASU_Encoding {
+    logical_value, 0, "No DTC Present in ECU (now)";
+    logical_value, 1, "At Least One DTC is Present in ECU (now)";
+  }
+  KeepAliveASU_Encoding {
+    logical_value, 0, "No Need Further Communication";
+    logical_value, 1, "Need Further Communication";
+  }
+  CarShape_Encoding {
+    logical_value, 0, "not used";
+    logical_value, 1, "Sedan";
+    logical_value, 2, "Station Wagon";
+    logical_value, 3, "Cargo";
+    logical_value, 4, "Combi";
+    logical_value, 5, "Panorama";
+    logical_value, 6, "not used";
+    logical_value, 7, "not used";
+    logical_value, 8, "not used";
+    logical_value, 9, "not used";
+    logical_value, 10, "not used";
+    logical_value, 11, "not used";
+    logical_value, 12, "not used";
+    logical_value, 13, "not used";
+    logical_value, 14, "not used";
+    logical_value, 15, "not used";
+    physical_value, 0, 15, 1, 0, "";
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0, "";
+  }
+  TiltStsASU {
+    logical_value, 0, "Tilt_Sensor_Not_Active";
+    logical_value, 1, "Tilt_Sensor_Calibrating";
+    logical_value, 2, "Tilt_Sensor_Active";
+    logical_value, 3, "Tilt_Sensor_Signal_Not_Plausible";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  TiltASU {
+    logical_value, 0, "OK";
+    logical_value, 1, "KO";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  AlarmCause4ASU {
+    logical_value, 0, "None";
+    logical_value, 1, "Tilt Alarm";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  InsDisinsASU_AM {
+    logical_value, 0, "Disinsertion";
+    logical_value, 1, "Insertion";
+    physical_value, 0, 1, 1, 0, "";
+  }
+}
+
+Signal_representation {
+  AckNackHeartBeatASU_Encoding: AckNackHeartBeatASU;
+  ActCycleSoundTypeASU_Encoding: ActCycleSoundTypeASU;
+  ActCycleToneTypeASU_Encoding: ActCycleToneTypeASU;
+  ActDisactCycleASU_Encoding: ActDisactCycleASU;
+  AlarmCause1ASU_Encoding: AlarmCause1ASU;
+  AlarmCause2ASU_Encoding: AlarmCause2ASU;
+  AlarmCause3ASU_Encoding: AlarmCause3ASU;
+  AlarmCause4ASU: AlarmCause4ASU;
+  AppNappHeartBeatASU_Encoding: AppNappHeartBeatASU;
+  BatteryStsASU_Encoding: BatteryStsASU;
+  BeepASU_Encoding: BeepASU;
+  CarShape_Encoding: CarShape;
+  CodeActDisactCycleASU_Encoding: CodeActDisactCycleASU;
+  CodeHeartBeatASU_Encoding: CodeHeartBeatASU;
+  CodeInsDisinsASU_Encoding: CodeInsDisinsASU;
+  CommerceVehicleDivisor_Encoding: CommerceVehicleDivisor;
+  CurrentFailStsASU_Encoding: CurrentFailStsASU;
+  CurrentFailStsBCM_Encoding: CurrentFailStsBCM;
+  CycleNumber_Encoding: CycleNumber;
+  DiagInfStsASU_Encoding: DiagInfStsASU;
+  DiagnosisRequest_Encoding: DiagnosisRequest;
+  EngineCapacity_Encoding: EngineCapacity;
+  EngineType_Encoding: EngineType;
+  GenericFailStsASU_Encoding: GenericFailStsASU;
+  GenericFailStsBCM_Encoding: GenericFailStsBCM;
+  HeaterSts_Encoding: HeaterSts;
+  InsDisinsAM_Encoding: InsDisinsAM;
+  InsDisinsASU_AM: InsDisinsASU_AM;
+  InsDisinsASU_Encoding: InsDisinsASU;
+  InsDisinsUM_Encoding: InsDisinsUM;
+  InsSoundTypeASU_Encoding: InsSoundTypeASU;
+  InsToneTypeASU_Encoding: InsToneTypeASU;
+  KeepAliveASU_Encoding: KeepAliveASU;
+  KeepAliveBCM_Encoding: KeepAliveBCM;
+  KeySts_Encoding: KeySts;
+  LevelBeepASU_Encoding: LevelBeepASU;
+  NumberBeepASU_Encoding: NumberBeepASU;
+  RechargeBattery_Encoding: RechargeBattery;
+  ResetHeartBeatASU_Encoding: ResetHeartBeatASU;
+  ResponseErrorStsASU_Encoding: ResponseErrorStsASU;
+  RoofSts_Encoding: RoofSts;
+  SeatType_Encoding: SeatType;
+  SensLevelBCMtoUM_Encoding: SensLevelBCMtoUM;
+  SensLevelBCMtoxAM_Encoding: SensLevelBCMtoxAM;
+  SensLevelBCMtoyAM_Encoding: SensLevelBCMtoyAM;
+  SoundConverterASU_Encoding: SoundConverterASU;
+  StsASU_Encoding: StsASU;
+  TiltASU: TiltASU;
+  TiltStsASU: TiltStsASU;
+  TimeBeepASU_Encoding: TimeBeepASU;
+  WindowsSts_Encoding: WindowsSts;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7;
+}
+

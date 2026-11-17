@@ -1,0 +1,396 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 4/22/24, 5:06 PM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms; 
+  Slaves: WLRL, DIAG_TESTER_LIN5;
+}
+
+Signals {
+  BatteryVoltageLevel: 7, 0, BCM, WLRL;
+  CmdIgnSts: 3, 0, BCM, WLRL;
+  Key_off_enabler: 1, 0, BCM, WLRL;
+  AntipinchEnabler: 2, 0, BCM, WLRL;
+  WMRLShortDrop: 1, 0, BCM, WLRL;
+  WMRLShortLift: 1, 0, BCM, WLRL;
+  WMR_ComfortClosing: 1, 0, BCM, WLRL;
+  WMRRShortDrop: 1, 0, BCM, WLRL;
+  WMRRShortLift: 1, 0, BCM, WLRL;
+  WMRL_Movement_Command: 3, 0, BCM, WLRL;
+  WMRR_Movement_Command: 3, 0, BCM, WLRL;
+  WMRL_Position_Command: 4, 11, BCM, WLRL;
+  WMRR_Position_Command: 4, 11, BCM, WLRL;
+  WindowStsWMRL: 4, 0, WLRL, BCM;
+  Position_FbkWMRL: 4, 0, WLRL, BCM;
+  ShortDropMode_StsWMRL: 1, 0, WLRL, BCM;
+  InitializationStsWMRL: 1, 0, WLRL, BCM;
+  AssemblyModeStsWMRL: 1, 0, WLRL, BCM;
+  ThermalStsWMRL: 2, 0, WLRL, BCM;
+  VoltageOutOfRangeWMRL: 1, 0, WLRL, BCM;
+  ResponseErrorWMRL: 1, 0, WLRL, BCM;
+  CurrentFailWMRL: 1, 0, WLRL, BCM;
+  GenericFailWMRL: 1, 0, WLRL, BCM;
+  HallSensorFailWMRL: 1, 0, WLRL, BCM;
+  AntiPinchFailWMRL: 1, 0, WLRL, BCM;
+  RelayFailWMRL: 1, 0, WLRL, BCM;
+  PositionFailWMRL: 1, 0, WLRL, BCM;
+  ShortDropSignalFailWMRL: 1, 0, WLRL, BCM;
+  AnticlatterSts_WMRL: 2, 0, WLRL, BCM;
+  ExternalTemperature: 9, 170, BCM, WLRL;
+  VehicleSpeedFailSts: 1, 0, BCM, WLRL;
+  ExternalTemperatureFailSts: 1, 0, BCM, WLRL;
+  STS_LV_DoorStatus: 2, 0, BCM, WLRL;
+  VehicleSpeed: 13, 0, BCM, WLRL;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0;
+  MasterReqB1: 8, 0;
+  MasterReqB2: 8, 0;
+  MasterReqB3: 8, 0;
+  MasterReqB4: 8, 0;
+  MasterReqB5: 8, 0;
+  MasterReqB6: 8, 0;
+  MasterReqB7: 8, 0;
+  SlaveRespB0: 8, 0;
+  SlaveRespB1: 8, 0;
+  SlaveRespB2: 8, 0;
+  SlaveRespB3: 8, 0;
+  SlaveRespB4: 8, 0;
+  SlaveRespB5: 8, 0;
+  SlaveRespB6: 8, 0;
+  SlaveRespB7: 8, 0;
+}
+
+Frames {
+  NBCToWMRCommand: 18, BCM, 8 {
+    WMRLShortDrop, 7;
+    WMRLShortLift, 8;
+    WMR_ComfortClosing, 9;
+    CmdIgnSts, 20;
+    WMRRShortDrop, 23;
+    WMRRShortLift, 24;
+    Key_off_enabler, 25;
+    WMRL_Movement_Command, 26;
+    WMRR_Movement_Command, 29;
+    WMRL_Position_Command, 46;
+    WMRR_Position_Command, 50;
+    AntipinchEnabler, 56;
+    ExternalTemperature, 10;
+    ExternalTemperatureFailSts, 19;
+    STS_LV_DoorStatus, 61;
+    BatteryVoltageLevel, 0;
+    VehicleSpeedFailSts, 45;
+    VehicleSpeed, 32;
+  }
+  WMRLToNBCFeedback: 20, WLRL, 3 {
+    WindowStsWMRL, 0;
+    Position_FbkWMRL, 4;
+    ShortDropMode_StsWMRL, 8;
+    InitializationStsWMRL, 9;
+    AssemblyModeStsWMRL, 10;
+    ThermalStsWMRL, 11;
+    VoltageOutOfRangeWMRL, 13;
+    ResponseErrorWMRL, 14;
+    CurrentFailWMRL, 15;
+    GenericFailWMRL, 16;
+    HallSensorFailWMRL, 17;
+    AntiPinchFailWMRL, 18;
+    RelayFailWMRL, 19;
+    PositionFailWMRL, 20;
+    ShortDropSignalFailWMRL, 21;
+    AnticlatterSts_WMRL, 22;
+  }
+}
+
+Diagnostic_frames {
+  MasterReq: 60 {
+    MasterReqB0, 0;
+    MasterReqB1, 8;
+    MasterReqB2, 16;
+    MasterReqB3, 24;
+    MasterReqB4, 32;
+    MasterReqB5, 40;
+    MasterReqB6, 48;
+    MasterReqB7, 56;
+  }
+  SlaveResp: 61 {
+    SlaveRespB0, 0;
+    SlaveRespB1, 8;
+    SlaveRespB2, 16;
+    SlaveRespB3, 24;
+    SlaveRespB4, 32;
+    SlaveRespB5, 40;
+    SlaveRespB6, 48;
+    SlaveRespB7, 56;
+  }
+}
+
+Node_attributes {
+  WLRL {
+    LIN_protocol = "2.2";
+    configured_NAD = 0x76;
+    initial_NAD = 0x76;
+    product_id = 0x0000, 0x0001, 0x00;
+    response_error = ResponseErrorWMRL;
+    P2_min = 50 ms;
+    ST_min = 10 ms;
+    N_As_timeout = 1000 ms;
+    N_Cr_timeout = 1000 ms;
+    configurable_frames { 
+      NBCToWMRCommand;
+      WMRLToNBCFeedback;
+    }
+  }
+  DIAG_TESTER_LIN5 {
+    LIN_protocol = "1.3";
+    configured_NAD = 0x40;
+  }
+}
+
+Schedule_tables {
+  WMRL_KeyOFF {
+    NBCToWMRCommand delay 10 ms;
+    WMRLToNBCFeedback delay 10 ms;
+  }
+  Init {
+    SlaveResp delay 10 ms;
+    MasterReq delay 10 ms;
+  }
+  KeyON_1 {
+    NBCToWMRCommand delay 10 ms;
+    WMRLToNBCFeedback delay 10 ms;
+  }
+}
+
+Signal_encoding_types {
+  ExternalTemperatureFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  CmdIgnSts_Encoding {
+    logical_value, 0, "IGN_LK";
+    logical_value, 1, "IGN_S&S";
+    logical_value, 2, "NA";
+    logical_value, 3, "NA";
+    logical_value, 4, "RUN";
+    logical_value, 5, "START";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  Key_off_enabler_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  VehicleSpeedFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  AntipinchEnabler_Encoding {
+    logical_value, 0, "Not Enabled";
+    logical_value, 1, "Enabled";
+  }
+  WMRLShortDrop_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WMRLShortLift_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WMR_ComfortClosing_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WMRRShortDrop_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WMRRShortLift_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WMRL_Movement_Command_Encoding {
+    logical_value, 0, "No Command";
+    logical_value, 1, "Up Manual";
+    logical_value, 2, "Down Manual";
+    logical_value, 3, "Up Auto";
+    logical_value, 4, "Down Auto";
+    logical_value, 5, "Stop Movement";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  WMRR_Movement_Command_Encoding {
+    logical_value, 0, "No Command";
+    logical_value, 1, "Up Manual";
+    logical_value, 2, "Down Manual";
+    logical_value, 3, "Up Auto";
+    logical_value, 4, "Down Auto";
+    logical_value, 5, "Stop Movement";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  WMRL_Position_Command_Encoding {
+    logical_value, 11, "No Command";
+    logical_value, 12, "Service Position";
+    logical_value, 13, "NA";
+    logical_value, 14, "NA";
+    logical_value, 15, "SNA";
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  WMRR_Position_Command_Encoding {
+    logical_value, 11, "No Command";
+    logical_value, 12, "Service Position";
+    logical_value, 13, "NA";
+    logical_value, 14, "NA";
+    logical_value, 15, "SNA";
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  WindowStsWMRL_Encoding {
+    logical_value, 0, "Open";
+    logical_value, 1, "Closed";
+    logical_value, 2, "Stopped in intermediate position";
+    logical_value, 3, "Running Up";
+    logical_value, 4, "Running Down";
+    logical_value, 5, "Reverse";
+    logical_value, 6, "Short drop";
+    logical_value, 7, "SNA";
+    logical_value, 8, "Running Up Auto";
+    logical_value, 9, "Running Down Auto";
+    logical_value, 10, "Not Used";
+    logical_value, 11, "Not Used";
+    logical_value, 12, "Not Used";
+    logical_value, 13, "Not Used";
+    logical_value, 14, "Not Used";
+    logical_value, 15, "Not Used";
+  }
+  Position_FbkWMRL_Encoding {
+    physical_value, 0, 100, 10, 0, "%";
+  }
+  ShortDropMode_StsWMRL_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  InitializationStsWMRL_Encoding {
+    logical_value, 0, "Not_Initialized";
+    logical_value, 1, "Initialized";
+  }
+  AssemblyModeStsWMRL_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ThermalStsWMRL_Encoding {
+    logical_value, 0, "Normal Operation";
+    logical_value, 1, "State_1";
+    logical_value, 2, "State_2";
+    logical_value, 3, "SNA";
+  }
+  VoltageOutOfRangeWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  ResponseErrorWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  CurrentFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  GenericFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  HallSensorFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  AntiPinchFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  RelayFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  PositionFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  ShortDropSignalFailWMRL_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  AnticlatterSts_WMRL_Encoding {
+    logical_value, 0, "Out of Anticlatter";
+    logical_value, 1, "Running Anticlatter";
+    logical_value, 2, "Anticlatter Position";
+    logical_value, 3, "Anticlatter Not Active";
+  }
+  STS_LH_DoorStatus_Encoding {
+    logical_value, 0, "SNA";
+    logical_value, 1, "Opened";
+    logical_value, 2, "Ajar";
+    logical_value, 3, "Closed";
+  }
+  ExternalTemperature {
+    physical_value, 0, 511, 0.5, -85, "°C";
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0, "";
+  }
+  BatteryVoltageLevel {
+    physical_value, 0, 127, 0.16, 0, "volt";
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h";
+  }
+}
+
+Signal_representation {
+  AntiPinchFailWMRL_Encoding: AntiPinchFailWMRL;
+  AnticlatterSts_WMRL_Encoding: AnticlatterSts_WMRL;
+  AntipinchEnabler_Encoding: AntipinchEnabler;
+  AssemblyModeStsWMRL_Encoding: AssemblyModeStsWMRL;
+  BatteryVoltageLevel: BatteryVoltageLevel;
+  CmdIgnSts_Encoding: CmdIgnSts;
+  CurrentFailWMRL_Encoding: CurrentFailWMRL;
+  ExternalTemperature: ExternalTemperature;
+  ExternalTemperatureFailSts_Encoding: ExternalTemperatureFailSts;
+  GenericFailWMRL_Encoding: GenericFailWMRL;
+  HallSensorFailWMRL_Encoding: HallSensorFailWMRL;
+  InitializationStsWMRL_Encoding: InitializationStsWMRL;
+  Key_off_enabler_Encoding: Key_off_enabler;
+  PositionFailWMRL_Encoding: PositionFailWMRL;
+  Position_FbkWMRL_Encoding: Position_FbkWMRL;
+  RelayFailWMRL_Encoding: RelayFailWMRL;
+  ResponseErrorWMRL_Encoding: ResponseErrorWMRL;
+  STS_LH_DoorStatus_Encoding: STS_LV_DoorStatus;
+  ShortDropMode_StsWMRL_Encoding: ShortDropMode_StsWMRL;
+  ShortDropSignalFailWMRL_Encoding: ShortDropSignalFailWMRL;
+  ThermalStsWMRL_Encoding: ThermalStsWMRL;
+  VehicleSpeedFailSts_Encoding: VehicleSpeedFailSts;
+  VehicleSpeedVSOSig8191: VehicleSpeed;
+  VoltageOutOfRangeWMRL_Encoding: VoltageOutOfRangeWMRL;
+  WMRLShortDrop_Encoding: WMRLShortDrop;
+  WMRLShortLift_Encoding: WMRLShortLift;
+  WMRL_Movement_Command_Encoding: WMRL_Movement_Command;
+  WMRL_Position_Command_Encoding: WMRL_Position_Command;
+  WMRRShortDrop_Encoding: WMRRShortDrop;
+  WMRRShortLift_Encoding: WMRRShortLift;
+  WMRR_Movement_Command_Encoding: WMRR_Movement_Command;
+  WMRR_Position_Command_Encoding: WMRR_Position_Command;
+  WMR_ComfortClosing_Encoding: WMR_ComfortClosing;
+  WindowStsWMRL_Encoding: WindowStsWMRL;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7;
+}
+

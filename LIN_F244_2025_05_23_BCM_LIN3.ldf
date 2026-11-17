@@ -1,0 +1,777 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 5/16/25, 4:54 PM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.1";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0 ms; 
+  Slaves: DIAG_TESTER_LIN3, ALM, LCC, RLL, RLR;
+}
+
+Signals {
+  Day2_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Month2_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Year2_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Minute1_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  BatteryVoltageLevel_ForLIN_NBC: 7, 0, BCM, LCC, RLL, RLR;
+  Year1_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  VehicleSpeed_ForLIN_NBC: 13, 0, BCM, LCC, RLL, RLR;
+  TotalOdometer_ForLIN_NBC: 24, 0, BCM, LCC, RLL, RLR;
+  Day1_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Minute2_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Year4_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Month1_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Hour1_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  KeySts_ForLIN_NBC: 1, 0, BCM, LCC, RLL, RLR;
+  ExternalTemperature_LIN_NBC: 9, 0, BCM, LCC, RLL, RLR;
+  Year3_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  Hour2_ForLIN_NBC: 4, 0, BCM, LCC, RLL, RLR;
+  CeilingDimming: 4, 0, BCM, LCC;
+  SpotRHDimming: 4, 0, BCM, LCC;
+  SpotLHDimming: 4, 0, BCM, LCC;
+  SpotRHRDimming: 4, 0, BCM, RLR;
+  SpotLHRDimming: 4, 0, BCM, RLL;
+  BacklightsCmd: 1, 0, BCM, LCC, RLL, RLR;
+  BrightnessAdjustment: 4, 0, BCM, LCC, RLL, RLR;
+  Ceiling_center_button: 1, 0, LCC, BCM;
+  Spot_LH_Button: 1, 0, LCC, BCM;
+  Spot_RH_Button: 1, 0, LCC, BCM;
+  Spot_LH_Button_Rear: 1, 0, RLL, BCM;
+  Spot_RH_Button_Rear: 1, 0, RLR, BCM;
+  NBCAmbientLightDoors: 2, 0, BCM, ALM;
+  CeilingSts: 1, 0, BCM, ALM;
+  CurrentFailCeiling: 1, 0, LCC, BCM;
+  GeneralFailCeiling: 1, 0, LCC, BCM;
+  ResponseErrorCeiling: 1, 0, LCC, BCM;
+  ALMAmbientLightIntensityDay: 3, 0, ALM, BCM;
+  ALMAmbientLightIntensityNight: 3, 0, ALM, BCM;
+  ALMAmbientLightCurrentFailSts: 1, 0, ALM, BCM;
+  ALMAmbientLightGenericFailSts: 1, 0, ALM, BCM;
+  ALMAmbientLightColour: 4, 0, ALM, BCM;
+  ALMAmbientLightResponseError: 1, 0, ALM, BCM;
+  NBCAmbientLightDayEnable: 1, 1, BCM, ALM;
+  NBCAmbientLightNightEnable: 1, 1, BCM, ALM;
+  NBCAmbientLightNightDaySwitch: 1, 1, BCM, ALM;
+  NBCAmbientLightNightDay: 1, 1, BCM, ALM;
+  NBCAmbientLightEnable: 1, 1, BCM, ALM;
+  NBCAmbientLightIntensityNight: 3, 0, BCM, ALM;
+  NBCAmbientLightIntensityDay: 3, 0, BCM, ALM;
+  NBCAmbientLightColour: 4, 0, BCM, ALM;
+  KeySts: 1, 0, BCM, ALM, LCC, RLL, RLR;
+  LaunchLeverFailSts: 1, 0, LCC, BCM;
+  LaunchLeverPos: 2, 0, LCC, BCM;
+  LaunchLedSts: 2, 0, BCM, LCC;
+  LCC_MaxDefrostCommand: 1, 0, LCC, BCM;
+  LCC_RearDefrostCommand: 1, 0, LCC, BCM;
+  LaunchCircularLedSts: 2, 0, BCM, LCC;
+  Ceiling_CRC: 8, 0, LCC, BCM;
+  Ceiling_Msg_Cnt: 4, 0, LCC, BCM;
+  LowBeam_Button: 2, 0, LCC, BCM;
+  RearFog_Button: 2, 0, LCC, BCM;
+  AUTO_Led: 1, 0, BCM, LCC;
+  Courtesy_LHR_Button: 1, 0, RLL, BCM;
+  Courtesy_RHR_Button: 1, 0, RLR, BCM;
+  CourtesyLHRDimming: 4, 0, BCM, RLL;
+  CourtesyRHRDimming: 4, 0, BCM, RLR;
+  CurrentFailLHR: 1, 0, RLL, BCM;
+  CurrentFailRHR: 1, 0, RLR, BCM;
+  FrontDefrost_Led: 1, 0, BCM, LCC;
+  GenericFailLHR: 1, 0, RLL, BCM;
+  GenericFailRHR: 1, 0, RLR, BCM;
+  LowBeam_Led: 1, 0, BCM, LCC;
+  Master_Msg_Cnt: 4, 0, BCM, LCC;
+  NBC_CRC: 8, 0, BCM, LCC;
+  RearDefrost_Led: 1, 0, BCM, LCC;
+  RearFog_Led: 1, 0, BCM, LCC;
+  ResponseErrorLHR: 1, 0, RLL, BCM;
+  ResponseErrorRHR: 1, 0, RLR, BCM;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0;
+  MasterReqB1: 8, 0;
+  MasterReqB2: 8, 0;
+  MasterReqB3: 8, 0;
+  MasterReqB4: 8, 0;
+  MasterReqB5: 8, 0;
+  MasterReqB6: 8, 0;
+  MasterReqB7: 8, 0;
+  SlaveRespB0: 8, 0;
+  SlaveRespB1: 8, 0;
+  SlaveRespB2: 8, 0;
+  SlaveRespB3: 8, 0;
+  SlaveRespB4: 8, 0;
+  SlaveRespB5: 8, 0;
+  SlaveRespB6: 8, 0;
+  SlaveRespB7: 8, 0;
+}
+
+Frames {
+  NBCtoLCC_Ceiling_Mng: 18, BCM, 8 {
+    BacklightsCmd, 22;
+    CeilingDimming, 0;
+    SpotRHDimming, 4;
+    SpotLHDimming, 8;
+    BrightnessAdjustment, 23;
+    CeilingSts, 59;
+    KeySts, 27;
+    CourtesyRHRDimming, 12;
+    CourtesyLHRDimming, 16;
+    SpotLHRDimming, 33;
+    SpotRHRDimming, 29;
+    NBCAmbientLightColour, 44;
+    NBCAmbientLightDayEnable, 53;
+    NBCAmbientLightEnable, 37;
+    NBCAmbientLightIntensityDay, 38;
+    NBCAmbientLightIntensityNight, 41;
+    NBCAmbientLightNightDay, 52;
+    NBCAmbientLightNightDaySwitch, 55;
+    NBCAmbientLightNightEnable, 54;
+    NBCAmbientLightDoors, 56;
+  }
+  RLCeilingtoNBC: 23, RLL, 1 {
+    Courtesy_LHR_Button, 1;
+    CurrentFailLHR, 2;
+    GenericFailLHR, 3;
+    ResponseErrorLHR, 4;
+    Spot_LH_Button_Rear, 0;
+  }
+  ALMtoNBC: 20, ALM, 2 {
+    ALMAmbientLightIntensityDay, 0;
+    ALMAmbientLightIntensityNight, 3;
+    ALMAmbientLightCurrentFailSts, 6;
+    ALMAmbientLightGenericFailSts, 7;
+    ALMAmbientLightColour, 8;
+    ALMAmbientLightResponseError, 12;
+  }
+  RRCeilingtoNBC: 22, RLR, 1 {
+    Courtesy_RHR_Button, 1;
+    CurrentFailRHR, 2;
+    GenericFailRHR, 3;
+    ResponseErrorRHR, 4;
+    Spot_RH_Button_Rear, 0;
+  }
+  LCC_Status: 19, LCC, 4 {
+    Spot_RH_Button, 6;
+    LCC_MaxDefrostCommand, 9;
+    LCC_RearDefrostCommand, 10;
+    CurrentFailCeiling, 15;
+    GeneralFailCeiling, 16;
+    Ceiling_Msg_Cnt, 0;
+    Ceiling_center_button, 4;
+    Spot_LH_Button, 5;
+    LowBeam_Button, 18;
+    RearFog_Button, 20;
+    ResponseErrorCeiling, 17;
+    Ceiling_CRC, 24;
+    LaunchLeverFailSts, 14;
+    LaunchLeverPos, 11;
+  }
+  NBCtoLCC_Commands_Mng: 21, BCM, 4 {
+    FrontDefrost_Led, 6;
+    Master_Msg_Cnt, 0;
+    NBC_CRC, 24;
+    RearDefrost_Led, 7;
+    RearFog_Led, 5;
+    LowBeam_Led, 4;
+    LaunchLedSts, 9;
+    LaunchCircularLedSts, 11;
+    AUTO_Led, 8;
+  }
+  TIME_E_DATE: 16, BCM, 8 {
+    Day1_ForLIN_NBC, 16;
+    Day2_ForLIN_NBC, 20;
+    Hour1_ForLIN_NBC, 0;
+    Hour2_ForLIN_NBC, 4;
+    Minute1_ForLIN_NBC, 8;
+    Minute2_ForLIN_NBC, 12;
+    Month1_ForLIN_NBC, 24;
+    Month2_ForLIN_NBC, 28;
+    Year1_ForLIN_NBC, 32;
+    Year2_ForLIN_NBC, 36;
+    Year3_ForLIN_NBC, 40;
+    Year4_ForLIN_NBC, 44;
+  }
+  VEHICLE_INFO: 54, BCM, 8 {
+    TotalOdometer_ForLIN_NBC, 0;
+    KeySts_ForLIN_NBC, 55;
+    ExternalTemperature_LIN_NBC, 24;
+    VehicleSpeed_ForLIN_NBC, 33;
+    BatteryVoltageLevel_ForLIN_NBC, 48;
+  }
+}
+
+Diagnostic_frames {
+  MasterReq: 60 {
+    MasterReqB0, 0;
+    MasterReqB1, 8;
+    MasterReqB2, 16;
+    MasterReqB3, 24;
+    MasterReqB4, 32;
+    MasterReqB5, 40;
+    MasterReqB6, 48;
+    MasterReqB7, 56;
+  }
+  SlaveResp: 61 {
+    SlaveRespB0, 0;
+    SlaveRespB1, 8;
+    SlaveRespB2, 16;
+    SlaveRespB3, 24;
+    SlaveRespB4, 32;
+    SlaveRespB5, 40;
+    SlaveRespB6, 48;
+    SlaveRespB7, 56;
+  }
+}
+
+Node_attributes {
+  DIAG_TESTER_LIN3 {
+    LIN_protocol = "1.3";
+    configured_NAD = 0x40;
+  }
+  ALM {
+    LIN_protocol = "2.1";
+    configured_NAD = 0x5;
+    initial_NAD = 0x5;
+    product_id = 0x0000, 0x0000, 0x00;
+    response_error = ALMAmbientLightResponseError;
+    P2_min = 50 ms;
+    N_As_timeout = 1000 ms;
+    N_Cr_timeout = 1000 ms;
+    configurable_frames { 
+      ALMtoNBC;
+      NBCtoLCC_Ceiling_Mng;
+    }
+  }
+  LCC {
+    LIN_protocol = "2.1";
+    configured_NAD = 0x6A;
+    initial_NAD = 0x6A;
+    product_id = 0x0000, 0x0000, 0x00;
+    response_error = ResponseErrorCeiling;
+    P2_min = 50 ms;
+    ST_min = 10 ms;
+    N_As_timeout = 1000 ms;
+    N_Cr_timeout = 1000 ms;
+    configurable_frames { 
+      LCC_Status;
+      NBCtoLCC_Ceiling_Mng;
+      NBCtoLCC_Commands_Mng;
+      TIME_E_DATE;
+      VEHICLE_INFO;
+    }
+  }
+  RLL {
+    LIN_protocol = "2.1";
+    configured_NAD = 0x6;
+    initial_NAD = 0x6;
+    product_id = 0x005A, 0x0000, 0x00;
+    response_error = ResponseErrorLHR;
+    P2_min = 50 ms;
+    ST_min = 10 ms;
+    N_As_timeout = 1000 ms;
+    N_Cr_timeout = 1000 ms;
+    configurable_frames { 
+      NBCtoLCC_Ceiling_Mng;
+      RLCeilingtoNBC;
+      TIME_E_DATE;
+      VEHICLE_INFO;
+    }
+  }
+  RLR {
+    LIN_protocol = "2.1";
+    configured_NAD = 0x7;
+    initial_NAD = 0x7;
+    product_id = 0x005A, 0x0000, 0x00;
+    response_error = ResponseErrorRHR;
+    P2_min = 50 ms;
+    ST_min = 10 ms;
+    N_As_timeout = 1000 ms;
+    N_Cr_timeout = 1000 ms;
+    configurable_frames { 
+      NBCtoLCC_Ceiling_Mng;
+      RRCeilingtoNBC;
+    }
+  }
+}
+
+Schedule_tables {
+  FunctionalLCC_ALM {
+    NBCtoLCC_Ceiling_Mng delay 10 ms;
+    NBCtoLCC_Commands_Mng delay 10 ms;
+    LCC_Status delay 10 ms;
+    ALMtoNBC delay 10 ms;
+    TIME_E_DATE delay 10 ms;
+    VEHICLE_INFO delay 10 ms;
+  }
+  FunctionalLCC {
+    NBCtoLCC_Ceiling_Mng delay 10 ms;
+    NBCtoLCC_Commands_Mng delay 10 ms;
+    LCC_Status delay 10 ms;
+    TIME_E_DATE delay 10 ms;
+    VEHICLE_INFO delay 10 ms;
+  }
+  Init {
+    MasterReq delay 10 ms;
+    SlaveResp delay 10 ms;
+  }
+  FunctionalLCC_RLx {
+    NBCtoLCC_Ceiling_Mng delay 10 ms;
+    NBCtoLCC_Commands_Mng delay 10 ms;
+    LCC_Status delay 10 ms;
+    RRCeilingtoNBC delay 10 ms;
+    RLCeilingtoNBC delay 10 ms;
+    TIME_E_DATE delay 10 ms;
+    VEHICLE_INFO delay 10 ms;
+  }
+  FunctionalLCC_RLx_ALM {
+    NBCtoLCC_Ceiling_Mng delay 10 ms;
+    NBCtoLCC_Commands_Mng delay 10 ms;
+    LCC_Status delay 10 ms;
+    RRCeilingtoNBC delay 10 ms;
+    RLCeilingtoNBC delay 10 ms;
+    ALMtoNBC delay 10 ms;
+    TIME_E_DATE delay 10 ms;
+    VEHICLE_INFO delay 10 ms;
+  }
+}
+
+Signal_encoding_types {
+  Hour1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Hour2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Minute1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Minute2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Day1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Day2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Month1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Month2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Year1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Year2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Year3_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  Year4_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded";
+  }
+  LaunchLeverPos {
+    logical_value, 0, "Not_Pulled";
+    logical_value, 1, "Pulled";
+    logical_value, 2, "not_used";
+    logical_value, 3, "not_used";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  LaunchLeverFailSts {
+    logical_value, 0, "No_Fail";
+    logical_value, 1, "Fail";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  LaunchLedSts {
+    logical_value, 0, "Launch OFF";
+    logical_value, 1, "Launch ON";
+    logical_value, 2, "Launch BLINKING OFF";
+    logical_value, 3, "Launch BLINKING ON";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  CeilingDimming_Encoding {
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  SpotRHDimming_Encoding {
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  SpotLHDimming_Encoding {
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  SpotRHRDimming_Encoding {
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  SpotLHRDimming_Encoding {
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  BacklightsCmd_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+  }
+  BrightnessAdjustment_Encoding {
+    logical_value, 0, "Level_1";
+    logical_value, 1, "Level_2";
+    logical_value, 2, "Level_3";
+    logical_value, 3, "Level_4";
+    logical_value, 4, "Level_5";
+    logical_value, 5, "Level_6";
+    logical_value, 6, "Level_7";
+    logical_value, 7, "Level_8";
+    logical_value, 8, "Level_9";
+    logical_value, 9, "Level_10";
+    logical_value, 10, "Level_11";
+    logical_value, 11, "Level_12";
+    logical_value, 12, "Level_13";
+    logical_value, 13, "Level_14";
+    logical_value, 14, "Level_15";
+    logical_value, 15, "Level_16";
+  }
+  KeySts_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+  }
+  Ceiling_center_button_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Spot_LH_Button_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Spot_RH_Button_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Spot_LH_Button_Rear_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Spot_RH_Button_Rear_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Master_Msg_Cnt_Encoding {
+    physical_value, 0, 15, 1, 0, "cnt";
+  }
+  NBC_CRC_Encoding {
+    physical_value, 0, 255, 1, 0, "cn";
+  }
+  NBCAmbientLightDoors_Encoding {
+    logical_value, 0, "Unlocked_Doors";
+    logical_value, 1, "Locked:Doors";
+    logical_value, 2, "Open_Door";
+    logical_value, 3, "Closed_Doors";
+  }
+  CeilingSts_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  CurrentFailCeiling_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  GeneralFailCeiling_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ResponseErrorCeiling_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ALMAmbientLightIntensityDay_Encoding {
+    logical_value, 0, "Level1";
+    logical_value, 1, "Level2";
+    logical_value, 2, "Level3";
+    logical_value, 3, "Level4";
+    logical_value, 4, "Level5";
+    logical_value, 5, "Level6";
+    logical_value, 6, "Level7";
+    logical_value, 7, "Level8";
+  }
+  ALMAmbientLightIntensityNight_Encoding {
+    logical_value, 0, "Level1";
+    logical_value, 1, "Level2";
+    logical_value, 2, "Level3";
+    logical_value, 3, "Level4";
+    logical_value, 4, "Level5";
+    logical_value, 5, "Level6";
+    logical_value, 6, "Level7";
+    logical_value, 7, "Level8";
+  }
+  ALMAmbientLightCurrentFailSts_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ALMAmbientLightGenericFailSts_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ALMAmbientLightColour_Encoding {
+    logical_value, 0, "Colour1";
+    logical_value, 1, "Colour2";
+    logical_value, 2, "Colour3";
+    logical_value, 3, "Colour4";
+    logical_value, 4, "Colour5";
+    logical_value, 5, "Colour6";
+    logical_value, 6, "Colour7";
+    logical_value, 7, "Colour8";
+    logical_value, 8, "Colour9";
+    logical_value, 9, "Colour10";
+    logical_value, 10, "Colour11";
+    logical_value, 11, "Colour12";
+    logical_value, 12, "Colour13";
+    logical_value, 13, "Colour14";
+    logical_value, 14, "Colour15";
+    logical_value, 15, "Colour16";
+  }
+  ALMAmbientLightResponseError_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0, "";
+  }
+  ExternalTemperature {
+    logical_value, 0, "FaultValue";
+    physical_value, 0, 255, 0.5, -40, "°C";
+  }
+  NBC_MaxDefrostCommand {
+    logical_value, 0, "OFF";
+    logical_value, 1, "ON";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  NBCAmbientLightIntensityDay {
+    logical_value, 0, "Intensity_1";
+    logical_value, 1, "Intensity_2";
+    logical_value, 2, "Intensity_3";
+    logical_value, 3, "Intensity_4";
+    logical_value, 4, "Intensity_5";
+    logical_value, 5, "Intensity_6";
+    logical_value, 6, "Intensity_7";
+    logical_value, 7, "Intensity_8";
+    physical_value, 0, 7, 1, 0, "";
+  }
+  NBCAmbientLightIntensityNight {
+    logical_value, 0, "Intensity_1";
+    logical_value, 1, "Intensity_2";
+    logical_value, 2, "Intensity_3";
+    logical_value, 3, "Intensity_4";
+    logical_value, 4, "Intensity_5";
+    logical_value, 5, "Intensity_6";
+    logical_value, 6, "Intensity_7";
+    logical_value, 7, "Intensity_8";
+    physical_value, 0, 7, 1, 0, "";
+  }
+  NBCAmbientLightNightDaySwitch {
+    logical_value, 0, "Disabled";
+    logical_value, 1, "Enabled";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  NBCAmbientLightNightDay {
+    logical_value, 0, "Night";
+    logical_value, 1, "Day";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  NBCAmbientLightColour {
+    logical_value, 0, "Colour_1";
+    logical_value, 1, "Colour_2";
+    logical_value, 2, "Colour_3";
+    logical_value, 3, "Colour_4";
+    logical_value, 4, "Colour_5";
+    logical_value, 5, "Colour_6";
+    logical_value, 6, "Colour_7";
+    logical_value, 7, "Colour_8";
+    logical_value, 8, "Colour_9";
+    logical_value, 9, "Colour_10";
+    logical_value, 10, "Colour_11";
+    logical_value, 11, "Colour_12";
+    logical_value, 12, "Colour_13";
+    logical_value, 13, "Colour_14";
+    logical_value, 14, "Colour_15";
+    logical_value, 15, "Colour_16";
+    physical_value, 0, 15, 1, 0, "";
+  }
+  NBCAmbientLightDayEnable {
+    logical_value, 0, "Disabled";
+    logical_value, 1, "Enabled";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  NBCAmbientLightNightEnable {
+    logical_value, 0, "Disabled";
+    logical_value, 1, "Enabled";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  NBCAmbientLightEnable {
+    logical_value, 0, "Disabled";
+    logical_value, 1, "Enabled";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  LaunchCircularLedSts {
+    logical_value, 0, "OFF";
+    logical_value, 1, "ON";
+    logical_value, 2, "Blinking";
+    logical_value, 3, "Not_used";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  FrontDefrost_Led {
+    logical_value, 0, "OFF";
+    logical_value, 1, "ON";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  RearDefrost_Led {
+    logical_value, 0, "OFF";
+    logical_value, 1, "ON";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  LowBeam_Button {
+    logical_value, 0, "Not_Active";
+    logical_value, 1, "Dir_1_Pressed";
+    logical_value, 2, "Dir_2_Pressed";
+    logical_value, 3, "Not_Used";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  RearFog_Button {
+    logical_value, 0, "Not_Active";
+    logical_value, 1, "Dir_1_Pressed";
+    logical_value, 2, "Dir_2_Pressed";
+    logical_value, 3, "Not_Used";
+    physical_value, 0, 3, 1, 0, "";
+  }
+  LowBeam_Led {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  RearFog_Led {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  AUTO_Led {
+    logical_value, 0, "Off";
+    logical_value, 1, "On";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  Ceiling_Msg_Cnt {
+    physical_value, 0, 15, 1, 0, "";
+  }
+  Ceiling_CRC {
+    physical_value, 0, 255, 1, 0, "";
+  }
+  CourtesyxHRDimming {
+    physical_value, 0, 10, 10, 0, "";
+  }
+  Courtesy_xHR_Button {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  CurrentFailxHR {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  GenericFailxHR {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  ResponseErrorxHR {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+    physical_value, 0, 1, 1, 0, "";
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h";
+  }
+  TotalOdometerForLIN {
+    physical_value, 0, 1048575, 1, 0, "";
+  }
+  BatteryVoltageLevel_Engine_ForLIN {
+    physical_value, 0, 127, 0.16, 0, "Volt";
+  }
+}
+
+Signal_representation {
+  ALMAmbientLightColour_Encoding: ALMAmbientLightColour;
+  ALMAmbientLightCurrentFailSts_Encoding: ALMAmbientLightCurrentFailSts;
+  ALMAmbientLightGenericFailSts_Encoding: ALMAmbientLightGenericFailSts;
+  ALMAmbientLightIntensityDay_Encoding: ALMAmbientLightIntensityDay;
+  ALMAmbientLightIntensityNight_Encoding: ALMAmbientLightIntensityNight;
+  ALMAmbientLightResponseError_Encoding: ALMAmbientLightResponseError;
+  AUTO_Led: AUTO_Led;
+  BacklightsCmd_Encoding: BacklightsCmd;
+  BatteryVoltageLevel_Engine_ForLIN: BatteryVoltageLevel_ForLIN_NBC;
+  BrightnessAdjustment_Encoding: BrightnessAdjustment;
+  CeilingDimming_Encoding: CeilingDimming;
+  CeilingSts_Encoding: CeilingSts;
+  Ceiling_CRC: Ceiling_CRC;
+  Ceiling_Msg_Cnt: Ceiling_Msg_Cnt;
+  Ceiling_center_button_Encoding: Ceiling_center_button;
+  Courtesy_xHR_Button: Courtesy_LHR_Button, Courtesy_RHR_Button;
+  CourtesyxHRDimming: CourtesyLHRDimming, CourtesyRHRDimming;
+  CurrentFailCeiling_Encoding: CurrentFailCeiling;
+  CurrentFailxHR: CurrentFailLHR, CurrentFailRHR;
+  Day1_Encoding: Day1_ForLIN_NBC;
+  Day2_Encoding: Day2_ForLIN_NBC;
+  ExternalTemperature: ExternalTemperature_LIN_NBC;
+  FrontDefrost_Led: FrontDefrost_Led;
+  GeneralFailCeiling_Encoding: GeneralFailCeiling;
+  GenericFailxHR: GenericFailLHR, GenericFailRHR;
+  Hour1_Encoding: Hour1_ForLIN_NBC;
+  Hour2_Encoding: Hour2_ForLIN_NBC;
+  KeySts_Encoding: KeySts, KeySts_ForLIN_NBC;
+  LaunchCircularLedSts: LaunchCircularLedSts;
+  LaunchLedSts: LaunchLedSts;
+  LaunchLeverFailSts: LaunchLeverFailSts;
+  LaunchLeverPos: LaunchLeverPos;
+  LowBeam_Button: LowBeam_Button;
+  LowBeam_Led: LowBeam_Led;
+  Master_Msg_Cnt_Encoding: Master_Msg_Cnt;
+  Minute1_Encoding: Minute1_ForLIN_NBC;
+  Minute2_Encoding: Minute2_ForLIN_NBC;
+  Month1_Encoding: Month1_ForLIN_NBC;
+  Month2_Encoding: Month2_ForLIN_NBC;
+  NBCAmbientLightColour: NBCAmbientLightColour;
+  NBCAmbientLightDayEnable: NBCAmbientLightDayEnable;
+  NBCAmbientLightDoors_Encoding: NBCAmbientLightDoors;
+  NBCAmbientLightEnable: NBCAmbientLightEnable;
+  NBCAmbientLightIntensityDay: NBCAmbientLightIntensityDay;
+  NBCAmbientLightIntensityNight: NBCAmbientLightIntensityNight;
+  NBCAmbientLightNightDay: NBCAmbientLightNightDay;
+  NBCAmbientLightNightDaySwitch: NBCAmbientLightNightDaySwitch;
+  NBCAmbientLightNightEnable: NBCAmbientLightNightEnable;
+  NBC_CRC_Encoding: NBC_CRC;
+  NBC_MaxDefrostCommand: LCC_MaxDefrostCommand, LCC_RearDefrostCommand;
+  RearDefrost_Led: RearDefrost_Led;
+  RearFog_Button: RearFog_Button;
+  RearFog_Led: RearFog_Led;
+  ResponseErrorCeiling_Encoding: ResponseErrorCeiling;
+  ResponseErrorxHR: ResponseErrorLHR, ResponseErrorRHR;
+  SpotLHDimming_Encoding: SpotLHDimming;
+  SpotLHRDimming_Encoding: SpotLHRDimming;
+  SpotRHDimming_Encoding: SpotRHDimming;
+  SpotRHRDimming_Encoding: SpotRHRDimming;
+  Spot_LH_Button_Encoding: Spot_LH_Button;
+  Spot_LH_Button_Rear_Encoding: Spot_LH_Button_Rear;
+  Spot_RH_Button_Encoding: Spot_RH_Button;
+  Spot_RH_Button_Rear_Encoding: Spot_RH_Button_Rear;
+  TotalOdometerForLIN: TotalOdometer_ForLIN_NBC;
+  VehicleSpeedVSOSig8191: VehicleSpeed_ForLIN_NBC;
+  Year1_Encoding: Year1_ForLIN_NBC;
+  Year2_Encoding: Year2_ForLIN_NBC;
+  Year3_Encoding: Year3_ForLIN_NBC;
+  Year4_Encoding: Year4_ForLIN_NBC;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7;
+}
+

@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "id": "7778",
+    "title": "TC_F027_SideMarker_FrontLeft_RearRight_Failure",
+    "component": "rbg.Ferrari_BCM_Testing_F027 Configuration: rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Jayadeva Suhas (MS/EVV2-XC) Priority: Unassigned State: Approved Description: Test Case Scope Development Items Summary Requirement Links Link Validity Summary 475326: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 475326: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 1340836: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 1341801: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 910358: IF (AND for all filled bullets) 910363: IF (AND for all filled bullets) 1341325: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 Formal Review General Comments Test Case Design Pre-Condition: si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation Side Marker FL RR\" Proxy_write_LCU = 1 Proxy_write_Side Maker = 1 Stimulate sys_F040_KeySts to ON(4) Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Activation Side Marker FL RR\" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Stimulation-2: \"Create SCG in Side Marker FL RR\" Create SCG on \"B21\" //side marker lights B21 front right rear left Expected Results-2: \"Deactivation of Side Marker FL RR\" DTC_active = \"B104811\" Stimulation-3: \"Activation Side Marker FL RR\" Remove Fault Expected Results-3: \"Activation of Position Lights\" NO DTC XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Stimulation-4: \"Create OL in Side Marker FL RR\" Create OL on \"B21\"//side marker lights B21 front right rear left Expected Results-4: \"Deactivation of Side Marker FL RR\" DTC_active = \"B104813\" Stimulation-5: \"Activation Side Marker FL RRL\" Remove Fault Expected Results-5: \"Activation of Position Lights\" NO DTC XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Post-Condition: Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulate sys_F040_KeySts to STOP(1) Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 20717 TC_F027_Side MarkerFrontLeftRear Right_Light_Failure_ SCG rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedD_Kiran Deep Deepak (MS/ ENC32-BEG)D_Kiran Deep Deepak (MS/ ENC32-BEG)None PassedDec 10, 2025 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100",
+    "configuration": "rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Jayadeva Suhas (MS/EVV2-XC) Priority: Unassigned State: Approved Description: Test Case Scope Development Items Summary Requirement Links Link Validity Summary 475326: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 475326: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 1340836: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 1341801: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 910358: IF (AND for all filled bullets) 910363: IF (AND for all filled bullets) 1341325: B104813 Side Marker Front Left Rear Right - Circuit Open 63 2 2 Formal Review General Comments Test Case Design Pre-Condition: si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation Side Marker FL RR\" Proxy_write_LCU = 1 Proxy_write_Side Maker = 1 Stimulate sys_F040_KeySts to ON(4) Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Activation Side Marker FL RR\" XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Stimulation-2: \"Create SCG in Side Marker FL RR\" Create SCG on \"B21\" //side marker lights B21 front right rear left Expected Results-2: \"Deactivation of Side Marker FL RR\" DTC_active = \"B104811\" Stimulation-3: \"Activation Side Marker FL RR\" Remove Fault Expected Results-3: \"Activation of Position Lights\" NO DTC XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Stimulation-4: \"Create OL in Side Marker FL RR\" Create OL on \"B21\"//side marker lights B21 front right rear left Expected Results-4: \"Deactivation of Side Marker FL RR\" DTC_active = \"B104813\" Stimulation-5: \"Activation Side Marker FL RRL\" Remove Fault Expected Results-5: \"Activation of Position Lights\" NO DTC XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_LCU_Ready = 0->1 XCP_sys_F247_SideMarkerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 so_sys_F027_NBC_LeftRearPositionLight = 0->100 so_sys_F027_NBC_RightRearPositionLight = 0->100 so_sys_F027_NBC_SideMarkerFrontLeftRearRight =0-> 100 so_sys_F027_NBC_SideMarkerFrontRightRearLeft = 0->100 Post-Condition: Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_F027_LCU_Left_DRL_Feedback = 0 si_sys_F027_LCU_Right_DRL_Feedback = 0 si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulate sys_F040_KeySts to STOP(1) Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 20717 TC_F027_Side MarkerFrontLeftRear Right_Light_Failure_ SCG rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedD_Kiran Deep Deepak (MS/ ENC32-BEG)D_Kiran Deep Deepak (MS/ ENC32-BEG)None PassedDec 10, 2025 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100"
+  },
+  "pre_condition": {
+    "si_sys_F027_LCU_Left_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Right_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Left_PL_Feedback": "0"
+  },
+  "stimulations": [
+    {
+      "number": "1",
+      "title": "Activation Side Marker FL RR",
+      "actions": {
+        "Proxy_write_LCU": "1",
+        "Stimulate sys_F040_KeySts to": "ON(4)",
+        "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+        "si_sys_F027_LCU_Left_PL_Feedback": "1",
+        "si_sys_F027_LCU_Right_PL_Feedback": "1"
+      },
+      "expected_title": "Activation Side Marker FL RR",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "0->1",
+        "XCP_sys_F247_RearPositionCmd": "0->1",
+        "XCP_sys_F247_LCU_Ready": "0->1",
+        "XCP_sys_F247_SideMarkerCmd": "0->1",
+        "so_sys_F027_NBC_LeftPL": "0->1",
+        "so_sys_F027_NBC_RightPL": "0->1",
+        "so_sys_F027_NBC_LeftRearPositionLight": "0->100",
+        "so_sys_F027_NBC_RightRearPositionLight": "0->100",
+        "so_sys_F027_NBC_SideMarkerFrontLeftRearRight": "0-> 100",
+        "so_sys_F027_NBC_SideMarkerFrontRightRearLeft": "0->100"
+      }
+    },
+    {
+      "number": "2",
+      "title": "Create SCG in Side Marker FL RR",
+      "actions": {
+        "fault_type": "SCG",
+        "fault_target": "B21"
+      },
+      "expected_title": "Deactivation of Side Marker FL RR",
+      "expected_results": {
+        "DTC_active": [
+          "B104811"
+        ]
+      }
+    },
+    {
+      "number": "3",
+      "title": "Activation Side Marker FL RR",
+      "actions": {
+        "remove_fault": true
+      },
+      "expected_title": "Activation of Position Lights",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "0->1",
+        "XCP_sys_F247_RearPositionCmd": "0->1",
+        "XCP_sys_F247_LCU_Ready": "0->1",
+        "XCP_sys_F247_SideMarkerCmd": "0->1",
+        "so_sys_F027_NBC_LeftPL": "0->1",
+        "so_sys_F027_NBC_RightPL": "0->1",
+        "so_sys_F027_NBC_LeftRearPositionLight": "0->100",
+        "so_sys_F027_NBC_RightRearPositionLight": "0->100",
+        "so_sys_F027_NBC_SideMarkerFrontLeftRearRight": "0-> 100",
+        "so_sys_F027_NBC_SideMarkerFrontRightRearLeft": "0->100",
+        "NO_DTC": true
+      }
+    },
+    {
+      "number": "4",
+      "title": "Create OL in Side Marker FL RR",
+      "actions": {
+        "fault_type": "OL",
+        "fault_target": "B21"
+      },
+      "expected_title": "Deactivation of Side Marker FL RR",
+      "expected_results": {
+        "DTC_active": [
+          "B104813"
+        ]
+      }
+    },
+    {
+      "number": "5",
+      "title": "Activation Side Marker FL RRL",
+      "actions": {
+        "remove_fault": true
+      },
+      "expected_title": "Activation of Position Lights",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "0->1",
+        "XCP_sys_F247_RearPositionCmd": "0->1",
+        "XCP_sys_F247_LCU_Ready": "0->1",
+        "XCP_sys_F247_SideMarkerCmd": "0->1",
+        "so_sys_F027_NBC_LeftPL": "0->1",
+        "so_sys_F027_NBC_RightPL": "0->1",
+        "so_sys_F027_NBC_LeftRearPositionLight": "0->100",
+        "so_sys_F027_NBC_RightRearPositionLight": "0->100",
+        "so_sys_F027_NBC_SideMarkerFrontLeftRearRight": "0-> 100",
+        "so_sys_F027_NBC_SideMarkerFrontRightRearLeft": "0->100",
+        "NO_DTC": true
+      }
+    }
+  ],
+  "post_condition": {
+    "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+    "si_sys_F027_LCU_Left_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Right_DRL_Feedback": "0",
+    "si_sys_F027_LCU_Left_PL_Feedback": "0",
+    "si_sys_F027_LCU_Right_PL_Feedback": "0"
+  }
+}

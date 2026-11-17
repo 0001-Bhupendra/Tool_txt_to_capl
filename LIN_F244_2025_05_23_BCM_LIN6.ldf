@@ -1,0 +1,700 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 5/14/25, 11:53 AM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms ;
+  Slaves: WLRR, DIAG_TESTER_LIN6, NCF ;
+}
+
+Signals {
+  Day2_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Month2_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Year2_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Minute1_ForLIN_NBC: 4, 0, BCM, NCF ;
+  BatteryVoltageLevel_ForLIN_NBC: 7, 0, BCM, NCF ;
+  Year1_ForLIN_NBC: 4, 0, BCM, NCF ;
+  VehicleSpeed_ForLIN_NBC: 13, 0, BCM, NCF ;
+  TotalOdometer_ForLIN_NBC: 24, {0, 0, 0}, BCM, NCF ;
+  Day1_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Minute2_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Year4_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Month1_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Hour1_ForLIN_NBC: 4, 0, BCM, NCF ;
+  KeySts_ForLIN_NBC: 1, 0, BCM, NCF ;
+  ExternalTemperature_LIN_NBC: 9, 0, BCM, NCF ;
+  Year3_ForLIN_NBC: 4, 0, BCM, NCF ;
+  Hour2_ForLIN_NBC: 4, 0, BCM, NCF ;
+  VehicleSpeed: 13, 0, BCM, WLRR ;
+  PLockSts: 2, 0, BCM, NCF ;
+  BatteryVoltageLevel: 7, 0, BCM, WLRR ;
+  RechargeFlapSts: 1, 0, NCF, BCM ;
+  CmdIgnSts: 3, 0, BCM, WLRR ;
+  Key_off_enabler: 1, 0, BCM, WLRR ;
+  AntipinchEnabler: 2, 0, BCM, WLRR ;
+  WMRLShortDrop: 1, 0, BCM, WLRR ;
+  WMRLShortLift: 1, 0, BCM, WLRR ;
+  WMR_ComfortClosing: 1, 0, BCM, WLRR ;
+  WMRRShortDrop: 1, 0, BCM, WLRR ;
+  WMRRShortLift: 1, 0, BCM, WLRR ;
+  WMRL_Movement_Command: 3, 0, BCM, WLRR ;
+  WMRR_Movement_Command: 3, 0, BCM, WLRR ;
+  WMRL_Position_Command: 4, 11, BCM, WLRR ;
+  WMRR_Position_Command: 4, 11, BCM, WLRR ;
+  WindowStsWMRR: 4, 0, WLRR, BCM ;
+  Position_FbkWMRR: 4, 0, WLRR, BCM ;
+  ShortDropMode_StsWMRR: 1, 0, WLRR, BCM ;
+  InitializationStsWMRR: 1, 0, WLRR, BCM ;
+  AssemblyModeStsWMRR: 1, 0, WLRR, BCM ;
+  ThermalStsWMRR: 2, 0, WLRR, BCM ;
+  VoltageOutOfRangeWMRR: 1, 0, WLRR, BCM ;
+  ResponseErrorWMRR: 1, 0, WLRR, BCM ;
+  CurrentFailWMRR: 1, 0, WLRR, BCM ;
+  GenericFailWMRR: 1, 0, WLRR, BCM ;
+  HallSensorFailWMRR: 1, 0, WLRR, BCM ;
+  AntiPinchFailWMRR: 1, 0, WLRR, BCM ;
+  RelayFailWMRR: 1, 0, WLRR, BCM ;
+  PositionFailWMRR: 1, 0, WLRR, BCM ;
+  ShortDropSignalFailWMRR: 1, 0, WLRR, BCM ;
+  AnticlatterSts_WMRR: 2, 0, WLRR, BCM ;
+  ExternalTemperature: 9, 170, BCM, WLRR ;
+  VehicleSpeedFailSts: 1, 0, BCM, WLRR ;
+  ExternalTemperatureFailSts: 1, 0, BCM, WLRR ;
+  RechargeLedSts: 3, 0, NCF, BCM ;
+  RechargeLedRqt_ForLIN: 3, 0, BCM, NCF ;
+  STS_RV_DoorStatus: 2, 0, BCM, WLRR ;
+  RechargeFlapButtonSts: 1, 0, NCF, BCM ;
+  RechargeFlapCableButtonSts: 1, 0, NCF, BCM ;
+  RechargeFlapFailSts: 1, 0, NCF, BCM ;
+  RechargeFlapRqt: 3, 0, BCM, NCF ;
+  Recharge_PlugSts: 2, 0, BCM, NCF ;
+  ResponseErrorNCF: 1, 0, NCF, BCM ;
+  CurrentFailStsNCF: 1, 0, NCF, BCM ;
+  GenericFailStsNCF: 1, 0, NCF, BCM ;
+  NightDaySts_ForLIN: 1, 0, BCM, NCF ;
+  RechargeFlapAntipinch: 1, 0, NCF, BCM ;
+  RechargeFlapEnable: 1, 0, BCM, NCF ;
+  RechargeFlapLockSts: 1, 0, NCF, BCM ;
+  RechargeFlapPosition: 7, 0, NCF, BCM ;
+  RechargeFlapSts_Extended: 3, 0, NCF, BCM ;
+  RechargeFlapStuck: 1, 0, NCF, BCM ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  NBCToWMRCommand: 19, BCM, 8 {
+    VehicleSpeed, 32 ;
+    WMRLShortDrop, 7 ;
+    WMRLShortLift, 8 ;
+    WMR_ComfortClosing, 9 ;
+    CmdIgnSts, 20 ;
+    WMRRShortDrop, 23 ;
+    WMRRShortLift, 24 ;
+    Key_off_enabler, 25 ;
+    WMRL_Movement_Command, 26 ;
+    WMRR_Movement_Command, 29 ;
+    WMRL_Position_Command, 46 ;
+    WMRR_Position_Command, 50 ;
+    AntipinchEnabler, 56 ;
+    ExternalTemperature, 10 ;
+    ExternalTemperatureFailSts, 19 ;
+    STS_RV_DoorStatus, 61 ;
+    BatteryVoltageLevel, 0 ;
+    VehicleSpeedFailSts, 45 ;
+  }
+  WMRRToNBCFeedback: 21, WLRR, 3 {
+    WindowStsWMRR, 0 ;
+    Position_FbkWMRR, 4 ;
+    ShortDropMode_StsWMRR, 8 ;
+    InitializationStsWMRR, 9 ;
+    AssemblyModeStsWMRR, 10 ;
+    ThermalStsWMRR, 11 ;
+    VoltageOutOfRangeWMRR, 13 ;
+    ResponseErrorWMRR, 14 ;
+    CurrentFailWMRR, 15 ;
+    GenericFailWMRR, 16 ;
+    HallSensorFailWMRR, 17 ;
+    AntiPinchFailWMRR, 18 ;
+    RelayFailWMRR, 19 ;
+    PositionFailWMRR, 20 ;
+    ShortDropSignalFailWMRR, 21 ;
+    AnticlatterSts_WMRR, 22 ;
+  }
+  NBCtoNCF: 57, BCM, 8 {
+    RechargeFlapRqt, 2 ;
+    Recharge_PlugSts, 0 ;
+    NightDaySts_ForLIN, 8 ;
+    RechargeLedRqt_ForLIN, 5 ;
+    RechargeFlapEnable, 9 ;
+    PLockSts, 10 ;
+  }
+  NCFtoNBC: 58, NCF, 8 {
+    RechargeFlapButtonSts, 0 ;
+    RechargeFlapCableButtonSts, 1 ;
+    RechargeFlapFailSts, 2 ;
+    RechargeFlapSts, 3 ;
+    ResponseErrorNCF, 4 ;
+    CurrentFailStsNCF, 5 ;
+    GenericFailStsNCF, 6 ;
+    RechargeFlapStuck, 7 ;
+    RechargeFlapPosition, 8 ;
+    RechargeFlapSts_Extended, 16 ;
+    RechargeLedSts, 19 ;
+    RechargeFlapAntipinch, 15 ;
+    RechargeFlapLockSts, 22 ;
+  }
+  TIME_E_DATE: 16, BCM, 8 {
+    Day1_ForLIN_NBC, 16 ;
+    Day2_ForLIN_NBC, 20 ;
+    Hour1_ForLIN_NBC, 0 ;
+    Hour2_ForLIN_NBC, 4 ;
+    Minute1_ForLIN_NBC, 8 ;
+    Minute2_ForLIN_NBC, 12 ;
+    Month1_ForLIN_NBC, 24 ;
+    Month2_ForLIN_NBC, 28 ;
+    Year1_ForLIN_NBC, 32 ;
+    Year2_ForLIN_NBC, 36 ;
+    Year3_ForLIN_NBC, 40 ;
+    Year4_ForLIN_NBC, 44 ;
+  }
+  VEHICLE_INFO: 54, BCM, 8 {
+    TotalOdometer_ForLIN_NBC, 0 ;
+    KeySts_ForLIN_NBC, 55 ;
+    ExternalTemperature_LIN_NBC, 24 ;
+    VehicleSpeed_ForLIN_NBC, 33 ;
+    BatteryVoltageLevel_ForLIN_NBC, 48 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  WLRR{
+    LIN_protocol = "2.2" ;
+    configured_NAD = 0x77 ;
+    initial_NAD = 0x77 ;
+    product_id = 0x0, 0x1, 0 ;
+    response_error = ResponseErrorWMRR ;
+    P2_min = 50 ms ;
+    ST_min = 10 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      NBCToWMRCommand ;
+      WMRRToNBCFeedback ;
+    }
+  }
+  DIAG_TESTER_LIN6{
+    LIN_protocol = "1.3" ;
+    configured_NAD = 0x40 ;
+  }
+  NCF{
+    LIN_protocol = "2.2" ;
+    configured_NAD = 0xE0 ;
+    initial_NAD = 0xE0 ;
+    product_id = 0x0, 0x0, 1 ;
+    response_error = ResponseErrorNCF ;
+    P2_min = 50 ms ;
+    ST_min = 10 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      NBCtoNCF ;
+      NCFtoNBC ;
+      TIME_E_DATE ;
+      VEHICLE_INFO ;
+    }
+  }
+}
+
+Schedule_tables {
+ Init {
+    SlaveResp delay 10 ms ;
+    MasterReq delay 10 ms ;
+  }
+ KeyON_1 {
+    NBCToWMRCommand delay 10 ms ;
+    WMRRToNBCFeedback delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ WMRR_KeyOFF {
+    NBCToWMRCommand delay 10 ms ;
+    WMRRToNBCFeedback delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ WMRR_NCF_KeyON_1 {
+    NBCToWMRCommand delay 10 ms ;
+    WMRRToNBCFeedback delay 10 ms ;
+    NBCtoNCF delay 10 ms ;
+    NCFtoNBC delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ WMRR_NCF_KeyOFF {
+    NBCToWMRCommand delay 10 ms ;
+    WMRRToNBCFeedback delay 10 ms ;
+    NBCtoNCF delay 10 ms ;
+    NCFtoNBC delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ Functional_NCF_ {
+    NBCtoNCF delay 10 ms ;
+    NCFtoNBC delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  AntiPinchFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  AnticlatterSts_WMRR_Encoding {
+    logical_value, 0, "Out Of Anticlatter" ;
+    logical_value, 1, "Running Anticlatter" ;
+    logical_value, 2, "Anticlatter Position" ;
+    logical_value, 3, "Anticlatter Not Active" ;
+  }
+  AntipinchEnabler_Encoding {
+    logical_value, 0, "Not Enabled" ;
+    logical_value, 1, "Enabled" ;
+  }
+  AssemblyModeStsWMRR_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  BatteryVoltageLevel {
+    physical_value, 0, 127, 0.16, 0, "volt" ;
+  }
+  BatteryVoltageLevel_Engine_ForLIN {
+    physical_value, 0, 127, 0.16, 0, "Volt" ;
+  }
+  CmdIgnSts_Encoding {
+    logical_value, 0, "IGN_LK" ;
+    logical_value, 1, "IGN_S&S" ;
+    logical_value, 2, "NA" ;
+    logical_value, 3, "NA" ;
+    logical_value, 4, "RUN" ;
+    logical_value, 5, "START" ;
+    logical_value, 6, "NA" ;
+    logical_value, 7, "SNA" ;
+  }
+  CurrentFailStsASU_Encoding {
+    logical_value, 0, "No DTC Present in ECU (now)" ;
+    logical_value, 1, "At Least One DTC is Present in ECU (now)" ;
+  }
+  CurrentFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  Day1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Day2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  ExternalTemperature {
+    physical_value, 0, 255, 0.5, -40, "°C" ;
+    logical_value, 0, "FaultValue" ;
+  }
+  ExternalTemperatureFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  GenericFailStsASU_Encoding {
+    logical_value, 0, "No DTC Present in ECU (anytime)" ;
+    logical_value, 1, "At Least One DTC is Present in ECU (anytime)" ;
+  }
+  GenericFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  HallSensorFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  Hour1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Hour2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  InitializationStsWMRR_Encoding {
+    logical_value, 0, "Not_Initialized" ;
+    logical_value, 1, "Initialized" ;
+  }
+  KeySts_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  Key_off_enabler_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Minute1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Minute2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  NightDaySts_STS_BCAN2 {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Night" ;
+    logical_value, 1, "Day" ;
+  }
+  PLockSts {
+    physical_value, 0, 3, 1, 0 ;
+    logical_value, 0, "Not_Engaged" ;
+    logical_value, 1, "Engaged" ;
+    logical_value, 2, "Fail" ;
+    logical_value, 3, "Not_used" ;
+  }
+  PositionFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  Position_FbkWMRR_Encoding {
+    physical_value, 0, 100, 10, 0, "%" ;
+  }
+  RechargeFlapAntipinch {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Detected" ;
+    logical_value, 1, "Detected" ;
+  }
+  RechargeFlapButtonSts {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Pressed" ;
+    logical_value, 1, "Pressed" ;
+  }
+  RechargeFlapCmd {
+    physical_value, 0, 7, 1, 0 ;
+    logical_value, 0, "NoCommand" ;
+    logical_value, 1, "OpenCmd" ;
+    logical_value, 2, "CloseCmd" ;
+    logical_value, 3, "StopCmd" ;
+    logical_value, 4, "LockCmd" ;
+    logical_value, 5, "UnlockCmd" ;
+    logical_value, 6, "Not_Used" ;
+    logical_value, 7, "Not_used" ;
+  }
+  RechargeFlapEnable {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Enabled" ;
+    logical_value, 1, "Enabled" ;
+  }
+  RechargeFlapFailSts {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  RechargeFlapLockSts {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Unlocked" ;
+    logical_value, 1, "Locked" ;
+  }
+  RechargeFlapPosition {
+    physical_value, 0, 127, 10, 0, "%" ;
+    logical_value, 127, "SNA" ;
+  }
+  RechargeFlapSts {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Closed" ;
+    logical_value, 1, "Open" ;
+  }
+  RechargeFlapSts_Extended {
+    physical_value, 0, 7, 1, 0 ;
+    logical_value, 0, "Closed" ;
+    logical_value, 1, "Open" ;
+    logical_value, 2, "Automatic_Closing" ;
+    logical_value, 3, "Automatic_Opening" ;
+    logical_value, 4, "Middle_Position" ;
+    logical_value, 5, "Fail_Present" ;
+    logical_value, 6, "Not_Used" ;
+    logical_value, 7, "Not_Used" ;
+  }
+  RechargeFlapStuck {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  RechargeLedSts {
+    physical_value, 0, 7, 1, 0 ;
+    logical_value, 0, "Off" ;
+    logical_value, 1, "White" ;
+    logical_value, 2, "Flashes_White" ;
+    logical_value, 3, "Green" ;
+    logical_value, 4, "Flashes_Green" ;
+    logical_value, 5, "Blue" ;
+    logical_value, 6, "Flashes_Blue" ;
+    logical_value, 7, "Red" ;
+  }
+  Recharge_PlugSts {
+    physical_value, 0, 3, 1, 0 ;
+    logical_value, 0, "Not_Connected" ;
+    logical_value, 1, "Connected_unlocked" ;
+    logical_value, 2, "Connected_locked" ;
+    logical_value, 3, "Not_used" ;
+  }
+  RelayFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  ResponseErrorWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  STS_RH_DoorStatus_Encoding {
+    logical_value, 0, "SNA" ;
+    logical_value, 1, "Opened" ;
+    logical_value, 2, "Ajar" ;
+    logical_value, 3, "Closed" ;
+  }
+  ShortDropMode_StsWMRR_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  ShortDropSignalFailWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  ThermalStsWMRR_Encoding {
+    logical_value, 0, "Normal Operation" ;
+    logical_value, 1, "State_1" ;
+    logical_value, 2, "State_2" ;
+    logical_value, 3, "SNA" ;
+  }
+  TotalOdometerForLIN {
+    physical_value, 0, 1048575, 1, 0 ;
+  }
+  VehicleSpeedFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h" ;
+  }
+  VoltageOutOfRangeWMRR_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  WMRLShortDrop_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WMRLShortLift_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WMRL_Movement_Command_Encoding {
+    logical_value, 0, "No Command" ;
+    logical_value, 1, "Up Manual" ;
+    logical_value, 2, "Down Manual" ;
+    logical_value, 3, "Up Auto" ;
+    logical_value, 4, "Down Auto" ;
+    logical_value, 5, "Stop Movement" ;
+    logical_value, 6, "NA" ;
+    logical_value, 7, "SNA" ;
+  }
+  WMRL_Position_Command_Encoding {
+    physical_value, 0, 10, 10, 0, "%" ;
+    logical_value, 11, "No Command" ;
+    logical_value, 12, "Service Position" ;
+    logical_value, 13, "NA" ;
+    logical_value, 14, "NA" ;
+    logical_value, 15, "SNA" ;
+  }
+  WMRRShortDrop_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WMRRShortLift_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WMRR_Movement_Command_Encoding {
+    logical_value, 0, "No Command" ;
+    logical_value, 1, "Up Manual" ;
+    logical_value, 2, "Down Manual" ;
+    logical_value, 3, "Up Auto" ;
+    logical_value, 4, "Down Auto" ;
+    logical_value, 5, "Stop Movement" ;
+    logical_value, 6, "NA" ;
+    logical_value, 7, "SNA" ;
+  }
+  WMRR_Position_Command_Encoding {
+    physical_value, 0, 10, 10, 0, "%" ;
+    logical_value, 11, "No Command" ;
+    logical_value, 12, "Service Position" ;
+    logical_value, 13, "NA" ;
+    logical_value, 14, "NA" ;
+    logical_value, 15, "SNA" ;
+  }
+  WMR_ComfortClosing_Encoding {
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  WindowStsWMRR_Encoding {
+    logical_value, 0, "Open" ;
+    logical_value, 1, "Closed" ;
+    logical_value, 2, "Stopped in intermediate position" ;
+    logical_value, 3, "Running Up" ;
+    logical_value, 4, "Running Down" ;
+    logical_value, 5, "Reverse" ;
+    logical_value, 6, "Short drop" ;
+    logical_value, 7, "SNA" ;
+    logical_value, 8, "Running Up Auto" ;
+    logical_value, 9, "Running Down Auto" ;
+    logical_value, 10, "Not Used" ;
+    logical_value, 11, "Not Used" ;
+    logical_value, 12, "Not Used" ;
+    logical_value, 13, "Not Used" ;
+    logical_value, 14, "Not Used" ;
+    logical_value, 15, "Not Used" ;
+  }
+  Year1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year3_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year4_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0 ;
+  }
+}
+
+Signal_representation {
+  AntiPinchFailWMRR_Encoding: AntiPinchFailWMRR ;
+  AnticlatterSts_WMRR_Encoding: AnticlatterSts_WMRR ;
+  AntipinchEnabler_Encoding: AntipinchEnabler ;
+  AssemblyModeStsWMRR_Encoding: AssemblyModeStsWMRR ;
+  BatteryVoltageLevel: BatteryVoltageLevel ;
+  BatteryVoltageLevel_Engine_ForLIN: BatteryVoltageLevel_ForLIN_NBC ;
+  CmdIgnSts_Encoding: CmdIgnSts ;
+  CurrentFailStsASU_Encoding: CurrentFailStsNCF ;
+  CurrentFailWMRR_Encoding: CurrentFailWMRR ;
+  Day1_Encoding: Day1_ForLIN_NBC ;
+  Day2_Encoding: Day2_ForLIN_NBC ;
+  ExternalTemperature: ExternalTemperature_LIN_NBC, ExternalTemperature ;
+  ExternalTemperatureFailSts_Encoding: ExternalTemperatureFailSts ;
+  GenericFailStsASU_Encoding: GenericFailStsNCF ;
+  GenericFailWMRR_Encoding: GenericFailWMRR ;
+  HallSensorFailWMRR_Encoding: HallSensorFailWMRR ;
+  Hour1_Encoding: Hour1_ForLIN_NBC ;
+  Hour2_Encoding: Hour2_ForLIN_NBC ;
+  InitializationStsWMRR_Encoding: InitializationStsWMRR ;
+  KeySts_Encoding: KeySts_ForLIN_NBC ;
+  Key_off_enabler_Encoding: Key_off_enabler ;
+  Minute1_Encoding: Minute1_ForLIN_NBC ;
+  Minute2_Encoding: Minute2_ForLIN_NBC ;
+  Month1_Encoding: Month1_ForLIN_NBC ;
+  Month2_Encoding: Month2_ForLIN_NBC ;
+  NightDaySts_STS_BCAN2: NightDaySts_ForLIN ;
+  PLockSts: PLockSts ;
+  PositionFailWMRR_Encoding: PositionFailWMRR ;
+  Position_FbkWMRR_Encoding: Position_FbkWMRR ;
+  RechargeFlapAntipinch: RechargeFlapAntipinch ;
+  RechargeFlapButtonSts: RechargeFlapButtonSts, RechargeFlapCableButtonSts ;
+  RechargeFlapCmd: RechargeFlapRqt ;
+  RechargeFlapEnable: RechargeFlapEnable ;
+  RechargeFlapFailSts: RechargeFlapFailSts ;
+  RechargeFlapLockSts: RechargeFlapLockSts ;
+  RechargeFlapPosition: RechargeFlapPosition ;
+  RechargeFlapSts: RechargeFlapSts ;
+  RechargeFlapSts_Extended: RechargeFlapSts_Extended ;
+  RechargeFlapStuck: RechargeFlapStuck ;
+  RechargeLedSts: RechargeLedSts, RechargeLedRqt_ForLIN ;
+  Recharge_PlugSts: Recharge_PlugSts ;
+  RelayFailWMRR_Encoding: RelayFailWMRR ;
+  ResponseErrorWMRR_Encoding: ResponseErrorWMRR, ResponseErrorNCF ;
+  STS_RH_DoorStatus_Encoding: STS_RV_DoorStatus ;
+  ShortDropMode_StsWMRR_Encoding: ShortDropMode_StsWMRR ;
+  ShortDropSignalFailWMRR_Encoding: ShortDropSignalFailWMRR ;
+  ThermalStsWMRR_Encoding: ThermalStsWMRR ;
+  TotalOdometerForLIN: TotalOdometer_ForLIN_NBC ;
+  VehicleSpeedFailSts_Encoding: VehicleSpeedFailSts ;
+  VehicleSpeedVSOSig8191: VehicleSpeed_ForLIN_NBC, VehicleSpeed ;
+  VoltageOutOfRangeWMRR_Encoding: VoltageOutOfRangeWMRR ;
+  WMRLShortDrop_Encoding: WMRLShortDrop ;
+  WMRLShortLift_Encoding: WMRLShortLift ;
+  WMRL_Movement_Command_Encoding: WMRL_Movement_Command ;
+  WMRL_Position_Command_Encoding: WMRL_Position_Command ;
+  WMRRShortDrop_Encoding: WMRRShortDrop ;
+  WMRRShortLift_Encoding: WMRRShortLift ;
+  WMRR_Movement_Command_Encoding: WMRR_Movement_Command ;
+  WMRR_Position_Command_Encoding: WMRR_Position_Command ;
+  WMR_ComfortClosing_Encoding: WMR_ComfortClosing ;
+  WindowStsWMRR_Encoding: WindowStsWMRR ;
+  Year1_Encoding: Year1_ForLIN_NBC ;
+  Year2_Encoding: Year2_ForLIN_NBC ;
+  Year3_Encoding: Year3_ForLIN_NBC ;
+  Year4_Encoding: Year4_ForLIN_NBC ;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7 ;
+}

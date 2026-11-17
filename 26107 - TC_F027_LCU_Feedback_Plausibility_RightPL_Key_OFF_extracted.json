@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "id": "26107",
+    "title": "TC_F027_LCU_Feedback_Plausibility_RightPL_Key_OFF",
+    "component": "rbg.Ferrari_BCM_Testing_F027 Configuration: rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Shetty Prahith (MS/EVC-PA6-XC) Priority: Unassigned State: Approved Description: Test Case Scope Development Items Summary Requirement Links Link Validity Summary 910611: IF (AND for all filled bullets) 910612: IF (AND for all filled bullets) Formal Review Review Due: Description: New Testcase developed for F244 Changes Kumar Ashay (MS/EPE-SYT42-XC) Reviewed Nov 15, 2024, 6:09:53 AM (UTC+01:00) Review Comments General Comments Test Case Design Pre-Condition: Stimulate sys_F040_KeySts to ON(4) si_sys_TcSen_bTerm15_1 = 1 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTerm15_2 = 1 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTermS = 0 // 0x0 - Not_Active , 0x1 - Active Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) Proxy_write_Side_Marker = 0 // 0 - Enabled , 1 - Disabled si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation of Follow Me Home Mode Immediately after KeyOff Event\" si_sys_TcSen_bTerm15_1 = 0 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTerm15_2 = 0 // 0x0 - Not_Active , 0x1 - Active //Turn On FlashBeamSwitchSts for 0.6 seconds , within p_F247_TFMHActivation(180 seconds) si_sys_NVO_FlashBeamSwitchSts = 0 ->1 -> 0 , 0.6 sec //Active for 0.6 seconds si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Following Results Should be Observed\" XCP_sys_Tc_DeKeySwitchSts = 0 // 0x0 - Off , 0x1 - On //p_F247_TFMH - 30 seconds XCP_sys_F247_FlashBeamCmd = 0->1->0, 0.6 sec // 0x0 - Not_Active , 0x1 - Active XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_LowBeamCmd = 0->1 XCP_sys_F247_PlateLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_SideMakerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 No DTC Present Stimulation-2: \"Set Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-2: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1 so_sys_F027_NBC_LeftPL = 1 so_sys_F027_NBC_RightPL = 1 DTC_active = \"B120B86\" Stimulation-3: \"clear Error\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-3: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1 so_sys_F027_NBC_LeftPL = 1 so_sys_F027_NBC_RightPL = 1 DTC_passive = \"B120B86\" Stimulation-4: \"Deactivation of Front Position Light\" wait 30 sec Expected Results-4: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1->0 XCP_sys_F247_LowBeamCmd = 1->0 XCP_sys_F247_PlateLightCmd = 1->0 XCP_sys_F247_RearPositionCmd = 1->0 XCP_sys_F247_SideMakerCmd = 1->0 so_sys_F027_NBC_LeftPL = 1->0 so_sys_F027_NBC_RightPL = 1->0 Stimulation-5: \"Set Error on Right position Light feedback signal\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-5: \"Following Results Should be Observed\" so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 DTC_active = \"B120B86\" Stimulation-6: \"clear Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-6: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 0 so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 DTC_passive = \"B120B86\" Stimulation-7: \"Clear all DTC\" Clear all DTC Expected Results-7: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 0 so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 No DTC Present Post-Condition: Stimulate sys_F040_KeySts to STOP(1) Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_LCC_RearFog_Button = 0 si_sys_LCC_LowBeam_Button = 0 Proxy_write_Side_Marker = 1 // 0 - Enabled , 1 - Disabled Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 61319 TC_F027_LCU_ Feedback_Plausibility_ RightPL_Key_OFF rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedRoy Ayndrila (MS/ENG- HWP11-CV)Roy Ayndrila (MS/ENG- HWP11-CV)None PassedJan 8, 2026 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100",
+    "configuration": "rbg.Ferrari_BCM_Testing_F027 _Development_F244 Owner: Unassigned Creator: D_Shetty Prahith (MS/EVC-PA6-XC) Priority: Unassigned State: Approved Description: Test Case Scope Development Items Summary Requirement Links Link Validity Summary 910611: IF (AND for all filled bullets) 910612: IF (AND for all filled bullets) Formal Review Review Due: Description: New Testcase developed for F244 Changes Kumar Ashay (MS/EPE-SYT42-XC) Reviewed Nov 15, 2024, 6:09:53 AM (UTC+01:00) Review Comments General Comments Test Case Design Pre-Condition: Stimulate sys_F040_KeySts to ON(4) si_sys_TcSen_bTerm15_1 = 1 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTerm15_2 = 1 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTermS = 0 // 0x0 - Not_Active , 0x1 - Active Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) Proxy_write_Side_Marker = 0 // 0 - Enabled , 1 - Disabled si_sys_F027_LCU_Left_PL_Feedback = 0 si_sys_F027_LCU_Right_PL_Feedback = 0 Stimulation-1: \"Activation of Follow Me Home Mode Immediately after KeyOff Event\" si_sys_TcSen_bTerm15_1 = 0 // 0x0 - Not_Active , 0x1 - Active si_sys_TcSen_bTerm15_2 = 0 // 0x0 - Not_Active , 0x1 - Active //Turn On FlashBeamSwitchSts for 0.6 seconds , within p_F247_TFMHActivation(180 seconds) si_sys_NVO_FlashBeamSwitchSts = 0 ->1 -> 0 , 0.6 sec //Active for 0.6 seconds si_sys_F027_LCU_Left_PL_Feedback = 1 si_sys_F027_LCU_Right_PL_Feedback = 1 Expected Results-1: \"Following Results Should be Observed\" XCP_sys_Tc_DeKeySwitchSts = 0 // 0x0 - Off , 0x1 - On //p_F247_TFMH - 30 seconds XCP_sys_F247_FlashBeamCmd = 0->1->0, 0.6 sec // 0x0 - Not_Active , 0x1 - Active XCP_sys_F247_FrontPosLightCmd = 0->1 XCP_sys_F247_LowBeamCmd = 0->1 XCP_sys_F247_PlateLightCmd = 0->1 XCP_sys_F247_RearPositionCmd = 0->1 XCP_sys_F247_SideMakerCmd = 0->1 so_sys_F027_NBC_LeftPL = 0->1 so_sys_F027_NBC_RightPL = 0->1 No DTC Present Stimulation-2: \"Set Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-2: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1 so_sys_F027_NBC_LeftPL = 1 so_sys_F027_NBC_RightPL = 1 DTC_active = \"B120B86\" Stimulation-3: \"clear Error\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-3: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1 so_sys_F027_NBC_LeftPL = 1 so_sys_F027_NBC_RightPL = 1 DTC_passive = \"B120B86\" Stimulation-4: \"Deactivation of Front Position Light\" wait 30 sec Expected Results-4: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 1->0 XCP_sys_F247_LowBeamCmd = 1->0 XCP_sys_F247_PlateLightCmd = 1->0 XCP_sys_F247_RearPositionCmd = 1->0 XCP_sys_F247_SideMakerCmd = 1->0 so_sys_F027_NBC_LeftPL = 1->0 so_sys_F027_NBC_RightPL = 1->0 Stimulation-5: \"Set Error on Right position Light feedback signal\" si_sys_F027_LCU_Right_PL_Feedback = 1 wait 0.3 sec Expected Results-5: \"Following Results Should be Observed\" so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 DTC_active = \"B120B86\" Stimulation-6: \"clear Error\" si_sys_F027_LCU_Right_PL_Feedback = 0 wait 0.3 sec Expected Results-6: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 0 so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 DTC_passive = \"B120B86\" Stimulation-7: \"Clear all DTC\" Clear all DTC Expected Results-7: \"Following Results Should be Observed\" XCP_sys_F247_FrontPosLightCmd = 0 so_sys_F027_NBC_LeftPL = 0 so_sys_F027_NBC_RightPL = 0 No DTC Present Post-Condition: Stimulate sys_F040_KeySts to STOP(1) Stimulate sys_F858_NBC_Night_DaySts_for_IE to Night(0) si_sys_LCC_RearFog_Button = 0 si_sys_LCC_LowBeam_Button = 0 Proxy_write_Side_Marker = 1 // 0 - Enabled , 1 - Disabled Test scripts IDName Component State Script Type Owner Data Records FunctionTest PhaseModifiedValidates Requirements Test Execution Records ID Priority Name ComponentTest EnvironmentIteration Owner Created By Test ScriptLast ResultModified 61319 TC_F027_LCU_ Feedback_Plausibility_ RightPL_Key_OFF rbg.Ferrari_BCM_Testing_F027 UnassignedUnassignedRoy Ayndrila (MS/ENG- HWP11-CV)Roy Ayndrila (MS/ENG- HWP11-CV)None PassedJan 8, 2026 (UTC +01:00) Attachments IDFile Name Size Path Summary Categories Function: ExtrLi Test Phase : System Test TSG Compliance : Yes Test Execution Category : QM Estimate: 0 sec Weight:* 100"
+  },
+  "pre_condition": {
+    "Stimulate sys_F040_KeySts to": "ON(4)",
+    "si_sys_TcSen_bTerm15_1": "1 // 0x0 - Not_Active , 0x1 - Active",
+    "si_sys_TcSen_bTerm15_2": "1 // 0x0 - Not_Active , 0x1 - Active",
+    "si_sys_TcSen_bTermS": "0 // 0x0 - Not_Active , 0x1 - Active",
+    "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+    "Proxy_write_Side_Marker": "0 // 0 - Enabled , 1 - Disabled",
+    "si_sys_F027_LCU_Left_PL_Feedback": "0"
+  },
+  "stimulations": [
+    {
+      "number": "1",
+      "title": "Activation of Follow Me Home Mode Immediately after KeyOff Event",
+      "actions": {
+        "si_sys_F027_LCU_Left_PL_Feedback": "1",
+        "si_sys_F027_LCU_Right_PL_Feedback": "1"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "XCP_sys_Tc_DeKeySwitchSts": "0 // 0x0 - Off , 0x1 - On //p_F247_TFMH - 30 seconds",
+        "XCP_sys_F247_FlashBeamCmd": "0->1->0, 0.6 sec // 0x0 - Not_Active , 0x1 - Active",
+        "XCP_sys_F247_FrontPosLightCmd": "0->1",
+        "XCP_sys_F247_LowBeamCmd": "0->1",
+        "XCP_sys_F247_PlateLightCmd": "0->1",
+        "XCP_sys_F247_RearPositionCmd": "0->1",
+        "XCP_sys_F247_SideMakerCmd": "0->1",
+        "so_sys_F027_NBC_LeftPL": "0->1",
+        "so_sys_F027_NBC_RightPL": "0->1",
+        "NO_DTC": true
+      }
+    },
+    {
+      "number": "2",
+      "title": "Set Error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "0",
+        "wait": "0.3"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "DTC_active": [
+          "B120B86"
+        ],
+        "XCP_sys_F247_FrontPosLightCmd": "1",
+        "so_sys_F027_NBC_LeftPL": "1",
+        "so_sys_F027_NBC_RightPL": "1"
+      }
+    },
+    {
+      "number": "3",
+      "title": "clear Error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "1",
+        "wait": "0.3"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "DTC_passive": [
+          "B120B86"
+        ],
+        "XCP_sys_F247_FrontPosLightCmd": "1",
+        "so_sys_F027_NBC_LeftPL": "1",
+        "so_sys_F027_NBC_RightPL": "1"
+      }
+    },
+    {
+      "number": "4",
+      "title": "Deactivation of Front Position Light",
+      "actions": {
+        "wait": "30"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "1->0",
+        "XCP_sys_F247_LowBeamCmd": "1->0",
+        "XCP_sys_F247_PlateLightCmd": "1->0",
+        "XCP_sys_F247_RearPositionCmd": "1->0",
+        "XCP_sys_F247_SideMakerCmd": "1->0",
+        "so_sys_F027_NBC_LeftPL": "1->0",
+        "so_sys_F027_NBC_RightPL": "1->0"
+      }
+    },
+    {
+      "number": "5",
+      "title": "Set Error on Right position Light feedback signal",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "1",
+        "wait": "0.3"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "DTC_active": [
+          "B120B86"
+        ],
+        "so_sys_F027_NBC_LeftPL": "0",
+        "so_sys_F027_NBC_RightPL": "0"
+      }
+    },
+    {
+      "number": "6",
+      "title": "clear Error",
+      "actions": {
+        "si_sys_F027_LCU_Right_PL_Feedback": "0",
+        "wait": "0.3"
+      },
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "DTC_passive": [
+          "B120B86"
+        ],
+        "XCP_sys_F247_FrontPosLightCmd": "0",
+        "so_sys_F027_NBC_LeftPL": "0",
+        "so_sys_F027_NBC_RightPL": "0"
+      }
+    },
+    {
+      "number": "7",
+      "title": "Clear all DTC",
+      "actions": {},
+      "expected_title": "Following Results Should be Observed",
+      "expected_results": {
+        "XCP_sys_F247_FrontPosLightCmd": "0",
+        "so_sys_F027_NBC_LeftPL": "0",
+        "so_sys_F027_NBC_RightPL": "0",
+        "NO_DTC": true
+      }
+    }
+  ],
+  "post_condition": {
+    "Stimulate sys_F040_KeySts to": "STOP(1)",
+    "Stimulate sys_F858_NBC_Night_DaySts_for_IE to": "Night(0)",
+    "si_sys_LCC_RearFog_Button": "0",
+    "si_sys_LCC_LowBeam_Button": "0"
+  }
+}

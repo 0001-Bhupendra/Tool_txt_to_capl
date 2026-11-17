@@ -1,0 +1,777 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 3/25/25, 2:40 PM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms; 
+  Slaves: MCR, WLMR, DIAG_TESTER_LIN4;
+}
+
+Signals {
+  CapoteSts: 3, 0, BCM, WLMR;
+  AnticlatterSts_WLMR: 2, 0, WLMR, BCM;
+  BatteryVoltageLevel: 7, 0, BCM, WLMR;
+  Fdbk_Pos_Ver_RH_Exmi: 8, 255, MCR, BCM;
+  Fdbk_Pos_Hor_RH_Exmi: 8, 255, MCR, BCM;
+  Mem_Pos_Hor_Exmi: 8, 255, BCM, MCR;
+  Mem_Pos_Ver_Exmi: 8, 255, BCM, MCR;
+  Mem_Exmi_Selected: 2, 3, BCM, MCR;
+  Mirror_Selected: 2, 2, BCM, MCR;
+  Mirror_Movement_Direction_Cmd: 4, 15, BCM, MCR;
+  Mirror_Fold_Cmd: 2, 3, BCM, MCR;
+  Mirror_Electrochromic_Dimming_Cmd: 8, 255, BCM, MCR;
+  Mirror_Heater_Cmd: 3, 7, BCM, MCR;
+  Puddle_Light_Dimming_Cmd: 8, 255, BCM, MCR;
+  Puddle_Light_LH_Mode_Cmd: 4, 15, BCM, MCR;
+  Puddle_Light_RH_Mode_Cmd: 4, 15, BCM, MCR;
+  WLMLShortDrop: 1, 0, BCM, DIAG_TESTER_LIN4, WLMR;
+  WLMLShortLift: 1, 0, BCM, DIAG_TESTER_LIN4, WLMR;
+  WLM_ComfortClosing: 1, 0, BCM, WLMR;
+  CmdIgnSts: 3, 0, BCM, WLMR;
+  WLMRShortDrop: 1, 0, BCM, WLMR;
+  WLMRShortLift: 1, 0, BCM, WLMR;
+  Key_off_enabler: 1, 0, BCM, WLMR;
+  WLML_Movement_Command: 3, 0, BCM, DIAG_TESTER_LIN4, WLMR;
+  WLMR_Movement_Command: 3, 0, BCM, WLMR;
+  WLML_Position_Command: 4, 11, BCM, DIAG_TESTER_LIN4, WLMR;
+  WLMR_Position_Command: 4, 11, BCM, WLMR;
+  WLM_CapoteWindowsMovementCmd: 2, 0, BCM, WLMR;
+  AntipinchEnabler: 2, 0, BCM, WLMR;
+  Err_Watchdog_Timer_RH: 2, 3, MCR, BCM;
+  Err_Heater_short_Open_Circuit_RH: 2, 3, MCR, BCM;
+  Err_ElectroChrom_short_Open_Circuit_RH: 2, 3, MCR, BCM;
+  Err_Potentiometer_V_Value_RH: 2, 3, MCR, BCM;
+  Err_Glass_Actuator_RH: 2, 3, MCR, BCM;
+  Err_Puddle_Light_RH: 2, 3, MCR, BCM;
+  ERR_ST_EXMI_RH_06_LIN: 2, 3, MCR, BCM;
+  ERR_ST_EXMI_RH_07_LIN: 2, 3, MCR, BCM;
+  ERR_ST_EXMI_RH_08_LIN: 2, 3, MCR, BCM;
+  Err_Fold_Short_Open_Circuit_RH: 2, 3, MCR, BCM;
+  ERR_ST_EXMI_RH_10_LIN: 2, 3, MCR, BCM;
+  Err_Undervoltage_RH: 2, 3, MCR, BCM;
+  Err_Overvoltage_RH: 2, 3, MCR, BCM;
+  Err_Heater_Undervoltage_RH: 2, 3, MCR, BCM;
+  Err_Over_Temp_microC_RH: 2, 3, MCR, BCM;
+  ERR_ST_EXMI_RH_15_LIN: 2, 3, MCR, BCM;
+  VRS_EXMI_RH_LIN: 8, 255, MCR, BCM;
+  ST_DSE_1_RH_WARN_LNCH_LIN: 4, 15, MCR, BCM;
+  NOD_ERR_EXMI_RH_LIN: 2, 3, MCR, BCM;
+  COMM_ERR_EXMI_RH_LIN: 1, 0, MCR, BCM;
+  WindowSts_WLMR: 4, 0, WLMR, BCM;
+  Position_Fbk_WLMR: 4, 0, WLMR, BCM;
+  ShortDropMode_Sts_WLMR: 1, 0, WLMR, BCM;
+  InitializationSts_WLMR: 1, 0, WLMR, BCM;
+  AssemblyModeSts_WLMR: 1, 0, WLMR, BCM;
+  ThermalSts_WLMR: 2, 0, WLMR, BCM;
+  VoltageOutOfRange_WLMR: 1, 0, WLMR, BCM;
+  ResponseError_WLMR: 1, 0, WLMR, BCM;
+  CurrentFail_WLMR: 1, 0, WLMR, BCM;
+  GenericFail_WLMR: 1, 0, WLMR, BCM;
+  HallSensorFail_WLMR: 1, 0, WLMR, BCM;
+  AntiPinchFail_WLMR: 1, 0, WLMR, BCM;
+  RelayFail_WLMR: 1, 0, WLMR, BCM;
+  PositionFail_WLMR: 1, 0, WLMR, BCM;
+  ShortDropSignalFail_WLMR: 1, 0, WLMR, BCM;
+  STS_RH_DoorStatus: 2, 0, BCM, WLMR;
+  ExternalTemperature: 9, 170, BCM, WLMR;
+  VehicleSpeedFailSts: 1, 0, BCM, WLMR;
+  ExternalTemperatureFailSts: 1, 0, BCM, WLMR;
+  VehicleSpeed: 13, 0, BCM, WLMR;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0;
+  MasterReqB1: 8, 0;
+  MasterReqB2: 8, 0;
+  MasterReqB3: 8, 0;
+  MasterReqB4: 8, 0;
+  MasterReqB5: 8, 0;
+  MasterReqB6: 8, 0;
+  MasterReqB7: 8, 0;
+  SlaveRespB0: 8, 0;
+  SlaveRespB1: 8, 0;
+  SlaveRespB2: 8, 0;
+  SlaveRespB3: 8, 0;
+  SlaveRespB4: 8, 0;
+  SlaveRespB5: 8, 0;
+  SlaveRespB6: 8, 0;
+  SlaveRespB7: 8, 0;
+}
+
+Frames {
+  NBC_MEM_POS_EXMI_LIN: 45, BCM, 4 {
+    Mem_Pos_Hor_Exmi, 0;
+    Mem_Pos_Ver_Exmi, 8;
+    Mem_Exmi_Selected, 16;
+  }
+  Fdbk_Pos_Exmi_RH: 16, MCR, 2 {
+    Fdbk_Pos_Hor_RH_Exmi, 0;
+    Fdbk_Pos_Ver_RH_Exmi, 8;
+  }
+  NBC_CNTRL_EXMI_LIN: 47, BCM, 8 {
+    Mirror_Selected, 0;
+    Mirror_Movement_Direction_Cmd, 2;
+    Mirror_Fold_Cmd, 6;
+    Mirror_Electrochromic_Dimming_Cmd, 8;
+    Mirror_Heater_Cmd, 18;
+    Puddle_Light_Dimming_Cmd, 24;
+    Puddle_Light_LH_Mode_Cmd, 32;
+    Puddle_Light_RH_Mode_Cmd, 40;
+  }
+  Err_RH_Exmi_Sts: 14, MCR, 8 {
+    Err_Watchdog_Timer_RH, 0;
+    Err_Heater_short_Open_Circuit_RH, 2;
+    Err_ElectroChrom_short_Open_Circuit_RH, 4;
+    Err_Potentiometer_V_Value_RH, 6;
+    Err_Glass_Actuator_RH, 8;
+    Err_Puddle_Light_RH, 10;
+    ERR_ST_EXMI_RH_06_LIN, 12;
+    ERR_ST_EXMI_RH_07_LIN, 14;
+    ERR_ST_EXMI_RH_08_LIN, 16;
+    Err_Fold_Short_Open_Circuit_RH, 18;
+    ERR_ST_EXMI_RH_10_LIN, 20;
+    Err_Undervoltage_RH, 22;
+    Err_Overvoltage_RH, 24;
+    Err_Heater_Undervoltage_RH, 26;
+    Err_Over_Temp_microC_RH, 28;
+    ERR_ST_EXMI_RH_15_LIN, 30;
+    VRS_EXMI_RH_LIN, 32;
+  }
+  Err_Warn_RH_Exmi_LIN: 49, MCR, 2 {
+    ST_DSE_1_RH_WARN_LNCH_LIN, 0;
+    NOD_ERR_EXMI_RH_LIN, 8;
+    COMM_ERR_EXMI_RH_LIN, 15;
+  }
+  NBCToWLMCommand: 24, BCM, 8 {
+    WLMLShortDrop, 7;
+    WLMLShortLift, 8;
+    WLM_ComfortClosing, 9;
+    CmdIgnSts, 20;
+    WLMRShortDrop, 23;
+    WLMRShortLift, 24;
+    Key_off_enabler, 25;
+    WLML_Movement_Command, 26;
+    WLMR_Movement_Command, 29;
+    WLML_Position_Command, 46;
+    WLMR_Position_Command, 50;
+    WLM_CapoteWindowsMovementCmd, 54;
+    AntipinchEnabler, 56;
+    ExternalTemperature, 10;
+    BatteryVoltageLevel, 0;
+    STS_RH_DoorStatus, 61;
+    CapoteSts, 58;
+    ExternalTemperatureFailSts, 19;
+    VehicleSpeedFailSts, 45;
+    VehicleSpeed, 32;
+  }
+  WLMRToNBCFeedback: 32, WLMR, 3 {
+    AnticlatterSts_WLMR, 22;
+    WindowSts_WLMR, 0;
+    Position_Fbk_WLMR, 4;
+    ShortDropMode_Sts_WLMR, 8;
+    InitializationSts_WLMR, 9;
+    AssemblyModeSts_WLMR, 10;
+    ThermalSts_WLMR, 11;
+    VoltageOutOfRange_WLMR, 13;
+    ResponseError_WLMR, 14;
+    CurrentFail_WLMR, 15;
+    GenericFail_WLMR, 16;
+    HallSensorFail_WLMR, 17;
+    AntiPinchFail_WLMR, 18;
+    RelayFail_WLMR, 19;
+    PositionFail_WLMR, 20;
+    ShortDropSignalFail_WLMR, 21;
+  }
+}
+
+Diagnostic_frames {
+  MasterReq: 60 {
+    MasterReqB0, 0;
+    MasterReqB1, 8;
+    MasterReqB2, 16;
+    MasterReqB3, 24;
+    MasterReqB4, 32;
+    MasterReqB5, 40;
+    MasterReqB6, 48;
+    MasterReqB7, 56;
+  }
+  SlaveResp: 61 {
+    SlaveRespB0, 0;
+    SlaveRespB1, 8;
+    SlaveRespB2, 16;
+    SlaveRespB3, 24;
+    SlaveRespB4, 32;
+    SlaveRespB5, 40;
+    SlaveRespB6, 48;
+    SlaveRespB7, 56;
+  }
+}
+
+Node_attributes {
+  MCR {
+    LIN_protocol = "1.3";
+    configured_NAD = 0x3;
+  }
+  WLMR {
+    LIN_protocol = "2.2";
+    configured_NAD = 0x70;
+    product_id = 0x0000, 0x0000, 0x00;
+    response_error = ResponseError_WLMR;
+    P2_min = 50 ms;
+    ST_min = 10 ms;
+    configurable_frames { 
+      NBCToWLMCommand;
+      WLMRToNBCFeedback;
+    }
+  }
+  DIAG_TESTER_LIN4 {
+    LIN_protocol = "1.3";
+    configured_NAD = 0x40;
+  }
+}
+
+Schedule_tables {
+  WLMR {
+    NBCToWLMCommand delay 10 ms;
+    WLMRToNBCFeedback delay 10 ms;
+  }
+  Init {
+    MasterReq delay 10 ms;
+    SlaveResp delay 10 ms;
+  }
+  WLMR_MCR {
+    NBC_MEM_POS_EXMI_LIN delay 10 ms;
+    Fdbk_Pos_Exmi_RH delay 10 ms;
+    Err_RH_Exmi_Sts delay 10 ms;
+    NBCToWLMCommand delay 10 ms;
+    NBC_CNTRL_EXMI_LIN delay 10 ms;
+    Err_Warn_RH_Exmi_LIN delay 10 ms;
+    WLMRToNBCFeedback delay 10 ms;
+  }
+  MCR {
+    NBC_MEM_POS_EXMI_LIN delay 10 ms;
+    Fdbk_Pos_Exmi_RH delay 10 ms;
+    Err_RH_Exmi_Sts delay 10 ms;
+    NBC_CNTRL_EXMI_LIN delay 10 ms;
+    Err_Warn_RH_Exmi_LIN delay 10 ms;
+  }
+}
+
+Signal_encoding_types {
+  Mem_Pos_Hor_Exmi_Encoding {
+    logical_value, 255, "Invalid Signal";
+    physical_value, 0, 255, 1, 0, "Position Value";
+  }
+  Mem_Pos_Ver_Exmi_Encoding {
+    logical_value, 255, "Invalid Signal";
+    physical_value, 0, 255, 1, 0, "Position Value";
+  }
+  Mem_Exmi_Selected_Encoding {
+    logical_value, 0, "Left Mirror";
+    logical_value, 1, "Right Mirror";
+    logical_value, 2, "Not Used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Mirror_Selected_Encoding {
+    logical_value, 0, "Left Mirror";
+    logical_value, 1, "Right Mirror";
+    logical_value, 2, "Both Mirrors";
+    logical_value, 3, "Invalid Signal";
+  }
+  Mirror_Movement_Direction_Cmd_Encoding {
+    logical_value, 0, "No Movement";
+    logical_value, 1, "Move Left";
+    logical_value, 2, "Move Right";
+    logical_value, 3, "Not used";
+    logical_value, 4, "Move UP";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Not used";
+    logical_value, 8, "Move DOWN";
+    logical_value, 9, "Not used";
+    logical_value, 10, "Not used";
+    logical_value, 11, "Not used";
+    logical_value, 12, "Not used";
+    logical_value, 13, "Not used";
+    logical_value, 14, "Not used";
+    logical_value, 15, "Invalid Signal";
+  }
+  Mirror_Fold_Cmd_Encoding {
+    logical_value, 0, "No Movement";
+    logical_value, 1, "Fold";
+    logical_value, 2, "Unfold";
+    logical_value, 3, "Invalid Signal";
+  }
+  Mirror_Electrochromic_Dimming_Cmd_Encoding {
+    logical_value, 255, "Invalid Signal";
+    physical_value, 0, 100, 1, 0, "Abblendegrad in %";
+  }
+  Mirror_Heater_Cmd_Encoding {
+    logical_value, 0, "Heater Off";
+    logical_value, 1, "Heater 25% Power ON";
+    logical_value, 2, "Heater 50% Power ON";
+    logical_value, 3, "Heater 75% Power ON";
+    logical_value, 4, "Heater 100% Power ON";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Invalid Signal";
+  }
+  Puddle_Light_Dimming_Cmd_Encoding {
+    logical_value, 255, "Invalid Signal";
+    physical_value, 0, 254, 1, 0, "%";
+  }
+  Puddle_Light_LH_Mode_Cmd_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "Solid";
+    logical_value, 2, "Flashing 1";
+    logical_value, 3, "Flashing 2";
+    logical_value, 4, "Flashing 3";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Not used";
+    logical_value, 8, "Initialization";
+    logical_value, 9, "Not used";
+    logical_value, 10, "Not used";
+    logical_value, 11, "Not used";
+    logical_value, 12, "Not used";
+    logical_value, 13, "Not used";
+    logical_value, 14, "Not used";
+    logical_value, 15, "Invalid Signal";
+  }
+  Puddle_Light_RH_Mode_Cmd_Encoding {
+    logical_value, 0, "Off";
+    logical_value, 1, "Solid";
+    logical_value, 2, "Flashing 1";
+    logical_value, 3, "Flashing 2";
+    logical_value, 4, "Flashing 3";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Not used";
+    logical_value, 8, "Initialization";
+    logical_value, 9, "Not used";
+    logical_value, 10, "Not used";
+    logical_value, 11, "Not used";
+    logical_value, 12, "Not used";
+    logical_value, 13, "Not used";
+    logical_value, 14, "Not used";
+    logical_value, 15, "Invalid Signal";
+  }
+  WLMLShortDrop_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WLMLShortLift_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WLM_ComfortClosing_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ExternalTemperatureFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  CmdIgnSts_Encoding {
+    logical_value, 0, "IGN_LK";
+    logical_value, 1, "IGN_S&S";
+    logical_value, 2, "NA";
+    logical_value, 3, "NA";
+    logical_value, 4, "RUN";
+    logical_value, 5, "START";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  WLMRShortDrop_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WLMRShortLift_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  Key_off_enabler_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  WLML_Movement_Command_Encoding {
+    logical_value, 0, "No Command";
+    logical_value, 1, "Up Manual";
+    logical_value, 2, "Down Manual";
+    logical_value, 3, "Up Auto";
+    logical_value, 4, "Down Auto";
+    logical_value, 5, "Stop Movement";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  WLMR_Movement_Command_Encoding {
+    logical_value, 0, "No Command";
+    logical_value, 1, "Up Manual";
+    logical_value, 2, "Down Manual";
+    logical_value, 3, "Up Auto";
+    logical_value, 4, "Down Auto";
+    logical_value, 5, "Stop Movement";
+    logical_value, 6, "NA";
+    logical_value, 7, "SNA";
+  }
+  VehicleSpeedFailSts_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  WLML_Position_Command_Encoding {
+    logical_value, 11, "No Command";
+    logical_value, 12, "Service Position";
+    logical_value, 13, "NA";
+    logical_value, 14, "NA";
+    logical_value, 15, "SNA";
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  WLMR_Position_Command_Encoding {
+    logical_value, 11, "No Command";
+    logical_value, 12, "Service Position";
+    logical_value, 13, "NA";
+    logical_value, 14, "NA";
+    logical_value, 15, "SNA";
+    physical_value, 0, 10, 10, 0, "%";
+  }
+  WLM_CapoteWindowsMovementCmd_Encoding {
+    logical_value, 0, "No_Command";
+    logical_value, 1, "Up_To_ShortDrop";
+    logical_value, 2, "Up_Movement";
+    logical_value, 3, "Down_Movement";
+  }
+  AntipinchEnabler_Encoding {
+    logical_value, 0, "Not Enabled";
+    logical_value, 1, "Enabled";
+  }
+  CapoteSts_Encoding {
+    logical_value, 0, "Closed";
+    logical_value, 1, "Opened";
+    logical_value, 2, "Closing";
+    logical_value, 3, "Opening";
+    logical_value, 4, "Middle";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Capote not present";
+  }
+  Err_Watchdog_Timer_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Heater_short_Open_Circuit_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_ElectroChrom_short_Open_Circuit_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Potentiometer_V_Value_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Glass_Actuator_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Puddle_Light_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  ERR_ST_EXMI_RH_06_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  ERR_ST_EXMI_RH_07_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  ERR_ST_EXMI_RH_08_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Fold_Short_Open_Circuit_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  ERR_ST_EXMI_RH_10_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Undervoltage_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active (<8,5V)";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Overvoltage_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active (>16,5V)";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Heater_Undervoltage_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  Err_Over_Temp_microC_RH_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  ERR_ST_EXMI_RH_15_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Not used";
+    logical_value, 3, "Invalid Signal";
+  }
+  VRS_EXMI_RH_LIN_Encoding {
+    logical_value, 255, "Invalid Signal";
+    physical_value, 0, 255, 1, 0, "Position Value";
+  }
+  ST_DSE_1_RH_WARN_LNCH_LIN_Encoding {
+    logical_value, 0, "Anzeige Segment AUS";
+    logical_value, 1, "Anzeige Segment AN, kein Blinken";
+    logical_value, 2, "Anzeige Segment AN, Blinken Stufe 1";
+    logical_value, 3, "Anzeige Segment AN, Blinken Stufe 2";
+    logical_value, 4, "Anzeige Segment AN, Blinken Stufe 3";
+    logical_value, 5, "Not used";
+    logical_value, 6, "Not used";
+    logical_value, 7, "Not used";
+    logical_value, 8, "Not used";
+    logical_value, 9, "Not used";
+    logical_value, 10, "Not used";
+    logical_value, 11, "Not used";
+    logical_value, 12, "Not used";
+    logical_value, 13, "Error";
+    logical_value, 14, "Not used";
+    logical_value, 15, "Invalid Signal";
+    physical_value, 0, 15, 1, 0, "raw";
+  }
+  NOD_ERR_EXMI_RH_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    logical_value, 2, "Failure Status Changed";
+    logical_value, 3, "Invalid Signal";
+    physical_value, 0, 3, 1, 0, "raw";
+  }
+  COMM_ERR_EXMI_RH_LIN_Encoding {
+    logical_value, 0, "No Failure";
+    logical_value, 1, "Failure Active";
+    physical_value, 0, 1, 1, 0, "raw";
+  }
+  WindowSts_WLMR_Encoding {
+    logical_value, 0, "Open";
+    logical_value, 1, "Closed";
+    logical_value, 2, "Stopped in intermediate position";
+    logical_value, 3, "Running Up";
+    logical_value, 4, "Running Down";
+    logical_value, 5, "Reverse";
+    logical_value, 6, "Short drop";
+    logical_value, 7, "SNA";
+    logical_value, 8, "Running Up Auto";
+    logical_value, 9, "Running Down Auto";
+    logical_value, 10, "Not Used";
+    logical_value, 11, "Not Used";
+    logical_value, 12, "Not Used";
+    logical_value, 13, "Not Used";
+    logical_value, 14, "Not Used";
+    logical_value, 15, "Not Used";
+  }
+  Position_Fbk_WLMR_Encoding {
+    physical_value, 0, 100, 10, 0, "%";
+  }
+  ShortDropMode_Sts_WLMR_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  InitializationSts_WLMR_Encoding {
+    logical_value, 0, "Not_Initialized";
+    logical_value, 1, "Initialized";
+  }
+  AssemblyModeSts_WLMR_Encoding {
+    logical_value, 0, "Not Active";
+    logical_value, 1, "Active";
+  }
+  ThermalSts_WLMR_Encoding {
+    logical_value, 0, "Normal Operation";
+    logical_value, 1, "State_1";
+    logical_value, 2, "State_2";
+    logical_value, 3, "SNA";
+  }
+  VoltageOutOfRange_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  ResponseError_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  CurrentFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  GenericFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  HallSensorFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  AntiPinchFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  RelayFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  PositionFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  ShortDropSignalFail_WLMR_Encoding {
+    logical_value, 0, "Fail_Not_Present";
+    logical_value, 1, "Fail_Present";
+  }
+  AnticlatterSts_WLML_Encoding {
+    logical_value, 0, "Out Of Anticlatter";
+    logical_value, 1, "Running Anticlatter";
+    logical_value, 2, "Anticlatter Position";
+    logical_value, 3, "Anticlatter Not Active";
+  }
+  STS_RH_DoorStatus_Encoding {
+    logical_value, 0, "SNA";
+    logical_value, 1, "Opened";
+    logical_value, 2, "Ajar";
+    logical_value, 3, "Closed";
+  }
+  ExternalTemperature {
+    physical_value, 0, 511, 0.5, -85, "°C";
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0, "";
+  }
+  Fdbk_Pos_Hor_RH_Exmi {
+    logical_value, 255, "Invalid_Signal";
+    physical_value, 0, 255, 1, 0, "Position Value";
+  }
+  Fdbk_Pos_Ver_RH_Exmi {
+    logical_value, 255, "Invalid_Signal";
+    physical_value, 0, 255, 1, 0, "Position Value";
+  }
+  BatteryVoltageLevel {
+    physical_value, 0, 127, 0.16, 0, "volt";
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h";
+  }
+}
+
+Signal_representation {
+  AntiPinchFail_WLMR_Encoding: AntiPinchFail_WLMR;
+  AnticlatterSts_WLML_Encoding: AnticlatterSts_WLMR;
+  AntipinchEnabler_Encoding: AntipinchEnabler;
+  AssemblyModeSts_WLMR_Encoding: AssemblyModeSts_WLMR;
+  BatteryVoltageLevel: BatteryVoltageLevel;
+  COMM_ERR_EXMI_RH_LIN_Encoding: COMM_ERR_EXMI_RH_LIN;
+  CapoteSts_Encoding: CapoteSts;
+  CmdIgnSts_Encoding: CmdIgnSts;
+  CurrentFail_WLMR_Encoding: CurrentFail_WLMR;
+  ERR_ST_EXMI_RH_06_LIN_Encoding: ERR_ST_EXMI_RH_06_LIN;
+  ERR_ST_EXMI_RH_07_LIN_Encoding: ERR_ST_EXMI_RH_07_LIN;
+  ERR_ST_EXMI_RH_08_LIN_Encoding: ERR_ST_EXMI_RH_08_LIN;
+  ERR_ST_EXMI_RH_10_LIN_Encoding: ERR_ST_EXMI_RH_10_LIN;
+  ERR_ST_EXMI_RH_15_LIN_Encoding: ERR_ST_EXMI_RH_15_LIN;
+  Err_ElectroChrom_short_Open_Circuit_RH_Encoding: Err_ElectroChrom_short_Open_Circuit_RH;
+  Err_Fold_Short_Open_Circuit_RH_Encoding: Err_Fold_Short_Open_Circuit_RH;
+  Err_Glass_Actuator_RH_Encoding: Err_Glass_Actuator_RH;
+  Err_Heater_Undervoltage_RH_Encoding: Err_Heater_Undervoltage_RH;
+  Err_Heater_short_Open_Circuit_RH_Encoding: Err_Heater_short_Open_Circuit_RH;
+  Err_Over_Temp_microC_RH_Encoding: Err_Over_Temp_microC_RH;
+  Err_Overvoltage_RH_Encoding: Err_Overvoltage_RH;
+  Err_Potentiometer_V_Value_RH_Encoding: Err_Potentiometer_V_Value_RH;
+  Err_Puddle_Light_RH_Encoding: Err_Puddle_Light_RH;
+  Err_Undervoltage_RH_Encoding: Err_Undervoltage_RH;
+  Err_Watchdog_Timer_RH_Encoding: Err_Watchdog_Timer_RH;
+  ExternalTemperature: ExternalTemperature;
+  ExternalTemperatureFailSts_Encoding: ExternalTemperatureFailSts;
+  Fdbk_Pos_Hor_RH_Exmi: Fdbk_Pos_Hor_RH_Exmi;
+  Fdbk_Pos_Ver_RH_Exmi: Fdbk_Pos_Ver_RH_Exmi;
+  GenericFail_WLMR_Encoding: GenericFail_WLMR;
+  HallSensorFail_WLMR_Encoding: HallSensorFail_WLMR;
+  InitializationSts_WLMR_Encoding: InitializationSts_WLMR;
+  Key_off_enabler_Encoding: Key_off_enabler;
+  Mem_Exmi_Selected_Encoding: Mem_Exmi_Selected;
+  Mem_Pos_Hor_Exmi_Encoding: Mem_Pos_Hor_Exmi;
+  Mem_Pos_Ver_Exmi_Encoding: Mem_Pos_Ver_Exmi;
+  Mirror_Electrochromic_Dimming_Cmd_Encoding: Mirror_Electrochromic_Dimming_Cmd;
+  Mirror_Fold_Cmd_Encoding: Mirror_Fold_Cmd;
+  Mirror_Heater_Cmd_Encoding: Mirror_Heater_Cmd;
+  Mirror_Movement_Direction_Cmd_Encoding: Mirror_Movement_Direction_Cmd;
+  Mirror_Selected_Encoding: Mirror_Selected;
+  NOD_ERR_EXMI_RH_LIN_Encoding: NOD_ERR_EXMI_RH_LIN;
+  PositionFail_WLMR_Encoding: PositionFail_WLMR;
+  Position_Fbk_WLMR_Encoding: Position_Fbk_WLMR;
+  Puddle_Light_Dimming_Cmd_Encoding: Puddle_Light_Dimming_Cmd;
+  Puddle_Light_LH_Mode_Cmd_Encoding: Puddle_Light_LH_Mode_Cmd;
+  Puddle_Light_RH_Mode_Cmd_Encoding: Puddle_Light_RH_Mode_Cmd;
+  RelayFail_WLMR_Encoding: RelayFail_WLMR;
+  ResponseError_WLMR_Encoding: ResponseError_WLMR;
+  STS_RH_DoorStatus_Encoding: STS_RH_DoorStatus;
+  ST_DSE_1_RH_WARN_LNCH_LIN_Encoding: ST_DSE_1_RH_WARN_LNCH_LIN;
+  ShortDropMode_Sts_WLMR_Encoding: ShortDropMode_Sts_WLMR;
+  ShortDropSignalFail_WLMR_Encoding: ShortDropSignalFail_WLMR;
+  ThermalSts_WLMR_Encoding: ThermalSts_WLMR;
+  VRS_EXMI_RH_LIN_Encoding: VRS_EXMI_RH_LIN;
+  VehicleSpeedFailSts_Encoding: VehicleSpeedFailSts;
+  VehicleSpeedVSOSig8191: VehicleSpeed;
+  VoltageOutOfRange_WLMR_Encoding: VoltageOutOfRange_WLMR;
+  WLMLShortDrop_Encoding: WLMLShortDrop;
+  WLMLShortLift_Encoding: WLMLShortLift;
+  WLML_Movement_Command_Encoding: WLML_Movement_Command;
+  WLML_Position_Command_Encoding: WLML_Position_Command;
+  WLMRShortDrop_Encoding: WLMRShortDrop;
+  WLMRShortLift_Encoding: WLMRShortLift;
+  WLMR_Movement_Command_Encoding: WLMR_Movement_Command;
+  WLMR_Position_Command_Encoding: WLMR_Position_Command;
+  WLM_CapoteWindowsMovementCmd_Encoding: WLM_CapoteWindowsMovementCmd;
+  WLM_ComfortClosing_Encoding: WLM_ComfortClosing;
+  WindowSts_WLMR_Encoding: WindowSts_WLMR;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7;
+}
+

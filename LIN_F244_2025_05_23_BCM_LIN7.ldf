@@ -1,0 +1,620 @@
+/*************************************************************/
+//                                                                                     
+// Description : LIN description file created by PREEvision  
+// Created     : 5/14/25, 11:54 AM
+//                                                                                     
+/*************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "2.2";
+LIN_language_version = "2.2";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: BCM, 10 ms, 0.01 ms ;
+  Slaves: NVD, DIAG_TESTER_LIN7, MJC ;
+}
+
+Signals {
+  Day2_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Month2_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Year2_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Minute1_ForLIN_NBC: 4, 0, BCM, MJC ;
+  BatteryVoltageLevel_ForLIN_NBC: 7, 0, BCM, MJC ;
+  Year1_ForLIN_NBC: 4, 0, BCM, MJC ;
+  VehicleSpeed_ForLIN_NBC: 13, 0, BCM, MJC ;
+  TotalOdometer_ForLIN_NBC: 24, {0, 0, 0}, BCM, MJC ;
+  Day1_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Minute2_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Year4_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Month1_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Hour1_ForLIN_NBC: 4, 0, BCM, MJC ;
+  KeySts_ForLIN_NBC: 1, 0, BCM, MJC ;
+  ExternalTemperature_LIN_NBC: 9, 0, BCM, MJC ;
+  Year3_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Hour2_ForLIN_NBC: 4, 0, BCM, MJC ;
+  Fdbk_Pos_Ver_RH_Exmi: 8, 255, BCM, MJC ;
+  Fdbk_Pos_Hor_RH_Exmi: 8, 255, BCM, MJC ;
+  Fdbk_Pos_Ver_LH_Exmi: 8, 255, BCM, MJC ;
+  Fdbk_Pos_Hor_LH_Exmi: 8, 255, BCM, MJC ;
+  BacklightsCmd: 1, 0, BCM, MJC ;
+  BrightnessAdjustment: 4, 0, BCM, MJC ;
+  KeySts: 1, 0, BCM, NVD ;
+  DimmingLevelRoof1: 3, 0, BCM, NVD ;
+  DimmingLevelRoof2: 3, 0, BCM, NVD ;
+  DimmingLevelRoof3: 3, 0, BCM, NVD ;
+  DimmingLevelRoof4: 3, 0, BCM, NVD ;
+  DimmingLevelRoof5: 3, 0, BCM, NVD ;
+  DimmingLevelRoof6: 3, 0, BCM, NVD ;
+  DimmingLevelRoof1Fbk: 3, 0, NVD, BCM ;
+  DimmingLevelRoof2Fbk: 3, 0, NVD, BCM ;
+  DimmingLevelRoof3Fbk: 3, 0, NVD, BCM ;
+  DimmingLevelRoof4Fbk: 3, 0, NVD, BCM ;
+  DimmingLevelRoof5Fbk: 3, 0, NVD, BCM ;
+  DimmingLevelRoof6Fbk: 3, 0, NVD, BCM ;
+  CurrentFailNVD: 1, 0, NVD, BCM ;
+  GenericFailNVD: 1, 0, NVD, BCM ;
+  ResponseErrorNVD: 1, 0, NVD, BCM ;
+  Fold_Unfold_Button: 1, 0, MJC, BCM ;
+  Fold_Unfold_Fbk_Led: 1, 0, BCM, MJC ;
+  Left_Mirror_Button: 1, 0, MJC, BCM ;
+  Left_Mirror_Selection_Fbk_Led: 1, 0, BCM, MJC ;
+  HMISts: 3, 0, BCM, MJC ;
+  Right_Mirror_Button: 1, 0, MJC, BCM ;
+  Right_Mirror_Selection_Fbk_Led: 1, 0, BCM, MJC ;
+  Steering_Adj_Selection_Fbk_Led: 1, 0, BCM, MJC ;
+  JoystickMovement: 4, 0, MJC, BCM ;
+  Steering_Adj_Button: 1, 0, MJC, BCM ;
+  CurrentFailMJC: 1, 0, MJC, BCM ;
+  GenericFailMJC: 1, 0, MJC, BCM ;
+  Node_NAG: 1, 0, BCM, MJC ;
+  ResponseErrorMJC: 1, 0, MJC, BCM ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  NBCToNVDCommand: 0, BCM, 4 {
+    KeySts, 0 ;
+    DimmingLevelRoof1, 1 ;
+    DimmingLevelRoof2, 4 ;
+    DimmingLevelRoof3, 7 ;
+    DimmingLevelRoof4, 10 ;
+    DimmingLevelRoof5, 13 ;
+    DimmingLevelRoof6, 16 ;
+  }
+  NVD_Status: 1, NVD, 4 {
+    DimmingLevelRoof1Fbk, 0 ;
+    DimmingLevelRoof2Fbk, 3 ;
+    DimmingLevelRoof3Fbk, 6 ;
+    DimmingLevelRoof4Fbk, 9 ;
+    DimmingLevelRoof5Fbk, 12 ;
+    DimmingLevelRoof6Fbk, 15 ;
+    CurrentFailNVD, 27 ;
+    GenericFailNVD, 28 ;
+    ResponseErrorNVD, 29 ;
+  }
+  MJC_Status: 3, MJC, 2 {
+    Left_Mirror_Button, 0 ;
+    Right_Mirror_Button, 1 ;
+    Fold_Unfold_Button, 3 ;
+    CurrentFailMJC, 8 ;
+    Steering_Adj_Button, 2 ;
+    JoystickMovement, 4 ;
+    ResponseErrorMJC, 10 ;
+    GenericFailMJC, 9 ;
+  }
+  NBCToMJC_Command: 2, BCM, 8 {
+    Left_Mirror_Selection_Fbk_Led, 5 ;
+    Right_Mirror_Selection_Fbk_Led, 6 ;
+    Fold_Unfold_Fbk_Led, 8 ;
+    BacklightsCmd, 0 ;
+    BrightnessAdjustment, 1 ;
+    Steering_Adj_Selection_Fbk_Led, 7 ;
+    Node_NAG, 9 ;
+    Fdbk_Pos_Hor_LH_Exmi, 16 ;
+    Fdbk_Pos_Hor_RH_Exmi, 24 ;
+    Fdbk_Pos_Ver_LH_Exmi, 32 ;
+    Fdbk_Pos_Ver_RH_Exmi, 40 ;
+    HMISts, 10 ;
+  }
+  TIME_E_DATE: 16, BCM, 8 {
+    Day1_ForLIN_NBC, 16 ;
+    Day2_ForLIN_NBC, 20 ;
+    Hour1_ForLIN_NBC, 0 ;
+    Hour2_ForLIN_NBC, 4 ;
+    Minute1_ForLIN_NBC, 8 ;
+    Minute2_ForLIN_NBC, 12 ;
+    Month1_ForLIN_NBC, 24 ;
+    Month2_ForLIN_NBC, 28 ;
+    Year1_ForLIN_NBC, 32 ;
+    Year2_ForLIN_NBC, 36 ;
+    Year3_ForLIN_NBC, 40 ;
+    Year4_ForLIN_NBC, 44 ;
+  }
+  VEHICLE_INFO: 54, BCM, 8 {
+    TotalOdometer_ForLIN_NBC, 0 ;
+    KeySts_ForLIN_NBC, 55 ;
+    ExternalTemperature_LIN_NBC, 24 ;
+    VehicleSpeed_ForLIN_NBC, 33 ;
+    BatteryVoltageLevel_ForLIN_NBC, 48 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  NVD{
+    LIN_protocol = "2.2" ;
+    configured_NAD = 0xD2 ;
+    initial_NAD = 0xD2 ;
+    product_id = 0x0, 0x0, 0 ;
+    response_error = ResponseErrorNVD ;
+    P2_min = 50 ms ;
+    ST_min = 10 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      NBCToNVDCommand ;
+      NVD_Status ;
+    }
+  }
+  DIAG_TESTER_LIN7{
+    LIN_protocol = "1.3" ;
+    configured_NAD = 0x40 ;
+  }
+  MJC{
+    LIN_protocol = "2.2" ;
+    configured_NAD = 0x10 ;
+    initial_NAD = 0x10 ;
+    product_id = 0x0, 0x1, 0 ;
+    response_error = ResponseErrorMJC ;
+    P2_min = 50 ms ;
+    ST_min = 10 ms ;
+    N_As_timeout = 1000 ms ;
+    N_Cr_timeout = 1000 ms ;
+    configurable_frames {
+      MJC_Status ;
+      NBCToMJC_Command ;
+      TIME_E_DATE ;
+      VEHICLE_INFO ;
+    }
+  }
+}
+
+Schedule_tables {
+ NVD_Complete {
+    NBCToNVDCommand delay 10 ms ;
+    NVD_Status delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ INIT {
+    SlaveResp delay 10 ms ;
+    MasterReq delay 10 ms ;
+  }
+ Functional_MJC {
+    NBCToMJC_Command delay 10 ms ;
+    MJC_Status delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+ Functional_MJC_NVD {
+    NBCToMJC_Command delay 10 ms ;
+    MJC_Status delay 10 ms ;
+    NBCToNVDCommand delay 10 ms ;
+    NVD_Status delay 10 ms ;
+    TIME_E_DATE delay 10 ms ;
+    VEHICLE_INFO delay 10 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  BacklightsCmd_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  BatteryVoltageLevel_Engine_ForLIN {
+    physical_value, 0, 127, 0.16, 0, "Volt" ;
+  }
+  BrightnessAdjustment_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+    logical_value, 8, "Level_9" ;
+    logical_value, 9, "Level_10" ;
+    logical_value, 10, "Level_11" ;
+    logical_value, 11, "Level_12" ;
+    logical_value, 12, "Level_13" ;
+    logical_value, 13, "Level_14" ;
+    logical_value, 14, "Level_15" ;
+    logical_value, 15, "Level_16" ;
+  }
+  CurrentFailMJC {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  CurrentFailNVD_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  Day1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Day2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  DimmingLevelRoof1Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof1_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof2Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof2_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof3Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof3_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof4Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof4_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof5Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof5_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof6Fbk_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  DimmingLevelRoof6_Encoding {
+    logical_value, 0, "Level_1" ;
+    logical_value, 1, "Level_2" ;
+    logical_value, 2, "Level_3" ;
+    logical_value, 3, "Level_4" ;
+    logical_value, 4, "Level_5" ;
+    logical_value, 5, "Level_6" ;
+    logical_value, 6, "Level_7" ;
+    logical_value, 7, "Level_8" ;
+  }
+  ExternalTemperature {
+    physical_value, 0, 255, 0.5, -40, "°C" ;
+    logical_value, 0, "FaultValue" ;
+  }
+  Fdbk_Pos_Hor_LH_Exmi {
+    physical_value, 0, 255, 1, 0, "Position Value" ;
+    logical_value, 255, "Invalid_Signal" ;
+  }
+  Fdbk_Pos_Hor_RH_Exmi {
+    physical_value, 0, 255, 1, 0, "Position Value" ;
+    logical_value, 255, "Invalid_Signal" ;
+  }
+  Fdbk_Pos_Ver_LH_Exmi {
+    physical_value, 0, 255, 1, 0, "Position Value" ;
+    logical_value, 255, "Invalid_Signal" ;
+  }
+  Fdbk_Pos_Ver_RH_Exmi {
+    physical_value, 0, 255, 1, 0, "Position Value" ;
+    logical_value, 255, "Invalid_Signal" ;
+  }
+  Fold_Unfold_Button_Encoding {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Fold_Unfold_Fbk_Led_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  GenericFailMJC {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  GenericFailNVD_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  HMISts {
+    physical_value, 0, 7, 1, 0 ;
+    logical_value, 0, "HMI_OFF" ;
+    logical_value, 1, "HMI_ON" ;
+    logical_value, 2, "HMI_PowerOn" ;
+  }
+  Hour1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Hour2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  JoystickMovement {
+    physical_value, 0, 15, 1, 0 ;
+    logical_value, 0, "No_Movement" ;
+    logical_value, 1, "Move_Left" ;
+    logical_value, 2, "Move_Right" ;
+    logical_value, 3, "Move_Up" ;
+    logical_value, 4, "Move_Down" ;
+    logical_value, 5, "Pushed_In" ;
+    logical_value, 6, "Pulled_Out" ;
+    logical_value, 7, "Not_used" ;
+    logical_value, 8, "Not_used" ;
+    logical_value, 9, "Not_used" ;
+    logical_value, 10, "Not_used" ;
+    logical_value, 11, "Not_used" ;
+    logical_value, 12, "Not_used" ;
+    logical_value, 13, "Not_used" ;
+    logical_value, 14, "Not_used" ;
+    logical_value, 15, "Not_used" ;
+  }
+  KeySts_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  Left_Mirror_Button_Encoding {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Left_Mirror_Selection_Fbk_Led_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  Minute1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Minute2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Month2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Node_NAG {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Absent" ;
+    logical_value, 1, "Present" ;
+  }
+  ResponseErrorMJC {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  ResponseErrorNVD_Encoding {
+    logical_value, 0, "Fail_Not_Present" ;
+    logical_value, 1, "Fail_Present" ;
+  }
+  Right_Mirror_Button_Encoding {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Right_Mirror_Selection_Fbk_Led_Encoding {
+    logical_value, 0, "Off" ;
+    logical_value, 1, "On" ;
+  }
+  Steering_Adj_Button {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "Not_Active" ;
+    logical_value, 1, "Active" ;
+  }
+  Steering_Adj_Selection_Fbk_Led {
+    physical_value, 0, 1, 1, 0 ;
+    logical_value, 0, "OFF" ;
+    logical_value, 1, "ON" ;
+  }
+  TotalOdometerForLIN {
+    physical_value, 0, 1048575, 1, 0 ;
+  }
+  VehicleSpeedVSOSig8191 {
+    physical_value, 0, 8191, 0.0625, 0, "km/h" ;
+  }
+  Year1_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year2_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year3_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  Year4_Encoding {
+    physical_value, 0, 9, 1, 0, "bcd coded" ;
+  }
+  std_q1p0_oq0p0_s8 {
+    physical_value, 0, 255, 1, 0 ;
+  }
+}
+
+Signal_representation {
+  BacklightsCmd_Encoding: BacklightsCmd ;
+  BatteryVoltageLevel_Engine_ForLIN: BatteryVoltageLevel_ForLIN_NBC ;
+  BrightnessAdjustment_Encoding: BrightnessAdjustment ;
+  CurrentFailMJC: CurrentFailMJC ;
+  CurrentFailNVD_Encoding: CurrentFailNVD ;
+  Day1_Encoding: Day1_ForLIN_NBC ;
+  Day2_Encoding: Day2_ForLIN_NBC ;
+  DimmingLevelRoof1Fbk_Encoding: DimmingLevelRoof1Fbk ;
+  DimmingLevelRoof1_Encoding: DimmingLevelRoof1 ;
+  DimmingLevelRoof2Fbk_Encoding: DimmingLevelRoof2Fbk ;
+  DimmingLevelRoof2_Encoding: DimmingLevelRoof2 ;
+  DimmingLevelRoof3Fbk_Encoding: DimmingLevelRoof3Fbk ;
+  DimmingLevelRoof3_Encoding: DimmingLevelRoof3 ;
+  DimmingLevelRoof4Fbk_Encoding: DimmingLevelRoof4Fbk ;
+  DimmingLevelRoof4_Encoding: DimmingLevelRoof4 ;
+  DimmingLevelRoof5Fbk_Encoding: DimmingLevelRoof5Fbk ;
+  DimmingLevelRoof5_Encoding: DimmingLevelRoof5 ;
+  DimmingLevelRoof6Fbk_Encoding: DimmingLevelRoof6Fbk ;
+  DimmingLevelRoof6_Encoding: DimmingLevelRoof6 ;
+  ExternalTemperature: ExternalTemperature_LIN_NBC ;
+  Fdbk_Pos_Hor_LH_Exmi: Fdbk_Pos_Hor_LH_Exmi ;
+  Fdbk_Pos_Hor_RH_Exmi: Fdbk_Pos_Hor_RH_Exmi ;
+  Fdbk_Pos_Ver_LH_Exmi: Fdbk_Pos_Ver_LH_Exmi ;
+  Fdbk_Pos_Ver_RH_Exmi: Fdbk_Pos_Ver_RH_Exmi ;
+  Fold_Unfold_Button_Encoding: Fold_Unfold_Button ;
+  Fold_Unfold_Fbk_Led_Encoding: Fold_Unfold_Fbk_Led ;
+  GenericFailMJC: GenericFailMJC ;
+  GenericFailNVD_Encoding: GenericFailNVD ;
+  HMISts: HMISts ;
+  Hour1_Encoding: Hour1_ForLIN_NBC ;
+  Hour2_Encoding: Hour2_ForLIN_NBC ;
+  JoystickMovement: JoystickMovement ;
+  KeySts_Encoding: KeySts_ForLIN_NBC, KeySts ;
+  Left_Mirror_Button_Encoding: Left_Mirror_Button ;
+  Left_Mirror_Selection_Fbk_Led_Encoding: Left_Mirror_Selection_Fbk_Led ;
+  Minute1_Encoding: Minute1_ForLIN_NBC ;
+  Minute2_Encoding: Minute2_ForLIN_NBC ;
+  Month1_Encoding: Month1_ForLIN_NBC ;
+  Month2_Encoding: Month2_ForLIN_NBC ;
+  Node_NAG: Node_NAG ;
+  ResponseErrorMJC: ResponseErrorMJC ;
+  ResponseErrorNVD_Encoding: ResponseErrorNVD ;
+  Right_Mirror_Button_Encoding: Right_Mirror_Button ;
+  Right_Mirror_Selection_Fbk_Led_Encoding: Right_Mirror_Selection_Fbk_Led ;
+  Steering_Adj_Button: Steering_Adj_Button ;
+  Steering_Adj_Selection_Fbk_Led: Steering_Adj_Selection_Fbk_Led ;
+  TotalOdometerForLIN: TotalOdometer_ForLIN_NBC ;
+  VehicleSpeedVSOSig8191: VehicleSpeed_ForLIN_NBC ;
+  Year1_Encoding: Year1_ForLIN_NBC ;
+  Year2_Encoding: Year2_ForLIN_NBC ;
+  Year3_Encoding: Year3_ForLIN_NBC ;
+  Year4_Encoding: Year4_ForLIN_NBC ;
+  std_q1p0_oq0p0_s8: MasterReqB0, MasterReqB1, MasterReqB2, MasterReqB3, MasterReqB4, MasterReqB5, MasterReqB6, MasterReqB7, SlaveRespB0, SlaveRespB1, SlaveRespB2, SlaveRespB3, SlaveRespB4, SlaveRespB5, SlaveRespB6, SlaveRespB7 ;
+}
